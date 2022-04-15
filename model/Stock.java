@@ -1,46 +1,32 @@
 package model;
 
-import java.awt.event.*;
 import java.util.*;
-import javax.swing.*;
+/*
+import java.awt.event.*;
 import java.awt.*;
+import javax.swing.*;
+*/
 
-public class Stock   {
+public class Stock {
 
-    //attributs
+    // Attributs
     public int qtStock;
     public float prixStock;
     public int qtEntree;
-
-    public Set<Exemplaire> exemplaires;
     public Livre livre;
     public Magasin mag;
     public int idStock; 
     
-    //constructeur
-    public Stock(int qS, float pS, int qE, int id) 
-    {
-        prixStock=pS;
-        qtEntree=qE;
-        qtStock=qtEntree;
-        idStock= id;
+    // Constructeur
+    public Stock(float pS, int qE, int id, Livre l) {
+        prixStock = pS;
+        qtEntree = qE;
+        qtStock = qtEntree;
+        idStock = id;
+        livre = l;
     }
     
-    // Méthodes
-    
-    public int addEx(Exemplaire e) {
-    	if(!exemplaires.contains(e)) {
-    		exemplaires.add(e);
-    		return 0;
-    	} else return -1;
-    }
-    
-    public int delEx(Exemplaire e) {
-    	if(exemplaires.contains(e)) {
-    		exemplaires.remove(e);
-    		return 0;
-    	} else return -1;
-    }
+    // MÃ©thodes
     
     public int updLiv(Livre l) {
     	if(!l.equals(livre)) {
@@ -53,13 +39,10 @@ public class Stock   {
     	if(qtStock!=0) {
     	qtStock--;
     	return 0;
-    	}
-    	else {
-    		return -1; 
-    	}	
-    }
-    public int calculQuantiteSortie() 
-    {
+    	} else return -1; 
+	}
+    
+    public int calculQuantiteSortie() {
     	return qtEntree-qtStock;
     }
 }
