@@ -3,6 +3,9 @@ package model;
 import java.util.*;
 
 public class Client {
+	
+	// Attributs
+	
     public String nom;
     public String prenom;
     private Set<String> mail;
@@ -13,6 +16,8 @@ public class Client {
     public String sexe;
     public Set<Commande> listCom;
     public int idClient;
+    
+    // Constructeur
 
     public Client(String p, String n, String s, Date dn ,String m, String t,String ad, int id) {
     	nom = n;
@@ -26,9 +31,10 @@ public class Client {
     	idClient = id;
     }
   
+    // Méthodes
     
+    // Ajouter le mail
     
-    //ajouter le mail
     public int addMail(String m) {
     	if(!mail.contains(m)) {
     		mail.add(m);
@@ -38,7 +44,9 @@ public class Client {
     		return -1;
     	}
     }
-    //supprimer le mail
+    
+    // Supprimer le mail
+    
     public int supMail(String m) {
     	if(mail.contains(m)) {
     		mail.remove(m);
@@ -48,7 +56,9 @@ public class Client {
     		return -1;
     	}
     }
-    //ajouter un téléphone
+    
+    // Ajouter un téléphone
+    
     public int addTel(String t) {
     	if(!tel.contains(t)) {
     		tel.add(t);
@@ -58,7 +68,9 @@ public class Client {
     		return -1;
     	}
     }
-    //supprimer un téléphone
+    
+    // Supprimer un téléphone
+    
     public int supTel(String t) {
     	if(tel.contains(t)) {
     		tel.remove(t);
@@ -71,4 +83,5 @@ public class Client {
     public String getName() {
     	return (prenom + " " + nom);
     }
-}
+} 
+    
