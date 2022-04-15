@@ -34,7 +34,7 @@ public class Client {
     		mail.add(m);
     		return 0;
     	} else {
-    		// si le mail en argument est déjà présent dans le Set
+    		// si le mail en argument est dÃ©jÃ  prÃ©sent dans le Set
     		return -1;
     	}
     }
@@ -44,31 +44,31 @@ public class Client {
     		mail.remove(m);
     		return 0;
     	} else {
-    		// si le mail en argument n'est pas présent dans le Set
+    		// si le mail en argument n'est pas prÃ©sent dans le Set
     		return -1;
     	}
     }
-    //ajouter un téléphone
+    //ajouter un tÃ©lÃ©phone
     public int addTel(String t) {
     	if(!tel.contains(t)) {
     		tel.add(t);
     		return 0;
     	} else {
-    		// si le tel en argument est déjà présent dans le Set
+    		// si le tel en argument est dÃ©jÃ  prÃ©sent dans le Set
     		return -1;
     	}
     }
-    //supprimer un téléphone
+    //supprimer un tÃ©lÃ©phone
     public int supTel(String t) {
     	if(tel.contains(t)) {
     		tel.remove(t);
     		return 0;
     	} else {
-    		// si le tel en argument n'est pas présent dans le Set
+    		// si le tel en argument n'est pas prÃ©sent dans le Set
     		return -1;
     	}
     }
     public String getName() {
     	return (prenom + " " + nom);
     }
-} 
+} //commentaire
