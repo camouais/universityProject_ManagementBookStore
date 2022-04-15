@@ -1,7 +1,5 @@
 package model;
 
-
-
 import java.util.*;
 
 class Employe {
@@ -33,7 +31,7 @@ class Employe {
     	idEmp = i;
     }
     
-    // Méthodes
+    // MÃ©thodes
     
 	public int updateAdr(String adr) {
 		if(adr != adresse) {
