@@ -4,9 +4,9 @@ import java.util.*;
 
 class Employe {
 	
-	// Attributs
+    // Attributs
 	
-	public String nom;
+    public String nom;
     public String prenom;
     public float salaire;
     public String fonction;
