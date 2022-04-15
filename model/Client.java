@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Client {
 	
-	// Attributs
+    // Attributs
 	
     public String nom;
     public String prenom;
