@@ -18,10 +18,6 @@ public class Fen_5_Ach_Fact extends JFrame {
 	private JPanel contentPane;
 	private JTextField t_client;
 	private JTextField t_prix;
-
-	
-	
-
 	
 	public Fen_5_Ach_Fact() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
