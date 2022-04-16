@@ -29,7 +29,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			};
     
-    JList<String> list = new JList<String>(data);
+    JList<String> list = new JList<String>();
     JScrollPane scrollPane = new JScrollPane();
 	
 	public Fen_4_Ach_DoAch() {
@@ -65,12 +65,12 @@ public class Fen_4_Ach_DoAch extends JFrame{
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnEffacer.setBounds(540, 555, 400, 50);
+		btnEffacer.setBounds(540, 500, 400, 50);
 		contentPane.add(btnEffacer);
 		
-		JButton btnTEffacer = new JButton("Tout effacer");
+		JButton btnTEffacer = new JButton("Tout Effacer");
 		btnTEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnTEffacer.setBounds(540, 500, 400, 50);
+		btnTEffacer.setBounds(540, 555, 400, 50);
 		contentPane.add(btnTEffacer);
 		
 		JButton btnAjouter = new JButton("Ajouter");
