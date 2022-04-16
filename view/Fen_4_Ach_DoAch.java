@@ -13,6 +13,7 @@ import javax.swing.JList;
 
 import java.awt.Font;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
@@ -31,7 +32,11 @@ public class Fen_4_Ach_DoAch extends JFrame{
 			};
     
     JList<String> list = new JList<String>(data);
+    JList<String> list2 = new JList<String>();
+    DefaultListModel<String> model;
     JScrollPane scrollPane = new JScrollPane();
+    JScrollPane scrollPane2 = new JScrollPane();
+    public static int count = 0;
 	
 	public Fen_4_Ach_DoAch() {
 		
@@ -44,6 +49,35 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(new Color(153, 204, 255));
+		
+		// Panel 1 (Liste de livres)
+		
+		JPanel panel1 = new JPanel();
+        list.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        scrollPane.setViewportView(list);
+        list.setLayoutOrientation(JList.VERTICAL);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        panel1.setBounds(50, 150, 400, 400);
+        panel1.setLayout(null);
+        scrollPane.setBounds(0, 0, 400, 400);
+        panel1.add(scrollPane);
+        contentPane.add(panel1);
+        
+        // Panel 2 (Liste d'articles)
+        
+        model=new DefaultListModel<String>();
+        list2.setModel(model);
+        
+		JPanel panel2 = new JPanel();
+		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        scrollPane2.setViewportView(list2);
+        list2.setLayoutOrientation(JList.VERTICAL);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		panel2.setBounds(540, 100, 400, 395);
+		panel2.setLayout(null);
+		scrollPane2.setBounds(0, 0, 400, 395);
+		panel2.add(scrollPane2);
+		contentPane.add(panel2);
 
 		// Textfield - Recherche de livres
 		
@@ -81,24 +115,15 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		// Bouton "Ajouter"
 		
 		JButton btnAjouter = new JButton("Ajouter");
-		
-        btnAjouter.addActionListener(new ActionListener() {
+		btnAjouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!(list.isSelectionEmpty())) {
-	                JPanel pa = new JPanel();
-	                pa.setLayout(null);
-	                
-	                JButton j = new JButton("Ceci est un test qui fonctionne ");
-	                j.setBounds(0,0,400,100);
-	                pa.add(j);
-	                contentPane.add(pa);
-	            
-	                pa.setBounds(540, 100, 400, 200);
-                }
+                if(list.getSelectedValue()!=null) {
+	                model.addElement("Test n°"+count);
+	                count++;
+                }           
             }
-        });
-        
+		});
 		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnAjouter.setBounds(50, 555, 400, 50);
 		contentPane.add(btnAjouter);
@@ -125,24 +150,6 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		btnEnregistrer.setBounds(540, 650, 400, 60);
 		contentPane.add(btnEnregistrer);
 		
-		// Panel 1 (Liste de livres)
-		
-		JPanel panel1 = new JPanel();
-        list.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane.setViewportView(list);
-        list.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel1.setBounds(50, 150, 400, 400);
-        panel1.setLayout(null);
-        scrollPane.setBounds(0, 0, 400, 400);
-        panel1.add(scrollPane);
-        contentPane.add(panel1);
-        
-        // Panel 2 (Liste d'articles)
-        
-		JPanel panel2 = new JPanel();
-		panel2.setBounds(540, 100, 400, 395);
-		contentPane.add(panel2);
 	}
 	
 	public static void main(String[] args) {
