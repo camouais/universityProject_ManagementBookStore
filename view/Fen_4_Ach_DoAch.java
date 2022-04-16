@@ -20,8 +20,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Fen_4_Ach_DoAch extends JFrame{
-	
-	private JPanel contentPane;
 	private JTextField txtRecherchezUnLivre;
 	
 	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
@@ -31,25 +29,37 @@ public class Fen_4_Ach_DoAch extends JFrame{
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			};
     
-    JList<String> list = new JList<String>(data);
+    JList<String> list = new JList<String>();
     JList<String> list2 = new JList<String>();
     DefaultListModel<String> model;
     JScrollPane scrollPane = new JScrollPane();
     JScrollPane scrollPane2 = new JScrollPane();
     public static int count = 0;
-	
+	private JPanel p = new JPanel();
+
 	public Fen_4_Ach_DoAch() {
 		
 		// Fenêtre
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		contentPane.setBackground(new Color(153, 204, 255));
+		p = new JPanel();
+		p.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(p);
+		p.setLayout(null);
+		p.setBackground(new Color(153, 204, 255));
 		setLocationRelativeTo(null);
+		
+		p = new JPanel();
+		p.setBorder(new EmptyBorder(5, 5, 5, 5));
+		p.setBackground(new Color(200, 200, 200));
+		p.setLayout(null);
+		setContentPane(p);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0, 0, 1000, 800);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setVisible(true);
 		
 		// Panel 1 (Liste de livres)
 		
@@ -62,7 +72,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
         panel1.setLayout(null);
         scrollPane.setBounds(0, 0, 400, 400);
         panel1.add(scrollPane);
-        contentPane.add(panel1);
+        p.add(panel1);
         
         // Panel 2 (Liste d'articles)
         
@@ -78,7 +88,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		panel2.setLayout(null);
 		scrollPane2.setBounds(0, 0, 400, 395);
 		panel2.add(scrollPane2);
-		contentPane.add(panel2);
+		p.add(panel2);
 
 		// Textfield - Recherche de livres
 		
@@ -86,14 +96,14 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		txtRecherchezUnLivre.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txtRecherchezUnLivre.setText("Recherchez un livre");
 		txtRecherchezUnLivre.setBounds(50, 100, 400, 45);
-		contentPane.add(txtRecherchezUnLivre);
+		p.add(txtRecherchezUnLivre);
 		txtRecherchezUnLivre.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("R\u00E9alisation de l'achat");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 36));
 		lblNewLabel.setBounds(10, 11, 964, 57);
-		contentPane.add(lblNewLabel);
+		p.add(lblNewLabel);
 		
 		// Bouton "Effacer"
 		
@@ -107,7 +117,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnEffacer.setBounds(540, 500, 400, 50);
-		contentPane.add(btnEffacer);
+		p.add(btnEffacer);
 		
 		// Bouton "Tout Effacer"
 		
@@ -118,7 +128,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		});
 		btnTEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnTEffacer.setBounds(540, 555, 400, 50);
-		contentPane.add(btnTEffacer);
+		p.add(btnTEffacer);
 		
 		// Bouton "Ajouter"
 		
@@ -134,7 +144,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		});
 		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnAjouter.setBounds(50, 555, 400, 50);
-		contentPane.add(btnAjouter);
+		p.add(btnAjouter);
 		
 		// Bouton "Retour"
 		
@@ -145,7 +155,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
         });
         btnRetour.setFont(new Font("Tahoma", Font.PLAIN, 30));
         btnRetour.setBounds(50, 650, 400, 60);
-        contentPane.add(btnRetour);
+        p.add(btnRetour);
 		
 		// Bouton "Enregistrer"
         
@@ -156,7 +166,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		});
 		btnEnregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		btnEnregistrer.setBounds(540, 650, 400, 60);
-		contentPane.add(btnEnregistrer);
+		p.add(btnEnregistrer);
 		
 	}
 	
