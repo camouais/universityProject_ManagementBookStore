@@ -13,9 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import model.*;
-public class Fen_3_Ach_NewC extends JFrame   {
-
-	Magasin magasin;
+public class Fen_3_Ach_NewC extends JFrame {
 	
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
@@ -29,17 +27,17 @@ public class Fen_3_Ach_NewC extends JFrame   {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
-	public Fen_3_Ach_NewC( Magasin m) {
+	
+	public Fen_3_Ach_NewC() {
 		
-		magasin=m;
+		p.setBackground(new Color(200, 200, 200));
+		p.setLayout(null);
+		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 800);
-		setResizable(false);
 		setLocationRelativeTo(null);
-	    setVisible(true);
-		
-	    setContentPane(p);
-		p.setLayout(null);
+		setResizable(false);
+		setVisible(true);
 		
 		JLabel lblNewLabel = new JLabel("Ajoutez un nouveau client");
 		lblNewLabel.setBounds(350, 21, 912, 48);
@@ -52,8 +50,8 @@ public class Fen_3_Ach_NewC extends JFrame   {
 		l_nom.setBounds(115, 119, 147, 37);
 		p.add(l_nom);
 		
-		//JLabel prénom
-		JLabel l_prenom = new JLabel("Prénom :");
+		//JLabel prÃ©nom
+		JLabel l_prenom = new JLabel("PrÃ©nom :");
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
 		p.add(l_prenom);
@@ -64,8 +62,8 @@ public class Fen_3_Ach_NewC extends JFrame   {
 		l_adresse.setBounds(115, 353, 147, 37);
 		p.add(l_adresse);
 		
-		//JLabel téléphone
-		JLabel l_tel = new JLabel("Téléphone :");
+		//JLabel tÃ©lÃ©phone
+		JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);
 		p.add(l_tel);
@@ -104,7 +102,7 @@ public class Fen_3_Ach_NewC extends JFrame   {
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 		
-		//JTextfield téléphone
+		//JTextfield tÃ©lÃ©phone
 		t_tel = new JTextField();
 		t_tel.setBounds(115, 513, 389, 58);
 		p.add(t_tel);
@@ -137,7 +135,7 @@ public class Fen_3_Ach_NewC extends JFrame   {
 		p.add(b_effacer);
 		
 		//JButton valider
-		//ajouter un nouveau client à la liste client du magasin
+		//ajouter un nouveau client Ã  la liste client du magasin
 		b_valider.setBackground(new Color(0, 128, 0));
 		b_valider.setForeground(new Color(255, 255, 255));
 		b_valider.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -149,13 +147,15 @@ public class Fen_3_Ach_NewC extends JFrame   {
 		p.add(b_valider);
 		
 		//JButton retour
-		//retour à la fenêtre précédente 
+		//retour Ã  la fenÃªtre prÃ©cÃ©dente 
 		b_retour.setForeground(new Color(255, 255, 255));
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen_2_Ach a = new Fen_2_Ach();
+				dispose();
 			}
 		});
 		p.add(b_retour);
@@ -165,8 +165,7 @@ public class Fen_3_Ach_NewC extends JFrame   {
 			
 			public void run() {
 				try {
-					Fen_3_Ach_NewC frame = new Fen_3_Ach_NewC(new Magasin("tfyuf", "viui"));
-					
+					Fen_3_Ach_NewC frame = new Fen_3_Ach_NewC();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
