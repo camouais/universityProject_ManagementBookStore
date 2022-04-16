@@ -43,12 +43,13 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		// Fenêtre
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 800);
+		setBounds(0, 0, 1000, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setBackground(new Color(153, 204, 255));
+		setLocationRelativeTo(null);
 		
 		// Panel 1 (Liste de livres)
 		
@@ -99,6 +100,9 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(list2.getSelectedValue()!=null) {
+					model.removeElement(list2.getSelectedValue());
+				}
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -108,6 +112,10 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		// Bouton "Tout Effacer"
 		
 		JButton btnTEffacer = new JButton("Tout Effacer");
+		btnTEffacer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnTEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnTEffacer.setBounds(540, 555, 400, 50);
 		contentPane.add(btnTEffacer);
