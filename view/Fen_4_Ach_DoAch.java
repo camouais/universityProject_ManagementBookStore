@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Fen_4_Ach_DoAch extends JFrame{
+public class Fen4_Ach_DoAch extends JFrame{
 	private JTextField txtRecherchezUnLivre;
 	
 	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
@@ -23,7 +23,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
     public static int count = 0;
 	private JPanel p = new JPanel();
 
-	public Fen_4_Ach_DoAch() {
+	public Fen4_Ach_DoAch() {
 		
 		// Fenêtre
 		
@@ -128,7 +128,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
         JButton btnRetour = new JButton("Retour");
         btnRetour.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		Fen_2_Ach a = new Fen_2_Ach();
+        		Fen2_Ach a = new Fen2_Ach();
         		dispose();
         	}
         });
@@ -141,7 +141,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		JButton btnEnregistrer = new JButton("Enregistrer");
 		btnEnregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_5_Ach_Fact a = new Fen_5_Ach_Fact();
+				Fen5_Ach_Fact a = new Fen5_Ach_Fact();
 				dispose();
 			}
 		});
@@ -155,7 +155,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_4_Ach_DoAch frame = new Fen_4_Ach_DoAch();
+					Fen4_Ach_DoAch frame = new Fen4_Ach_DoAch();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
