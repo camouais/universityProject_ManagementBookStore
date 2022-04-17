@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_3_Gest_Mag extends JFrame {
+public class Fen3_Gest_Mag extends JFrame {
 
 	private JPanel p = new JPanel();
 	
@@ -13,7 +13,7 @@ public class Fen_3_Gest_Mag extends JFrame {
 	JButton b_empl =  new JButton("EMPLOYES");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen_3_Gest_Mag() {
+	public Fen3_Gest_Mag() {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -64,7 +64,7 @@ public class Fen_3_Gest_Mag extends JFrame {
 		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_2_Gest a = new Fen_2_Gest();
+				Fen2_Gest a = new Fen2_Gest();
 				dispose();
 			}
 		});
@@ -76,7 +76,7 @@ public class Fen_3_Gest_Mag extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_3_Gest_Mag frame = new Fen_3_Gest_Mag();
+					Fen3_Gest_Mag frame = new Fen3_Gest_Mag();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
