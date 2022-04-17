@@ -1,18 +1,9 @@
-
 package view;
 
-import java.awt.EventQueue;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import model.*;
 public class Fen_3_Ach_NewC extends JFrame {
 	
 	private JPanel p = new JPanel();
@@ -45,42 +36,49 @@ public class Fen_3_Ach_NewC extends JFrame {
 		p.add(lblNewLabel);
 		
 		//JLabel nom
+		
 		JLabel l_nom = new JLabel("Nom :");
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
 		p.add(l_nom);
 		
 		//JLabel prénom
+		
 		JLabel l_prenom = new JLabel("Prénom :");
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
 		p.add(l_prenom);
 		
 		//JLabel adresse
+		
 		JLabel l_adresse = new JLabel("Adresse :");
 		l_adresse.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_adresse.setBounds(115, 353, 147, 37);
 		p.add(l_adresse);
 		
 		//JLabel téléphone
+		
 		JLabel l_tel = new JLabel("Téléphone :");
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);
 		p.add(l_tel);
 		
 		//JLabel sexe
+		
 		JLabel l_sexe = new JLabel("Sexe :");
 		l_sexe.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_sexe.setBounds(643, 119, 147, 37);
 		p.add(l_sexe);
 		
 		//JLabel mail
+		
 		JLabel l_mail = new JLabel("Mail :");
 		l_mail.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_mail.setBounds(643, 237, 147, 37);
 		p.add(l_mail);
 		
 		//JLabel date de naissance
+		
 		JLabel l_dateN = new JLabel("Date de naissance :");
 		l_dateN.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_dateN.setBounds(643, 353, 326, 37);
@@ -88,42 +86,49 @@ public class Fen_3_Ach_NewC extends JFrame {
 		
 		
 		//JTextfield nom 
+		
 		t_nom = new JTextField();
 		t_nom.setBounds(115, 154, 389, 58);
 		p.add(t_nom);
 		
 		//JTextfield prenom 
+		
 		t_prenom = new JTextField();
 		t_prenom.setBounds(115, 272, 389, 58);
 		p.add(t_prenom);
 		
 		//JTextfield adresse 
+		
 		t_adresse = new JTextField();
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 		
 		//JTextfield téléphone
+		
 		t_tel = new JTextField();
 		t_tel.setBounds(115, 513, 389, 58);
 		p.add(t_tel);
 		
 		//JTextfield sexe 
+		
 		t_sexe = new JTextField();
 		t_sexe.setBounds(643, 154, 389, 58);
 		p.add(t_sexe);
 		
 		//JTextfield mail
+		
 		t_mail = new JTextField();
 		t_mail.setBounds(643, 272, 389, 58);
 		p.add(t_mail);
 		
 		//JTextfield date de naissance 
+		
 		t_dateN = new JTextField();
 		t_dateN.setBounds(643, 392, 389, 58);
 		p.add(t_dateN);
 		
-		//JButton effacer
-		//effacer tous les champs 
+		//JButton Effacer
+		
 		b_effacer.setForeground(new Color(255, 255, 255));
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -134,20 +139,22 @@ public class Fen_3_Ach_NewC extends JFrame {
 		});
 		p.add(b_effacer);
 		
-		//JButton valider
-		//ajouter un nouveau client à la liste client du magasin
+		//JButton Valider
+		
 		b_valider.setBackground(new Color(0, 128, 0));
 		b_valider.setForeground(new Color(255, 255, 255));
 		b_valider.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen_4_Ach_DoAch a = new Fen_4_Ach_DoAch();
+				dispose();
 			}
 		});
 		p.add(b_valider);
 		
 		//JButton retour
-		//retour à la fenêtre précédente 
+		
 		b_retour.setForeground(new Color(255, 255, 255));
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -160,9 +167,9 @@ public class Fen_3_Ach_NewC extends JFrame {
 		});
 		p.add(b_retour);
 	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			
 			public void run() {
 				try {
 					Fen_3_Ach_NewC frame = new Fen_3_Ach_NewC();
@@ -173,5 +180,4 @@ public class Fen_3_Ach_NewC extends JFrame {
 			}
 		});
 	}
-
 }
