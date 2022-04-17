@@ -1,23 +1,9 @@
 package view;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JList;
-
-import java.awt.Font;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
 public class Fen_4_Ach_DoAch extends JFrame{
 	private JTextField txtRecherchezUnLivre;
@@ -29,7 +15,7 @@ public class Fen_4_Ach_DoAch extends JFrame{
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			};
     
-    JList<String> list = new JList<String>();
+    JList<String> list = new JList<String>(data);
     JList<String> list2 = new JList<String>();
     DefaultListModel<String> model;
     JScrollPane scrollPane = new JScrollPane();
@@ -40,15 +26,6 @@ public class Fen_4_Ach_DoAch extends JFrame{
 	public Fen_4_Ach_DoAch() {
 		
 		// Fenêtre
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 800);
-		p = new JPanel();
-		p.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(p);
-		p.setLayout(null);
-		p.setBackground(new Color(153, 204, 255));
-		setLocationRelativeTo(null);
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -151,6 +128,8 @@ public class Fen_4_Ach_DoAch extends JFrame{
         JButton btnRetour = new JButton("Retour");
         btnRetour.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		Fen_2_Ach a = new Fen_2_Ach();
+        		dispose();
         	}
         });
         btnRetour.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -162,6 +141,8 @@ public class Fen_4_Ach_DoAch extends JFrame{
 		JButton btnEnregistrer = new JButton("Enregistrer");
 		btnEnregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen_5_Ach_Fact a = new Fen_5_Ach_Fact();
+				dispose();
 			}
 		});
 		btnEnregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
