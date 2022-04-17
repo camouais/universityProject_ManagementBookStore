@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_3_Gest_InfoStat extends JFrame {
+public class Fen_3_Gest_Mag extends JFrame {
 
 	private JPanel p = new JPanel();
 	
@@ -13,7 +13,7 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 	JButton b_empl =  new JButton("EMPLOYES");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen_3_Gest_InfoStat() {
+	public Fen_3_Gest_Mag() {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -76,7 +76,7 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_3_Gest_InfoStat frame = new Fen_3_Gest_InfoStat();
+					Fen_3_Gest_Mag frame = new Fen_3_Gest_Mag();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
