@@ -85,6 +85,12 @@ public class Fen_5_Ach_Fact extends JFrame {
 		b_enregistrer.setBackground(new Color(255, 255, 0));
 		b_enregistrer.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		b_enregistrer.setBounds(300, 475, 160, 41);
+		b_enregistrer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fen_1 a = new Fen_1();
+				dispose();
+			}
+		});
 		p.add(b_enregistrer);
 		
 		// JLabel Prix
