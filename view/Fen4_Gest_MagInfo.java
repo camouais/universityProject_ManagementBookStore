@@ -1,146 +1,92 @@
 package view;
 
-import model.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class Fen4_Gest_MagEmp extends JFrame {
-	
-	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			};
-    
-    JList<String> list = new JList<String>();
-    JList<String> list2 = new JList<String>();
-    DefaultListModel<String> model;
-    JScrollPane scrollPane = new JScrollPane();
-    JScrollPane scrollPane2 = new JScrollPane();
-    public static int count = 0;
+public class Fen4_Gest_MagInfo extends JFrame {
 	private JPanel p = new JPanel();
+	private JTextField t_nom;
+	private JTextField textField;
+	private JTextField textField_1;
 
-	public Fen4_Gest_MagEmp() {
+	public Fen4_Gest_MagInfo() {
 		
-		// Fenêtre
-		
-		p = new JPanel();
-		p.setBorder(new EmptyBorder(5, 5, 5, 5));
-		p.setBackground(new Color(233, 150, 122));
+		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 800);
+		setBounds(100, 100, 575, 320);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employés)
+		//JLabel Informations du Magasin
 		
-		JPanel panel1 = new JPanel();
-        list.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane.setViewportView(list);
-        list.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel1.setBounds(50, 175, 400, 440);
-        panel1.setLayout(null);
-        scrollPane.setBounds(0, 0, 400, 440);
-        panel1.add(scrollPane);
-        p.add(panel1);
-        
-        // Panel 2 (Informations de l'employé sélectionné)
-        
-        model=new DefaultListModel<String>();
-        list2.setModel(model);
-        
-		JPanel panel2 = new JPanel();
-		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane2.setViewportView(list2);
-        list2.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel2.setBounds(540, 175, 400, 345);
-		panel2.setLayout(null);
-		scrollPane2.setBounds(0, 0, 400, 345);
-		panel2.add(scrollPane2);
-		p.add(panel2);
-
-		// Textfield - Recherche d'un employé
+		JLabel l = new JLabel("Informations du magasin");
+		l.setHorizontalAlignment(SwingConstants.CENTER);
+		l.setFont(new Font("Tahoma", Font.BOLD, 40));
+		l.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		p.add(l);
 		
-		JTextField txtRecherchezUnLivre = new JTextField();
-		txtRecherchezUnLivre.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtRecherchezUnLivre.setText("Recherchez un employé...");
-		txtRecherchezUnLivre.setBounds(50, 100, 890, 45);
-		p.add(txtRecherchezUnLivre);
-		txtRecherchezUnLivre.setColumns(10);
+		//JTextField nom
 		
-		// JLabel "Employés"
+		t_nom = new JTextField();
+		t_nom.setBounds(150, 100, 380, 30);
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		p.add(t_nom);
+		t_nom.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Employ\u00E9s");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 50));
-		lblNewLabel.setBounds(10, 15, 964, 57);
-		p.add(lblNewLabel);
+		//JLabels nom, prénom, id
 		
-		// Bouton "Tout Effacer"
+		JLabel l_nom = new JLabel("Nom :");
+		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_nom.setBounds(20, 100, 150, 30);
+		p.add(l_nom);
 		
-		JButton btnModifier = new JButton("Modifier");
-		btnModifier.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnModifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnModifier.setBounds(540, 555, 400, 60);
-		btnModifier.setBackground(new Color(200, 200, 100));
-		btnModifier.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Fen5_Gest_ModifEmp a = new Fen5_Gest_ModifEmp();
-				dispose();
-			}
-		});
-		p.add(btnModifier);
+		JLabel l_prenom = new JLabel("Adresse :");
+		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_prenom.setBounds(20, 140, 150, 30);
+		p.add(l_prenom);
 		
-		// Bouton "Ajouter"
+		//Bouton Retour
 		
-		JButton btnAjouter = new JButton("Ajouter");
-		btnAjouter.setIcon(null);
-		btnAjouter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
-	                count++;
-                }           
-            }
-		});
-		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnAjouter.setBounds(50, 650, 400, 60);
-		btnAjouter.setBackground(new Color(100, 200, 120));
-		p.add(btnAjouter);
-		
-		// Bouton "Enregistrer"
-        
-		JButton btnRetour = new JButton("RETOUR");
-		btnRetour.addActionListener(new ActionListener() {
+		JButton b_retour = new JButton("RETOUR");
+		b_retour.setBackground(new Color(255, 215, 0));
+		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_retour.setBounds(50, 200, 150, 50);
+		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen3_Gest_Mag a = new Fen3_Gest_Mag();
 				dispose();
 			}
 		});
-		btnRetour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnRetour.setBounds(540, 650, 400, 60);
-		btnRetour.setBackground(new Color(200, 100, 100));
-		p.add(btnRetour);
+		p.add(b_retour);
 		
+		//Bouton Enregistrer
+		
+		JButton b_valider = new JButton("ENREGISTRER");
+		b_valider.setBackground(new Color(0, 128, 0));
+		b_valider.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_valider.setBounds(300, 200, 200, 50);
+		b_valider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		p.add(b_valider);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField.setColumns(10);
+		textField.setBounds(150, 141, 380, 30);
+		p.add(textField);
 	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen4_Gest_MagEmp frame = new Fen4_Gest_MagEmp();
+					Fen4_Gest_MagInfo frame = new Fen4_Gest_MagInfo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
