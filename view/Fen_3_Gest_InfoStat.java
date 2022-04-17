@@ -22,7 +22,7 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 		setBounds(0, 0, 600, 650);
 		setLocationRelativeTo(null);
 		setResizable(false);
-	    setVisible(true);
+		setVisible(true);
 		
 		// Bouton "Informations"
 		
@@ -71,6 +71,7 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 		p.add(b_retour);
 		
 	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -84,4 +85,3 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 		});
 	}
 }
-
