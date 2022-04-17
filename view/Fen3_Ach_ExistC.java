@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_3_Ach_ExistC extends JFrame {
+public class Fen3_Ach_ExistC extends JFrame {
 
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
 	private JTextField textField;
 	private JTextField textField_1;
 
-	public Fen_3_Ach_ExistC() {
+	public Fen3_Ach_ExistC() {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -63,7 +63,7 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		b_retour.setBounds(50, 230, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_2_Ach a = new Fen_2_Ach();
+				Fen2_Ach a = new Fen2_Ach();
 				dispose();
 			}
 		});
@@ -77,7 +77,7 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		b_valider.setBounds(350, 230, 150, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_4_Ach_DoAch a = new Fen_4_Ach_DoAch();
+				Fen4_Ach_DoAch a = new Fen4_Ach_DoAch();
 				dispose();
 			}
 		});
