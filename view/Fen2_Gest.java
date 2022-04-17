@@ -4,11 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_2_Gest extends JFrame {
+public class Fen2_Gest extends JFrame {
 
 	private JPanel p = new JPanel();
 	
-	public Fen_2_Gest() {
+	public Fen2_Gest() {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -35,7 +35,7 @@ public class Fen_2_Gest extends JFrame {
 		b_magasin.setBounds(50, 350, 400, 100);
 		b_magasin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_3_Gest_InfoStat a = new Fen_3_Gest_InfoStat();
+				Fen3_Gest_Mag a = new Fen3_Gest_Mag();
 				dispose();
 			}
 		});
@@ -61,7 +61,7 @@ public class Fen_2_Gest extends JFrame {
 		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_1 a = new Fen_1();
+				Fen1 a = new Fen1();
 				dispose();
 			}
 		});
@@ -72,7 +72,7 @@ public class Fen_2_Gest extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_2_Gest frame = new Fen_2_Gest();
+					Fen2_Gest frame = new Fen2_Gest();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -81,5 +81,3 @@ public class Fen_2_Gest extends JFrame {
 		});
 	}
 }
-
-
