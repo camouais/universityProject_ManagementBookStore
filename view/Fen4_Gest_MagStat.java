@@ -27,6 +27,8 @@ public class Fen4_Gest_MagStat extends JFrame {
 	JButton b_compta = new JButton("COMPTABILITES");
 	JButton b_achats = new JButton("ACHATS");
 	JButton b_clients = new JButton("CLIENTS");
+
+	JButton b_emp = new JButton("EMPLOYES");
     
 	JButton b_livres = new JButton("LIVRES");
 	public Fen4_Gest_MagStat() {
@@ -34,10 +36,10 @@ public class Fen4_Gest_MagStat extends JFrame {
     //Fenêtre 
     
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 715);
+		setBounds(100, 100, 600, 860);
 		setLocationRelativeTo(null);
 		setResizable(false);
-	  setVisible(true);
+		setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(200, 200, 200));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,7 +55,7 @@ public class Fen4_Gest_MagStat extends JFrame {
     
     // Bouton livres
     
-		b_livres.setBackground(new Color(219, 112, 147));
+		b_livres.setBackground(new Color(180, 112, 147));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_livres.setBounds(87, 100, 400, 100);
 		contentPane.add(b_livres);
@@ -67,23 +69,36 @@ public class Fen4_Gest_MagStat extends JFrame {
 		
     // Bouton achats
     
-		b_achats.setBackground(new Color(221, 160, 221));
+		b_achats.setBackground(new Color(221, 0, 221));
 		b_achats.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_achats.setBounds(87, 360, 400, 100);
 		contentPane.add(b_achats);
 		
+	// Bouton employés
+	    
+		b_emp.setBackground(new Color(0, 222, 100));
+		b_emp.setFont(new Font("Tahoma", Font.BOLD, 43));
+		b_emp.setBounds(87, 490, 400, 100);
+		b_emp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen5_Gest_StatEmp();
+				dispose();
+			}
+		});
+		contentPane.add(b_emp);
+		
     // Bouton comptabilité
     
-		b_compta.setBackground(new Color(135, 206, 250));
+		b_compta.setBackground(new Color(222, 206, 250));
 		b_compta.setFont(new Font("Tahoma", Font.BOLD, 43));
-		b_compta.setBounds(87, 490, 400, 100);
+		b_compta.setBounds(87, 620, 400, 100);
 		contentPane.add(b_compta);
 	
     // Bouton retour
 		
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(30, 620, 200, 50);
+		b_retour.setBounds(30, 750, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen3_Gest_Mag();
