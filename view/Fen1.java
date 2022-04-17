@@ -4,11 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_1 extends JFrame {
+public class Fen1 extends JFrame {
 	
 	private JPanel p = new JPanel();
 	
-	public Fen_1() {
+	public Fen1() {
 		
 		// Fenêtre
 		
@@ -30,7 +30,7 @@ public class Fen_1 extends JFrame {
 		b_gestion.setBounds(50, 50, 400, 100);
 		b_gestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_2_Gest a = new Fen_2_Gest();
+				Fen2_Gest a = new Fen2_Gest();
 				dispose();
 			}
 		});
@@ -45,7 +45,7 @@ public class Fen_1 extends JFrame {
 		b_achats.setBounds(50, 200, 400, 100);
 		b_achats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_2_Ach a = new Fen_2_Ach();
+				Fen2_Ach a = new Fen2_Ach();
 				dispose();
 			}
 		});
@@ -56,7 +56,7 @@ public class Fen_1 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_1 frame = new Fen_1();
+					Fen1 frame = new Fen1();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
