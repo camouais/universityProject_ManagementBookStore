@@ -1,4 +1,3 @@
-
 package view;
 
 import java.awt.BorderLayout;
@@ -20,11 +19,13 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Button;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
-public class Fen5_Gest_StatEmp extends JFrame {
+import javax.swing.table.*;
+public class Test2 extends JFrame {
 
     Object[][] donnees1 = {
             {"A", "1", "heiugeigeig", true, "&", "ss",true, "&", "ss"},
@@ -75,7 +76,7 @@ public class Fen5_Gest_StatEmp extends JFrame {
     JLabel l_agm = new JLabel("Age moyen :");
     JLabel l_nbrt = new JLabel("Nombre total d'employés :");
     JPanel panel = new JPanel();
-	public Fen5_Gest_StatEmp() {
+	public Test2() {
 		
 		// Fenêtre 
 		
@@ -89,8 +90,16 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    
 		
 		// Tableau
+	   
+	    JTable table1 = new JTable(donnees1, entetes1); 
+	    TableRowSorter<TableModel> s = new TableRowSorter<TableModel>(table1.getModel()); 
+	    table1.setRowSorter(s);
+
+        java.util.List<RowSorter.SortKey> sortList = new ArrayList<>(donnees1.length);
+        sortList.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        sortList.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
 	    
-	    JTable table1 = new JTable(donnees1, entetes1);
+	    
 	    table1.setBounds(100,150,800,400);
 	    JScrollPane scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100,150,800,400);
@@ -149,7 +158,7 @@ public class Fen5_Gest_StatEmp extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen5_Gest_StatEmp frame = new Fen5_Gest_StatEmp();
+					Test2 frame = new Test2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
