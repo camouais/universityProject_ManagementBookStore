@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_3_Ach_NewC extends JFrame {
+public class Fen3_Ach_NewC extends JFrame {
 	
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
@@ -19,7 +19,7 @@ public class Fen_3_Ach_NewC extends JFrame {
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen_3_Ach_NewC() {
+	public Fen3_Ach_NewC() {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -147,7 +147,7 @@ public class Fen_3_Ach_NewC extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_4_Ach_DoAch a = new Fen_4_Ach_DoAch();
+				Fen4_Ach_DoAch a = new Fen4_Ach_DoAch();
 				dispose();
 			}
 		});
@@ -161,7 +161,7 @@ public class Fen_3_Ach_NewC extends JFrame {
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_2_Ach a = new Fen_2_Ach();
+				Fen2_Ach a = new Fen2_Ach();
 				dispose();
 			}
 		});
@@ -172,7 +172,7 @@ public class Fen_3_Ach_NewC extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_3_Ach_NewC frame = new Fen_3_Ach_NewC();
+					Fen3_Ach_NewC frame = new Fen3_Ach_NewC();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
