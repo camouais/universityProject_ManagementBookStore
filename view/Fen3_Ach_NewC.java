@@ -30,7 +30,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		JLabel lblNewLabel = new JLabel("Ajoutez un nouveau client");
+		JLabel lblNewLabel = new JLabel("Ajout d'un nouveau client");
 		lblNewLabel.setBounds(350, 21, 912, 48);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(lblNewLabel);
