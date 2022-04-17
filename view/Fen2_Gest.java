@@ -4,61 +4,66 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen2_Gest extends JFrame {
+public class Fen2_Ach extends JFrame {
 
 	private JPanel p = new JPanel();
-	
-	public Fen2_Gest() {
+
+	public Fen2_Ach() {
+		
+		// Fenêtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 500, 650);
+		setBounds(100, 100, 500, 300);
 		setLocationRelativeTo(null);
 		setResizable(false);
 	    setVisible(true);
+	    
+		// JLabel Nouveau client ?
 		
-		// Bouton "Livres"
+		JLabel lblNewLabel = new JLabel("Nouveau client ?");
+		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Calibri", Font.PLAIN, 60));
+		lblNewLabel.setBounds(0, 11, 484, 80);
+		p.add(lblNewLabel);
 		
-		JButton b_livres = new JButton("LIVRES");
-		b_livres.setBackground(new Color(204, 204, 255));
-		b_livres.setFont(new Font("Tahoma", Font.BOLD, 55));
-		b_livres.setBounds(50, 50, 400, 100);
-		p.add(b_livres);
+		// Bouton "Oui"
 		
-		// Bouton "Magasin"
-		
-		JButton b_magasin = new JButton("MAGASIN");
-		b_magasin.setFont(new Font("Tahoma", Font.BOLD, 55));
-		b_magasin.setBackground(new Color(255, 255, 153));
-		b_magasin.setBounds(50, 350, 400, 100);
-		b_magasin.addActionListener(new ActionListener() {
+		JButton b_oui = new JButton("Oui");
+		b_oui.setBackground(new Color(0, 128, 0));
+		b_oui.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_oui.setBounds(50, 100, 150, 56);
+		b_oui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Mag a = new Fen3_Gest_Mag();
+				Fen3_Ach_NewC a = new Fen3_Ach_NewC();
 				dispose();
 			}
 		});
-		p.add(b_magasin);
+		p.add(b_oui);
 		
-		// Bouton "Clients"
+		// Bouton "Non"
 		
-		JButton b_clients = new JButton("CLIENTS");
-		b_clients.setFont(new Font("Tahoma", Font.BOLD, 55));
-		b_clients.setBackground(new Color(102, 102, 255));
-		b_clients.setBounds(50, 200, 400, 100);
-		b_clients.addActionListener(new ActionListener() {
+		JButton b_non = new JButton("Non");
+		b_non.setBackground(new Color(255, 0, 0));
+		b_non.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_non.setBounds(284, 100, 150, 56);
+		b_non.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen3_Ach_ExistC a = new Fen3_Ach_ExistC();
+				dispose();
 			}
 		});
-		p.add(b_clients);
+		p.add(b_non);
 		
 		// Bouton "Retour"
 		
 		JButton b_retour = new JButton("RETOUR");
+		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_retour.setBackground(new Color(200, 100, 100));
-		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(50, 500, 200, 50);
+		b_retour.setBounds(165, 180, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen1 a = new Fen1();
@@ -72,12 +77,13 @@ public class Fen2_Gest extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen2_Gest frame = new Fen2_Gest();
-					frame.setVisible(true);
+					Fen2_Ach f = new Fen2_Ach();
+					f.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+
 }
