@@ -1,18 +1,8 @@
-
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Fen_3_Ach_ExistC extends JFrame {
 
@@ -65,7 +55,8 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		l_id.setBounds(20, 180, 150, 30);
 		p.add(l_id);
 		
-		//Bouton retour
+		//Bouton Retour
+		
 		JButton b_retour = new JButton("RETOUR");
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -78,7 +69,7 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		});
 		p.add(b_retour);
 		
-		//Bouton valider
+		//Bouton Valider
 		
 		JButton b_valider = new JButton("VALIDER");
 		b_valider.setBackground(new Color(0, 128, 0));
@@ -86,6 +77,8 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		b_valider.setBounds(350, 230, 150, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen_4_Ach_DoAch a = new Fen_4_Ach_DoAch();
+				dispose();
 			}
 		});
 		p.add(b_valider);
@@ -103,7 +96,6 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		p.add(textField_1);
 	}
 	
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -117,4 +109,3 @@ public class Fen_3_Ach_ExistC extends JFrame {
 		});
 	}
 }
-
