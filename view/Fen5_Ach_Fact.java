@@ -5,13 +5,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Fen_5_Ach_Fact extends JFrame {
+public class Fen5_Ach_Fact extends JFrame {
 	
 	private JTextField t_client;
 	private JTextField t_prix;
 	private JPanel p = new JPanel();
 	
-	public Fen_5_Ach_Fact() {
+	public Fen5_Ach_Fact() {
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,7 +76,7 @@ public class Fen_5_Ach_Fact extends JFrame {
 		b_enregistrer.setBounds(300, 475, 160, 41);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_1 a = new Fen_1();
+				Fen1 a = new Fen1();
 				dispose();
 			}
 		});
@@ -97,7 +97,7 @@ public class Fen_5_Ach_Fact extends JFrame {
 		b_retour.setBounds(25, 475, 160, 41);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_4_Ach_DoAch a = new Fen_4_Ach_DoAch();
+				Fen4_Ach_DoAch a = new Fen4_Ach_DoAch();
 				dispose();
 			}
 		});
@@ -108,7 +108,7 @@ public class Fen_5_Ach_Fact extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_5_Ach_Fact frame = new Fen_5_Ach_Fact();
+					Fen5_Ach_Fact frame = new Fen5_Ach_Fact();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
