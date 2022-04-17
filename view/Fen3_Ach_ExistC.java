@@ -100,7 +100,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					edit frame = new edit();
+					Fen3_Ach_ExistC frame = new Fen3_Ach_ExistC();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
