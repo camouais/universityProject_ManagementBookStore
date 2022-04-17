@@ -31,6 +31,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_info.setBounds(50, 50, 500, 100);
 		b_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen4_Gest_MagInfo a = new Fen4_Gest_MagInfo();
+				dispose();
 			}
 		});
 		p.add(b_info);
@@ -42,6 +44,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_stat.setBounds(50, 350, 500, 100);
 		b_stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen4_Gest_MagStat a = new Fen4_Gest_MagStat();
+				dispose();
 			}
 		});
 		p.add(b_stat);
@@ -52,9 +56,11 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_empl.setBackground(new Color(200, 200, 50));
 		b_empl.setBounds(50, 200, 500, 100);
 		b_empl.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
+			public void actionPerformed(ActionEvent e) {
+				Fen4_Gest_MagEmp a = new Fen4_Gest_MagEmp();
+				dispose();
+			}
+		});
 		p.add(b_empl);
 		
 		// Bouton "Retour"
