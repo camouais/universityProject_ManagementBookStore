@@ -95,9 +95,9 @@ public class Test2 extends JFrame {
 	    TableRowSorter<TableModel> s = new TableRowSorter<TableModel>(table1.getModel()); 
 	    table1.setRowSorter(s);
 
-        java.util.List<RowSorter.SortKey> sortList = new ArrayList<>(donnees1.length);
-        sortList.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
-        sortList.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        java.util.List<RowSorter.SortKey> listetri = new ArrayList<>(donnees1.length);
+        listetri.add(new RowSorter.SortKey(1, SortOrder.ASCENDING));
+        listetri.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
 	    
 	    
 	    table1.setBounds(100,150,800,400);
