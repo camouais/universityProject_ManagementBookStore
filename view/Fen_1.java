@@ -1,14 +1,8 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Fen_1 extends JFrame {
 	
@@ -44,7 +38,7 @@ public class Fen_1 extends JFrame {
 		
 		// Bouton "Achats"
 		
-		JButton b_achats = new JButton("ACHATS");
+		JButton b_achats = new JButton("ACHAT");
 		
 		b_achats.setFont(new Font("Arial", Font.BOLD, 55));
 		b_achats.setBackground(new Color(205, 92, 92));
