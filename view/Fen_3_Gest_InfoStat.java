@@ -20,6 +20,7 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 	
 	JButton b_stat = new JButton("STATISTIQUES");
 	JButton b_info =  new JButton("INFORMATIONS");
+	JButton b_empl =  new JButton("EMPLOYES");
 	JButton b_retour = new JButton("RETOUR");
 	
 
@@ -30,16 +31,16 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 800);
+		setBounds(0, 0, 600, 650);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setVisible(true);
+	    setVisible(true);
 		
 		// Bouton "Informations"
 		
 		b_info.setFont(new Font("Tahoma", Font.BOLD, 55));
-		b_info.setBackground(new Color(102, 102, 255));
-		b_info.setBounds(329, 207, 508, 119);
+		b_info.setBackground(new Color(255, 0, 255));
+		b_info.setBounds(50, 50, 500, 100);
 		b_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -49,19 +50,30 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 		// Bouton "Statistiques"
 		
 		b_stat.setFont(new Font("Tahoma", Font.BOLD, 55));
-		b_stat.setBackground(new Color(0, 139, 139));
-		b_stat.setBounds(329, 357, 508, 119);
+		b_stat.setBackground(new Color(0, 50, 200));
+		b_stat.setBounds(50, 350, 500, 100);
 		b_stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		p.add(b_stat);
+		// Bouton "Employés"
+		
+		b_empl.setFont(new Font("Tahoma", Font.BOLD, 55));
+		b_empl.setBackground(new Color(255, 0, 0));
+		b_empl.setBounds(50, 200, 500, 100);
+		b_empl.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					}
+				});
+		p.add(b_empl);
 		
 		// Bouton "Retour"
-		
-		b_retour.setBackground(new Color(255, 215, 0));
+
+
+		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(950, 572, 177, 63);
+		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen_2_Gest a = new Fen_2_Gest();
@@ -85,5 +97,4 @@ public class Fen_3_Gest_InfoStat extends JFrame {
 	}
 
 }
-
 
