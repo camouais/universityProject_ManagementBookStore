@@ -4,11 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Fen_2_Ach extends JFrame {
+public class Fen2_Ach extends JFrame {
 
 	private JPanel p = new JPanel();
 
-	public Fen_2_Ach() {
+	public Fen2_Ach() {
 		
 		// Fenêtre
 		
@@ -38,7 +38,7 @@ public class Fen_2_Ach extends JFrame {
 		b_oui.setBounds(50, 100, 150, 56);
 		b_oui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_3_Ach_NewC a = new Fen_3_Ach_NewC();
+				Fen3_Ach_NewC a = new Fen3_Ach_NewC();
 				dispose();
 			}
 		});
@@ -52,7 +52,7 @@ public class Fen_2_Ach extends JFrame {
 		b_non.setBounds(284, 100, 150, 56);
 		b_non.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_3_Ach_ExistC a = new Fen_3_Ach_ExistC();
+				Fen3_Ach_ExistC a = new Fen3_Ach_ExistC();
 				dispose();
 			}
 		});
@@ -66,7 +66,7 @@ public class Fen_2_Ach extends JFrame {
 		b_retour.setBounds(165, 180, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen_1 a = new Fen_1();
+				Fen1 a = new Fen1();
 				dispose();
 			}
 		});
@@ -77,7 +77,7 @@ public class Fen_2_Ach extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen_2_Ach f = new Fen_2_Ach();
+					Fen2_Ach f = new Fen2_Ach();
 					f.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
