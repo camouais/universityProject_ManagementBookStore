@@ -8,8 +8,8 @@ public class Client {
 	
     public String nom;
     public String prenom;
-    private Set<String> mail;
-    private Set<String> tel;
+    public String mail;
+    public String tel;
     public Date dateCreationCompte;
     public Date dateNaiss;
     public String adresse;
@@ -20,13 +20,11 @@ public class Client {
     
     // Constructeur
 
-    public Client(String p, String n, String s, Date dn ,String m, String t,String ad, int id) {
+    public Client(String p, String n, String s, Date dn, String ad, int id) {
     	nom = n;
     	prenom = p;
     	sexe = s;
-    	dateNaiss = dn; 
-    	mail.add(m);
-    	tel.add(t); 	
+    	dateNaiss = dn;
     	dateCreationCompte = new Date(System.currentTimeMillis());
     	adresse = ad;
     	idClient = id;
@@ -34,53 +32,18 @@ public class Client {
   
     // Méthodes
     
-    // Ajouter le mail
+    // Ajouter / Mettre à jour une adresse mail
     
-    public int addMail(String m) {
-    	if(!mail.contains(m)) {
-    		mail.add(m);
-    		return 0;
-    	} else {
-    		// si le mail en argument est déjà présent dans le Set
-    		return -1;
-    	}
+    public void updMail(String m) {
+    	mail = m;
     }
     
-    // Supprimer le mail
+    // Ajouter / Mettre à jour un numéro de téléphone
     
-    public int supMail(String m) {
-    	if(mail.contains(m)) {
-    		mail.remove(m);
-    		return 0;
-    	} else {
-    		// si le mail en argument n'est pas présent dans le Set
-    		return -1;
-    	}
+    public void updTel(String t) {
+    	tel = t;
     }
     
-    // Ajouter un téléphone
-    
-    public int addTel(String t) {
-    	if(!tel.contains(t)) {
-    		tel.add(t);
-    		return 0;
-    	} else {
-    		// si le tel en argument est déjà présent dans le Set
-    		return -1;
-    	}
-    }
-    
-    // Supprimer un téléphone
-    
-    public int supTel(String t) {
-    	if(tel.contains(t)) {
-    		tel.remove(t);
-    		return 0;
-    	} else {
-    		// si le tel en argument n'est pas présent dans le Set
-    		return -1;
-    	}
-    }
     public String getName() {
     	return (prenom + " " + nom);
     }
