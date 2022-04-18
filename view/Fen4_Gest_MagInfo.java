@@ -7,8 +7,7 @@ import javax.swing.*;
 public class Fen4_Gest_MagInfo extends JFrame {
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField t_adresse;
 
 	public Fen4_Gest_MagInfo() {
 		
@@ -23,31 +22,38 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		
 		//JLabel Informations du Magasin
 		
-		JLabel l = new JLabel("Informations du magasin");
-		l.setHorizontalAlignment(SwingConstants.CENTER);
-		l.setFont(new Font("Tahoma", Font.BOLD, 40));
-		l.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
-		p.add(l);
+		JLabel l_info = new JLabel("Informations du magasin");
+		l_info.setHorizontalAlignment(SwingConstants.CENTER);
+		l_info.setFont(new Font("Tahoma", Font.BOLD, 40));
+		l_info.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		p.add(l_info);
 		
-		//JTextField nom
 		
-		t_nom = new JTextField();
-		t_nom.setBounds(150, 100, 380, 30);
-		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		p.add(t_nom);
-		t_nom.setColumns(10);
-		
-		//JLabels nom, prénom, id
+		//JLabel & JTextField nom
 		
 		JLabel l_nom = new JLabel("Nom :");
 		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_nom.setBounds(20, 100, 150, 30);
 		p.add(l_nom);
 		
-		JLabel l_prenom = new JLabel("Adresse :");
-		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_prenom.setBounds(20, 140, 150, 30);
-		p.add(l_prenom);
+		t_nom = new JTextField();
+		t_nom.setBounds(150, 100, 380, 30);
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		p.add(t_nom);
+		t_nom.setColumns(10);
+
+		//JLabel & JTextField Adresse
+		
+		JLabel l_adresse = new JLabel("Adresse :");
+		l_adresse.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_adresse.setBounds(20, 140, 150, 30);
+		p.add(l_adresse);
+		
+		t_adresse = new JTextField();
+		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_adresse.setColumns(10);
+		t_adresse.setBounds(150, 141, 380, 30);
+		p.add(t_adresse);
 		
 		//Bouton Retour
 		
@@ -71,15 +77,13 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_valider.setBounds(300, 200, 200, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Fen3_Gest_Mag a = new Fen3_Gest_Mag();
+				dispose();
 			}
 		});
 		p.add(b_valider);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField.setColumns(10);
-		textField.setBounds(150, 141, 380, 30);
-		p.add(textField);
+		
 	}
 	
 	public static void main(String[] args) {
