@@ -106,10 +106,8 @@ public class Fen3_Gest_Liv extends JFrame {
 		btnAjouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
-	                count++;
-                }           
+            	Fen4_Gest_NewLiv a = new Fen4_Gest_NewLiv();
+            	dispose();
             }
 		});
 		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
