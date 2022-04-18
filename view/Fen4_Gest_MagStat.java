@@ -1,59 +1,44 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Button;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Fen4_Gest_MagStat extends JFrame {
-
-	private JPanel contentPane;
-
 	
-
-	JLabel l_stat = new JLabel("Statistiques : ");
+	private static final long serialVersionUID = 1L;
+	
+	private JPanel p = new JPanel();
+	private JLabel l_main = new JLabel("Statistiques : ");
+	
 	JButton b_retour = new JButton("Retour");
 	JButton b_compta = new JButton("COMPTABILITES");
 	JButton b_achats = new JButton("ACHATS");
 	JButton b_clients = new JButton("CLIENTS");
-
 	JButton b_emp = new JButton("EMPLOYES");
-    
 	JButton b_livres = new JButton("LIVRES");
+	
 	public Fen4_Gest_MagStat() {
 		
-		//Fenêtre 
-    
+		//Fenêtre
+		
+		p.setBackground(new Color(200, 200, 200));
+		p.setLayout(null);
+		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 860);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(200, 200, 200));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		// JLable Statistiques : 
     
-		l_stat.setHorizontalAlignment(SwingConstants.CENTER);
-		l_stat.setFont(new Font("Tahoma", Font.PLAIN, 55));
-		l_stat.setBounds(112, 18, 371, 66);
-		contentPane.add(l_stat);
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Tahoma", Font.PLAIN, 55));
+		l_main.setBounds(112, 18, 371, 66);
+		p.add(l_main);
     
-		// Bouton livres
+		// Boutons : Livres, Clients, Achats, Employés
     
 		b_livres.setBackground(new Color(180, 112, 147));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -64,9 +49,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(b_livres);
-		
-		// Bouton clients
+		p.add(b_livres);
     
 		b_clients.setBackground(new Color(244, 164, 96));
 		b_clients.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -77,9 +60,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(b_clients);
-		
-		// Bouton achats
+		p.add(b_clients);
 		
 		b_achats.setBackground(new Color(221, 150, 221));
 		b_achats.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -90,9 +71,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(b_achats);
-		
-		// Bouton employés
+		p.add(b_achats);
 	    
 		b_emp.setBackground(new Color(0, 222, 100));
 		b_emp.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -103,9 +82,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(b_emp);
-		
-		// Bouton comptabilité
+		p.add(b_emp);
     
 		b_compta.setBackground(new Color(222, 206, 250));
 		b_compta.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -116,9 +93,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(b_compta);
-	
-		// Bouton retour
+		p.add(b_compta);
 		
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -129,7 +104,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(b_retour);
+		p.add(b_retour);
 	}
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
