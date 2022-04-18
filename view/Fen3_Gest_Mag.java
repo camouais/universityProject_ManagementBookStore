@@ -5,6 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Fen3_Gest_Mag extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
 	private JPanel p = new JPanel();
 	
@@ -24,53 +26,47 @@ public class Fen3_Gest_Mag extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Bouton "Informations"
+		// Boutons : Informations, Statistiques, Employés, Retour
 		
 		b_info.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_info.setBackground(new Color(200, 50, 200));
 		b_info.setBounds(50, 50, 500, 100);
 		b_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_MagInfo a = new Fen4_Gest_MagInfo();
+				new Fen4_Gest_MagInfo();
 				dispose();
 			}
 		});
 		p.add(b_info);
-		
-		// Bouton "Statistiques"
 		
 		b_stat.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_stat.setBackground(new Color(50, 200, 200));
 		b_stat.setBounds(50, 350, 500, 100);
 		b_stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_MagStat a = new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat();
 				dispose();
 			}
 		});
 		p.add(b_stat);
-		
-		// Bouton "Employés"
 		
 		b_empl.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_empl.setBackground(new Color(200, 200, 50));
 		b_empl.setBounds(50, 200, 500, 100);
 		b_empl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_MagEmp a = new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp();
 				dispose();
 			}
 		});
 		p.add(b_empl);
-		
-		// Bouton "Retour"
 		
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen2_Gest a = new Fen2_Gest();
+				new Fen2_Gest();
 				dispose();
 			}
 		});
