@@ -58,6 +58,12 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_livres.setBackground(new Color(180, 112, 147));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_livres.setBounds(87, 100, 400, 100);
+		b_livres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen5_Gest_StatLiv();
+				dispose();
+			}
+		});
 		contentPane.add(b_livres);
 		
 		// Bouton clients
@@ -65,13 +71,25 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_clients.setBackground(new Color(244, 164, 96));
 		b_clients.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_clients.setBounds(87, 230, 400, 100);
+		b_clients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen5_Gest_StatCli();
+				dispose();
+			}
+		});
 		contentPane.add(b_clients);
 		
 		// Bouton achats
 		
-		b_achats.setBackground(new Color(221, 0, 221));
+		b_achats.setBackground(new Color(221, 150, 221));
 		b_achats.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_achats.setBounds(87, 360, 400, 100);
+		b_achats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen5_Gest_StatAch();
+				dispose();
+			}
+		});
 		contentPane.add(b_achats);
 		
 		// Bouton employés
@@ -92,6 +110,12 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_compta.setBackground(new Color(222, 206, 250));
 		b_compta.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_compta.setBounds(87, 620, 400, 100);
+		b_compta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen5_Gest_StatComp();
+				dispose();
+			}
+		});
 		contentPane.add(b_compta);
 	
 		// Bouton retour
