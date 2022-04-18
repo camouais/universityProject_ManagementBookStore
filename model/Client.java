@@ -13,6 +13,7 @@ public class Client {
     public Date dateCreationCompte;
     public Date dateNaiss;
     public String adresse;
+    public String age;
     public String sexe;
     public Set<Commande> listCom;
     public int idClient;
