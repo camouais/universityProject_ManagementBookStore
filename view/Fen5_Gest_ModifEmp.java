@@ -9,12 +9,12 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField t_prenom;
+	private JTextField t_id;
+	private JTextField t_fonction;
+	private JTextField t_adresse;
+	private JTextField t_mail;
+	private JTextField t_tel;
 
 	public Fen5_Gest_ModifEmp() { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
@@ -29,13 +29,18 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		//JLabel Renseignements du client
 		
-		JLabel l = new JLabel("Renseignements de l'employé");
-		l.setHorizontalAlignment(SwingConstants.CENTER);
-		l.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
-		p.add(l);
-		
-		//JTextField nom
+		JLabel l_rens = new JLabel("Renseignements de l'employé");
+		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
+		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
+		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		p.add(l_rens);
+
+		// JLabel & JTextfield nom
+
+		JLabel l_nom = new JLabel("Nom :");
+		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_nom.setBounds(20, 100, 150, 30);
+		p.add(l_nom);
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
@@ -43,29 +48,90 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 		
-		//JLabels nom, prénom, id
-		
-		JLabel l_nom = new JLabel("Nom :");
-		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_nom.setBounds(20, 100, 150, 30);
-		p.add(l_nom);
+		// JLabel & JTextfield prénom
 		
 		JLabel l_prenom = new JLabel("Prénom :");
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
 		p.add(l_prenom);
 		
+		t_prenom = new JTextField();
+		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_prenom.setColumns(10);
+		t_prenom.setBounds(150, 141, 380, 30);
+		p.add(t_prenom);
+		
+		// JLabel & JTextfield Identifiant
+				
 		JLabel l_id = new JLabel("Identifiant :");
 		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_id.setBounds(20, 180, 150, 30);
 		p.add(l_id);
+		
+		t_id = new JTextField();
+		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_id.setColumns(10);
+		t_id.setBounds(150, 180, 380, 30);
+		p.add(t_id);
+		
+		// JLabel & JTextfield Fonction
+		
+		JLabel l_fonc = new JLabel("Fonction : ");
+		l_fonc.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_fonc.setBounds(20, 221, 150, 30);
+		p.add(l_fonc);
+		
+		t_fonction = new JTextField();
+		t_fonction.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_fonction.setColumns(10);
+		t_fonction.setBounds(150, 221, 380, 30);
+		p.add(t_fonction);
+		
+		// JLabel & JTextfield Adresse
+		
+		JLabel l_adresse = new JLabel("Adresse : ");
+		l_adresse.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_adresse.setBounds(20, 262, 150, 30);
+		p.add(l_adresse);
+		
+		t_adresse = new JTextField();
+		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_adresse.setColumns(10);
+		t_adresse.setBounds(150, 262, 380, 30);
+		p.add(t_adresse);
+		
+		// JLabel & JTextfield Mail
+		
+		JLabel l_mail = new JLabel("Mail : ");
+		l_mail.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_mail.setBounds(20, 303, 150, 30);
+		p.add(l_mail);
+		
+		t_mail = new JTextField();
+		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_mail.setColumns(10);
+		t_mail.setBounds(150, 303, 380, 30);
+		p.add(t_mail);
+		
+		// JLabel & JTextfield Téléphone
+		
+		JLabel l_tel = new JLabel("Téléphone : ");
+		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_tel.setBounds(20, 344, 150, 30);
+		p.add(l_tel);
+		
+		t_tel = new JTextField();
+		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_tel.setColumns(10);
+		t_tel.setBounds(150, 344, 380, 30);
+		p.add(t_tel);
 		
 		//Bouton Retour
 		
 		JButton b_retour = new JButton("RETOUR");
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_retour.setBounds(50, 400, 150, 50);
+		b_retour.setBounds(10, 410, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen4_Gest_MagEmp a = new Fen4_Gest_MagEmp();
@@ -73,70 +139,38 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 			}
 		});
 		p.add(b_retour);
-		
-		//Bouton Valider
-		
+				
+		//Bouton Effacer
+				
+		JButton b_effacer = new JButton("EFFACER");
+		b_effacer.setForeground(Color.WHITE);
+		b_effacer.setBackground(new Color(0, 0, 0));
+		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_effacer.setBounds(180, 410, 150, 50);
+		b_effacer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fen4_Gest_MagEmp a = new Fen4_Gest_MagEmp();
+				dispose();
+			}
+		});
+		p.add(b_effacer);
+						
+		//Bouton Enregistrer
+				
 		JButton b_enreg = new JButton("ENREGISTRER");
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_enreg.setBounds(300, 400, 200, 50);
+		b_enreg.setBounds(350, 410, 200, 50);
+		b_enreg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fen4_Gest_MagEmp a = new Fen4_Gest_MagEmp();
+				dispose();
+			}
+		});
 		p.add(b_enreg);
-		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField.setColumns(10);
-		textField.setBounds(150, 141, 380, 30);
-		p.add(textField);
-		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_1.setColumns(10);
-		textField_1.setBounds(150, 180, 380, 30);
-		p.add(textField_1);
-		
-		JLabel l_fonc = new JLabel("Fonction : ");
-		l_fonc.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_fonc.setBounds(20, 221, 150, 30);
-		p.add(l_fonc);
-		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_2.setColumns(10);
-		textField_2.setBounds(150, 221, 380, 30);
-		p.add(textField_2);
-		
-		JLabel l_fonc_1 = new JLabel("Adresse : ");
-		l_fonc_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_fonc_1.setBounds(20, 262, 150, 30);
-		p.add(l_fonc_1);
-		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_3.setColumns(10);
-		textField_3.setBounds(150, 262, 380, 30);
-		p.add(textField_3);
-		
-		JLabel l_fonc_1_1 = new JLabel("Mail : ");
-		l_fonc_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_fonc_1_1.setBounds(20, 303, 150, 30);
-		p.add(l_fonc_1_1);
-		
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_4.setColumns(10);
-		textField_4.setBounds(150, 303, 380, 30);
-		p.add(textField_4);
-		
-		JLabel l_fonc_1_1_1 = new JLabel("T\u00E9l\u00E9phone : ");
-		l_fonc_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_fonc_1_1_1.setBounds(20, 344, 150, 30);
-		p.add(l_fonc_1_1_1);
-		
-		textField_5 = new JTextField();
-		textField_5.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_5.setColumns(10);
-		textField_5.setBounds(150, 344, 380, 30);
-		p.add(textField_5);
+				
+				
+			
 	}
 	
 	public static void main(String[] args) {
