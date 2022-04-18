@@ -10,6 +10,10 @@ public class Fen1 extends JFrame {
 	
 	private JPanel p = new JPanel();
 	
+	JButton b_gest = new JButton("GESTION");
+	JButton b_ach = new JButton("ACHAT");
+	JButton b_quit = new JButton("Quitter");
+	
 	public Fen1() {
 		
 		// Fenêtre
@@ -23,39 +27,29 @@ public class Fen1 extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Bouton "Gestion"
+		// Boutons : Gestion, Achat, Quitter
 		
-		JButton b_gestion = new JButton("GESTION");
-		
-		b_gestion.setBackground(new Color(147, 112, 219));
-		b_gestion.setFont(new Font("Arial", Font.BOLD, 55));
-		b_gestion.setBounds(50, 50, 400, 100);
-		b_gestion.addActionListener(new ActionListener() {
+		b_gest.setBackground(new Color(147, 112, 219));
+		b_gest.setFont(new Font("Arial", Font.BOLD, 55));
+		b_gest.setBounds(50, 50, 400, 100);
+		b_gest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen2_Gest();
 				dispose();
 			}
 		});
-		p.add(b_gestion);
+		p.add(b_gest);
 		
-		// Bouton "Achats"
-		
-		JButton b_achats = new JButton("ACHAT");
-		
-		b_achats.setFont(new Font("Arial", Font.BOLD, 55));
-		b_achats.setBackground(new Color(205, 92, 92));
-		b_achats.setBounds(50, 200, 400, 100);
-		b_achats.addActionListener(new ActionListener() {
+		b_ach.setFont(new Font("Arial", Font.BOLD, 55));
+		b_ach.setBackground(new Color(205, 92, 92));
+		b_ach.setBounds(50, 200, 400, 100);
+		b_ach.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen2_Ach();
 				dispose();
 			}
 		});
-		p.add(b_achats);
-		
-		// Bouton "Quitter"
-		
-		JButton b_quit = new JButton("Quitter");
+		p.add(b_ach);
 		
 		b_quit.setBackground(new Color(255, 200, 200));
 		b_quit.setFont(new Font("Arial", Font.BOLD, 10));
