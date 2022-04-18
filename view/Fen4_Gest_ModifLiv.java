@@ -1,4 +1,3 @@
-
 package view;
 
 import model.*;
@@ -112,8 +111,6 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_prix.setColumns(10);
 		t_prix.setBounds(150, 300, 380, 30);
 		p.add(t_prix);
-				
-			
 		
 		///Bouton Retour
 		
@@ -123,7 +120,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_retour.setBounds(10, 370, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Liv a = new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv();
 				dispose();
 			}
 		});
@@ -138,7 +135,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_effacer.setBounds(180, 370, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Liv a = new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv();
 				dispose();
 			}
 		});
@@ -152,7 +149,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBounds(350, 370, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Liv a = new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv();
 				dispose();
 			}
 		});
