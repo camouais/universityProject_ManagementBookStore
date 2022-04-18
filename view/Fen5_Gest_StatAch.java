@@ -3,12 +3,12 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
 
 public class Fen5_Gest_StatAch extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
-    Object[][] donnees1 = {
+	Object[][] donnees1 = {
             {"1", "Client.getName() 1", "12.33€", "Liste livresa"},
             {"2", "Client.getName() 2", "56.00€", "Liste livresb"},
             {"3", "Client.getName() 1", "25.50€", "Liste livresc"},
@@ -38,15 +38,17 @@ public class Fen5_Gest_StatAch extends JFrame {
     
     String[] entetes1 = {"ID", "Nom du client", "Prix total", "Livres achetés"};
     
-    JScrollPane scrollPane = new JScrollPane();
+    private JPanel p = new JPanel();
+    private JTable table1 = new JTable(donnees1, entetes1); 
+    private JScrollPane scrollPane_1 = new JScrollPane(table1);
+    private JLabel l_stem = new JLabel("Statistiques au niveau des achats");
+    private JLabel l_valueAg = new JLabel("tv");
+    private JLabel l_valueT = new JLabel("nb");
+    private JLabel l_nbrt = new JLabel("Nombre total de commandes : ");
+    private JLabel l_soms = new JLabel("Total de ventes : ");
     
-    JLabel l_stem = new JLabel("Statistiques au niveau des achats");
-    JLabel l_valueAg = new JLabel("tv");
     JButton b_retour = new JButton("Retour");
-    JLabel l_valueT = new JLabel("nb");
-    JLabel l_nbrt = new JLabel("Nombre total de commandes : ");
-    JLabel l_soms = new JLabel("Total de ventes : ");
-    JPanel panel = new JPanel();
+    JScrollPane scrollPane = new JScrollPane();
     
 	public Fen5_Gest_StatAch() {
 		
@@ -57,53 +59,58 @@ public class Fen5_Gest_StatAch extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		setContentPane(panel);
-	    panel.setLayout(null);
-		panel.setBackground(new Color(221, 150, 221));
+		setContentPane(p);
+	    p.setLayout(null);
+		p.setBackground(new Color(221, 150, 221));
 		
 		// Tableau
 	   
-	    JTable table1 = new JTable(donnees1, entetes1); 
 	    table1.setAutoCreateRowSorter(true);
 	    table1.setBounds(100, 150, 800, 400);
-	    JScrollPane scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100, 100, 800, 400);
-	    panel.add(scrollPane_1);
-	    
-	    // JLabel "Statistiques au niveau des livres"
+	    p.add(scrollPane_1);
+
+	    // JLabel "Statistiques au niveau des achats"
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
 	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
 	    l_stem.setBounds(10, 30, 984, 42);
-	    panel.add(l_stem);
-
+	    p.add(l_stem);
+	    
+	    // JLabel "Nombre total de commandes"
+	    
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_nbrt.setBounds(400, 520, 400, 42);
-	    panel.add(l_nbrt);
+	    p.add(l_nbrt);
+	    
+	    // JLabel "Nombre total de ventes" (Individuelles)
 
 	    l_soms.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_soms.setBounds(400, 580, 390, 42);
-	    panel.add(l_soms);
+	    p.add(l_soms);
+	    
+	    // JLabel : Valeur totale des commandes
 	    
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueT.setBounds(800, 520, 47, 42);
-	    panel.add(l_valueT);
+	    p.add(l_valueT);
+	    
+	    // JLabel : Valeur totale de ventes
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(800, 580, 47, 42);
-	    panel.add(l_valueAg);
+	    p.add(l_valueAg);
 	   
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	    b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_MagStat a = new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat();
 				dispose();
 			}
 		});
 	    b_retour.setBounds(71, 550, 222, 57);
 	    b_retour.setBackground(new Color(64,128,0));
-	    
-	    panel.add(b_retour);
+	    p.add(b_retour);
 	}
 	
 	public static void main(String[] args) {
