@@ -1,12 +1,13 @@
 package view;
 
-import model.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class Fen4_Gest_ModifLiv extends JFrame {
-
+	
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel p = new JPanel();
 	private JTextField t_titre;
 	private JTextField t_auteur;
@@ -14,6 +15,17 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	private JTextField t_id;
 	private JTextField t_prix;
 	private JTextField t_categorie;
+	private JLabel l_rens = new JLabel("Renseignements du livre");
+	private JLabel l_titre = new JLabel("Titre :");
+	private JLabel l_auteur = new JLabel("Auteur :");
+	private JLabel l_id = new JLabel("Identifiant :");
+	private JLabel l_editeur = new JLabel("Editeur : ");
+	private JLabel l_categorie = new JLabel("Categorie : ");
+	private JLabel l_prix = new JLabel("Prix : ");
+
+	JButton b_retour = new JButton("RETOUR");
+	JButton b_effacer = new JButton("EFFACER");
+	JButton b_enreg = new JButton("ENREGISTRER");
 
 	public Fen4_Gest_ModifLiv() { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
@@ -26,17 +38,15 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		//JLabel Renseignements du livre
+		// JLabel : Renseignements du livre
 		
-		JLabel l_rens = new JLabel("Renseignements du livre");
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
 		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
-		// JLabel & JTextField Titre
+		// JLabel & JTextField : Titre
 		
-		JLabel l_titre = new JLabel("Titre :");
 		l_titre.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_titre.setBounds(20, 100, 150, 30);
 		p.add(l_titre);
@@ -47,9 +57,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		p.add(t_titre);
 		t_titre.setColumns(10);
 		
-		// JLabel & JTextField Auteur
+		// JLabel & JTextField : Auteur
 		
-		JLabel l_auteur = new JLabel("Auteur :");
 		l_auteur.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_auteur.setBounds(20, 140, 150, 30);
 		p.add(l_auteur);
@@ -60,9 +69,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_auteur.setBounds(150, 140, 380, 30);
 		p.add(t_auteur);
 		
-		// JLabel & JTextField Identifiant
+		// JLabel & JTextField : Identifiant
 		
-		JLabel l_id = new JLabel("Identifiant :");
 		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_id.setBounds(20, 180, 150, 30);
 		p.add(l_id);
@@ -73,9 +81,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_id.setBounds(150, 180, 380, 30);
 		p.add(t_id);
 		
-		// JLabel & JTextField Editeur
+		// JLabel & JTextField : Editeur
 		
-		JLabel l_editeur = new JLabel("Editeur : ");
 		l_editeur.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_editeur.setBounds(20, 220, 150, 30);
 		p.add(l_editeur);
@@ -86,9 +93,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_editeur.setBounds(150, 220, 380, 30);
 		p.add(t_editeur);
 		
-		// JLabel & JTextfield Categorie
+		// JLabel & JTextfield : Categorie
 		
-		JLabel l_categorie = new JLabel("Categorie : ");
 		l_categorie.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_categorie.setBounds(20, 260, 150, 30);
 		p.add(l_categorie);
@@ -99,9 +105,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_categorie.setBounds(150, 260, 380, 30);
 		p.add(t_categorie);
 		
-		// JLabel & JTextfield Prix
+		// JLabel & JTextfield : Prix
 		
-		JLabel l_prix = new JLabel("Prix : ");
 		l_prix.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prix.setBounds(20, 300, 150, 30);
 		p.add(l_prix);
@@ -112,9 +117,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_prix.setBounds(150, 300, 380, 30);
 		p.add(t_prix);
 		
-		///Bouton Retour
+		// Boutons : Retour, Effacer, Enregistrer
 		
-		JButton b_retour = new JButton("RETOUR");
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_retour.setBounds(10, 370, 150, 50);
@@ -126,9 +130,6 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		});
 		p.add(b_retour);
 		
-		//Bouton Effacer
-		
-		JButton b_effacer = new JButton("EFFACER");
 		b_effacer.setForeground(Color.WHITE);
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -140,10 +141,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 			}
 		});
 		p.add(b_effacer);
-				
-		//Bouton Enregistrer
 		
-		JButton b_enreg = new JButton("ENREGISTRER");
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_enreg.setBounds(350, 370, 200, 50);
