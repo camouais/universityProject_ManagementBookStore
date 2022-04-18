@@ -33,7 +33,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 	JButton b_livres = new JButton("LIVRES");
 	public Fen4_Gest_MagStat() {
 		
-    //Fenêtre 
+		//Fenêtre 
     
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 860);
@@ -46,35 +46,35 @@ public class Fen4_Gest_MagStat extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-    // JLable Statistiques : 
+		// JLable Statistiques : 
     
-    l_stat.setHorizontalAlignment(SwingConstants.CENTER);
+		l_stat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_stat.setFont(new Font("Tahoma", Font.PLAIN, 55));
 		l_stat.setBounds(112, 18, 371, 66);
 		contentPane.add(l_stat);
     
-    // Bouton livres
+		// Bouton livres
     
 		b_livres.setBackground(new Color(180, 112, 147));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_livres.setBounds(87, 100, 400, 100);
 		contentPane.add(b_livres);
 		
-    // Bouton clients
+		// Bouton clients
     
 		b_clients.setBackground(new Color(244, 164, 96));
 		b_clients.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_clients.setBounds(87, 230, 400, 100);
 		contentPane.add(b_clients);
 		
-    // Bouton achats
-    
+		// Bouton achats
+		
 		b_achats.setBackground(new Color(221, 0, 221));
 		b_achats.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_achats.setBounds(87, 360, 400, 100);
 		contentPane.add(b_achats);
 		
-	// Bouton employés
+		// Bouton employés
 	    
 		b_emp.setBackground(new Color(0, 222, 100));
 		b_emp.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -87,14 +87,14 @@ public class Fen4_Gest_MagStat extends JFrame {
 		});
 		contentPane.add(b_emp);
 		
-    // Bouton comptabilité
+		// Bouton comptabilité
     
 		b_compta.setBackground(new Color(222, 206, 250));
 		b_compta.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_compta.setBounds(87, 620, 400, 100);
 		contentPane.add(b_compta);
 	
-    // Bouton retour
+		// Bouton retour
 		
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
