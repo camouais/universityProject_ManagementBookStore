@@ -1,31 +1,38 @@
-
-
 package view;
 
-import model.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Fen3_Gest_Cl extends JFrame {
+public class Fen3_Gest_Cli extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+
 	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			};
-    
-    JList<String> list = new JList<String>();
-    JList<String> list2 = new JList<String>();
-    DefaultListModel<String> model;
-    JScrollPane scrollPane = new JScrollPane();
-    JScrollPane scrollPane2 = new JScrollPane();
-    public static int count = 0;
-	private JPanel p = new JPanel();
 
-	public Fen3_Gest_Cl() {
+	private JPanel p = new JPanel();
+	private JPanel panel1 = new JPanel();
+	private JPanel panel2 = new JPanel();
+    private DefaultListModel<String> model;
+    private JList<String> list = new JList<String>();
+    private JList<String> list2 = new JList<String>();
+    public static int count = 0;
+	private JTextField t_rech= new JTextField();
+	private JLabel l_main = new JLabel("Clients");
+    
+	JScrollPane scrollPane = new JScrollPane();
+    JScrollPane scrollPane2 = new JScrollPane();
+	JButton b_modifier = new JButton("Modifier");
+	JButton b_ajouter = new JButton("Ajouter");
+	JButton b_retour = new JButton("RETOUR");
+
+	public Fen3_Gest_Cli() {
 		
 		// Fenêtre
 		
@@ -40,9 +47,8 @@ public class Fen3_Gest_Cl extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste de clients)
+		// Liste 1 (Liste de clients)
 		
-		JPanel panel1 = new JPanel();
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
@@ -53,12 +59,11 @@ public class Fen3_Gest_Cl extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Panel 2 (Informations du client sélectionné)
+        // Liste 2 (Informations du client sélectionné)
         
-        model=new DefaultListModel<String>();
+        model = new DefaultListModel<String>();
         list2.setModel(model);
         
-		JPanel panel2 = new JPanel();
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
@@ -69,60 +74,52 @@ public class Fen3_Gest_Cl extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'un client
+		// Text Field : Recherche d'un client
 		
-		JTextField t_rechercheC= new JTextField();
-		t_rechercheC.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rechercheC.setText("Recherchez un livre...");
-		t_rechercheC.setBounds(50, 100, 890, 45);
-		p.add(t_rechercheC);
-		t_rechercheC.setColumns(10);
+		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_rech.setText("Recherchez un livre...");
+		t_rech.setBounds(50, 100, 890, 45);
+		p.add(t_rech);
+		t_rech.setColumns(10);
 		
 		// JLabel "Clients"
 		
-		JLabel l_clients = new JLabel("Clients");
-		l_clients.setHorizontalAlignment(SwingConstants.CENTER);
-		l_clients.setFont(new Font("Arial", Font.BOLD, 50));
-		l_clients.setBounds(10, 15, 964, 57);
-		p.add(l_clients);
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Arial", Font.BOLD, 50));
+		l_main.setBounds(10, 15, 964, 57);
+		p.add(l_main);
 		
-		// Bouton "Modifier"
+		// Boutons : Modifier, Ajouter, Retour
 		
-		JButton b_modifier = new JButton("Modifier");
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_ModifCli a = new Fen4_Gest_ModifCli();
+				new Fen4_Gest_ModifCli();
 				dispose();
 			}
 		});
 		p.add(b_modifier);
 		
-		// Bouton "Ajouter"
-		
-		JButton b_ajouter = new JButton("Ajouter");
 		b_ajouter.setIcon(null);
 		b_ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                       
-            	Fen4_Gest_NewCli a = new Fen4_Gest_NewCli();
-				dispose();
+                if(list.getSelectedValue()!=null) {
+	                model.addElement("Test n°"+count);
+	                count++;
+                }           
             }
 		});
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 650, 400, 60);
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		p.add(b_ajouter);
-		
-		// Bouton "Retour"
         
-		JButton b_retour = new JButton("RETOUR");
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen2_Gest a = new Fen2_Gest();
+				new Fen2_Gest();
 				dispose();
 			}
 		});
@@ -130,14 +127,13 @@ public class Fen3_Gest_Cl extends JFrame {
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
 		p.add(b_retour);
-		
 	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Fen3_Gest_Cl frame = new Fen3_Gest_Cl();
+					Fen3_Gest_Cli frame = new Fen3_Gest_Cli();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
