@@ -50,6 +50,20 @@ public class Fen1 extends JFrame {
 			}
 		});
 		p.add(b_achats);
+		
+		// Bouton "Quitter"
+		
+		JButton b_quit = new JButton("Quitter");
+		
+		b_quit.setBackground(new Color(255, 200, 200));
+		b_quit.setFont(new Font("Arial", Font.BOLD, 10));
+		b_quit.setBounds(0, 0, 80, 20);
+		b_quit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		p.add(b_quit);
 	}
 	
 	public static void main(String[] args) {
