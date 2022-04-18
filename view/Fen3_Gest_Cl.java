@@ -107,10 +107,9 @@ public class Fen3_Gest_Cl extends JFrame {
 		b_ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
-	                count++;
-                }           
+                       
+            	Fen4_Gest_NewCli a = new Fen4_Gest_NewCli();
+				dispose();
             }
 		});
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -118,7 +117,7 @@ public class Fen3_Gest_Cl extends JFrame {
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		p.add(b_ajouter);
 		
-		// Bouton "Enregistrer"
+		// Bouton "Retour"
         
 		JButton b_retour = new JButton("RETOUR");
 		b_retour.addActionListener(new ActionListener() {
