@@ -1,6 +1,5 @@
 package view;
 
-import model.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -8,6 +7,8 @@ import javax.swing.border.*;
 
 public class Fen4_Gest_MagEmp extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+
 	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
@@ -15,19 +16,26 @@ public class Fen4_Gest_MagEmp extends JFrame {
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			};
     
-    JList<String> list = new JList<String>();
-    JList<String> list2 = new JList<String>();
-    DefaultListModel<String> model;
-    JScrollPane scrollPane = new JScrollPane();
-    JScrollPane scrollPane2 = new JScrollPane();
-    public static int count = 0;
 	private JPanel p = new JPanel();
+	private JPanel panel1 = new JPanel();
+	private JPanel panel2 = new JPanel();
+    private DefaultListModel<String> model;
+    private JList<String> list = new JList<String>();
+    private JList<String> list2 = new JList<String>();
+    public static int count = 0;
+	private JTextField t_rech= new JTextField();
+	private JLabel l_main = new JLabel("Clients");
+    
+	JScrollPane scrollPane = new JScrollPane();
+    JScrollPane scrollPane2 = new JScrollPane();
+	JButton b_modifier = new JButton("Modifier");
+	JButton b_ajouter = new JButton("Ajouter");
+	JButton b_retour = new JButton("RETOUR");
 
 	public Fen4_Gest_MagEmp() {
 		
 		// Fenêtre
 		
-		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
 		p.setLayout(null);
@@ -40,7 +48,6 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		
 		// Panel 1 (Liste d'employés)
 		
-		JPanel panel1 = new JPanel();
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
@@ -53,10 +60,9 @@ public class Fen4_Gest_MagEmp extends JFrame {
         
         // Panel 2 (Informations de l'employé sélectionné)
         
-        model=new DefaultListModel<String>();
+        model = new DefaultListModel<String>();
         list2.setModel(model);
         
-		JPanel panel2 = new JPanel();
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
@@ -69,7 +75,6 @@ public class Fen4_Gest_MagEmp extends JFrame {
 
 		// Textfield - Recherche d'un employé
 		
-		JTextField t_rech = new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un employé...");
 		t_rech.setBounds(50, 100, 890, 45);
@@ -78,54 +83,44 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		
 		// JLabel "Employés"
 		
-		JLabel l_employes = new JLabel("Employ\u00E9s");
-		l_employes.setHorizontalAlignment(SwingConstants.CENTER);
-		l_employes.setFont(new Font("Arial", Font.BOLD, 50));
-		l_employes.setBounds(10, 15, 964, 57);
-		p.add(l_employes);
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Arial", Font.BOLD, 50));
+		l_main.setBounds(10, 15, 964, 57);
+		p.add(l_main);
 		
-		// Bouton "Modifier"
+		// Boutons : Modifier, Ajouter, Retour
 		
-		JButton b_modifier = new JButton("Modifier");
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen5_Gest_ModifEmp a = new Fen5_Gest_ModifEmp();
+				new Fen5_Gest_ModifEmp();
 				dispose();
 			}
 		});
 		p.add(b_modifier);
 		
-		// Bouton "Ajouter"
-		
-		JButton b_ajouter = new JButton("Ajouter");
-		b_ajouter.setIcon(null);
-		b_ajouter.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	Fen5_Gest_NewEmp a = new Fen5_Gest_NewEmp();
-            	dispose();
-                        
-            }
-		});
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 650, 400, 60);
 		b_ajouter.setBackground(new Color(100, 200, 120));
+		b_ajouter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	new Fen5_Gest_NewEmp();
+            	dispose();
+            }
+		});
 		p.add(b_ajouter);
 		
-		// Bouton "Retour"
-        
-		JButton b_retour = new JButton("RETOUR");
-		b_retour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Mag a = new Fen3_Gest_Mag();
-				dispose();
-			}
-		});
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
+		b_retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen3_Gest_Mag();
+				dispose();
+			}
+		});
 		p.add(b_retour);
 		
 	}
