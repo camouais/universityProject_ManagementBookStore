@@ -69,70 +69,64 @@ public class Fen4_Gest_MagEmp extends JFrame {
 
 		// Textfield - Recherche d'un employé
 		
-		JTextField txtRecherchezUnLivre = new JTextField();
-		txtRecherchezUnLivre.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtRecherchezUnLivre.setText("Recherchez un employé...");
-		txtRecherchezUnLivre.setBounds(50, 100, 890, 45);
-		p.add(txtRecherchezUnLivre);
-		txtRecherchezUnLivre.setColumns(10);
+		JTextField t_rech = new JTextField();
+		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_rech.setText("Recherchez un employé...");
+		t_rech.setBounds(50, 100, 890, 45);
+		p.add(t_rech);
+		t_rech.setColumns(10);
 		
 		// JLabel "Employés"
 		
-		JLabel lblNewLabel = new JLabel("Employ\u00E9s");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 50));
-		lblNewLabel.setBounds(10, 15, 964, 57);
-		p.add(lblNewLabel);
+		JLabel l_employes = new JLabel("Employ\u00E9s");
+		l_employes.setHorizontalAlignment(SwingConstants.CENTER);
+		l_employes.setFont(new Font("Arial", Font.BOLD, 50));
+		l_employes.setBounds(10, 15, 964, 57);
+		p.add(l_employes);
 		
-		// Bouton "Tout Effacer"
+		// Bouton "Modifier"
 		
-		JButton btnModifier = new JButton("Modifier");
-		btnModifier.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnModifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnModifier.setBounds(540, 555, 400, 60);
-		btnModifier.setBackground(new Color(200, 200, 100));
-		btnModifier.addActionListener(new ActionListener() {
+		JButton b_modifier = new JButton("Modifier");
+		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_modifier.setBounds(540, 555, 400, 60);
+		b_modifier.setBackground(new Color(200, 200, 100));
+		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen5_Gest_ModifEmp a = new Fen5_Gest_ModifEmp();
 				dispose();
 			}
 		});
-		p.add(btnModifier);
+		p.add(b_modifier);
 		
 		// Bouton "Ajouter"
 		
-		JButton btnAjouter = new JButton("Ajouter");
-		btnAjouter.setIcon(null);
-		btnAjouter.addActionListener(new ActionListener() {
-            @Override
+		JButton b_ajouter = new JButton("Ajouter");
+		b_ajouter.setIcon(null);
+		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
-	                count++;
-                }           
+            	Fen5_Gest_NewEmp a = new Fen5_Gest_NewEmp();
+            	dispose();
+                        
             }
 		});
-		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnAjouter.setBounds(50, 650, 400, 60);
-		btnAjouter.setBackground(new Color(100, 200, 120));
-		p.add(btnAjouter);
+		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_ajouter.setBounds(50, 650, 400, 60);
+		b_ajouter.setBackground(new Color(100, 200, 120));
+		p.add(b_ajouter);
 		
-		// Bouton "Enregistrer"
+		// Bouton "Retour"
         
-		JButton btnRetour = new JButton("RETOUR");
-		btnRetour.addActionListener(new ActionListener() {
+		JButton b_retour = new JButton("RETOUR");
+		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen3_Gest_Mag a = new Fen3_Gest_Mag();
 				dispose();
 			}
 		});
-		btnRetour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnRetour.setBounds(540, 650, 400, 60);
-		btnRetour.setBackground(new Color(200, 100, 100));
-		p.add(btnRetour);
+		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_retour.setBounds(540, 650, 400, 60);
+		b_retour.setBackground(new Color(200, 100, 100));
+		p.add(b_retour);
 		
 	}
 	
