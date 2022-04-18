@@ -1,7 +1,5 @@
-
 package view;
 
-import model.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -9,6 +7,8 @@ import javax.swing.border.*;
 
 public class Fen3_Gest_Liv extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+
 	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
@@ -16,13 +16,21 @@ public class Fen3_Gest_Liv extends JFrame {
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			};
     
-    JList<String> list = new JList<String>();
-    JList<String> list2 = new JList<String>();
-    DefaultListModel<String> model;
-    JScrollPane scrollPane = new JScrollPane();
-    JScrollPane scrollPane2 = new JScrollPane();
-    public static int count = 0;
 	private JPanel p = new JPanel();
+    private DefaultListModel<String> model;
+	private JScrollPane scrollPane = new JScrollPane();
+    private JScrollPane scrollPane2 = new JScrollPane();
+    private JList<String> list = new JList<String>();
+    private JList<String> list2 = new JList<String>();
+	private JPanel panel1 = new JPanel();
+	private JPanel panel2 = new JPanel();
+    public static int count = 0;
+	private JTextField t_rech= new JTextField();
+	private JLabel l_main = new JLabel("Clients");
+    
+	JButton b_modifier = new JButton("Modifier");
+	JButton b_ajouter = new JButton("Ajouter");
+	JButton b_retour = new JButton("RETOUR");
 
 	public Fen3_Gest_Liv() {
 		
@@ -39,9 +47,8 @@ public class Fen3_Gest_Liv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employés)
+		// Liste 1 (Liste d'employés)
 		
-		JPanel panel1 = new JPanel();
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
@@ -52,12 +59,11 @@ public class Fen3_Gest_Liv extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Panel 2 (Informations de l'employé sélectionné)
+        // Liste 2 (Informations de l'employé sélectionné)
         
         model=new DefaultListModel<String>();
         list2.setModel(model);
         
-		JPanel panel2 = new JPanel();
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
@@ -70,65 +76,57 @@ public class Fen3_Gest_Liv extends JFrame {
 
 		// Textfield - Recherche d'un livre
 		
-		JTextField txtRecherchezUnLivre = new JTextField();
-		txtRecherchezUnLivre.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtRecherchezUnLivre.setText("Recherchez un livre...");
-		txtRecherchezUnLivre.setBounds(50, 100, 890, 45);
-		p.add(txtRecherchezUnLivre);
-		txtRecherchezUnLivre.setColumns(10);
+		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_rech.setText("Recherchez un livre...");
+		t_rech.setBounds(50, 100, 890, 45);
+		p.add(t_rech);
+		t_rech.setColumns(10);
 		
 		// JLabel "Livres"
 		
-		JLabel lblNewLabel = new JLabel("Livres");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 50));
-		lblNewLabel.setBounds(10, 15, 964, 57);
-		p.add(lblNewLabel);
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Arial", Font.BOLD, 50));
+		l_main.setBounds(10, 15, 964, 57);
+		p.add(l_main);
 		
-		// Bouton "Modifier"
+		// Boutons : Modifier, Ajouter, Retour
 		
-		JButton btnModifier = new JButton("Modifier");
-		btnModifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnModifier.setBounds(540, 555, 400, 60);
-		btnModifier.setBackground(new Color(200, 200, 100));
-		btnModifier.addActionListener(new ActionListener() {
+		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_modifier.setBounds(540, 555, 400, 60);
+		b_modifier.setBackground(new Color(200, 200, 100));
+		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_ModifLiv a = new Fen4_Gest_ModifLiv();
+				new Fen4_Gest_ModifLiv();
 				dispose();
 			}
 		});
-		p.add(btnModifier);
+		p.add(b_modifier);
 		
-		// Bouton "Ajouter"
-		
-		JButton btnAjouter = new JButton("Ajouter");
-		btnAjouter.setIcon(null);
-		btnAjouter.addActionListener(new ActionListener() {
+		b_ajouter.setIcon(null);
+		b_ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	Fen4_Gest_NewLiv a = new Fen4_Gest_NewLiv();
-            	dispose();
+                if(list.getSelectedValue()!=null) {
+	                model.addElement("Test n°"+count);
+	                count++;
+                }           
             }
 		});
-		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btnAjouter.setBounds(50, 650, 400, 60);
-		btnAjouter.setBackground(new Color(100, 200, 120));
-		p.add(btnAjouter);
-		
-		// Bouton "Enregistrer"
+		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_ajouter.setBounds(50, 650, 400, 60);
+		b_ajouter.setBackground(new Color(100, 200, 120));
+		p.add(b_ajouter);
         
-		JButton btnRetour = new JButton("RETOUR");
-		btnRetour.addActionListener(new ActionListener() {
+		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen2_Gest a = new Fen2_Gest();
+				new Fen2_Gest();
 				dispose();
 			}
 		});
-		btnRetour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnRetour.setBounds(540, 650, 400, 60);
-		btnRetour.setBackground(new Color(200, 100, 100));
-		p.add(btnRetour);
-		
+		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_retour.setBounds(540, 650, 400, 60);
+		b_retour.setBackground(new Color(200, 100, 100));
+		p.add(b_retour);
 	}
 	
 	public static void main(String[] args) {
