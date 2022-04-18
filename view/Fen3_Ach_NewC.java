@@ -6,7 +6,17 @@ import javax.swing.*;
 
 public class Fen3_Ach_NewC extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel p = new JPanel();
+	private JLabel lblNewLabel = new JLabel("Ajout d'un nouveau client");
+	private JLabel l_nom = new JLabel("Nom :");
+	private JLabel l_prenom = new JLabel("Prénom :");
+	private JLabel l_adresse = new JLabel("Adresse :");
+	private JLabel l_tel = new JLabel("Téléphone :");
+	private JLabel l_sexe = new JLabel("Sexe :");
+	private JLabel l_mail = new JLabel("Mail :");
+	private JLabel l_dateN = new JLabel("Date de naissance :");
 	private JTextField t_nom;
 	private JTextField t_prenom;
 	private JTextField t_adresse;
@@ -30,116 +40,77 @@ public class Fen3_Ach_NewC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		JLabel lblNewLabel = new JLabel("Ajout d'un nouveau client");
 		lblNewLabel.setBounds(350, 21, 912, 48);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(lblNewLabel);
 		
-		//JLabel nom
+		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
 		
-		JLabel l_nom = new JLabel("Nom :");
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
 		p.add(l_nom);
 		
-		//JLabel prénom
-		
-		JLabel l_prenom = new JLabel("Prénom :");
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
 		p.add(l_prenom);
 		
-		//JLabel adresse
-		
-		JLabel l_adresse = new JLabel("Adresse :");
 		l_adresse.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_adresse.setBounds(115, 353, 147, 37);
 		p.add(l_adresse);
 		
-		//JLabel téléphone
-		
-		JLabel l_tel = new JLabel("Téléphone :");
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);
 		p.add(l_tel);
 		
-		//JLabel sexe
-		
-		JLabel l_sexe = new JLabel("Sexe :");
 		l_sexe.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_sexe.setBounds(643, 119, 147, 37);
 		p.add(l_sexe);
 		
-		//JLabel mail
-		
-		JLabel l_mail = new JLabel("Mail :");
 		l_mail.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_mail.setBounds(643, 237, 147, 37);
 		p.add(l_mail);
 		
-		//JLabel date de naissance
-		
-		JLabel l_dateN = new JLabel("Date de naissance :");
 		l_dateN.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_dateN.setBounds(643, 353, 326, 37);
 		p.add(l_dateN);
 		
-		
-		//JTextfield nom 
+		// Text Fields : Nom, Prénom, Adresse, Téléphone, Sexe, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(115, 154, 389, 58);
 		p.add(t_nom);
 		
-		//JTextfield prenom 
-		
 		t_prenom = new JTextField();
 		t_prenom.setBounds(115, 272, 389, 58);
 		p.add(t_prenom);
-		
-		//JTextfield adresse 
 		
 		t_adresse = new JTextField();
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 		
-		//JTextfield téléphone
-		
 		t_tel = new JTextField();
 		t_tel.setBounds(115, 513, 389, 58);
 		p.add(t_tel);
-		
-		//JTextfield sexe 
 		
 		t_sexe = new JTextField();
 		t_sexe.setBounds(643, 154, 389, 58);
 		p.add(t_sexe);
 		
-		//JTextfield mail
-		
 		t_mail = new JTextField();
 		t_mail.setBounds(643, 272, 389, 58);
 		p.add(t_mail);
-		
-		//JTextfield date de naissance 
 		
 		t_dateN = new JTextField();
 		t_dateN.setBounds(643, 392, 389, 58);
 		p.add(t_dateN);
 		
-		//JButton Effacer
+		// Boutons : Effacer, Valider, Retour
 		
 		b_effacer.setForeground(new Color(255, 255, 255));
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_effacer.setBounds(739, 502, 207, 64);
-		b_effacer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		p.add(b_effacer);
-		
-		//JButton Valider
 		
 		b_valider.setBackground(new Color(0, 128, 0));
 		b_valider.setForeground(new Color(255, 255, 255));
@@ -147,13 +118,11 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Ach_DoAch a = new Fen4_Ach_DoAch();
+				new Fen4_Ach_DoAch();
 				dispose();
 			}
 		});
 		p.add(b_valider);
-		
-		//JButton retour
 		
 		b_retour.setForeground(new Color(255, 255, 255));
 		b_retour.setBackground(new Color(255, 215, 0));
@@ -161,7 +130,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen2_Ach a = new Fen2_Ach();
+				new Fen2_Ach();
 				dispose();
 			}
 		});
