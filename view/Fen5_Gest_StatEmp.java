@@ -3,12 +3,12 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
 
 public class Fen5_Gest_StatEmp extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
-    Object[][] donnees1 = {
+	Object[][] donnees1 = {
             {"A", "1", "heiugeigeig", true, "&", "ss",true, "&", "ss"},
             {"Z", "2", "heiugeigeig", true, "é",true, "&", "ss"},
             {"E", "3", "heiugeigeig", true, "(",true, "&", "ss"},
@@ -38,17 +38,19 @@ public class Fen5_Gest_StatEmp extends JFrame {
     
     String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Salaire", "Fonction", "Ancienneté"};
     
-    JScrollPane scrollPane = new JScrollPane();
+    private JPanel p = new JPanel();
+    private JTable table1 = new JTable(donnees1, entetes1); 
+    private JScrollPane scrollPane_1 = new JScrollPane(table1);
+    private JLabel l_stem = new JLabel("Statistiques au niveau des employés ");
+    private JLabel l_valueAg = new JLabel("ag");
+    private JLabel l_valueS = new JLabel("sa");
+    private JLabel l_valueT = new JLabel("nb");
+    private JLabel l_soms = new JLabel("Somme des salaires : ");
+    private JLabel l_agm = new JLabel("Age moyen : ");
+    private JLabel l_nbrt = new JLabel("Nombre total d'employés : ");
     
-    JLabel l_stem = new JLabel("Statistiques au niveau des employés ");
-    JLabel l_valueAg = new JLabel("ag");
     JButton b_retour = new JButton("Retour");
-    JLabel l_valueS = new JLabel("sa");
-    JLabel l_valueT = new JLabel("nb");
-    JLabel l_soms = new JLabel("Somme salaires :");
-    JLabel l_agm = new JLabel("Age moyen :");
-    JLabel l_nbrt = new JLabel("Nombre total d'employés :");
-    JPanel panel = new JPanel();
+    JScrollPane scrollPane = new JScrollPane();
     
 	public Fen5_Gest_StatEmp() {
 		
@@ -59,61 +61,72 @@ public class Fen5_Gest_StatEmp extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		setContentPane(panel);
-	    panel.setLayout(null);
-	    panel.setBackground(new Color(0, 222, 100));
+		setContentPane(p);
+	    p.setLayout(null);
+	    p.setBackground(new Color(0, 222, 100));
 		
 		// Tableau
 	   
-	    JTable table1 = new JTable(donnees1, entetes1); 
 	    table1.setAutoCreateRowSorter(true);
 	    table1.setBounds(100, 150, 800, 400);
-	    JScrollPane scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100, 150, 800, 400);
-	    panel.add(scrollPane_1);
+	    p.add(scrollPane_1);
 	    
 	    // JLabel "Statistiques au niveau des employés"
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
 	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
 	    l_stem.setBounds(125, 50, 750, 42);
-	    panel.add(l_stem);
+	    p.add(l_stem);
+	    
+	    // JLabel "Nombre total d'employés"
 
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_nbrt.setBounds(472, 591, 341, 42);
-	    panel.add(l_nbrt);
+	    p.add(l_nbrt);
+	    
+	    // JLabel "Âge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
-	    panel.add(l_agm);
+	    p.add(l_agm);
+	    
+	    // JLabel "Somme des salaires"
 
 	    l_soms.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_soms.setBounds(472, 696, 341, 42);
-	    panel.add(l_soms);
+	    p.add(l_soms);
+	    
+	    // JLabel : Valeur totale d'employés
 	    
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueT.setBounds(799, 591, 47, 42);
-	    panel.add(l_valueT);
+	    p.add(l_valueT);
+	    
+	    // JLabel : Valeur de l'âge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);
-	    panel.add(l_valueAg);
+	    p.add(l_valueAg);
+	    
+	    // JLabel : Valeur de la somme des salaires
 	    
 	    l_valueS.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueS.setBounds(799, 696, 64, 42);
-	    panel.add(l_valueS);
+	    p.add(l_valueS);
+	    
+	    // Bouton "Retour"
 	   
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	    b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_MagStat a = new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat();
 				dispose();
 			}
 		});
 	    b_retour.setBounds(71, 634, 222, 57);
 	    b_retour.setBackground(new Color(64,128,0));
-	    
-	    panel.add(b_retour);
+	    p.add(b_retour);
 	}
 	
 	public static void main(String[] args) {
