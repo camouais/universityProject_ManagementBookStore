@@ -13,6 +13,8 @@ class Employe {
     private String adresse;
     private String mail;
     private String tel;
+    public String age;
+    public String sexe;
     public Magasin magasin;
     public int idEmp; 
     public Set<Livraison> listLiv; 
