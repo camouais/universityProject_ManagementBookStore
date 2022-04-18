@@ -1,22 +1,12 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Color;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Fen4_Gest_NewLiv extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane = new JPanel();
 	private JTextField t_titre;
@@ -169,7 +159,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_retour.setBounds(30, 610, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Liv a = new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv();
 				dispose();
 			}
 		});
@@ -184,7 +174,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_enregistrer.setBounds(574, 610, 235, 64);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Liv a = new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv();
 				dispose();
 			}
 		});
