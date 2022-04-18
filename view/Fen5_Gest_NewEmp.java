@@ -185,5 +185,4 @@ public class Fen5_Gest_NewEmp extends JFrame {
 			}
 		});
 	}
-
 }
