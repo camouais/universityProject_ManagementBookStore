@@ -6,6 +6,8 @@ import javax.swing.*;
 
 public class Fen1 extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel p = new JPanel();
 	
 	public Fen1() {
@@ -30,7 +32,7 @@ public class Fen1 extends JFrame {
 		b_gestion.setBounds(50, 50, 400, 100);
 		b_gestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen2_Gest a = new Fen2_Gest();
+				new Fen2_Gest();
 				dispose();
 			}
 		});
@@ -45,7 +47,7 @@ public class Fen1 extends JFrame {
 		b_achats.setBounds(50, 200, 400, 100);
 		b_achats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen2_Ach a = new Fen2_Ach();
+				new Fen2_Ach();
 				dispose();
 			}
 		});
@@ -78,5 +80,4 @@ public class Fen1 extends JFrame {
 			}
 		});
 	}
-
 }
