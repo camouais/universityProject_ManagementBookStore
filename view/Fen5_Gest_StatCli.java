@@ -3,12 +3,12 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
 
 public class Fen5_Gest_StatCli extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
-    Object[][] donnees1 = {
+	Object[][] donnees1 = {
             {"Nom 1", "Prénom 1", "27", "M", "&", "21/02/2021", "13"},
             {"Nom 2", "Prénom 2", "25", "M", "é", "28/05/2021", "2"},
             {"Nom 3", "Prénom 3", "32", "F", "(", "11/01/2021", "4"},
@@ -26,17 +26,17 @@ public class Fen5_Gest_StatCli extends JFrame {
     
     String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Date de création", "Nombre d'achats", "Dépenses totales"};
     
-    JScrollPane scrollPane = new JScrollPane();
+    private JPanel p = new JPanel();
+    private JTable table1 = new JTable(donnees1, entetes1); 
+    private JScrollPane scrollPane_1 = new JScrollPane(table1);
+    private JLabel l_stem = new JLabel("Statistiques au niveau des clients");
+    private JLabel l_valueAg = new JLabel("ag");
+    private JLabel l_valueT = new JLabel("nb");
+    private JLabel l_nbrt = new JLabel("Nombre total de clients :");
+    private JLabel l_agm = new JLabel("Age moyen :");
     
-    JLabel l_stem = new JLabel("Statistiques au niveau des clients");
-    JLabel l_valueAg = new JLabel("ag");
     JButton b_retour = new JButton("Retour");
-    JLabel l_valueS = new JLabel("sa");
-    JLabel l_valueT = new JLabel("nb");
-    JLabel l_nbrt = new JLabel("Nombre total de clients :");
-    JLabel l_agm = new JLabel("Age moyen :");
-    JLabel l_soms = new JLabel("Recette totale :");
-    JPanel panel = new JPanel();
+    JScrollPane scrollPane = new JScrollPane();
     
 	public Fen5_Gest_StatCli() {
 		
@@ -45,61 +45,60 @@ public class Fen5_Gest_StatCli extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		setContentPane(panel);
-	    panel.setLayout(null);
-	    panel.setBackground(new Color(244, 164, 96));
+		setContentPane(p);
+	    p.setLayout(null);
+	    p.setBackground(new Color(244, 164, 96));
 	    
 	    // Tableau
 	   
-	    JTable table1 = new JTable(donnees1, entetes1); 
 	    table1.setAutoCreateRowSorter(true);
 	    table1.setBounds(100, 150, 800, 400);
-	    JScrollPane scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100, 150, 800, 400);
-	    panel.add(scrollPane_1);
+	    p.add(scrollPane_1);
 	    
 	    // JLabel "Statistiques au niveau des clients"
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
 	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
 	    l_stem.setBounds(144, 50, 704, 42);
-	    panel.add(l_stem);
+	    p.add(l_stem);
+	    
+	    // JLabel "Nombre total de clients"
 
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_nbrt.setBounds(472, 591, 341, 42);
-	    panel.add(l_nbrt);
+	    p.add(l_nbrt);
+	    
+	    // JLabel "Âge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
-	    panel.add(l_agm);
-
-	    l_soms.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_soms.setBounds(472, 696, 341, 42);
-	    panel.add(l_soms);
+	    p.add(l_agm);
+	    
+	    // JLabel : Valeur totale de clients
 	    
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueT.setBounds(799, 591, 47, 42);
-	    panel.add(l_valueT);
+	    p.add(l_valueT);
+	    
+	    // JLabel : Valeur de l'âge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);
-	    panel.add(l_valueAg);
+	    p.add(l_valueAg);
 	    
-	    l_valueS.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueS.setBounds(799, 696, 64, 42);
-	    panel.add(l_valueS);
+	    // Bouton "Retour"
 	    
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	    b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen4_Gest_MagStat a = new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat();
 				dispose();
 			}
 		});
 	    b_retour.setBounds(71, 634, 222, 57);
 	    b_retour.setBackground(new Color(64,128,0));
-	    
-	    panel.add(b_retour);
+	    p.add(b_retour);
 	}
 	
 	public static void main(String[] args) {
