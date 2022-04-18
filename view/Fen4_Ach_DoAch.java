@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 public class Fen4_Ach_DoAch extends JFrame{
-	private JTextField txtRecherchezUnLivre;
+	private JTextField t_rech;
 	
 	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
 			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
@@ -69,48 +69,55 @@ public class Fen4_Ach_DoAch extends JFrame{
 
 		// Textfield - Recherche de livres
 		
-		txtRecherchezUnLivre = new JTextField();
-		txtRecherchezUnLivre.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtRecherchezUnLivre.setText("Recherchez un livre");
-		txtRecherchezUnLivre.setBounds(50, 100, 400, 45);
-		p.add(txtRecherchezUnLivre);
-		txtRecherchezUnLivre.setColumns(10);
+		t_rech = new JTextField();
+		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_rech.setText("Recherchez un livre");
+		t_rech.setBounds(50, 100, 400, 45);
+		p.add(t_rech);
+		t_rech.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("R\u00E9alisation de l'achat");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 36));
-		lblNewLabel.setBounds(10, 11, 964, 57);
-		p.add(lblNewLabel);
+		// JLabel Réalisation de l'achat
+
+		JLabel l_achat = new JLabel("R\u00E9alisation de l'achat");
+		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
+		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
+		l_achat.setBounds(10, 11, 964, 57);
+		p.add(l_achat);
 		
 		// Bouton "Effacer"
 		
-		JButton btnEffacer = new JButton("Effacer");
-		btnEffacer.addActionListener(new ActionListener() {
+		JButton b_effacer = new JButton("Effacer");
+		b_effacer.setBackground(new Color(58, 2, 13));
+		b_effacer.setForeground(Color.WHITE);
+		b_effacer.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(list2.getSelectedValue()!=null) {
 					model.removeElement(list2.getSelectedValue());
 				}
 			}
 		});
-		btnEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnEffacer.setBounds(540, 500, 400, 50);
-		p.add(btnEffacer);
+		b_effacer.setBounds(540, 500, 400, 50);
+		p.add(b_effacer);
 		
 		// Bouton "Tout Effacer"
 		
-		JButton btnTEffacer = new JButton("Tout Effacer");
-		btnTEffacer.addActionListener(new ActionListener() {
+		JButton b_toutEffacer = new JButton("Tout Effacer");
+		b_toutEffacer.setBackground(new Color(0, 0, 0));
+		b_toutEffacer.setForeground(Color.WHITE);
+		b_toutEffacer.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_toutEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnTEffacer.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnTEffacer.setBounds(540, 555, 400, 50);
-		p.add(btnTEffacer);
+		b_toutEffacer.setBounds(540, 555, 400, 50);
+		p.add(b_toutEffacer);
 		
 		// Bouton "Ajouter"
 		
-		JButton btnAjouter = new JButton("Ajouter");
-		btnAjouter.addActionListener(new ActionListener() {
+		JButton b_ajouter = new JButton("Ajouter");
+		b_ajouter.setBackground(new Color(217, 1, 21));
+		b_ajouter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedValue()!=null) {
@@ -119,35 +126,37 @@ public class Fen4_Ach_DoAch extends JFrame{
                 }           
             }
 		});
-		btnAjouter.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnAjouter.setBounds(50, 555, 400, 50);
-		p.add(btnAjouter);
+		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_ajouter.setBounds(50, 555, 400, 50);
+		p.add(b_ajouter);
 		
 		// Bouton "Retour"
 		
-        JButton btnRetour = new JButton("Retour");
-        btnRetour.addActionListener(new ActionListener() {
+        JButton b_retour = new JButton("Retour");
+        b_retour.setBackground(new Color(255, 255, 0));
+        b_retour.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		Fen2_Ach a = new Fen2_Ach();
         		dispose();
         	}
         });
-        btnRetour.setFont(new Font("Tahoma", Font.PLAIN, 30));
-        btnRetour.setBounds(50, 650, 400, 60);
-        p.add(btnRetour);
+        b_retour.setFont(new Font("Tahoma", Font.PLAIN, 30));
+        b_retour.setBounds(50, 650, 400, 60);
+        p.add(b_retour);
 		
 		// Bouton "Enregistrer"
         
-		JButton btnEnregistrer = new JButton("Enregistrer");
-		btnEnregistrer.addActionListener(new ActionListener() {
+		JButton b_enregistrer = new JButton("Enregistrer");
+		b_enregistrer.setBackground(new Color(1, 215, 88));
+		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fen5_Ach_Fact a = new Fen5_Ach_Fact();
 				dispose();
 			}
 		});
-		btnEnregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnEnregistrer.setBounds(540, 650, 400, 60);
-		p.add(btnEnregistrer);
+		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_enregistrer.setBounds(540, 650, 400, 60);
+		p.add(b_enregistrer);
 		
 	}
 	
