@@ -1,18 +1,13 @@
 package view;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Fen4_Gest_NewCli extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
 	private JTextField t_prenom;
@@ -91,7 +86,6 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_dateN.setBounds(643, 353, 326, 37);
 		p.add(l_dateN);
 		
-		
 		//JTextfield nom 
 		
 		t_nom = new JTextField();
@@ -154,7 +148,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Cl a = new Fen3_Gest_Cl();
+				new Fen3_Gest_Cli();
 				dispose();
 			}
 		});
@@ -168,7 +162,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fen3_Gest_Cl a = new Fen3_Gest_Cl();
+				new Fen3_Gest_Cli();
 				dispose();
 			}
 		});
