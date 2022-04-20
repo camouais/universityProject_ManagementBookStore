@@ -3,7 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import controller.*;
 public class Fen3_Ach_NewC extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -116,12 +116,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_valider.setForeground(new Color(255, 255, 255));
 		b_valider.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_valider.setBounds(739, 619, 207, 64);
-		b_valider.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch();
-				dispose();
-			}
-		});
+		b_valider.addActionListener(new NewClient(t_nom,t_prenom,t_adresse,t_tel,t_mail,t_sexe));
 		p.add(b_valider);
 		
 		b_retour.setForeground(new Color(255, 255, 255));
