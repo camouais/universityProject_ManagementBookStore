@@ -13,12 +13,12 @@ public class NewMagasin implements ActionListener {
 	JTextField adresse;
 	
 	public NewMagasin(JTextField n, JTextField a) {
-		this.nom=n;
-		this.adresse=a;
+		this.nom = n;
+		this.adresse = a;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		magasin= new Magasin(nom.getText(), adresse.getText());
+		magasin= new Magasin(nom.getText());
 		
 	}
 }
