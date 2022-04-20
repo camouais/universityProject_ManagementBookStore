@@ -15,3 +15,6 @@
 <b>model.Client</b> :
   - Calcul âge client (méthode)
 
+<b>Magasin</b> : 
+  - Ajout d'autres arguments facultatifs
+  - Revue des méthodes
