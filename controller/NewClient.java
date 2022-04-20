@@ -1,11 +1,8 @@
 package controller;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.*;
 import model.*;
-import view.*;
 
 public class NewClient implements ActionListener{
 	Client c;
