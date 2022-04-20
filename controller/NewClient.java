@@ -8,7 +8,7 @@ import model.*;
 import view.*;
 
 public class NewClient implements ActionListener {
-	
+	static int id =0;
 	Client c;
 	JTextField nom;
 	JTextField prenom;
