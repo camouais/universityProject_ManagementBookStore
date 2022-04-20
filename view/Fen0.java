@@ -5,6 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import controller.*;
+
 public class Fen0 extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class Fen0 extends JFrame {
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen1();
-				// b_valider.addActionListener(new NewMagasin(t_mag));
+				b_valider.addActionListener(new NewMagasin(t_mag));
 				dispose();
 			}
 		});
