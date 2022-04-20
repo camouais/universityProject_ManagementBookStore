@@ -5,7 +5,8 @@ import java.util.*;
 public class Client {
 	
     // Attributs
-	
+
+    public static int totalC;
     public String nom;
     public String prenom;
     public String mail;
@@ -20,25 +21,30 @@ public class Client {
     
     // Constructeur
 
-    public Client(String p, String n, String s, Date dn, String ad, int id) {
+    public Client(String n, String p, String ad, String t, String am, String s) {
     	nom = n;
     	prenom = p;
     	sexe = s;
-    	dateNaiss = dn;
+    	tel = t;
     	dateCreationCompte = new Date(System.currentTimeMillis());
     	adresse = ad;
-    	idClient = id;
+    	totalC++;
+    	idClient = totalC;
     }
-  
-    // Méthodes
     
-    // Ajouter / Mettre à jour une adresse mail
+    public Client() {
+    	totalC = 0;
+    }
+    
+    // MÃ©thodes
+    
+    // Ajouter / Mettre Ã  jour une adresse mail
     
     public void updMail(String m) {
     	mail = m;
     }
     
-    // Ajouter / Mettre à jour un numéro de téléphone
+    // Ajouter / Mettre Ã  jour un numÃ©ro de tÃ©lÃ©phone
     
     public void updTel(String t) {
     	tel = t;
