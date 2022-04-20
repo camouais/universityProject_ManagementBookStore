@@ -12,4 +12,6 @@
   - Ajouter un moyen de prendre en compte la livraison (attention aux paramètres de livraison : magasin ou adresse chez le client)
   - Permettre de pouvoir afficher les infos d'un livre en double cliquant sur un élément de la liste de livre 
 
+<b>model.Client</b> :
+  - Calcul âge client (méthode)
 
