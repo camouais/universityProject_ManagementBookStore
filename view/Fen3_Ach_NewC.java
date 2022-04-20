@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controller.*;
+
 public class Fen3_Ach_NewC extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -11,9 +12,9 @@ public class Fen3_Ach_NewC extends JFrame {
 	private JPanel p = new JPanel();
 	private JLabel lblNewLabel = new JLabel("Ajout d'un nouveau client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prénom :");
+	private JLabel l_prenom = new JLabel("PrÃ©nom :");
 	private JLabel l_adresse = new JLabel("Adresse :");
-	private JLabel l_tel = new JLabel("Téléphone :");
+	private JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
 	private JLabel l_sexe = new JLabel("Sexe :");
 	private JLabel l_mail = new JLabel("Mail :");
 	private JLabel l_dateN = new JLabel("Date de naissance :");
@@ -44,7 +45,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(lblNewLabel);
 		
-		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
+		// Labels : "Nom", "PrÃ©nom", "Adresse", "TÃ©lÃ©phone", "Sexe", "Mail", "Date de naissance"
 		
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
@@ -74,7 +75,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_dateN.setBounds(643, 353, 326, 37);
 		p.add(l_dateN);
 		
-		// Text Fields : Nom, Prénom, Adresse, Téléphone, Sexe, Mail, Date de naissance
+		// Text Fields : Nom, PrÃ©nom, Adresse, TÃ©lÃ©phone, Sexe, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(115, 154, 389, 58);
@@ -116,7 +117,12 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_valider.setForeground(new Color(255, 255, 255));
 		b_valider.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_valider.setBounds(739, 619, 207, 64);
-		b_valider.addActionListener(new NewClient(t_nom,t_prenom,t_adresse,t_tel,t_mail,t_sexe));
+		b_valider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen4_Ach_DoAch();
+				dispose();
+			}
+		});
 		p.add(b_valider);
 		
 		b_retour.setForeground(new Color(255, 255, 255));
@@ -126,6 +132,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen2_Ach();
+				new NewClient(t_nom,t_prenom,t_adresse,t_tel,t_mail,t_sexe);
 				dispose();
 			}
 		});
