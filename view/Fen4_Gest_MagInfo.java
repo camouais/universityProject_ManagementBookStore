@@ -47,8 +47,9 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		
 		t_nom.setBounds(150, 100, 380, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		p.add(t_nom);
 		t_nom.setColumns(10);
+		t_nom.setText(m.getNom());
+		p.add(t_nom);
 		
 		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setColumns(10);
@@ -63,7 +64,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_retour.setBounds(50, 200, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-                System.out.println("nom sortant =" + m.getNom());
+                System.out.println("nom sortant = " + m.getNom());
 				new Fen3_Gest_Mag(m);
 				dispose();
 			}
@@ -76,8 +77,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_enreg.setBounds(300, 200, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	Modif_InfoMag a = new Modif_InfoMag(m,t_nom);
-                System.out.println("Text=" + m.getNom());
+            	new Modif_InfoMag(m,t_nom);
             }
         });
 		p.add(b_enreg);
