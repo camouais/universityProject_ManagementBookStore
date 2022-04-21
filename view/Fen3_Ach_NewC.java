@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controller.*;
+import model.*;
 
 public class Fen3_Ach_NewC extends JFrame {
 	
@@ -30,7 +31,7 @@ public class Fen3_Ach_NewC extends JFrame {
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen3_Ach_NewC() {
+	public Fen3_Ach_NewC(Magasin m) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -119,7 +120,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch();
+				new Fen4_Ach_DoAch(m);
 				dispose();
 			}
 		});
@@ -131,24 +132,11 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Ach();
+				new Fen2_Ach(m);
 				new NewClient(t_nom,t_prenom,t_adresse,t_tel,t_mail,t_sexe);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen3_Ach_NewC frame = new Fen3_Ach_NewC();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
