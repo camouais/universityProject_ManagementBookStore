@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen4_Gest_MagStat extends JFrame {
 	
@@ -18,9 +19,9 @@ public class Fen4_Gest_MagStat extends JFrame {
 	JButton b_emp = new JButton("EMPLOYES");
 	JButton b_livres = new JButton("LIVRES");
 	
-	public Fen4_Gest_MagStat() {
+	public Fen4_Gest_MagStat(Magasin m) {
 		
-		//Fenêtre
+		//FenÃªtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -38,14 +39,14 @@ public class Fen4_Gest_MagStat extends JFrame {
 		l_main.setBounds(112, 18, 371, 66);
 		p.add(l_main);
     
-		// Boutons : Livres, Clients, Achats, Employés
+		// Boutons : Livres, Clients, Achats, EmployÃ©s
     
 		b_livres.setBackground(new Color(180, 112, 147));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 43));
 		b_livres.setBounds(87, 100, 400, 100);
 		b_livres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_StatLiv();
+				new Fen5_Gest_StatLiv(m);
 				dispose();
 			}
 		});
@@ -56,7 +57,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_clients.setBounds(87, 230, 400, 100);
 		b_clients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_StatCli();
+				new Fen5_Gest_StatCli(m);
 				dispose();
 			}
 		});
@@ -67,7 +68,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_achats.setBounds(87, 360, 400, 100);
 		b_achats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_StatAch();
+				new Fen5_Gest_StatAch(m);
 				dispose();
 			}
 		});
@@ -78,7 +79,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_emp.setBounds(87, 490, 400, 100);
 		b_emp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_StatEmp();
+				new Fen5_Gest_StatEmp(m);
 				dispose();
 			}
 		});
@@ -89,7 +90,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_compta.setBounds(87, 620, 400, 100);
 		b_compta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_StatComp();
+				new Fen5_Gest_StatComp(m);
 				dispose();
 			}
 		});
@@ -100,22 +101,10 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_retour.setBounds(30, 750, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag();
+				new Fen3_Gest_Mag(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-	}
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_MagStat frame = new Fen4_Gest_MagStat();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
