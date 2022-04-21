@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import model.*;
 
 public class Fen5_Ach_Fact extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -19,9 +20,9 @@ public class Fen5_Ach_Fact extends JFrame {
 	JButton b_enreg = new JButton("Enregistrer");
 	JButton b_retour = new JButton("Retour");
 	
-	public Fen5_Ach_Fact() {
+	public Fen5_Ach_Fact(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,7 +68,7 @@ public class Fen5_Ach_Fact extends JFrame {
 		p.add(t_prix);
 		t_prix.setColumns(10);
 		
-		// JPanel liste des achats (Tableau à ajouter pour lister les livres & prix)
+		// JPanel liste des achats (Tableau Ã  ajouter pour lister les livres & prix)
 		
 		p_achats.setBounds(25, 180, 432, 236);
 		p.add(p_achats);
@@ -79,7 +80,7 @@ public class Fen5_Ach_Fact extends JFrame {
 		b_enreg.setBounds(300, 475, 160, 41);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen1();
+				new Fen1(m);
 				dispose();
 			}
 		});
@@ -90,23 +91,10 @@ public class Fen5_Ach_Fact extends JFrame {
 		b_retour.setBounds(25, 475, 160, 41);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch();
+				new Fen4_Ach_DoAch(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen5_Ach_Fact frame = new Fen5_Ach_Fact();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
