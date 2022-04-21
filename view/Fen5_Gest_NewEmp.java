@@ -1,16 +1,9 @@
 package view;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import model.*;
 
 public class Fen5_Gest_NewEmp extends JFrame {
 	
@@ -26,12 +19,12 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	private JTextField t_dateN;
 	private JTextField t_fonction;
 	private JTextField t_salaire;
-	private JLabel lblNewLabel = new JLabel("Ajout d'un nouvel employé");
+	private JLabel lblNewLabel = new JLabel("Ajout d'un nouvel employÃ©");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prénom :");
+	private JLabel l_prenom = new JLabel("PrÃ©nom :");
 	private JLabel l_adresse = new JLabel("Adresse :");
 	private JLabel l_sexe = new JLabel("Sexe :");
-	private JLabel l_tel = new JLabel("Téléphone :");
+	private JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
 	private JLabel l_mail = new JLabel("Mail :");
 	private JLabel l_dateN = new JLabel("Date de naissance :");
 	private JLabel l_fonction = new JLabel("Fonction :");
@@ -41,7 +34,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 
-	public Fen5_Gest_NewEmp() {
+	public Fen5_Gest_NewEmp(Magasin m) {
 
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -66,7 +59,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		t_nom.setBounds(115, 154, 389, 58);
 		p.add(t_nom);
 		
-		// JLabel & JTextfield : Prénom
+		// JLabel & JTextfield : PrÃ©nom
 		
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
@@ -86,7 +79,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 
-		// JLabel & JTextfield : Téléphone
+		// JLabel & JTextfield : TÃ©lÃ©phone
 		
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);
@@ -154,7 +147,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		b_valider.setBounds(739, 719, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp(m);
 				dispose();
 			}
 		});
@@ -166,23 +159,10 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		b_retour.setBounds(208, 719, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen5_Gest_NewEmp frame = new Fen5_Gest_NewEmp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
