@@ -7,17 +7,17 @@ public class Client {
     // Attributs
 
     public static int totalC;
-    public String nom;
-    public String prenom;
-    public String mail;
-    public String tel;
-    public Date dateCreationCompte;
-    public Date dateNaiss;
-    public String adresse;
-    public String age;
-    public String sexe;
+    private int id;
+    private String nom;
+    private String prenom;
+    private String mail;
+    private String tel;
+    private Date dateCreationCompte;
+    private Date dateNaiss;
+    private String adresse;
+    private int age;
+    private String sexe;
     public Set<Commande> listCom;
-    public int idClient;
     
     // Constructeur
 
@@ -29,7 +29,7 @@ public class Client {
     	dateCreationCompte = new Date(System.currentTimeMillis());
     	adresse = ad;
     	totalC++;
-    	idClient = totalC;
+    	id = totalC;
     }
     
     public Client() {
@@ -49,9 +49,76 @@ public class Client {
     public void updTel(String t) {
     	tel = t;
     }
+    public int getId() {
+    	return id;
+    }
     
-    public String getName() {
-    	return (prenom + " " + nom);
+    public String getNom() {
+    	return nom;
+    }
+    
+    public void setNom(String a) {
+    	nom = a;
+    }
+    
+    public String getPrenom() {
+    	return prenom;
+    }
+    
+    public void setPrenom(String a) {
+    	prenom = a;
+    }
+    
+    public String getMail() {
+    	return mail;
+    }
+    
+    public void setMail(String a) {
+    	mail = a;
+    }
+    
+    public String getTel() {
+    	return tel;
+    }
+    
+    public void setTel(String a) {
+    	tel = a;
+    }
+    
+    public String getAdresse() {
+    	return adresse;
+    }
+    
+    public void setAdresse(String a) {
+    	adresse = a;
+    }
+    
+    public int getAge() {
+    	return age;
+    }
+    
+    public void setAge(int a) {
+    	age = a;
+    }
+    
+    public String getSexe() {
+    	return sexe;
+    }
+    
+    public void setSexe(String a) {
+    	sexe = a;
+    }
+    
+    public Date getDateCC() {
+    	return dateCreationCompte;
+    }
+    
+    public Date getDateNaissance() {
+    	return dateNaiss;
+    }
+    
+    public void setDateNaissance(Date a) {
+    	dateNaiss = a;
     }
 } 
     
