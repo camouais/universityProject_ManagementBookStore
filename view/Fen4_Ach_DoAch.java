@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import model.*;
 
 public class Fen4_Ach_DoAch extends JFrame {
 	
@@ -36,9 +37,9 @@ public class Fen4_Ach_DoAch extends JFrame {
     JButton b_retour = new JButton("Retour");
 	JButton b_enregistrer = new JButton("Enregistrer");
 
-	public Fen4_Ach_DoAch() {
+	public Fen4_Ach_DoAch(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,7 +87,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel Réalisation de l'achat
+		// JLabel RÃ©alisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
@@ -120,7 +121,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
+	                model.addElement("Test nÂ°"+count);
 	                count++;
                 }           
             }
@@ -132,7 +133,7 @@ public class Fen4_Ach_DoAch extends JFrame {
         b_retour.setBounds(50, 650, 400, 60);
         b_retour.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		new Fen2_Ach();
+        		new Fen2_Ach(m);
         		dispose();
         	}
         });
@@ -143,23 +144,10 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBounds(540, 650, 400, 60);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Ach_Fact();
+				new Fen5_Ach_Fact(m);
 				dispose();
 			}
 		});
 		p.add(b_enregistrer);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Ach_DoAch frame = new Fen4_Ach_DoAch();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
