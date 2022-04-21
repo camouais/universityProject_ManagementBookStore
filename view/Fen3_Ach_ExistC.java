@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen3_Ach_ExistC extends JFrame {
 	
@@ -14,13 +15,13 @@ public class Fen3_Ach_ExistC extends JFrame {
 	private JTextField t_id = new JTextField();
 	private JLabel l_main = new JLabel("Renseignements du client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prénom :");
+	private JLabel l_prenom = new JLabel("PrÃ©nom :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 
-	public Fen3_Ach_ExistC() {
+	public Fen3_Ach_ExistC(Magasin m) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -31,7 +32,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : "Renseignements du client", "Nom", "Prénom", "Identifiant"
+		// Labels : "Renseignements du client", "Nom", "PrÃ©nom", "Identifiant"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -50,7 +51,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		l_id.setBounds(20, 180, 150, 30);
 		p.add(l_id);
 		
-		// Text Fields : Nom, Prénom, Identifiant
+		// Text Fields : Nom, PrÃ©nom, Identifiant
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
@@ -75,7 +76,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		b_retour.setBounds(50, 230, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Ach();
+				new Fen2_Ach(m);
 				dispose();
 			}
 		});
@@ -86,23 +87,10 @@ public class Fen3_Ach_ExistC extends JFrame {
 		b_valider.setBounds(350, 230, 150, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch();
+				new Fen4_Ach_DoAch(m);
 				dispose();
 			}
 		});
 		p.add(b_valider);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen3_Ach_ExistC frame = new Fen3_Ach_ExistC();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
