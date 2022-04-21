@@ -12,13 +12,12 @@ public class NewMagasin {
     
     public NewMagasin(JTextField n) {
     	if(n.getText().equals("")) {
-    		System.out.println("name is empty"); //debug
     		Fen0 a = new Fen0();
     		a.setVisible(true); // Passer par une variable est visiblement nécessaire, new Fen0() n'est pas suffisant
     	} else {
-	        this.nom = n;
-	        System.out.println(n.getText());
-	        magasin = new Magasin("name is " + nom.getText()); //debug
+	        nom = n;
+	        System.out.println("name is " + nom.getText());
+	        magasin = new Magasin(nom.getText());
 	        new Fen1(magasin);
     	}
     }
