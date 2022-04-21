@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen4_Gest_NewCli extends JFrame {
 	
@@ -21,7 +22,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen4_Gest_NewCli() {
+	public Fen4_Gest_NewCli(Magasin m) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -44,9 +45,9 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_nom.setBounds(115, 119, 147, 37);
 		p.add(l_nom);
 		
-		//JLabel prénom
+		//JLabel prÃ©nom
 		
-		JLabel l_prenom = new JLabel("Prénom :");
+		JLabel l_prenom = new JLabel("PrÃ©nom :");
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
 		p.add(l_prenom);
@@ -58,9 +59,9 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_adresse.setBounds(115, 353, 147, 37);
 		p.add(l_adresse);
 		
-		//JLabel téléphone
+		//JLabel tÃ©lÃ©phone
 		
-		JLabel l_tel = new JLabel("Téléphone :");
+		JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);
 		p.add(l_tel);
@@ -104,7 +105,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 		
-		//JTextfield téléphone
+		//JTextfield tÃ©lÃ©phone
 		
 		t_tel = new JTextField();
 		t_tel.setBounds(115, 513, 389, 58);
@@ -148,7 +149,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli();
+				new Fen3_Gest_Cli(m);
 				dispose();
 			}
 		});
@@ -162,23 +163,10 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli();
+				new Fen3_Gest_Cli(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_NewCli frame = new Fen4_Gest_NewCli();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
