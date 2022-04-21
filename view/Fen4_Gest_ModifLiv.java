@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen4_Gest_ModifLiv extends JFrame {
 	
@@ -27,7 +28,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen4_Gest_ModifLiv() { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen4_Gest_ModifLiv(Magasin m) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -42,7 +43,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabel & JTextField : Titre
@@ -124,7 +125,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_retour.setBounds(10, 370, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv(m);
 				dispose();
 			}
 		});
@@ -136,7 +137,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_effacer.setBounds(180, 370, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv(m);
 				dispose();
 			}
 		});
@@ -147,25 +148,10 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBounds(350, 370, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv(m);
 				dispose();
 			}
 		});
 		p.add(b_enreg);
-		
-		
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_ModifLiv frame = new Fen4_Gest_ModifLiv();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
