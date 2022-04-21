@@ -10,22 +10,22 @@ public class Fen5_Gest_StatCli extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	Object[][] donnees1 = {
-            {"Nom 1", "PrÃ©nom 1", "27", "M", "&", "21/02/2021", "13"},
-            {"Nom 2", "PrÃ©nom 2", "25", "M", "Ã©", "28/05/2021", "2"},
-            {"Nom 3", "PrÃ©nom 3", "32", "F", "(", "11/01/2021", "4"},
-            {"Nom 4", "PrÃ©nom 4", "50", "F", "-", "05/03/2047", "33"},
-            {"Nom 5", "PrÃ©nom 5", "41", "F"," Ã¨", "11/12/2019", "15"},
-            {"Nom 6", "PrÃ©nom 6", "-7", "M", "_", "03/09/2009", "12"},
-            {"Nom 7", "PrÃ©nom 7", "35", "M", "Ã§", "22/10/2021", "8"},
-            {"Nom 8", "PrÃ©nom 8", "33", "F", "&", "01/07/2022", "2"},
-            {"Nom 9", "PrÃ©nom 9", "19", "F", "&", "08/04/2020", "20"},
-            {"Nom 10", "PrÃ©nom 10", "23", "M", "Ã©", "21/02/2021", "37"},
-            {"Nom 11", "PrÃ©nom 11", "198", "F", "(", "03/13/152", "-9223372036854775808"},
-            {"Nom 12", "PrÃ©nom 12", "15", "M", "-", "30/03/2022", "12"},
+            {"Nom 1", "Prénom 1", "27", "M", "&", "21/02/2021", "13"},
+            {"Nom 2", "Prénom 2", "25", "M", "é", "28/05/2021", "2"},
+            {"Nom 3", "Prénom 3", "32", "F", "(", "11/01/2021", "4"},
+            {"Nom 4", "Prénom 4", "50", "F", "-", "05/03/2047", "33"},
+            {"Nom 5", "Prénom 5", "41", "F"," è", "11/12/2019", "15"},
+            {"Nom 6", "Prénom 6", "-7", "M", "_", "03/09/2009", "12"},
+            {"Nom 7", "Prénom 7", "35", "M", "ç", "22/10/2021", "8"},
+            {"Nom 8", "Prénom 8", "33", "F", "&", "01/07/2022", "2"},
+            {"Nom 9", "Prénom 9", "19", "F", "&", "08/04/2020", "20"},
+            {"Nom 10", "Prénom 10", "23", "M", "é", "21/02/2021", "37"},
+            {"Nom 11", "Prénom 11", "198", "F", "(", "03/13/152", "-9223372036854775808"},
+            {"Nom 12", "Prénom 12", "15", "M", "-", "30/03/2022", "12"},
             
     };
     
-    String[] entetes1 = {"Nom", "PrÃ©nom", "Age", "Sexe", "Date de crÃ©ation", "Nombre d'achats", "DÃ©penses totales"};
+    String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Date de création", "Nombre d'achats", "Dépenses totales"};
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
@@ -70,7 +70,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    l_nbrt.setBounds(472, 591, 341, 42);
 	    p.add(l_nbrt);
 	    
-	    // JLabel "Ã‚ge moyen"
+	    // JLabel "Âge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
@@ -82,7 +82,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    l_valueT.setBounds(799, 591, 47, 42);
 	    p.add(l_valueT);
 	    
-	    // JLabel : Valeur de l'Ã¢ge moyen
+	    // JLabel : Valeur de l'âge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);

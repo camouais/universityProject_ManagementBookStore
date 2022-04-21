@@ -15,7 +15,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 	private JTextField t_id = new JTextField();
 	private JLabel l_main = new JLabel("Renseignements du client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Prénom :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	
 	JButton b_valider = new JButton("VALIDER");
@@ -32,7 +32,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : "Renseignements du client", "Nom", "PrÃ©nom", "Identifiant"
+		// Labels : "Renseignements du client", "Nom", "Prénom", "Identifiant"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -51,7 +51,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		l_id.setBounds(20, 180, 150, 30);
 		p.add(l_id);
 		
-		// Text Fields : Nom, PrÃ©nom, Identifiant
+		// Text Fields : Nom, Prénom, Identifiant
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
@@ -87,7 +87,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		b_valider.setBounds(350, 230, 150, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch(m);
+				new Fen4_Ach_DoAch(m,m.rchCli(t_nom.getText(), t_prenom.getText(), t_id.getText()));
 				dispose();
 			}
 		});

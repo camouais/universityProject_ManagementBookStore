@@ -11,51 +11,51 @@ public class Fen5_Gest_StatEmp extends JFrame {
 
 	Object[][] donnees1 = {
             {"A", "1", "heiugeigeig", true, "&", "ss",true, "&", "ss"},
-            {"Z", "2", "heiugeigeig", true, "Ã©",true, "&", "ss"},
+            {"Z", "2", "heiugeigeig", true, "é",true, "&", "ss"},
             {"E", "3", "heiugeigeig", true, "(",true, "&", "ss"},
             {"R", "4", "heiugeigeig", false, "-",true, "&", "ss"},
-            {"T", "5", "heiugeigeig", false," Ã¨",true, "&", "ss"},
+            {"T", "5", "heiugeigeig", false," è",true, "&", "ss"},
             {"Y", "6", "heiugeigeig", false, "_",true, "&", "ss"},
-            {"U", "7", "heiugeigeig", true, "Ã§",true, "&", "ss"},
+            {"U", "7", "heiugeigeig", true, "ç",true, "&", "ss"},
             {"A", "1", "heiugeigeig", true, "&",true, "&", "ss"},
             {"A", "1", "heiugeigeig", true, "&",true, "&", "ss"},
-            {"Z", "2", "heiugeigeig", true, "Ã©",true, "&", "ss"},
+            {"Z", "2", "heiugeigeig", true, "é",true, "&", "ss"},
             {"E", "3", "heiugeigeig", true, "(",true, "&", "ss"},
             {"R", "4", "heiugeigeig", false, "-",true, "&", "ss"},
-            {"T", "5", "heiugeigeig", false," Ã¨",true, "&", "ss"},
+            {"T", "5", "heiugeigeig", false," è",true, "&", "ss"},
             {"Y", "6", "heiugeigeig", false, "_",true, "&", "ss"},
-            {"U", "7", "heiugeigeig", true, "Ã§",true, "&", "ss"},
+            {"U", "7", "heiugeigeig", true, "ç",true, "&", "ss"},
             {"A", "1", "heiugeigeig", true, "&",true, "&", "ss"}, 
             {"A", "1", "heiugeigeig", true, "&",true, "&", "ss"},
-            {"Z", "2", "heiugeigeig", true, "Ã©",true, "&", "ss"},
+            {"Z", "2", "heiugeigeig", true, "é",true, "&", "ss"},
             {"E", "3", "heiugeigeig", true, "(",true, "&", "ss"},
             {"R", "4", "heiugeigeig", false, "-",true, "&", "ss"},
-            {"T", "5", "heiugeigeig", false," Ã¨",true, "&", "ss"},
+            {"T", "5", "heiugeigeig", false," è",true, "&", "ss"},
             {"Y", "6", "heiugeigeig", false, "_",true, "&", "ss"},
-            {"U", "7", "heiugeigeig", true, "Ã§",true, "&", "ss"},
+            {"U", "7", "heiugeigeig", true, "ç",true, "&", "ss"},
             {"Y", "6", "heiugeigeig", false, "_",true, "&", "ss"},
-            {"U", "7", "heiugeigeig", true, "Ã§",true, "&", "ss"}
+            {"U", "7", "heiugeigeig", true, "ç",true, "&", "ss"}
     };
     
-    String[] entetes1 = {"Nom", "PrÃ©nom", "Age", "Sexe", "Salaire", "Fonction", "AnciennetÃ©"};
+    String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Salaire", "Fonction", "Ancienneté"};
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
     private JScrollPane scrollPane_1 = new JScrollPane(table1);
-    private JLabel l_stem = new JLabel("Statistiques au niveau des employÃ©s ");
+    private JLabel l_stem = new JLabel("Statistiques au niveau des employés ");
     private JLabel l_valueAg = new JLabel("ag");
     private JLabel l_valueS = new JLabel("sa");
     private JLabel l_valueT = new JLabel("nb");
     private JLabel l_soms = new JLabel("Somme des salaires : ");
     private JLabel l_agm = new JLabel("Age moyen : ");
-    private JLabel l_nbrt = new JLabel("Nombre total d'employÃ©s : ");
+    private JLabel l_nbrt = new JLabel("Nombre total d'employés : ");
     
     JButton b_retour = new JButton("Retour");
     JScrollPane scrollPane = new JScrollPane();
     
 	public Fen5_Gest_StatEmp(Magasin m) {
 		
-		// FenÃªtre 
+		// Fenêtre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -73,20 +73,20 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    scrollPane_1.setBounds(100, 150, 800, 400);
 	    p.add(scrollPane_1);
 	    
-	    // JLabel "Statistiques au niveau des employÃ©s"
+	    // JLabel "Statistiques au niveau des employés"
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
 	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
 	    l_stem.setBounds(125, 50, 750, 42);
 	    p.add(l_stem);
 	    
-	    // JLabel "Nombre total d'employÃ©s"
+	    // JLabel "Nombre total d'employés"
 
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_nbrt.setBounds(472, 591, 341, 42);
 	    p.add(l_nbrt);
 	    
-	    // JLabel "Ã‚ge moyen"
+	    // JLabel "Âge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
@@ -98,13 +98,13 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    l_soms.setBounds(472, 696, 341, 42);
 	    p.add(l_soms);
 	    
-	    // JLabel : Valeur totale d'employÃ©s
+	    // JLabel : Valeur totale d'employés
 	    
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueT.setBounds(799, 591, 47, 42);
 	    p.add(l_valueT);
 	    
-	    // JLabel : Valeur de l'Ã¢ge moyen
+	    // JLabel : Valeur de l'âge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);

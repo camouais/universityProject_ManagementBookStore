@@ -35,7 +35,7 @@ public class Fen3_Gest_Liv extends JFrame {
 
 	public Fen3_Gest_Liv(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,7 +48,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Liste 1 (Liste d'employÃ©s)
+		// Liste 1 (Liste d'employés)
 		
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
@@ -60,7 +60,7 @@ public class Fen3_Gest_Liv extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations de l'employÃ© sÃ©lectionnÃ©)
+        // Liste 2 (Informations de l'employé sélectionné)
         
         model=new DefaultListModel<String>();
         list2.setModel(model);
@@ -108,7 +108,7 @@ public class Fen3_Gest_Liv extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedValue()!=null) {
-	                model.addElement("Test nÂ°"+count);
+	                model.addElement("Test n°"+count);
 	                count++;
                 }           
             }

@@ -10,18 +10,18 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	Object[][] donnees1 = {
-            {"Titre 1", "Auteur 1", "Ã‰diteur 1", "CatÃ©gorie 1", "Date 1", "89"},
-            {"Titre 2", "Auteur 2", "Ã‰diteur 1", "CatÃ©gorie 2", "Date 2", "55"},
-            {"Titre 3", "Auteur 1", "Ã‰diteur 2", "CatÃ©gorie 1", "Date 3", "107"},
-            {"Titre 4", "Auteur 3", "Ã‰diteur 3", "CatÃ©gorie 3", "Date 4", "8"},
-            {"Titre 5", "Auteur 4", "Ã‰diteur 1", "CatÃ©gorie 2", "Date 5", "95344"},
-            {"Titre 6", "Auteur 2", "Ã‰diteur 4", "CatÃ©gorie 4", "Date 6", "1085134"},
-            {"Titre 7", "Auteur 5", "Ã‰diteur 5", "CatÃ©gorie 2", "Date 7", "87261931"},
-            {"Titre 8", "Auteur 6", "Ã‰diteur 3", "CatÃ©gorie 2", "Date 8", "917324728923"},
-            {"Titre 9", "Auteur 3", "Ã‰diteur 4", "CatÃ©gorie 3", "Date 9", "beaucoup"},
+            {"Titre 1", "Auteur 1", "Éditeur 1", "Catégorie 1", "Date 1", "89"},
+            {"Titre 2", "Auteur 2", "Éditeur 1", "Catégorie 2", "Date 2", "55"},
+            {"Titre 3", "Auteur 1", "Éditeur 2", "Catégorie 1", "Date 3", "107"},
+            {"Titre 4", "Auteur 3", "Éditeur 3", "Catégorie 3", "Date 4", "8"},
+            {"Titre 5", "Auteur 4", "Éditeur 1", "Catégorie 2", "Date 5", "95344"},
+            {"Titre 6", "Auteur 2", "Éditeur 4", "Catégorie 4", "Date 6", "1085134"},
+            {"Titre 7", "Auteur 5", "Éditeur 5", "Catégorie 2", "Date 7", "87261931"},
+            {"Titre 8", "Auteur 6", "Éditeur 3", "Catégorie 2", "Date 8", "917324728923"},
+            {"Titre 9", "Auteur 3", "Éditeur 4", "Catégorie 3", "Date 9", "beaucoup"},
     };
     
-    String[] entetes1 = {"Titre", "Auteur", "Ã‰diteur", "CatÃ©gorie", "Date de parution", "Nombre de ventes"};
+    String[] entetes1 = {"Titre", "Auteur", "Éditeur", "Catégorie", "Date de parution", "Nombre de ventes"};
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
@@ -37,7 +37,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
     
 	public Fen5_Gest_StatLiv(Magasin m) {
 		
-		// FenÃªtre 
+		// Fenêtre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);

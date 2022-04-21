@@ -17,14 +17,14 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	private JTextField t_adresse;
 	private JTextField t_mail;
 	private JTextField t_tel;
-	private JLabel l_rens = new JLabel("Renseignements de l'employÃ©");
+	private JLabel l_rens = new JLabel("Renseignements de l'employé");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Prénom :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	private JLabel l_fonc = new JLabel("Fonction : ");
 	private JLabel l_adresse = new JLabel("Adresse : ");
 	private JLabel l_mail = new JLabel("Mail : ");
-	private JLabel l_tel = new JLabel("TÃ©lÃ©phone : ");
+	private JLabel l_tel = new JLabel("Téléphone : ");
 	
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_effacer = new JButton("EFFACER");
@@ -45,7 +45,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 
 		// JLabel & JTextfield nom
@@ -60,7 +60,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 		
-		// JLabel & JTextfield prÃ©nom
+		// JLabel & JTextfield prénom
 		
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
@@ -120,7 +120,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_mail.setBounds(150, 303, 380, 30);
 		p.add(t_mail);
 		
-		// JLabel & JTextfield TÃ©lÃ©phone
+		// JLabel & JTextfield Téléphone
 		
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_tel.setBounds(20, 344, 150, 30);

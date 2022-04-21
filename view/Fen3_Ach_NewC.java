@@ -46,7 +46,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(l_main);
 		
-		// Labels : "Nom", "PrÃ©nom", "Adresse", "TÃ©lÃ©phone", "Sexe", "Mail", "Date de naissance"
+		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
 		
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
@@ -76,7 +76,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_dateN.setBounds(643, 353, 326, 37);
 		p.add(l_dateN);
 		
-		// Text Fields : Nom, PrÃ©nom, Adresse, TÃ©lÃ©phone, Sexe, Mail, Date de naissance
+		// Text Fields : Nom, Prénom, Adresse, Téléphone, Sexe, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(115, 154, 389, 58);
@@ -120,7 +120,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch(m);
+				new NewClient(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, t_sexe);
 				dispose();
 			}
 		});
@@ -133,7 +133,6 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen2_Ach(m);
-				new NewClient(t_nom,t_prenom,t_adresse,t_tel,t_mail,t_sexe);
 				dispose();
 			}
 		});

@@ -45,9 +45,9 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_nom.setBounds(115, 119, 147, 37);
 		p.add(l_nom);
 		
-		//JLabel prÃ©nom
+		//JLabel prénom
 		
-		JLabel l_prenom = new JLabel("PrÃ©nom :");
+		JLabel l_prenom = new JLabel("Prénom :");
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
 		p.add(l_prenom);
@@ -59,9 +59,9 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_adresse.setBounds(115, 353, 147, 37);
 		p.add(l_adresse);
 		
-		//JLabel tÃ©lÃ©phone
+		//JLabel téléphone
 		
-		JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
+		JLabel l_tel = new JLabel("Téléphone :");
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);
 		p.add(l_tel);
@@ -105,7 +105,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 		
-		//JTextfield tÃ©lÃ©phone
+		//JTextfield téléphone
 		
 		t_tel = new JTextField();
 		t_tel.setBounds(115, 513, 389, 58);

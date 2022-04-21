@@ -43,7 +43,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabel & JTextField : Titre

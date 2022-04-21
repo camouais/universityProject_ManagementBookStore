@@ -37,9 +37,9 @@ public class Fen4_Ach_DoAch extends JFrame {
     JButton b_retour = new JButton("Retour");
 	JButton b_enregistrer = new JButton("Enregistrer");
 
-	public Fen4_Ach_DoAch(Magasin m) {
+	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,7 +87,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel RÃ©alisation de l'achat
+		// JLabel Réalisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
@@ -121,7 +121,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedValue()!=null) {
-	                model.addElement("Test nÂ°"+count);
+	                model.addElement("Test n°"+count);
 	                count++;
                 }           
             }
@@ -144,7 +144,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBounds(540, 650, 400, 60);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Ach_Fact(m);
+				new Fen5_Ach_Fact(m,c);
 				dispose();
 			}
 		});

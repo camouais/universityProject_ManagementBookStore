@@ -18,7 +18,7 @@ public class Fen2_Gest extends JFrame {
 	
 	public Fen2_Gest(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);

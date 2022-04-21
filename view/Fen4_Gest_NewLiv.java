@@ -92,9 +92,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_prix.setBounds(35, 372, 319, 31);
 		contentPane.add(t_prix);
 		
-		// JLabel & JTextfield "RÃ©sumÃ©"
+		// JLabel & JTextfield "Résumé"
 		
-		JLabel l_resume = new JLabel("RÃ©sumÃ© : ");
+		JLabel l_resume = new JLabel("Résumé : ");
 		l_resume.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_resume.setBounds(35, 410, 190, 31);
 		contentPane.add(l_resume);
@@ -104,9 +104,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_resume.setBounds(35, 440, 774, 139);
 		contentPane.add(t_resume);
 		
-		// JLabel & JTextfield "CatÃ©gorie"
+		// JLabel & JTextfield "Catégorie"
 		
-		JLabel l_categorie = new JLabel("CatÃ©gorie : ");
+		JLabel l_categorie = new JLabel("Catégorie : ");
 		l_categorie.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_categorie.setBounds(490, 128, 190, 31);
 		contentPane.add(l_categorie);

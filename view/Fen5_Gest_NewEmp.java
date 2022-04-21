@@ -19,12 +19,12 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	private JTextField t_dateN;
 	private JTextField t_fonction;
 	private JTextField t_salaire;
-	private JLabel lblNewLabel = new JLabel("Ajout d'un nouvel employÃ©");
+	private JLabel lblNewLabel = new JLabel("Ajout d'un nouvel employé");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Prénom :");
 	private JLabel l_adresse = new JLabel("Adresse :");
 	private JLabel l_sexe = new JLabel("Sexe :");
-	private JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
+	private JLabel l_tel = new JLabel("Téléphone :");
 	private JLabel l_mail = new JLabel("Mail :");
 	private JLabel l_dateN = new JLabel("Date de naissance :");
 	private JLabel l_fonction = new JLabel("Fonction :");
@@ -59,7 +59,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		t_nom.setBounds(115, 154, 389, 58);
 		p.add(t_nom);
 		
-		// JLabel & JTextfield : PrÃ©nom
+		// JLabel & JTextfield : Prénom
 		
 		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_prenom.setBounds(115, 237, 147, 37);
@@ -79,7 +79,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 
-		// JLabel & JTextfield : TÃ©lÃ©phone
+		// JLabel & JTextfield : Téléphone
 		
 		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_tel.setBounds(115, 477, 207, 37);

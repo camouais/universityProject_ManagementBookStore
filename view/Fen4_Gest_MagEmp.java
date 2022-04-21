@@ -25,7 +25,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
     private JList<String> list2 = new JList<String>();
     public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("EmployÃ©s");
+	private JLabel l_main = new JLabel("Employés");
     
 	JScrollPane scrollPane = new JScrollPane();
     JScrollPane scrollPane2 = new JScrollPane();
@@ -35,7 +35,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
@@ -47,7 +47,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employÃ©s)
+		// Panel 1 (Liste d'employés)
 		
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
@@ -59,7 +59,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Panel 2 (Informations de l'employÃ© sÃ©lectionnÃ©)
+        // Panel 2 (Informations de l'employé sélectionné)
         
         model = new DefaultListModel<String>();
         list2.setModel(model);
@@ -74,15 +74,15 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'un employÃ©
+		// Textfield - Recherche d'un employé
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rech.setText("Recherchez un employÃ©...");
+		t_rech.setText("Recherchez un employé...");
 		t_rech.setBounds(50, 100, 890, 45);
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "EmployÃ©s"
+		// JLabel "Employés"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Arial", Font.BOLD, 50));

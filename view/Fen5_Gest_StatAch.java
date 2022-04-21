@@ -10,13 +10,13 @@ public class Fen5_Gest_StatAch extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	Object[][] donnees1 = {
-            {"1", "Client.getName() 1", "12.33â‚¬", "Liste livresa"},
-            {"2", "Client.getName() 2", "56.00â‚¬", "Liste livresb"},
-            {"3", "Client.getName() 1", "25.50â‚¬", "Liste livresc"},
-            {"4", "Client.getName() 4", "AB.CDâ‚¬", "Liste livresd"},
-            {"5", "Client.getName() 5", "87.40â‚¬", "Liste livrese"},
+            {"1", "Client.getName() 1", "12.33€", "Liste livresa"},
+            {"2", "Client.getName() 2", "56.00€", "Liste livresb"},
+            {"3", "Client.getName() 1", "25.50€", "Liste livresc"},
+            {"4", "Client.getName() 4", "AB.CD€", "Liste livresd"},
+            {"5", "Client.getName() 5", "87.40€", "Liste livrese"},
             {"6", "Client.getName() 6", "a", "Liste livresf"},
-            {"7", "Client.getName() 7", "12087.20â‚¬", "hehe"},
+            {"7", "Client.getName() 7", "12087.20€", "hehe"},
             {"8", "Client.getName() 1", "b", "Liste livresg"},
             {"9", "Client.getName() 1", "c", "Liste livres"},
             {"10", "Client.getName() 2", "d", "Liste livres"},
@@ -37,7 +37,7 @@ public class Fen5_Gest_StatAch extends JFrame {
             {"25", "Client.getName() 7", "h", "Liste livres"}
     };
     
-    String[] entetes1 = {"ID", "Nom du client", "Prix total", "Livres achetÃ©s"};
+    String[] entetes1 = {"ID", "Nom du client", "Prix total", "Livres achetés"};
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
@@ -53,7 +53,7 @@ public class Fen5_Gest_StatAch extends JFrame {
     
 	public Fen5_Gest_StatAch(Magasin m) {
 		
-		// FenÃªtre 
+		// Fenêtre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 700);

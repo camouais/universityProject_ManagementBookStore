@@ -35,7 +35,7 @@ public class Fen3_Gest_Cli extends JFrame {
 
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,7 +60,7 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sÃ©lectionnÃ©)
+        // Liste 2 (Informations du client sélectionné)
         
         model = new DefaultListModel<String>();
         list2.setModel(model);
@@ -108,7 +108,7 @@ public class Fen3_Gest_Cli extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedValue()!=null) {
-	                model.addElement("Test nÂ°"+count);
+	                model.addElement("Test n°"+count);
 	                count++;
                 }           
             }

@@ -27,7 +27,7 @@ public class Fen3_Gest_Mag extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Boutons : Informations, Statistiques, EmployÃ©s, Retour
+		// Boutons : Informations, Statistiques, Employés, Retour
 		
 		b_info.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_info.setBackground(new Color(200, 50, 200));

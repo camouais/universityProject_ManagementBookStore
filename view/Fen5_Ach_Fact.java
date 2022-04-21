@@ -20,9 +20,9 @@ public class Fen5_Ach_Fact extends JFrame {
 	JButton b_enreg = new JButton("Enregistrer");
 	JButton b_retour = new JButton("Retour");
 	
-	public Fen5_Ach_Fact(Magasin m) {
+	public Fen5_Ach_Fact(Magasin m, Client c) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,7 +68,7 @@ public class Fen5_Ach_Fact extends JFrame {
 		p.add(t_prix);
 		t_prix.setColumns(10);
 		
-		// JPanel liste des achats (Tableau Ã  ajouter pour lister les livres & prix)
+		// JPanel liste des achats (Tableau à ajouter pour lister les livres & prix)
 		
 		p_achats.setBounds(25, 180, 432, 236);
 		p.add(p_achats);
@@ -91,7 +91,7 @@ public class Fen5_Ach_Fact extends JFrame {
 		b_retour.setBounds(25, 475, 160, 41);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch(m);
+				new Fen4_Ach_DoAch(m,c);
 				dispose();
 			}
 		});
