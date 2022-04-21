@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import model.*;
 
 public class Fen3_Gest_Cli extends JFrame {
 	
@@ -32,9 +33,9 @@ public class Fen3_Gest_Cli extends JFrame {
 	JButton b_ajouter = new JButton("Ajouter");
 	JButton b_retour = new JButton("RETOUR");
 
-	public Fen3_Gest_Cli() {
+	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,7 +60,7 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sélectionné)
+        // Liste 2 (Informations du client sÃ©lectionnÃ©)
         
         model = new DefaultListModel<String>();
         list2.setModel(model);
@@ -96,7 +97,7 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_ModifCli();
+				new Fen4_Gest_ModifCli(m);
 				dispose();
 			}
 		});
@@ -107,7 +108,7 @@ public class Fen3_Gest_Cli extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
+	                model.addElement("Test nÂ°"+count);
 	                count++;
                 }           
             }
@@ -119,7 +120,7 @@ public class Fen3_Gest_Cli extends JFrame {
         
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Gest();
+				new Fen2_Gest(m);
 				dispose();
 			}
 		});
@@ -127,18 +128,5 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
 		p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen3_Gest_Cli frame = new Fen3_Gest_Cli();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
