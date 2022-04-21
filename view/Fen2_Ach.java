@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen2_Ach extends JFrame {
 	
@@ -15,9 +16,9 @@ public class Fen2_Ach extends JFrame {
 	JButton b_non = new JButton("Non");
 	JButton b_retour = new JButton("RETOUR");
 
-	public Fen2_Ach() {
+	public Fen2_Ach(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -43,7 +44,7 @@ public class Fen2_Ach extends JFrame {
 		b_oui.setBounds(50, 100, 150, 56);
 		b_oui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Ach_NewC();
+				new Fen3_Ach_NewC(m);
 				dispose();
 			}
 		});
@@ -54,7 +55,7 @@ public class Fen2_Ach extends JFrame {
 		b_non.setBounds(284, 100, 150, 56);
 		b_non.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Ach_ExistC();
+				new Fen3_Ach_ExistC(m);
 				dispose();
 			}
 		});
@@ -65,23 +66,10 @@ public class Fen2_Ach extends JFrame {
 		b_retour.setBounds(165, 180, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen1();
+				new Fen1(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen2_Ach f = new Fen2_Ach();
-					f.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
