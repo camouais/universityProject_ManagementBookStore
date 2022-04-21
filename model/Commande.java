@@ -7,9 +7,9 @@ public class Commande  {
 	// Attributs
 	
 	public static int totalCom;
-	public int idCom;
-	public Date dateAchat;
-	public String modePaiement;
+	private int id;
+	private Date dateAchat;
+	private String modePaiement;
 	private Client client;
 	public Set<Livre> listLivres;
 	
@@ -19,9 +19,13 @@ public class Commande  {
 		dateAchat= dA;
 		modePaiement = mdp;
 		client=c;
-		idCom = totalCom;
+		id = totalCom;
 		totalCom++;
 	}
+	
+    public int getId() {
+    	return id;
+    }
     
     public Date getDateAchat() {
     	return dateAchat;
