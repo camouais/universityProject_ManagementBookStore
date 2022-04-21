@@ -29,37 +29,62 @@ public class Livre {
     	categorie = c;
     }
     
-    // Méthodes
+    // MÃ©thodes
     
-    public void updTitre(String t) {
+    public String getTitre() {
+    	return titre;
+    }
+    
+    public void setTitre(String t) {
     	titre = t;
     }
     
-    public void updAuteur(String t) {
+    public String getAuteur() {
+    	return auteur;
+    }
+    
+    public void setAuteur(String t) {
     	auteur = t;
     }
     
-    public void updEditeur(String t) {
+    public String getEditeur() {
+    	return editeur;
+    }
+    
+    public void setEditeur(String t) {
     	editeur = t;
     }
     
-    public void updDate(Date t) {
+    public Date getDateParution() {
+    	return dateParution;
+    }
+    
+    public void setDateParution(Date t) {
     	dateParution = t;
-    }
-    
-    public void updResume(String t) {
-    	resume = t;
-    }
-    
-    public void updPrix(Float p) {
-    	prix = p;
-    }
-    
-    public void updCat(String c) {
-    	categorie = c;
     }
     
     public String getResume() {
     	return resume;
     }
+    
+    public void setResume(String t) {
+    	resume = t;
+    }
+    
+    public float getPrix() {
+    	return prix;
+    }
+    
+    public void setPrix(Float p) {
+    	prix = p;
+    }
+    
+    public String getCategorie() {
+    	return categorie;
+    }
+    
+    public void setCategorie(String c) {
+    	categorie = c;
+    }
+    
 }
