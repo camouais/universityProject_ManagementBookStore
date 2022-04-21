@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen4_Gest_MagInfo extends JFrame {
 	
@@ -12,7 +13,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 	private JTextField t_nom = new JTextField();
 	private JTextField t_adresse = new JTextField();
 
-	public Fen4_Gest_MagInfo() {
+	public Fen4_Gest_MagInfo(Magasin m) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -61,7 +62,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_retour.setBounds(50, 200, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag();
+				new Fen3_Gest_Mag(m);
 				dispose();
 			}
 		});
@@ -73,23 +74,10 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_enreg.setBounds(300, 200, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag();
+				new Fen3_Gest_Mag(m);
 				dispose();
 			}
 		});
 		p.add(b_enreg);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_MagInfo frame = new Fen4_Gest_MagInfo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
