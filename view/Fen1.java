@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen1 extends JFrame {
 	
@@ -14,9 +15,9 @@ public class Fen1 extends JFrame {
 	JButton b_ach = new JButton("ACHAT");
 	JButton b_quit = new JButton("Quitter");
 	
-	public Fen1() {
+	public Fen1(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -34,7 +35,7 @@ public class Fen1 extends JFrame {
 		b_gest.setBounds(50, 50, 400, 100);
 		b_gest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Gest();
+				new Fen2_Gest(m);
 				dispose();
 			}
 		});
@@ -45,7 +46,7 @@ public class Fen1 extends JFrame {
 		b_ach.setBounds(50, 200, 400, 100);
 		b_ach.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Ach();
+				new Fen2_Ach(m);
 				dispose();
 			}
 		});
@@ -60,18 +61,5 @@ public class Fen1 extends JFrame {
 			}
 		});
 		p.add(b_quit);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen1 frame = new Fen1();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
