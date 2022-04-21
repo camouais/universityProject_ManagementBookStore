@@ -34,6 +34,12 @@ public class Fen2_Gest extends JFrame {
 		b_livres.setBackground(new Color(204, 204, 255));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_livres.setBounds(50, 50, 400, 100);
+		b_livres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Fen3_Gest_Liv(m);
+				dispose();
+			}
+		});
 		p.add(b_livres);
 		
 		b_magasin.setFont(new Font("Tahoma", Font.BOLD, 55));
