@@ -7,8 +7,9 @@ import java.util.*;
 import model.*;
 import view.*;
 
-public class NewClient implements ActionListener {
-	static int id =0;
+public class NewClient {
+	
+	Magasin m;
 	Client c;
 	JTextField nom;
 	JTextField prenom;
@@ -18,16 +19,9 @@ public class NewClient implements ActionListener {
 	JTextField mail;
 	JTextField sexe;
 	
-	public NewClient(JTextField s1, JTextField s2, JTextField s3, JTextField s5, JTextField s6, JTextField s7) {
-		this.nom = s1;
-		this.prenom = s2;
-		this.adresse = s3;
-		this.tel = s5;
-		this.mail = s6;
-		this.sexe = s7;
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), sexe.getText());
+	public NewClient(Magasin m, JTextField s1, JTextField s2, JTextField s3, JTextField s4, JTextField s5, JTextField s6) {
+		c = new Client(s1.getText(), s2.getText(), s3.getText(), s4.getText(), s5.getText(), s6.getText());
+		System.out.println("Client créé avec les attributs suivants : \nNom = " + c.getNom());
+		new Fen4_Ach_DoAch(m,c);
 	}
 }
