@@ -24,7 +24,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
     private JList<String> list2 = new JList<String>();
     public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Clients");
+	private JLabel l_main = new JLabel("Employés");
     
 	JScrollPane scrollPane = new JScrollPane();
     JScrollPane scrollPane2 = new JScrollPane();
