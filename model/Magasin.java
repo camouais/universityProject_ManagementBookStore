@@ -38,7 +38,7 @@ public class Magasin {
     public Commande rchCm1(int id) {
         Commande[] rch = new Commande[listCom.size()];
         for (int i = 0; i < listCom.size(); i++) {
-            if(listCom.toArray(rch)[i].idCom == id) {
+            if(listCom.toArray(rch)[i].getId() == id) {
                 return (Commande) listCom.toArray()[i];
             }
         }
@@ -51,7 +51,7 @@ public class Magasin {
     	Set<Commande> sameDate = new HashSet<>();
         Commande[] t1 = new Commande[listCom.size()];
         for (int i = 0; i < listCom.size(); i++) {
-            if(listCom.toArray(t1)[i].dateAchat == d) {
+            if(listCom.toArray(t1)[i].getDateAchat() == d) {
             	sameDate.add(listCom.toArray(t1)[i]);
             }
         }
@@ -64,7 +64,7 @@ public class Magasin {
     	Set<Commande> sameMdp = new HashSet<>();
         Commande[] t1 = new Commande[listCom.size()];
         for (int i = 0; i < listCom.size(); i++) {
-            if(listCom.toArray(t1)[i].modePaiement == mdp) {
+            if(listCom.toArray(t1)[i].getModePaiement() == mdp) {
             	sameMdp.add(listCom.toArray(t1)[i]);
             }
         }
