@@ -90,8 +90,8 @@ public class Magasin {
 	////////////////////////////////////////////
     
     // CrÃ©ation d'un Stock
-    public void addStock(Livre c, int qE, int p) {
-    	Stock s = new Stock(p, qE, listStock.size()+1, c);
+    public void addStock(Livre l, int qE) {
+    	Stock s = new Stock(qE, l);
     	listStock.add(s);
     }
     
@@ -99,7 +99,7 @@ public class Magasin {
 	public Stock rchStock(int id) {
 		Stock[] t = new Stock[listStock.size()];
 		for (int i = 0; i < listStock.size(); i++) {
-			if(listStock.toArray(t)[i].idStock==id) {
+			if(listStock.toArray(t)[i].getIdStock()==id) {
 				return (Stock) listStock.toArray()[i];
 			}
 		}
@@ -115,7 +115,7 @@ public class Magasin {
     public Client rchCli(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
         for (int i = 0; i < listCom.size(); i++) {
-            if((listClient.toArray(t)[i].nom==n) && (listClient.toArray(t)[i].prenom== p) && (listClient.toArray(t)[i].mail == mail)) {
+            if((listClient.toArray(t)[i].getNom()==n) && (listClient.toArray(t)[i].getPrenom()== p) && (listClient.toArray(t)[i].getMail() == mail)) {
                 return (Client) listClient.toArray()[i];
             }
         }
@@ -148,7 +148,7 @@ public class Magasin {
     public Client rchClient(int id) {
     	Client[] rch = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
-            if(listClient.toArray(rch)[i].idClient == id) {
+            if(listClient.toArray(rch)[i].getId() == id) {
                 return (Client) listClient.toArray()[i];
             }
         }
@@ -161,7 +161,7 @@ public class Magasin {
     	Set<Client> sNom = new HashSet<>();
     	Client[] tab = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
-        	if(listClient.toArray(tab)[i].nom == n) {
+        	if(listClient.toArray(tab)[i].getNom() == n) {
         		sNom.add(listClient.toArray(tab)[i]);
             }
         }
@@ -170,9 +170,9 @@ public class Magasin {
     
     // Liste des commandes d'un client
     
-    public Commande listComCli(Client c) {
+    public Set<Commande> listComCli(Client c) {
     	if(c.listCom!=null) {
-    		return (Commande) c.listCom;
+    		return c.listCom;
     	}
     	return null;
     }
@@ -184,7 +184,7 @@ public class Magasin {
     	Set<Client> s = new HashSet<>();
     	Client[] tab = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
-        	if(listClient.toArray(tab)[i].dateCreationCompte == d) {
+        	if(listClient.toArray(tab)[i].getDateCC()== d) {
             	s.add(listClient.toArray(tab)[i]);
             }
         }
@@ -248,7 +248,7 @@ public class Magasin {
     public Employe rchEmp(int id) {
     	Employe[] rch = new Employe[listEmp.size()];
         for (int i = 0; i < listCom.size(); i++) {
-            if(listEmp.toArray(rch)[i].idEmp == id) {
+            if(listEmp.toArray(rch)[i].getId() == id) {
                 return (Employe) listEmp.toArray()[i];
             }
         }
@@ -261,7 +261,7 @@ public class Magasin {
     	Set<Employe> sNom = new HashSet<>();
     	Employe[] tab = new Employe[listEmp.size()];
         for (int i = 0; i < listEmp.size(); i++) {
-        	if(listEmp.toArray(tab)[i].nom == n) {
+        	if(listEmp.toArray(tab)[i].getNom() == n) {
         		sNom.add(listEmp.toArray(tab)[i]);
             }
         }
@@ -274,7 +274,7 @@ public class Magasin {
     	Set<Employe> samePoste = new HashSet<>();
     	Employe[] tab = new Employe[listEmp.size()];
         for (int i = 0; i < listEmp.size(); i++) {
-        	if(listEmp.toArray(tab)[i].fonction == f) {
+        	if(listEmp.toArray(tab)[i].getFonction() == f) {
         		samePoste.add(listEmp.toArray(tab)[i]);
             }
         }
@@ -287,7 +287,7 @@ public class Magasin {
     	Set<Employe> sameSalai = new HashSet<>();
     	Employe[] tab = new Employe[listEmp.size()];
         for (int i = 0; i < listEmp.size(); i++) {
-        	if(listEmp.toArray(tab)[i].salaire == s) {
+        	if(listEmp.toArray(tab)[i].getSalaire() == s) {
         		sameSalai.add(listEmp.toArray(tab)[i]);
             }
         }
