@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen3_Gest_Mag extends JFrame {
 	
@@ -15,7 +16,7 @@ public class Fen3_Gest_Mag extends JFrame {
 	JButton b_empl =  new JButton("EMPLOYES");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen3_Gest_Mag() {
+	public Fen3_Gest_Mag(Magasin m) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -26,14 +27,14 @@ public class Fen3_Gest_Mag extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Boutons : Informations, Statistiques, Employés, Retour
+		// Boutons : Informations, Statistiques, EmployÃ©s, Retour
 		
 		b_info.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_info.setBackground(new Color(200, 50, 200));
 		b_info.setBounds(50, 50, 500, 100);
 		b_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagInfo();
+				new Fen4_Gest_MagInfo(m);
 				dispose();
 			}
 		});
@@ -44,7 +45,7 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_stat.setBounds(50, 350, 500, 100);
 		b_stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat(m);
 				dispose();
 			}
 		});
@@ -55,7 +56,7 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_empl.setBounds(50, 200, 500, 100);
 		b_empl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp(m);
 				dispose();
 			}
 		});
@@ -66,24 +67,10 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Gest();
+				new Fen2_Gest(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-		
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen3_Gest_Mag frame = new Fen3_Gest_Mag();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
