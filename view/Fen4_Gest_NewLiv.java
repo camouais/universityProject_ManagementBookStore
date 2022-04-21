@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen4_Gest_NewLiv extends JFrame{
 	
@@ -24,7 +25,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public Fen4_Gest_NewLiv() {
+	public Fen4_Gest_NewLiv(Magasin m) {
 		contentPane.setBackground(new Color(200, 200, 200));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
@@ -91,9 +92,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_prix.setBounds(35, 372, 319, 31);
 		contentPane.add(t_prix);
 		
-		// JLabel & JTextfield "Résumé"
+		// JLabel & JTextfield "RÃ©sumÃ©"
 		
-		JLabel l_resume = new JLabel("Résumé : ");
+		JLabel l_resume = new JLabel("RÃ©sumÃ© : ");
 		l_resume.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_resume.setBounds(35, 410, 190, 31);
 		contentPane.add(l_resume);
@@ -103,9 +104,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_resume.setBounds(35, 440, 774, 139);
 		contentPane.add(t_resume);
 		
-		// JLabel & JTextfield "Catégorie"
+		// JLabel & JTextfield "CatÃ©gorie"
 		
-		JLabel l_categorie = new JLabel("Catégorie : ");
+		JLabel l_categorie = new JLabel("CatÃ©gorie : ");
 		l_categorie.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_categorie.setBounds(490, 128, 190, 31);
 		contentPane.add(l_categorie);
@@ -159,7 +160,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_retour.setBounds(30, 610, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv(m);
 				dispose();
 			}
 		});
@@ -174,24 +175,10 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_enregistrer.setBounds(574, 610, 235, 64);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv();
+				new Fen3_Gest_Liv(m);
 				dispose();
 			}
 		});
 		contentPane.add(b_enregistrer);
 	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_NewLiv frame = new Fen4_Gest_NewLiv();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 }
