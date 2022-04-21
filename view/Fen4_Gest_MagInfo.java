@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import model.*;
+import controller.*;
 
 public class Fen4_Gest_MagInfo extends JFrame {
 	
@@ -62,6 +63,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_retour.setBounds(50, 200, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+                System.out.println("nom sortant =" + m.getNom());
 				new Fen3_Gest_Mag(m);
 				dispose();
 			}
@@ -73,11 +75,11 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_enreg.setBounds(300, 200, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag(m);
-				dispose();
-			}
-		});
+            public void actionPerformed(ActionEvent e) {
+            	Modif_InfoMag a = new Modif_InfoMag(m,t_nom);
+                System.out.println("Text=" + m.getNom());
+            }
+        });
 		p.add(b_enreg);
 	}
 }
