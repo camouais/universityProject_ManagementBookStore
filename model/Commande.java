@@ -7,9 +7,9 @@ public class Commande  {
 	// Attributs
 	
 	public static int totalCom;
-	private int idCom;
-	private Date dateAchat;
-	private String modePaiement;
+	public int idCom;
+	public Date dateAchat;
+	public String modePaiement;
 	private Client client;
 	public Set<Livre> listLivres;
 	
