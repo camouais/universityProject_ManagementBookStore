@@ -3,13 +3,14 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen5_Gest_StatComp extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel p = new JPanel();
-    private JLabel l_stem = new JLabel("Comptabilités");
+    private JLabel l_stem = new JLabel("ComptabilitÃ©s");
     private JLabel l_valueAg = new JLabel("tv");
     private JLabel l_valueT = new JLabel("nb");
     private JLabel l_nbrt = new JLabel("Nombre total de livres : ");
@@ -18,9 +19,9 @@ public class Fen5_Gest_StatComp extends JFrame {
     JScrollPane scrollPane = new JScrollPane();
     JButton b_retour = new JButton("Retour");
     
-	public Fen5_Gest_StatComp() {
+	public Fen5_Gest_StatComp(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -67,25 +68,12 @@ public class Fen5_Gest_StatComp extends JFrame {
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	    b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat(m);
 				dispose();
 			}
 		});
 	    b_retour.setBounds(71, 634, 222, 57);
 	    b_retour.setBackground(new Color(64,128,0));
 	    p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen5_Gest_StatComp frame = new Fen5_Gest_StatComp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
