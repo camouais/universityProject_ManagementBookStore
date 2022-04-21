@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import model.*;
 
 public class Fen4_Gest_MagEmp extends JFrame {
 	
@@ -32,7 +33,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	JButton b_ajouter = new JButton("Ajouter");
 	JButton b_retour = new JButton("RETOUR");
 
-	public Fen4_Gest_MagEmp() {
+	public Fen4_Gest_MagEmp(Magasin m) {
 		
 		// Fenêtre
 		
@@ -95,7 +96,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_ModifEmp();
+				new Fen5_Gest_ModifEmp(m);
 				dispose();
 			}
 		});
@@ -106,7 +107,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	new Fen5_Gest_NewEmp();
+            	new Fen5_Gest_NewEmp(m);
             	dispose();
             }
 		});
@@ -117,24 +118,10 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag();
+				new Fen3_Gest_Mag(m);
 				dispose();
 			}
 		});
 		p.add(b_retour);
-		
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_MagEmp frame = new Fen4_Gest_MagEmp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
