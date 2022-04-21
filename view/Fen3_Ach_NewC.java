@@ -10,11 +10,11 @@ public class Fen3_Ach_NewC extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel p = new JPanel();
-	private JLabel lblNewLabel = new JLabel("Ajout d'un nouveau client");
+	private JLabel l_main = new JLabel("Ajout d'un nouveau client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Pr\u00E9nom :");
 	private JLabel l_adresse = new JLabel("Adresse :");
-	private JLabel l_tel = new JLabel("TÃ©lÃ©phone :");
+	private JLabel l_tel = new JLabel("T\u00E9l\u00E9phone :");
 	private JLabel l_sexe = new JLabel("Sexe :");
 	private JLabel l_mail = new JLabel("Mail :");
 	private JLabel l_dateN = new JLabel("Date de naissance :");
@@ -41,11 +41,11 @@ public class Fen3_Ach_NewC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		lblNewLabel.setBounds(350, 21, 912, 48);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 39));
-		p.add(lblNewLabel);
+		l_main.setBounds(350, 21, 912, 48);
+		l_main.setFont(new Font("Tahoma", Font.BOLD, 39));
+		p.add(l_main);
 		
-		// Labels : "Nom", "PrÃ©nom", "Adresse", "TÃ©lÃ©phone", "Sexe", "Mail", "Date de naissance"
+		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
 		
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
@@ -75,7 +75,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_dateN.setBounds(643, 353, 326, 37);
 		p.add(l_dateN);
 		
-		// Text Fields : Nom, PrÃ©nom, Adresse, TÃ©lÃ©phone, Sexe, Mail, Date de naissance
+		// Text Fields : Nom, Prénom, Adresse, Téléphone, Sexe, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(115, 154, 389, 58);
