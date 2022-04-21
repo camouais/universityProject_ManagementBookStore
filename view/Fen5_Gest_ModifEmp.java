@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen5_Gest_ModifEmp extends JFrame {
 	
@@ -16,20 +17,20 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	private JTextField t_adresse;
 	private JTextField t_mail;
 	private JTextField t_tel;
-	private JLabel l_rens = new JLabel("Renseignements de l'employé");
+	private JLabel l_rens = new JLabel("Renseignements de l'employÃ©");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prénom :");
+	private JLabel l_prenom = new JLabel("PrÃ©nom :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	private JLabel l_fonc = new JLabel("Fonction : ");
 	private JLabel l_adresse = new JLabel("Adresse : ");
 	private JLabel l_mail = new JLabel("Mail : ");
-	private JLabel l_tel = new JLabel("Téléphone : ");
+	private JLabel l_tel = new JLabel("TÃ©lÃ©phone : ");
 	
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen5_Gest_ModifEmp() { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen5_Gest_ModifEmp(Magasin m) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -44,7 +45,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 
 		// JLabel & JTextfield nom
@@ -59,7 +60,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 		
-		// JLabel & JTextfield prénom
+		// JLabel & JTextfield prÃ©nom
 		
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
@@ -119,7 +120,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_mail.setBounds(150, 303, 380, 30);
 		p.add(t_mail);
 		
-		// JLabel & JTextfield Téléphone
+		// JLabel & JTextfield TÃ©lÃ©phone
 		
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_tel.setBounds(20, 344, 150, 30);
@@ -138,7 +139,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_retour.setBounds(10, 410, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp(m);
 				dispose();
 			}
 		});
@@ -150,7 +151,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_effacer.setBounds(180, 410, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp(m);
 				dispose();
 			}
 		});
@@ -161,23 +162,10 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_enreg.setBounds(350, 410, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp();
+				new Fen4_Gest_MagEmp(m);
 				dispose();
 			}
 		});
 		p.add(b_enreg);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen5_Gest_ModifEmp frame = new Fen5_Gest_ModifEmp();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
