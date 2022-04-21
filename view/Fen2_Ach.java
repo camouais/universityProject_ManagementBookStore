@@ -17,7 +17,7 @@ public class Fen2_Ach extends JFrame {
 
 	public Fen2_Ach() {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
