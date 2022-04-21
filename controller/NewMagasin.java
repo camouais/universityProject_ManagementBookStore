@@ -7,18 +7,15 @@ import model.*;
 import view.*;
 
 public class NewMagasin {
-    public Magasin magasin;
-    JTextField nom;
     
     public NewMagasin(JTextField n) {
     	if(n.getText().equals("")) {
     		Fen0 a = new Fen0();
     		a.setVisible(true); // Passer par une variable est visiblement nécessaire, new Fen0() n'est pas suffisant
     	} else {
-	        nom = n;
-	        System.out.println("name is " + nom.getText());
-	        magasin = new Magasin(nom.getText());
-	        new Fen1(magasin);
+	        System.out.println("name is " + n.getText());
+	        Magasin m = new Magasin(n.getText());
+	        new Fen1(m);
     	}
     }
 }
