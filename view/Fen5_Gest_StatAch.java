@@ -3,19 +3,20 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen5_Gest_StatAch extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
 	Object[][] donnees1 = {
-            {"1", "Client.getName() 1", "12.33€", "Liste livresa"},
-            {"2", "Client.getName() 2", "56.00€", "Liste livresb"},
-            {"3", "Client.getName() 1", "25.50€", "Liste livresc"},
-            {"4", "Client.getName() 4", "AB.CD€", "Liste livresd"},
-            {"5", "Client.getName() 5", "87.40€", "Liste livrese"},
+            {"1", "Client.getName() 1", "12.33â‚¬", "Liste livresa"},
+            {"2", "Client.getName() 2", "56.00â‚¬", "Liste livresb"},
+            {"3", "Client.getName() 1", "25.50â‚¬", "Liste livresc"},
+            {"4", "Client.getName() 4", "AB.CDâ‚¬", "Liste livresd"},
+            {"5", "Client.getName() 5", "87.40â‚¬", "Liste livrese"},
             {"6", "Client.getName() 6", "a", "Liste livresf"},
-            {"7", "Client.getName() 7", "12087.20€", "hehe"},
+            {"7", "Client.getName() 7", "12087.20â‚¬", "hehe"},
             {"8", "Client.getName() 1", "b", "Liste livresg"},
             {"9", "Client.getName() 1", "c", "Liste livres"},
             {"10", "Client.getName() 2", "d", "Liste livres"},
@@ -36,7 +37,7 @@ public class Fen5_Gest_StatAch extends JFrame {
             {"25", "Client.getName() 7", "h", "Liste livres"}
     };
     
-    String[] entetes1 = {"ID", "Nom du client", "Prix total", "Livres achetés"};
+    String[] entetes1 = {"ID", "Nom du client", "Prix total", "Livres achetÃ©s"};
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
@@ -50,9 +51,9 @@ public class Fen5_Gest_StatAch extends JFrame {
     JButton b_retour = new JButton("Retour");
     JScrollPane scrollPane = new JScrollPane();
     
-	public Fen5_Gest_StatAch() {
+	public Fen5_Gest_StatAch(Magasin m) {
 		
-		// Fenêtre 
+		// FenÃªtre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 700);
@@ -104,25 +105,12 @@ public class Fen5_Gest_StatAch extends JFrame {
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	    b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagStat();
+				new Fen4_Gest_MagStat(m);
 				dispose();
 			}
 		});
 	    b_retour.setBounds(71, 550, 222, 57);
 	    b_retour.setBackground(new Color(64,128,0));
 	    p.add(b_retour);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen5_Gest_StatAch frame = new Fen5_Gest_StatAch();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
