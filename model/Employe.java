@@ -5,23 +5,22 @@ import java.util.*;
 class Employe {
 	
     // Attributs
-	
-    public String nom;
-    public String prenom;
-    public float salaire;
-    public String fonction;
+	public static int totalE;
+    private int id; 
+	private String nom;
+    private String prenom;
+    private float salaire;
+    private String fonction;
     private String adresse;
     private String mail;
     private String tel;
-    public String age;
-    public String sexe;
-    public Magasin magasin;
-    public int idEmp; 
+    private int age;
+    private String sexe;
     public Set<Livraison> listLiv; 
     
     // Constructeur
     
-    public Employe(String n, String p, float s, String f, String a, String ml, String t, Magasin m, int i) {
+    public Employe(String n, String p, float s, String f, String a, String ml, String t) {
     	nom = n; 
     	prenom = p;
     	salaire = s;
@@ -29,70 +28,87 @@ class Employe {
     	adresse = a;
     	mail = ml;
     	tel = t;	
-    	magasin = m;
-    	idEmp = i;
+    	id = totalE;
+    	totalE++;
     }
     
-    // Méthodes
+    // MÃ©thodes
+
     
-	public int updateAdr(String adr) {
-		if(adr != adresse) {
-			adresse=adr; 
-			return 0;
-		}
-		else {
-			return-1;
-		}
+    public int getId() {
+    	return id;
     }
-	
-	public int updateSal(float s) {
-		if(s != salaire) {
-			salaire=s; 
-			return 0;
-		}
-		else {
-			return -1;
-		}
-	}
-	
-	public int updateFonc(String f) {
-		if(f != fonction) {
-			fonction =f; 
-			return 0;
-		}
-		else {
-			return -1;
-		}
-	}
-	
-	public int updateTel(String t) {
-		if(t != tel) {
-			tel = t; 
-			return 0;
-		}
-		else {
-			return -1;
-		}
-	}
-	
-	public int updateMail(String ml) {
-		if(ml != mail) {
-			mail = ml; 
-			return 0;
-		}
-		else {
-			return -1;
-		}
-	}
-	
-	public int updateMag(Magasin mag) {
-		if( mag != magasin) {
-			magasin = mag; 
-			return 0;
-		}
-		else {
-			return -1;
-		}
-	}
-	
+    
+    public String getNom() {
+    	return nom;
+    }
+    
+    public void setNom(String a) {
+    	nom = a;
+    }
+    
+    public String getPrenom() {
+    	return prenom;
+    }
+    
+    public void setPrenom(String a) {
+    	prenom = a;
+    }
+    
+    public float getSalaire() {
+    	return salaire;
+    }
+    
+    public void setSalaire(float a) {
+    	salaire = a;
+    }
+    
+    public String getFonction() {
+    	return fonction;
+    }
+    
+    public void setFonction(String a) {
+    	fonction = a;
+    }
+    
+    public String getAdresse() {
+    	return adresse;
+    }
+    
+    public void setAdresse(String a) {
+    	adresse = a;
+    }
+    
+    public String getMail() {
+    	return mail;
+    }
+    
+    public void setMail(String a) {
+    	mail = a;
+    }
+    
+    public String getTel() {
+    	return tel;
+    }
+    
+    public void setTel(String a) {
+    	tel = a;
+    }
+    
+    public int getAge() {
+    	return age;
+    }
+    
+    public void setAge(int a) {
+    	age = a;
+    }
+    
+    public String getSexe() {
+    	return sexe;
+    }
+    
+    public void setSexe(String a) {
+    	sexe = a;
+    }
+    
 }
