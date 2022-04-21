@@ -6,8 +6,8 @@ public class Magasin {
 	
 	// Attributs
 	
-    public String m_nom;
-    public String m_adresse;
+    private String nom;
+    private String adresse;
     // [...]
     public Set<Employe> listEmp = new HashSet<>();
     public Set<Stock> listStock = new HashSet<>();
@@ -18,7 +18,7 @@ public class Magasin {
     // Constructeur
     
     public Magasin(String name) {
-    	m_nom = name;
+    	nom = name;
     }
     
     // MÃ©thodes
@@ -112,10 +112,10 @@ public class Magasin {
 	
     // Recherche d'un client par son nom et prÃ©nom
 	
-    public Client rchCli(String n, String p, int id) {
+    public Client rchCli(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
         for (int i = 0; i < listCom.size(); i++) {
-            if((listClient.toArray(t)[i].nom==n) && (listClient.toArray(t)[i].prenom== p) && (listClient.toArray(t)[i].idClient == id)) {
+            if((listClient.toArray(t)[i].nom==n) && (listClient.toArray(t)[i].prenom== p) && (listClient.toArray(t)[i].mail == mail)) {
                 return (Client) listClient.toArray()[i];
             }
         }
@@ -198,8 +198,8 @@ public class Magasin {
     // Modification de l'adresse du magasin
     
     public int updateAdr(String adr) {
-		if(adr != m_adresse) {
-			m_adresse=adr; 
+		if(adr != adresse) {
+			adresse=adr; 
 			return 0;
 		}
 		else {
@@ -209,14 +209,12 @@ public class Magasin {
     
     // Modification du nom du magasin
     
-    public int updateNom(String n) {
-		if(n != m_nom) {
-			m_nom=n; 
-			return 0;
-		}
-		else {
-			return-1;
-		}
+    public String getNom() {
+    	return nom;
+    }
+    
+    public void setNom(String n) {
+		nom = n;
     }
     
     //////////////////////////////////////////////
