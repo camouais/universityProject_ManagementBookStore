@@ -2,7 +2,7 @@ package model;
 
 import java.util.*;
 
-class Employe {
+public class Employe {
 	
     // Attributs
 	public static int totalE;
