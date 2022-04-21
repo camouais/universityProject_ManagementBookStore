@@ -17,7 +17,7 @@ public class Fen2_Ach extends JFrame {
 
 	public Fen2_Ach() {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -38,7 +38,7 @@ public class Fen2_Ach extends JFrame {
 		
 		// Boutons : Oui, Non, Retour
 		
-		b_oui.setBackground(new Color(0, 128, 0));
+		b_oui.setBackground(new Color(100, 255, 100));
 		b_oui.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_oui.setBounds(50, 100, 150, 56);
 		b_oui.addActionListener(new ActionListener() {
@@ -49,7 +49,7 @@ public class Fen2_Ach extends JFrame {
 		});
 		p.add(b_oui);
 		
-		b_non.setBackground(new Color(255, 0, 0));
+		b_non.setBackground(new Color(255, 100, 100));
 		b_non.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_non.setBounds(284, 100, 150, 56);
 		b_non.addActionListener(new ActionListener() {
@@ -84,5 +84,4 @@ public class Fen2_Ach extends JFrame {
 			}
 		});
 	}
-
 }
