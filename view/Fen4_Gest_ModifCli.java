@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import model.*;
 
 public class Fen4_Gest_ModifCli extends JFrame {
 	
@@ -11,7 +12,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 	private JPanel p = new JPanel();
 	private JLabel l_rens = new JLabel("Renseignements du client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prénom :");
+	private JLabel l_prenom = new JLabel("PrÃ©nom :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	private JLabel l_adresse = new JLabel("Adresse : ");
 	private JLabel l_mail = new JLabel("Mail : ");
@@ -27,7 +28,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen4_Gest_ModifCli() { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen4_Gest_ModifCli(Magasin m) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -42,7 +43,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabels & JTextfield nom
@@ -57,7 +58,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 
-		//JLabels & JTextfield prénom
+		//JLabels & JTextfield prÃ©nom
 		
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
@@ -105,7 +106,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_mail.setBounds(150, 260, 380, 30);
 		p.add(t_mail);
 
-		// JLabel & JTextfield téléphone
+		// JLabel & JTextfield tÃ©lÃ©phone
 		
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_tel.setBounds(20, 300, 150, 30);
@@ -124,7 +125,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_retour.setBounds(10, 370, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli();
+				new Fen3_Gest_Cli(m);
 				dispose();
 			}
 		});
@@ -136,7 +137,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_effacer.setBounds(180, 370, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli();
+				new Fen3_Gest_Cli(m);
 				dispose();
 			}
 		});
@@ -147,23 +148,10 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_enreg.setBounds(350, 370, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli();
+				new Fen3_Gest_Cli(m);
 				dispose();
 			}
 		});
 		p.add(b_enreg);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen4_Gest_ModifCli frame = new Fen4_Gest_ModifCli();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }
