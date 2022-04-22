@@ -143,21 +143,9 @@ public class Magasin {
     	}
     }
     
-    // Recherche d'un client par son ID
-    
-    public Client rchClient(int id) {
-    	Client[] rch = new Client[listClient.size()];
-        for (int i = 0; i < listClient.size(); i++) {
-            if(listClient.toArray(rch)[i].getId() == id) {
-                return (Client) listClient.toArray()[i];
-            }
-        }
-        return null;
-    }
-    
     // Recherche d'un client par son nom
     
-    public Client listDatCompCli(String n) {
+    public Client rchCliNom(String n) {
     	Set<Client> sNom = new HashSet<>();
     	Client[] tab = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
