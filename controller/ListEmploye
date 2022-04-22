@@ -1,0 +1,65 @@
+package controller;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.awt.EventQueue;
+import java.util.*;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import view.*;
+import model.*;
+
+public class ListEmploye {
+	Employe e_0 = new Employe("Alfred", "Jo", 1090, "Caissier", "5 Rue des Sangliers", "Alfred.Jo@gmail.com", "06352192");
+	Employe e_1 = new Employe("Tulipe", "William", 1090, "Responsable", "23 Rue des Sangliers", "Tulipe.William@gmail.com", "09318995");
+	Employe e_2 = new Employe("Armand", "Sarah", 1090, "Caissier", "6 Rue des Sangliers", "Armand.Sarah@gmail.com", "06357196");
+	Employe e_3 = new Employe("Van", "Jean", 1090, "Vendeur", "11 Rue de la Tour Eiffel", "Van.Jean@gmail.com", "063367195");
+	Employe e_4 = new Employe("Djisk", "Lili", 1090, "Vendeur", "45 Avenue des Chevaleries", "Djisk.Lili@gmail.com", "09364136");
+	Employe e_5 = new Employe("Wo", "Serena", 1090, "Responsable", "78 Rue des Savants", "Wo.Serena@gmail.com", "06546775");
+	
+	Object[] list;
+	String[] tab;
+	public ListEmploye(Magasin m) {
+		m.listEmp.add(e_0);
+		m.listEmp.add(e_1);
+		m.listEmp.add(e_2);
+		m.listEmp.add(e_3);
+		m.listEmp.add(e_4);
+		m.listEmp.add(e_5);
+		
+		
+		list= m.listEmp.toArray();
+		tab = new String[list.length];
+		
+		
+		for(int i=0; i<list.length; i++) {
+			String s = ("#"+((Employe)list[i]).getId()+"-"+((Employe)list[i]).getNom() +
+					"-"+((Employe)list[i]).getPrenom() +"-"+((Employe)list[i]).getFonction());
+			tab[i]=s;
+		}
+		}
+	
+		public String[] getListEmp() {
+			return tab;
+		}
+		
+		public Employe compare(Employe e1, Employe e2) {
+			if (e1.getId()<(e2.getId()) ) {
+				return e1;
+			} 
+				
+			return e2;        	
+			
+		
+		
+		}
+		
+}
+	
+	
+	
+		
+		 
+	
+
