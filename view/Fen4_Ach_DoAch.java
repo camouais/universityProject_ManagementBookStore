@@ -134,8 +134,8 @@ public class Fen4_Ach_DoAch extends JFrame {
         b_retour.setBounds(50, 650, 400, 60);
         b_retour.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		new Fen2_Ach(m);
         		dispose();
+        		new Fen2_Ach(m);
         	}
         });
         p.add(b_retour);
@@ -145,10 +145,16 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBounds(540, 650, 400, 60);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Ach_Fact(m,c);
 				dispose();
+				new Fen5_Ach_Fact(m,c);
 			}
 		});
 		p.add(b_enregistrer);
+		
+		JFrame error = new JFrame();
+		int a = m.listLivre.size();
+		if(a == 0) {
+			JOptionPane.showMessageDialog(error, "La liste de livres est vide", "Avertissement", 1);
+		}
 	}
 }
