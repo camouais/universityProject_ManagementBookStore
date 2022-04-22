@@ -34,8 +34,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_info.setBounds(50, 50, 500, 100);
 		b_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagInfo(m);
 				dispose();
+				new Fen4_Gest_MagInfo(m);
 			}
 		});
 		p.add(b_info);
@@ -45,8 +45,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_stat.setBounds(50, 350, 500, 100);
 		b_stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagStat(m);
 				dispose();
+				new Fen4_Gest_MagStat(m);
 			}
 		});
 		p.add(b_stat);
@@ -56,8 +56,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_empl.setBounds(50, 200, 500, 100);
 		b_empl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp(m);
 				dispose();
+				new Fen4_Gest_MagEmp(m);
 			}
 		});
 		p.add(b_empl);
@@ -67,8 +67,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Gest(m);
 				dispose();
+				new Fen2_Gest(m);
 			}
 		});
 		p.add(b_retour);

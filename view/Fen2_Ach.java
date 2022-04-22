@@ -44,8 +44,8 @@ public class Fen2_Ach extends JFrame {
 		b_oui.setBounds(50, 100, 150, 56);
 		b_oui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Ach_NewC(m);
 				dispose();
+				new Fen3_Ach_NewC(m);
 			}
 		});
 		p.add(b_oui);
@@ -55,8 +55,8 @@ public class Fen2_Ach extends JFrame {
 		b_non.setBounds(284, 100, 150, 56);
 		b_non.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Ach_ExistC(m);
 				dispose();
+				new Fen3_Ach_ExistC(m);
 			}
 		});
 		p.add(b_non);
@@ -66,8 +66,8 @@ public class Fen2_Ach extends JFrame {
 		b_retour.setBounds(165, 180, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen1(m);
 				dispose();
+				new Fen1(m);
 			}
 		});
 		p.add(b_retour);

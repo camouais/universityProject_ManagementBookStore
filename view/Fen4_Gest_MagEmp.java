@@ -96,8 +96,8 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen5_Gest_ModifEmp(m);
 				dispose();
+				new Fen5_Gest_ModifEmp(m);
 			}
 		});
 		p.add(b_modifier);
@@ -107,8 +107,8 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	new Fen5_Gest_NewEmp(m);
             	dispose();
+            	new Fen5_Gest_NewEmp(m);
             }
 		});
 		p.add(b_ajouter);
@@ -118,8 +118,8 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag(m);
 				dispose();
+				new Fen3_Gest_Mag(m);
 			}
 		});
 		p.add(b_retour);

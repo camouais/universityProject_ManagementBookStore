@@ -23,13 +23,13 @@ public class Fen3_Ach_NewC extends JFrame {
 	private JTextField t_prenom;
 	private JTextField t_adresse;
 	private JTextField t_tel;
-	private JTextField t_sexe;
 	private JTextField t_mail;
 	private JTextField t_dateN;
 
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
+	private final JComboBox<String> c_sexe = new JComboBox<String>();
 	
 	public Fen3_Ach_NewC(Magasin m) {
 		
@@ -76,66 +76,74 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_dateN.setBounds(643, 353, 326, 37);
 		p.add(l_dateN);
 		
-		// Text Fields : Nom, Prénom, Adresse, Téléphone, Sexe, Mail, Date de naissance
+		// Text Fields : Nom, Prénom, Adresse, Téléphone, Mail, Date de naissance
 		
 		t_nom = new JTextField();
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_nom.setBounds(115, 154, 389, 58);
 		p.add(t_nom);
 		
 		t_prenom = new JTextField();
+		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_prenom.setBounds(115, 272, 389, 58);
 		p.add(t_prenom);
 		
 		t_adresse = new JTextField();
+		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setBounds(115, 392, 389, 58);
 		p.add(t_adresse);
 		
 		t_tel = new JTextField();
+		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_tel.setBounds(115, 513, 389, 58);
 		p.add(t_tel);
 		
-		t_sexe = new JTextField();
-		t_sexe.setBounds(643, 154, 389, 58);
-		p.add(t_sexe);
-		
 		t_mail = new JTextField();
+		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_mail.setBounds(643, 272, 389, 58);
 		p.add(t_mail);
 		
 		t_dateN = new JTextField();
+		t_dateN.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_dateN.setBounds(643, 392, 389, 58);
 		p.add(t_dateN);
 		
 		// Boutons : Effacer, Valider, Retour
 		
-		b_effacer.setForeground(new Color(255, 255, 255));
-		b_effacer.setBackground(new Color(0, 0, 0));
+		b_effacer.setForeground(Color.BLACK);
+		b_effacer.setBackground(Color.LIGHT_GRAY);
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_effacer.setBounds(739, 502, 207, 64);
 		p.add(b_effacer);
 		
 		b_valider.setBackground(new Color(0, 128, 0));
-		b_valider.setForeground(new Color(255, 255, 255));
+		b_valider.setForeground(Color.BLACK);
 		b_valider.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new NewClient(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, t_sexe);
 				dispose();
+				new NewClient(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe);
 			}
 		});
 		p.add(b_valider);
 		
-		b_retour.setForeground(new Color(255, 255, 255));
+		b_retour.setForeground(Color.BLACK);
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Ach(m);
 				dispose();
+				new Fen2_Ach(m);
 			}
 		});
 		p.add(b_retour);
+		
+		c_sexe.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		c_sexe.setModel(new DefaultComboBoxModel<String>(new String[] {"Homme", "Femme"}));
+		c_sexe.setBounds(643, 154, 389, 58);
+		
+		p.add(c_sexe);
 	}
 }

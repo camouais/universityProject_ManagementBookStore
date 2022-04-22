@@ -147,8 +147,8 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		b_valider.setBounds(739, 719, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp(m);
 				dispose();
+				new Fen4_Gest_MagEmp(m);
 			}
 		});
 		p.add(b_valider);
@@ -159,8 +159,8 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		b_retour.setBounds(208, 719, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp(m);
 				dispose();
+				new Fen4_Gest_MagEmp(m);
 			}
 		});
 		p.add(b_retour);

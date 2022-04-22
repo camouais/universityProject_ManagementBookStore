@@ -97,8 +97,8 @@ public class Fen3_Gest_Liv extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_ModifLiv(m);
 				dispose();
+				new Fen4_Gest_ModifLiv(m);
 			}
 		});
 		p.add(b_modifier);
@@ -120,8 +120,8 @@ public class Fen3_Gest_Liv extends JFrame {
         
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Gest(m);
 				dispose();
+				new Fen2_Gest(m);
 			}
 		});
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));

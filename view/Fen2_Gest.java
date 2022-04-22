@@ -36,8 +36,8 @@ public class Fen2_Gest extends JFrame {
 		b_livres.setBounds(50, 50, 400, 100);
 		b_livres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv(m);
 				dispose();
+				new Fen3_Gest_Liv(m);
 			}
 		});
 		p.add(b_livres);
@@ -47,8 +47,8 @@ public class Fen2_Gest extends JFrame {
 		b_magasin.setBounds(50, 350, 400, 100);
 		b_magasin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Mag(m);
 				dispose();
+				new Fen3_Gest_Mag(m);
 			}
 		});
 		p.add(b_magasin);
@@ -58,8 +58,8 @@ public class Fen2_Gest extends JFrame {
 		b_clients.setBounds(50, 200, 400, 100);
 		b_clients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli(m);
 				dispose();
+				new Fen3_Gest_Cli(m);
 			}
 		});
 		p.add(b_clients);
@@ -69,8 +69,8 @@ public class Fen2_Gest extends JFrame {
 		b_retour.setBounds(50, 500, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen1(m);
 				dispose();
+				new Fen1(m);
 			}
 		});
 		p.add(b_retour);

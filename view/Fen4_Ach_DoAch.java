@@ -2,6 +2,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import model.*;
@@ -35,7 +36,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		
 		ListLivres t = new ListLivres(m);
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,6 +59,7 @@ public class Fen4_Ach_DoAch extends JFrame {
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel1.setBounds(50, 150, 400, 400);
         panel1.setLayout(null);
@@ -88,7 +90,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel RÃ©alisation de l'achat
+		// JLabel Réalisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
@@ -146,7 +148,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new Fen5_Ach_Fact(m,c);
+				new Fen5_Ach_Fact(m,c,model2);
 			}
 		});
 		p.add(b_enregistrer);

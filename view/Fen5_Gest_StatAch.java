@@ -105,8 +105,8 @@ public class Fen5_Gest_StatAch extends JFrame {
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
 	    b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagStat(m);
 				dispose();
+				new Fen4_Gest_MagStat(m);
 			}
 		});
 	    b_retour.setBounds(71, 550, 222, 57);

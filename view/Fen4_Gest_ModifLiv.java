@@ -125,8 +125,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_retour.setBounds(10, 370, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv(m);
 				dispose();
+				new Fen3_Gest_Liv(m);
 			}
 		});
 		p.add(b_retour);
@@ -137,8 +137,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_effacer.setBounds(180, 370, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv(m);
 				dispose();
+				new Fen3_Gest_Liv(m);
 			}
 		});
 		p.add(b_effacer);
@@ -148,8 +148,8 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBounds(350, 370, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Liv(m);
 				dispose();
+				new Fen3_Gest_Liv(m);
 			}
 		});
 		p.add(b_enreg);

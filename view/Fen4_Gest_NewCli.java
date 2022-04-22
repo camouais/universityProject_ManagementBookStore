@@ -149,8 +149,8 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli(m);
 				dispose();
+				new Fen3_Gest_Cli(m);
 			}
 		});
 		p.add(b_valider);
@@ -163,8 +163,8 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_retour.setBounds(208, 619, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen3_Gest_Cli(m);
 				dispose();
+				new Fen3_Gest_Cli(m);
 			}
 		});
 		p.add(b_retour);

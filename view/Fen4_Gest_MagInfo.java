@@ -65,8 +65,8 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
                 System.out.println("nom sortant = " + m.getNom());
-				new Fen3_Gest_Mag(m);
 				dispose();
+				new Fen3_Gest_Mag(m);
 			}
 		});
 		p.add(b_retour);

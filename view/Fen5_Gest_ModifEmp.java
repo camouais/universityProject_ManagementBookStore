@@ -151,8 +151,8 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_effacer.setBounds(180, 410, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp(m);
 				dispose();
+				new Fen4_Gest_MagEmp(m);
 			}
 		});
 		p.add(b_effacer);
@@ -162,8 +162,8 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_enreg.setBounds(350, 410, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Gest_MagEmp(m);
 				dispose();
+				new Fen4_Gest_MagEmp(m);
 			}
 		});
 		p.add(b_enreg);

@@ -35,8 +35,8 @@ public class Fen1 extends JFrame {
 		b_gest.setBounds(50, 50, 400, 100);
 		b_gest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Gest(m);
 				dispose();
+				new Fen2_Gest(m);
 			}
 		});
 		p.add(b_gest);
@@ -46,8 +46,8 @@ public class Fen1 extends JFrame {
 		b_ach.setBounds(50, 200, 400, 100);
 		b_ach.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen2_Ach(m);
 				dispose();
+				new Fen2_Ach(m);
 			}
 		});
 		p.add(b_ach);
