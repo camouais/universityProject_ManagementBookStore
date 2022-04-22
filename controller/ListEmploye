@@ -34,8 +34,8 @@ public class ListEmploye {
 		
 		
 		for(int i=0; i<list.length; i++) {
-			String s = ("#"+((Employe)list[i]).getId()+"-"+((Employe)list[i]).getNom() +
-					"-"+((Employe)list[i]).getPrenom() +"-"+((Employe)list[i]).getFonction());
+			String s = (((Employe)list[i]).getId()+" "+((Employe)list[i]).getNom() +
+					" "+((Employe)list[i]).getPrenom() +" - "+((Employe)list[i]).getFonction());
 			tab[i]=s;
 		}
 		}
