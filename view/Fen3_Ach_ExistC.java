@@ -16,7 +16,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 	private JTextField t_mail = new JTextField();
 	private JLabel l_main = new JLabel("Renseignements du client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Pr\u00E9nom :");
 	private JLabel l_mail = new JLabel("Adresse mail :");
 	
 	JButton b_valider = new JButton("VALIDER");
@@ -33,7 +33,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : "Renseignements du client", "Nom", "PrÃ©nom", "Identifiant"
+		// Labels : "Renseignements du client", "Nom", "Prénom", "Identifiant"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
