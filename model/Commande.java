@@ -43,7 +43,7 @@ public class Commande  {
     	modePaiement = a;
     }
     
-    public String getClient() {
+    public Client getClient() {
     	return client;
     }
     
