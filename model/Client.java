@@ -21,10 +21,11 @@ public class Client {
     
     // Constructeur
 
-    public Client(String n, String p, String ad, String t, String am, String s) {
+    public Client(String n, String p, String ad, String m, String t, String am, String s) {
     	nom = n;
     	prenom = p;
     	sexe = s;
+    	mail = m;
     	tel = t;
     	dateCreationCompte = new Date(System.currentTimeMillis());
     	adresse = ad;
