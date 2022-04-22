@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Livre {
+public class Livre implements Serializable {
 	
 	// Attributs
+    public static int totalLivre;
 	
     public Set<Commande> listCom;
     public String titre;
@@ -13,23 +15,25 @@ public class Livre {
     public Date dateParution;
     private String resume;
     public float prix;
-    public int idLivre;
+    public int id;
     public String categorie;
     public Set<String> l_format;
     public Set<String> l_trad;
     
     // Constructeur
     
-    public Livre(int id, String t, String a, String e, Date d, String c) {
-    	idLivre = id;
+    public Livre(String t, String a, String e, Date d, String c, float p) {
     	titre = t;
     	auteur = a;
     	editeur = e;
     	dateParution = d;
     	categorie = c;
+    	prix = p;
+    	id = totalLivre;
+    	totalLivre++;
     }
     
-    // MÃ©thodes
+    // Méthodes
     
     public String getTitre() {
     	return titre;

@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Magasin {
+public class Magasin implements Serializable {
 	
 	// Attributs
 	
@@ -21,7 +22,7 @@ public class Magasin {
     	nom = name;
     }
     
-    // MÃ©thodes
+    // Méthodes
     
     //////////////////////////////////////////////
     //-----------------COMMANDES----------------//
@@ -45,7 +46,7 @@ public class Magasin {
         return null;
     }
     
-    // Liste des commandes ayant la mÃªme date
+    // Liste des commandes ayant la même date
     
     public Set<Commande> rchCm(Date d) {
     	Set<Commande> sameDate = new HashSet<>();
@@ -58,7 +59,7 @@ public class Magasin {
         return sameDate;
     }
     
-    // Liste des commandes ayant le mÃªme mode de paiement
+    // Liste des commandes ayant le même mode de paiement
     
     public Set<Commande> rchCm(String mdp) {
     	Set<Commande> sameMdp = new HashSet<>();
@@ -89,7 +90,7 @@ public class Magasin {
 	//-----------------STOCKS-----------------//
 	////////////////////////////////////////////
     
-    // CrÃ©ation d'un Stock
+    // Création d'un Stock
     public void addStock(Livre l, int qE) {
     	Stock s = new Stock(qE, l);
     	listStock.add(s);
@@ -110,7 +111,7 @@ public class Magasin {
     //-----------------CLIENTS-----------------//
     /////////////////////////////////////////////
 	
-    // Recherche d'un client par son nom et prÃ©nom
+    // Recherche d'un client par son nom et prénom
 	
     public Client rchCli(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
@@ -165,7 +166,7 @@ public class Magasin {
     	return null;
     }
     
-    // Liste des clients possÃ©dant la mÃªme date de crÃ©ation de compte
+    // Liste des clients possédant la même date de création de compte
     
     public Client listDatCompCli(Date d) {
     	
@@ -206,10 +207,10 @@ public class Magasin {
     }
     
     //////////////////////////////////////////////
-    //-----------------EMPLOYÃ‰S-----------------//
+    //-----------------EMPLOYÉS-----------------//
     //////////////////////////////////////////////
     
-    // Ajout d'un employÃ©
+    // Ajout d'un employé
     
     public int addEmp(Employe e) {
     	if(!listEmp.contains(e)) {
@@ -220,7 +221,7 @@ public class Magasin {
     	}
     }
     
-    // Suppression d'un employÃ©
+    // Suppression d'un employé
     
     public int supEmp(Employe e) {
     	if(listEmp.contains(e)) {
@@ -231,7 +232,7 @@ public class Magasin {
     	}
     }
 	
-    // Recherche d'un employÃ© par son ID
+    // Recherche d'un employé par son ID
     
     public Employe rchEmp(int id) {
     	Employe[] rch = new Employe[listEmp.size()];
@@ -243,7 +244,7 @@ public class Magasin {
         return null;
     }
     
-    // Recherche d'un employÃ© par son nom
+    // Recherche d'un employé par son nom
     
     public Set<Employe> listEmpNom(String n, String p) {
     	Set<Employe> sNom = new HashSet<>();
@@ -256,7 +257,7 @@ public class Magasin {
         return sNom;
     }
     
-    // Liste de tous les employÃ©s ayant le mÃªme poste
+    // Liste de tous les employés ayant le même poste
     
     public Set<Employe> listEmpPos(String f) {
     	Set<Employe> samePoste = new HashSet<>();
@@ -269,7 +270,7 @@ public class Magasin {
         return samePoste;
     }
     
-    // Liste de tous les employÃ©s ayant le mÃªme salaire
+    // Liste de tous les employés ayant le même salaire
     
     public Set<Employe> listEmpSalaire(float s) {
     	Set<Employe> sameSalai = new HashSet<>();

@@ -1,6 +1,8 @@
 package model;
 
-public class Stock {
+import java.io.*;
+
+public class Stock implements Serializable {
 
     // Attributs
     public static int totalS;
@@ -18,7 +20,7 @@ public class Stock {
         livre = l;
     }
     
-    // MÃ©thodes
+    // Méthodes
     
     public int updLiv(Livre l) {
     	if(!l.equals(livre)) {
@@ -37,7 +39,7 @@ public class Stock {
     	qtEntree += n;
     	qtStock += n;
     }
-    public int decStock() { // ajouter un paramètre n à l'avenir ?
+    public int decStock() { // ajouter un param�tre n � l'avenir ?
     	if(qtStock!=0) {
     	qtStock--;
     	return 0;

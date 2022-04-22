@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Commande  {
+public class Commande implements Serializable {
 	
 	// Attributs
 	
@@ -21,6 +22,19 @@ public class Commande  {
 		client=c;
 		id = totalCom;
 		totalCom++;
+	}
+	
+	public void addLivre(Livre l) {
+		listLivres.add(l);
+	}
+	
+	public float getPrixTotal() {
+		Object[] arrayLivres = listLivres.toArray();
+		float prixCount = 0;
+		for(int i = 0; i < arrayLivres.length; i++) {
+			prixCount += ((Livre) arrayLivres[i]).getPrix();
+		}
+		return prixCount;
 	}
 	
     public int getId() {

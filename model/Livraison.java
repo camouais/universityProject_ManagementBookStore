@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Livraison extends Commande  {
+public class Livraison extends Commande implements Serializable  {
 	
 	// Attributs
 	

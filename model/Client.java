@@ -1,8 +1,9 @@
 package model;
 
+import java.io.*;
 import java.util.*;
 
-public class Client {
+public class Client implements Serializable {
 	
     // Attributs
 
@@ -37,15 +38,15 @@ public class Client {
     	totalC = 0;
     }
     
-    // MÃ©thodes
+    // Méthodes
     
-    // Ajouter / Mettre Ã  jour une adresse mail
+    // Ajouter / Mettre à jour une adresse mail
     
     public void updMail(String m) {
     	mail = m;
     }
     
-    // Ajouter / Mettre Ã  jour un numÃ©ro de tÃ©lÃ©phone
+    // Ajouter / Mettre à jour un numéro de téléphone
     
     public void updTel(String t) {
     	tel = t;

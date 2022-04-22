@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Employe {
+public class Employe implements Serializable {
 	
     // Attributs
 	public static int totalE;
@@ -32,7 +33,7 @@ public class Employe {
     	totalE++;
     }
     
-    // MÃ©thodes
+    // Méthodes
 
     
     public int getId() {
