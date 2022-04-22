@@ -44,7 +44,7 @@ public class Commande  {
     }
     
     public String getClient() {
-    	return modePaiement;
+    	return client;
     }
     
     public void setClient(Client a) {
