@@ -5,26 +5,20 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import model.*;
+import controller.*;
 
 public class Fen4_Ach_DoAch extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
-	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			};
-    
-
     public static int count = 0;
     
 	private JPanel p = new JPanel();
 	private DefaultListModel<String> model;
+	private DefaultListModel<String> model2;
 	private JScrollPane scrollPane = new JScrollPane();
 	private JScrollPane scrollPane2 = new JScrollPane();
-	private JList<String> list = new JList<String>(data);
+	private JList<String> list = new JList<String>();
 	private JList<String> list2 = new JList<String>();
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
@@ -39,7 +33,9 @@ public class Fen4_Ach_DoAch extends JFrame {
 
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
-		// Fenêtre
+		ListLivres t = new ListLivres(m);
+		
+		// FenÃªtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,7 +49,12 @@ public class Fen4_Ach_DoAch extends JFrame {
 		setVisible(true);
 		
 		// Panel 1 (Liste de livres)
-		
+
+        model = new DefaultListModel<String>();
+        for(int i = 0; i < t.getList().length; i++) {
+        	model.addElement(t.getList()[i]);
+        }
+        list.setModel(model);
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
@@ -66,8 +67,8 @@ public class Fen4_Ach_DoAch extends JFrame {
         
         // Panel 2 (Liste d'articles)
         
-        model = new DefaultListModel<String>();
-        list2.setModel(model);
+        model2 = new DefaultListModel<String>();
+        list2.setModel(model2);
         
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
@@ -87,7 +88,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel Réalisation de l'achat
+		// JLabel RÃ©alisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
@@ -103,7 +104,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(list2.getSelectedValue()!=null) {
-					model.removeElement(list2.getSelectedValue());
+					model2.removeElement(list2.getSelectedValue());
 				}
 			}
 		});
@@ -115,15 +116,15 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_tEffacer.setBounds(540, 555, 400, 50);
 		p.add(b_tEffacer);
 		
-		b_ajouter.setBackground(new Color(217, 1, 21));
+		b_ajouter.setBackground(new Color(150, 255, 150));
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 555, 400, 50);
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(list.getSelectedValue()!=null) {
-	                model.addElement("Test n°"+count);
+            	if(list.getSelectedValue()!=null) {
+	                model2.addElement(list.getSelectedValue());
 	                count++;
-                }           
+                }
             }
 		});
 		p.add(b_ajouter);
