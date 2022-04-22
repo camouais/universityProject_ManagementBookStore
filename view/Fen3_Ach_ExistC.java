@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import model.*;
+import controller.*;
 
 public class Fen3_Ach_ExistC extends JFrame {
 	
@@ -12,11 +13,11 @@ public class Fen3_Ach_ExistC extends JFrame {
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
 	private JTextField t_prenom = new JTextField();
-	private JTextField t_id = new JTextField();
+	private JTextField t_mail = new JTextField();
 	private JLabel l_main = new JLabel("Renseignements du client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prénom :");
-	private JLabel l_id = new JLabel("Identifiant :");
+	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_mail = new JLabel("Adresse mail :");
 	
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
@@ -32,7 +33,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : "Renseignements du client", "Nom", "Prénom", "Identifiant"
+		// Labels : "Renseignements du client", "Nom", "PrÃ©nom", "Identifiant"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -47,11 +48,11 @@ public class Fen3_Ach_ExistC extends JFrame {
 		l_prenom.setBounds(20, 140, 150, 30);
 		p.add(l_prenom);
 		
-		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_id.setBounds(20, 180, 150, 30);
-		p.add(l_id);
+		l_mail.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_mail.setBounds(20, 180, 150, 30);
+		p.add(l_mail);
 		
-		// Text Fields : Nom, Prénom, Identifiant
+		// Text Fields : Nom, PrÃ©nom, Identifiant
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
@@ -64,10 +65,10 @@ public class Fen3_Ach_ExistC extends JFrame {
 		t_prenom.setBounds(150, 141, 380, 30);
 		p.add(t_prenom);
 		
-		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_id.setColumns(10);
-		t_id.setBounds(150, 180, 380, 30);
-		p.add(t_id);
+		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_mail.setColumns(10);
+		t_mail.setBounds(150, 180, 380, 30);
+		p.add(t_mail);
 		
 		// Boutons : Retour, Valider
 		
@@ -87,7 +88,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		b_valider.setBounds(350, 230, 150, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Fen4_Ach_DoAch(m,m.rchCli(t_nom.getText(), t_prenom.getText(), t_id.getText()));
+				new ClientExists(m, t_nom, t_prenom, t_mail);
 				dispose();
 			}
 		});
