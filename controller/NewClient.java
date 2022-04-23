@@ -16,8 +16,8 @@ public class NewClient {
 	JTextField mail;
 	JTextField sexe;
 	
-	public NewClient(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JTextField sexe) {
-		c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), sexe.getText());
+	public NewClient(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe) {
+		c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), sexe.getSelectedItem().toString());
 		System.out.println("Client créé avec les attributs suivants : \nNom = " + c.getNom());
 		m.addCli(c);
 		new Fen4_Ach_DoAch(m,c);
