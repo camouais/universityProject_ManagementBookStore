@@ -235,13 +235,15 @@ public class Magasin implements Serializable {
     // Recherche d'un employé par son ID
     
     public Employe rchEmp(int id) {
-    	Employe[] rch = new Employe[listEmp.size()];
-        for (int i = 0; i < listCom.size(); i++) {
-            if(listEmp.toArray(rch)[i].getId() == id) {
+    	Employe[] t = new Employe[listEmp.size()];
+        for (int i = 0; i < listEmp.size(); i++) {
+            if((listEmp.toArray(t)[i].getId()==id) ) {
                 return (Employe) listEmp.toArray()[i];
             }
         }
         return null;
+    	
+    	
     }
     
     // Recherche d'un employé par son nom
