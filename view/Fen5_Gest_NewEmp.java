@@ -3,6 +3,8 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import controller.NewEmploye;
 import model.*;
 
 public class Fen5_Gest_NewEmp extends JFrame {
@@ -148,7 +150,8 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new Fen4_Gest_MagEmp(m);
+				new NewEmploye(m, t_nom, t_prenom, t_salaire, t_fonction, 
+						t_adresse, t_mail, t_tel);
 			}
 		});
 		p.add(b_valider);
