@@ -4,19 +4,16 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+
+import controller.ListEmploye;
+import controller.ListLivres;
 import model.*;
 
 public class Fen4_Gest_MagEmp extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
-	String[] data = {"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			,"sdfsd", "qsdfqsdf", "sdqsd", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "sddq", "a", "dqsd", "sddq", "sddq", "sddq", "sddq", "sddq"
-			};
-    
+	 
 	private JPanel p = new JPanel();
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
@@ -25,7 +22,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
     private JList<String> list2 = new JList<String>();
     public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Employés");
+	private JLabel l_main = new JLabel("Employï¿½s");
     
 	JScrollPane scrollPane = new JScrollPane();
     JScrollPane scrollPane2 = new JScrollPane();
@@ -35,7 +32,9 @@ public class Fen4_Gest_MagEmp extends JFrame {
 
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// Fenêtre
+		ListEmploye e = new ListEmploye(m);
+		
+		// Fenï¿½tre
 		
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
@@ -47,8 +46,26 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employés)
+		// Panel 1 (Liste d'employï¿½s)
+		model = new DefaultListModel<String>();
+        for (int i = 0; i < e.getListEmp().length; i++) {
+            for (int j = 0; j < e.getListEmp().length; j++) {
+                if (Integer.parseInt((e.getListEmp()[i]).split(" ")[0]) < Integer.parseInt((e.getListEmp()[j]).split(" ")[0])) {
+                    
+                    
+                    String temp = e.getListEmp()[i];
+                    e.getListEmp()[i] = e.getListEmp()[j];
+                    e.getListEmp()[j] = temp;
+                }
+                
+            }
+        }
+        for (int i = 0; i < e.getListEmp().length; i++) {
+            model.addElement(e.getListEmp()[i]);
+           }
 		
+		list.setModel(model);
+        
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
@@ -59,10 +76,9 @@ public class Fen4_Gest_MagEmp extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Panel 2 (Informations de l'employé sélectionné)
+        // Panel 2 (Informations de l'employï¿½ sï¿½lectionnï¿½)
         
-        model = new DefaultListModel<String>();
-        list2.setModel(model);
+        
         
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
@@ -74,15 +90,15 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'un employé
+		// Textfield - Recherche d'un employï¿½
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rech.setText("Recherchez un employé...");
+		t_rech.setText("Recherchez un employï¿½...");
 		t_rech.setBounds(50, 100, 890, 45);
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Employés"
+		// JLabel "Employï¿½s"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Arial", Font.BOLD, 50));
