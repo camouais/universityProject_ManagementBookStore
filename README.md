@@ -15,6 +15,8 @@
 
 <h2>MODEL</h2>
 
+  - Implémenter la création d'une base de données permettant de sauvegarder les données à travers les sessions
+
 <b>Client</b> :
   - Calcul âge client (méthode)
 
