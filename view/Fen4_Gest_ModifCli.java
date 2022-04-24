@@ -3,6 +3,9 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import controller.Modif_InfoClient;
+import controller.Modif_InfoEmploye;
 import model.*;
 
 public class Fen4_Gest_ModifCli extends JFrame {
@@ -28,7 +31,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen4_Gest_ModifCli(Magasin m) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen4_Gest_ModifCli(Magasin m, Client c) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -55,6 +58,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_nom.setText(c.getNom());
 		p.add(t_nom);
 		t_nom.setColumns(10);
 
@@ -65,7 +69,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		p.add(l_prenom);
 		
 		t_prenom = new JTextField();
-		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));t_prenom.setText(c.getPrenom());
 		t_prenom.setColumns(10);
 		t_prenom.setBounds(150, 140, 380, 30);
 		p.add(t_prenom);
@@ -79,6 +83,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_id = new JTextField();
 		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_id.setColumns(10);
+		t_id.setText(String.valueOf(c.getId()));
 		t_id.setBounds(150, 180, 380, 30);
 		p.add(t_id);
 		
@@ -91,6 +96,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_adresse = new JTextField();
 		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setColumns(10);
+		t_adresse.setText(c.getAdresse());
 		t_adresse.setBounds(150, 220, 380, 30);
 		p.add(t_adresse);
 		
@@ -103,6 +109,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_mail = new JTextField();
 		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_mail.setColumns(10);
+		t_mail.setText(c.getMail());
 		t_mail.setBounds(150, 260, 380, 30);
 		p.add(t_mail);
 
@@ -115,6 +122,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_tel = new JTextField();
 		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_tel.setColumns(10);
+		t_tel.setText(c.getTel());
 		t_tel.setBounds(150, 300, 380, 30);
 		p.add(t_tel);
 		
@@ -137,6 +145,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_effacer.setBounds(180, 370, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.supCli(c);
 				dispose();
 				new Fen3_Gest_Cli(m);
 			}
@@ -148,8 +157,8 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_enreg.setBounds(350, 370, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new Fen3_Gest_Cli(m);
+				new Modif_InfoClient(m, c,  t_nom,t_prenom,t_adresse,
+            			t_mail, t_tel);
 			}
 		});
 		p.add(b_enreg);
