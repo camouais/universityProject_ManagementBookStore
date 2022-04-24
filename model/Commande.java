@@ -10,16 +10,15 @@ public class Commande implements Serializable {
 	public static int totalCom;
 	private int id;
 	private Date dateAchat;
-	private String modePaiement;
 	private Client client;
-	public Set<Livre> listLivres;
+	public Vector<Livre> listLivres;
 	
 	// Constructeur
 	
-	public Commande(Date dA, Client c, String mdp) {
-		dateAchat= dA;
-		modePaiement = mdp;
-		client=c;
+	public Commande(Date dA, Client c, Vector<Livre> l) {
+		dateAchat = dA;
+		client = c;
+		listLivres = l;
 		id = totalCom;
 		totalCom++;
 	}
@@ -47,14 +46,6 @@ public class Commande implements Serializable {
     
     public void setNom(Date a) {
     	dateAchat = a;
-    }
-    
-    public String getModePaiement() {
-    	return modePaiement;
-    }
-    
-    public void setModePaiement(String a) {
-    	modePaiement = a;
     }
     
     public Client getClient() {
