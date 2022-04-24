@@ -33,7 +33,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : "Renseignements du client", "Nom", "Pr�nom", "Identifiant"
+		// Labels : "Renseignements du client", "Nom", "Prénom", "Identifiant"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -52,7 +52,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 		l_mail.setBounds(20, 180, 150, 30);
 		p.add(l_mail);
 		
-		// Text Fields : Nom, Prénom, Identifiant
+		// Text Fields : Nom, PrÃ©nom, Identifiant
 		
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
@@ -88,8 +88,9 @@ public class Fen3_Ach_ExistC extends JFrame {
 		b_valider.setBounds(350, 230, 150, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new ClientExists(m, t_nom, t_prenom, t_mail);
+				if(new ClientExists(m, t_nom, t_prenom, t_mail).status == 1) {
+					dispose();
+				}
 			}
 		});
 		p.add(b_valider);
