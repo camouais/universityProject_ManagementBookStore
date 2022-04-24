@@ -22,7 +22,7 @@ public class Magasin implements Serializable {
     	nom = name;
     }
     
-    // Méthodes
+    // MÃ©thodes
     
     //////////////////////////////////////////////
     //-----------------COMMANDES----------------//
@@ -30,8 +30,8 @@ public class Magasin implements Serializable {
     
     // Enregistrement d'une commande 
     
-    public void addCommande(Commande c) {
-    	listCom.add(c);
+    public void newCommande(Date d, Client c, Set<Livre> l) {
+    	Commande temp = new Commande(d,c,l);
     }
 
     // Recherche d'une commande par son ID 
@@ -46,7 +46,7 @@ public class Magasin implements Serializable {
         return null;
     }
     
-    // Liste des commandes ayant la même date
+    // Liste des commandes ayant la mÃªme date
     
     public Set<Commande> rchCm(Date d) {
     	Set<Commande> sameDate = new HashSet<>();
@@ -57,19 +57,6 @@ public class Magasin implements Serializable {
             }
         }
         return sameDate;
-    }
-    
-    // Liste des commandes ayant le même mode de paiement
-    
-    public Set<Commande> rchCm(String mdp) {
-    	Set<Commande> sameMdp = new HashSet<>();
-        Commande[] t1 = new Commande[listCom.size()];
-        for (int i = 0; i < listCom.size(); i++) {
-            if(listCom.toArray(t1)[i].getModePaiement() == mdp) {
-            	sameMdp.add(listCom.toArray(t1)[i]);
-            }
-        }
-        return sameMdp;
     }
     
     ///////////////////////////////////////////
@@ -86,11 +73,22 @@ public class Magasin implements Serializable {
     	return -1;
     }
     
+    // Recherche d'un livre par son titre
+    public Livre rchLivre(String titre) {
+		Livre[] t = new Livre[listStock.size()];
+		for (int i = 0; i < listStock.size(); i++) {
+			if(listStock.toArray(t)[i].getTitre()==titre) {
+				return (Livre) listStock.toArray()[i];
+			}
+		}
+		return null;
+    }
+    
 	////////////////////////////////////////////
 	//-----------------STOCKS-----------------//
 	////////////////////////////////////////////
     
-    // Création d'un Stock
+    // CrÃ©ation d'un Stock
     public void addStock(Livre l, int qE) {
     	Stock s = new Stock(qE, l);
     	listStock.add(s);
@@ -111,12 +109,12 @@ public class Magasin implements Serializable {
     //-----------------CLIENTS-----------------//
     /////////////////////////////////////////////
 	
-    // Recherche d'un client par son nom et prénom
+    // Recherche d'un client par son nom et prÃ©nom
 	
     public Client rchCli(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
-        for (int i = 0; i < listCom.size(); i++) {
-            if((listClient.toArray(t)[i].getNom()==n) && (listClient.toArray(t)[i].getPrenom()== p) && (listClient.toArray(t)[i].getMail() == mail)) {
+        for (int i = 0; i < listClient.size(); i++) {
+            if((listClient.toArray(t)[i].getNom().equals(n)) && (listClient.toArray(t)[i].getPrenom().equals(p)) && (listClient.toArray(t)[i].getMail().equals(mail))) {
                 return (Client) listClient.toArray()[i];
             }
         }
@@ -166,7 +164,7 @@ public class Magasin implements Serializable {
     	return null;
     }
     
-    // Liste des clients possédant la même date de création de compte
+    // Liste des clients possÃ©dant la mÃªme date de crÃ©ation de compte
     
     public Client listDatCompCli(Date d) {
     	
@@ -207,10 +205,10 @@ public class Magasin implements Serializable {
     }
     
     //////////////////////////////////////////////
-    //-----------------EMPLOYÉS-----------------//
+    //-----------------EMPLOYÃ‰S-----------------//
     //////////////////////////////////////////////
     
-    // Ajout d'un employé
+    // Ajout d'un employÃ©
     
     public int addEmp(Employe e) {
     	if(!listEmp.contains(e)) {
@@ -221,7 +219,7 @@ public class Magasin implements Serializable {
     	}
     }
     
-    // Suppression d'un employé
+    // Suppression d'un employÃ©
     
     public int supEmp(Employe e) {
     	if(listEmp.contains(e)) {
@@ -232,21 +230,19 @@ public class Magasin implements Serializable {
     	}
     }
 	
-    // Recherche d'un employé par son ID
+    // Recherche d'un employÃ© par son ID
     
     public Employe rchEmp(int id) {
     	Employe[] t = new Employe[listEmp.size()];
-        for (int i = 0; i < listEmp.size(); i++) {
-            if((listEmp.toArray(t)[i].getId()==id) ) {
+        for (int i = 0; i < listCom.size(); i++) {
+            if(listEmp.toArray(t)[i].getId() == id) {
                 return (Employe) listEmp.toArray()[i];
             }
         }
         return null;
-    	
-    	
     }
     
-    // Recherche d'un employé par son nom
+    // Recherche d'un employÃ© par son nom
     
     public Set<Employe> listEmpNom(String n, String p) {
     	Set<Employe> sNom = new HashSet<>();
@@ -259,7 +255,7 @@ public class Magasin implements Serializable {
         return sNom;
     }
     
-    // Liste de tous les employés ayant le même poste
+    // Liste de tous les employÃ©s ayant le mÃªme poste
     
     public Set<Employe> listEmpPos(String f) {
     	Set<Employe> samePoste = new HashSet<>();
@@ -272,7 +268,7 @@ public class Magasin implements Serializable {
         return samePoste;
     }
     
-    // Liste de tous les employés ayant le même salaire
+    // Liste de tous les employÃ©s ayant le mÃªme salaire
     
     public Set<Employe> listEmpSalaire(float s) {
     	Set<Employe> sameSalai = new HashSet<>();
@@ -283,8 +279,5 @@ public class Magasin implements Serializable {
             }
         }
         return sameSalai;
-    }
-    
-    public static void main(String[] argv) {
     }
 }
