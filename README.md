@@ -1,7 +1,6 @@
 <h1>À FAIRE</h1>
 
 <b>GLOBAL</b> : 
-- Redéfinir les interactions uniquement dans le controller et les retirer de la view
 - Créer une fenêtre "Commandes" au niveau de la gestion
 
 <h2>VIEW</h2>
