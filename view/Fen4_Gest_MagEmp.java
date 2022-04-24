@@ -3,15 +3,16 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.border.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import controller.*;
 import model.*;
 
 public class Fen4_Gest_MagEmp extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	
 	private JPanel p = new JPanel();
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
@@ -20,7 +21,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
     private JList<String> list2 = new JList<String>();
     public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Employés");
+	private JLabel l_main = new JLabel("Employ�s");
     
 	JScrollPane scrollPane = new JScrollPane();
     JScrollPane scrollPane2 = new JScrollPane();
@@ -28,8 +29,14 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	JButton b_ajouter = new JButton("Ajouter");
 	JButton b_retour = new JButton("RETOUR");
 	
-	public JLabel label = new JLabel("Veuillez sélectionner un employé pour afficher ses informations.");
 	
+
+    public JLabel label = new JLabel("Veuillez sélectionné un employé pour afficher ses informations");
+    
+    
+    
+    
+    
     public JLabel nom = new JLabel(" ");
     public JLabel prenom = new JLabel();
     public JLabel identifiant = new JLabel(" ");
@@ -39,6 +46,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
     public JLabel adresse = new JLabel(" ");
     public JLabel tel = new JLabel(" ");
     
+    
     public JLabel r_nom = new JLabel(" ");
     public JLabel r_prenom = new JLabel();
     public JLabel r_identifiant = new JLabel(" ");
@@ -47,9 +55,13 @@ public class Fen4_Gest_MagEmp extends JFrame {
     public JLabel r_mail = new JLabel(" ");
     public JLabel r_adresse = new JLabel(" ");
     public JLabel r_tel = new JLabel(" ");
+  
+    
+    Employe emp ;
+    
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// Fenêtre
+		// Fen�tre
 		
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
@@ -61,7 +73,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employés)
+		// Panel 1 (Liste d'employ�s)
 		
 		ListEmploye e = new ListEmploye(m);
 		
@@ -91,11 +103,13 @@ public class Fen4_Gest_MagEmp extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Panel 2 (Informations de l'employé sélectionné)
+        // Panel 2 (Informations de l'employ� s�lectionn�)
         
         model = new DefaultListModel<String>();
         
         label.setBounds(0,0,400,20);
+        
+        
         
         nom.setBounds			(50,20,200,20);
         prenom.setBounds		(50,40,200,20);
@@ -105,7 +119,8 @@ public class Fen4_Gest_MagEmp extends JFrame {
         mail.setBounds			(50,120,200,20);
         adresse.setBounds		(50,140,200,20);
         tel.setBounds			(50,160,200,20);
-
+        
+        
         r_nom.setBounds			(200,20,200,20);
         r_prenom.setBounds		(200,40,200,20);
         r_identifiant.setBounds	(200,60,200,20);
@@ -115,12 +130,16 @@ public class Fen4_Gest_MagEmp extends JFrame {
         r_adresse.setBounds		(200,140,200,20);
         r_tel.setBounds			(200,160,200,20);
         
+        
         list.addListSelectionListener(new ListSelectionListener() {
+
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
                 	
                 	label.setVisible(false);
-                	Employe emp = m.rchEmp(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
+                	
+             
+                	emp = m.rchEmp(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
                 	
                 	nom.setText(emp.getNom());
                 	prenom.setText(emp.getPrenom());
@@ -135,7 +154,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
                 	identifiant.setText("Identifiant :");
                 	fonction.setText("Fonction :");
                 	salaire.setText("Salaire : ");
-                	
+
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
                 	tel.setText("Téléphone :");
@@ -148,10 +167,10 @@ public class Fen4_Gest_MagEmp extends JFrame {
                 	r_salaire.setText(String.valueOf(emp.getSalaire()));
                 	r_adresse.setText(emp.getAdresse());
                 	r_tel.setText(emp.getTel());
+                	
                 }
             }
         });
-        
         panel2.add(label);
         panel2.add(nom);
         panel2.add(prenom);
@@ -171,6 +190,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
         panel2.add(r_adresse);
         panel2.add(r_tel);
         
+        
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
@@ -181,15 +201,15 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'un employé
+		// Textfield - Recherche d'un employ�
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rech.setText("Recherchez un employé...");
+		t_rech.setText("Recherchez un employ�...");
 		t_rech.setBounds(50, 100, 890, 45);
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Employés"
+		// JLabel "Employ�s"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Arial", Font.BOLD, 50));
@@ -204,7 +224,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new Fen5_Gest_ModifEmp(m);
+				new Fen5_Gest_ModifEmp(m,emp);
 			}
 		});
 		p.add(b_modifier);
