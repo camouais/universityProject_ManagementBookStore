@@ -30,7 +30,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen5_Gest_ModifEmp(Magasin m) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -57,6 +57,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_nom.setText(emp.getNom());
 		p.add(t_nom);
 		t_nom.setColumns(10);
 		
@@ -69,6 +70,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_prenom = new JTextField();
 		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_prenom.setColumns(10);
+		t_prenom.setText(emp.getPrenom());
 		t_prenom.setBounds(150, 141, 380, 30);
 		p.add(t_prenom);
 		
@@ -81,6 +83,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_id = new JTextField();
 		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_id.setColumns(10);
+		t_id.setText(String.valueOf(emp.getId()));
 		t_id.setBounds(150, 180, 380, 30);
 		p.add(t_id);
 		
@@ -93,6 +96,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_fonction = new JTextField();
 		t_fonction.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_fonction.setColumns(10);
+		t_fonction.setText(emp.getFonction());
 		t_fonction.setBounds(150, 221, 380, 30);
 		p.add(t_fonction);
 		
@@ -105,6 +109,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_adresse = new JTextField();
 		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setColumns(10);
+		t_adresse.setText(emp.getAdresse());
 		t_adresse.setBounds(150, 262, 380, 30);
 		p.add(t_adresse);
 		
@@ -117,6 +122,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_mail = new JTextField();
 		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_mail.setColumns(10);
+		t_mail.setText(emp.getMail());
 		t_mail.setBounds(150, 303, 380, 30);
 		p.add(t_mail);
 		
@@ -129,6 +135,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_tel = new JTextField();
 		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_tel.setColumns(10);
+		t_tel.setText(emp.getTel());
 		t_tel.setBounds(150, 344, 380, 30);
 		p.add(t_tel);
 		
@@ -151,9 +158,11 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_effacer.setBounds(180, 410, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.supEmp(emp);
 				dispose();
 				new Fen4_Gest_MagEmp(m);
 			}
+			
 		});
 		p.add(b_effacer);
 		
