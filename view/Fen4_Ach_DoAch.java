@@ -147,8 +147,9 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBounds(540, 650, 400, 60);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new Fen5_Ach_Fact(m,c,model2);
+				if(new NewCommande(m, c, list2).status == 1) {
+					dispose();
+				}
 			}
 		});
 		p.add(b_enregistrer);
