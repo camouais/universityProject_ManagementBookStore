@@ -13,7 +13,7 @@ public class Fen0 extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField t_mag;
-	private JTextField t_mdp;
+	private JPasswordField t_mdp;
 	
 	public Fen0() {
 		
@@ -54,7 +54,7 @@ public class Fen0 extends JFrame {
 		b_valider.setBounds(158, 185, 125, 50);
 		contentPane.add(b_valider);
 		
-		t_mdp = new JTextField();
+		t_mdp = new JPasswordField();
 		t_mdp.setColumns(10);
 		t_mdp.setBounds(162, 139, 262, 20);
 		contentPane.add(t_mdp);
