@@ -6,7 +6,7 @@
 
 <b>Fen5_Ach_Fact</b> : Ajouter un tableau dans le Panel pour afficher les articles ainsi que leur prix à côté
 
-<b>Fen5_Gest_StatComp</b> : À réaliser
+<b>Fen5_Gest_StatCom</b> : À réaliser (Statistiques liées aux commandes)
 
 <b>Fen4_Ach_DoAch</b> : 
   - Ajouter un moyen de prendre en compte la livraison (attention aux paramètres de livraison : magasin ou adresse chez le client)
