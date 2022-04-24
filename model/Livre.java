@@ -22,18 +22,18 @@ public class Livre implements Serializable {
     
     // Constructeur
     
-    public Livre(String t, String a, String e, Date d, String c, float p) {
-    	titre = t;
-    	auteur = a;
-    	editeur = e;
-    	dateParution = d;
-    	categorie = c;
-    	prix = p;
+    public Livre(String titre, String auteur, String editeur, Date dateParution, String categorie, float prix) {
+    	this.titre = titre;
+    	this.auteur = auteur;
+    	this.editeur = editeur;
+    	this.dateParution = dateParution;
+    	this.categorie = categorie;
+    	this.prix = prix;
     	id = totalLivre;
     	totalLivre++;
     }
     
-    // Méthodes
+    // MÃ©thodes
     
     public String getTitre() {
     	return titre;
