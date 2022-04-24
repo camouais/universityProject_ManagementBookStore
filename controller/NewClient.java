@@ -24,6 +24,15 @@ public class NewClient {
 		} else if (prenom.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Prénom vide. Veuillez saisir un prénom.", "Erreur", 2);
+		} else if (adresse.getText().isEmpty()) {
+			JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Adresse vide. Veuillez saisir une adresse.", "Erreur", 2);
+		} else if (tel.getText().isEmpty()) {
+			JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Aucun numéro de téléphone renseigné. Veuillez en renseigner un.", "Erreur", 2);
+		} else if (mail.getText().isEmpty()) {
+			JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseignée. Veuillez en renseigner une.", "Erreur", 2);
 		} else {
 			c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem());
 			System.out.println("Client créé avec les attributs suivants :");
