@@ -33,7 +33,7 @@ public class Livre implements Serializable {
     	totalLivre++;
     }
     
-    // MÃ©thodes
+    // Méthodes
     
     public String getTitre() {
     	return titre;

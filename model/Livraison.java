@@ -14,8 +14,8 @@ public class Livraison extends Commande implements Serializable  {
     
     // Constructeurs
     
-    public Livraison(Date dA, Client c, String mdp, Magasin m, Employe l, Date dl) {
-    	super(dA,c,mdp);
+    public Livraison(Date dA, Client c, Vector<Livre> set, Magasin m, Employe l, Date dl) {
+    	super(dA,c,set);
     	livreur = l;
     	dateLiv = dl;
 	}

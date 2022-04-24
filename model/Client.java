@@ -18,7 +18,7 @@ public class Client implements Serializable {
     private String adresse;
     private int age;
     private String sexe;
-    public Set<Commande> listCom;
+    public Vector<Commande> listCom = new Vector<Commande>();
     
     // Constructeur
 
