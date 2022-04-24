@@ -24,7 +24,7 @@ public class NewEmploye {
 		
 		e = new Employe(nom.getText(), prenom.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText());
 		m.addEmp(e);
-		System.out.println("EmployÃ© crÃ©Ã©");
+		System.out.println("Employé créé");
 		new Fen4_Gest_MagEmp(m);
 	}
 }
