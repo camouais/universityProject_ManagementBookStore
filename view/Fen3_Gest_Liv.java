@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import controller.ListLivres;
 import controller.RechercheLivre;
@@ -31,6 +33,28 @@ public class Fen3_Gest_Liv extends JFrame {
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
+	public JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
+	
+	public JLabel titre = new JLabel(" ");
+	public JLabel auteur = new JLabel();
+	public JLabel identifiant = new JLabel(" ");
+	public JLabel editeur = new JLabel(" ");
+	public JLabel dateParution  = new JLabel(" ");
+	public JLabel resume = new JLabel(" ");
+	public JLabel prix = new JLabel(" ");
+	public JLabel categorie = new JLabel(" ");
+	
+	
+	public JLabel r_titre = new JLabel(" ");
+	public JLabel r_auteur = new JLabel();
+	public JLabel r_identifiant = new JLabel(" ");
+	public JLabel r_editeur = new JLabel(" ");
+	public JLabel r_dateParution  = new JLabel(" ");
+	public JLabel r_resume = new JLabel(" ");
+	public JLabel r_prix = new JLabel(" ");
+	public JLabel r_categorie = new JLabel(" ");
+	
+	Livre liv;
 	public Fen3_Gest_Liv(Magasin m) {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
@@ -77,9 +101,78 @@ public class Fen3_Gest_Liv extends JFrame {
         p.add(panel1);
         
         // Liste 2 (Informations de l'employÃ© sÃ©lectionnÃ©)
-        
         model2 = new DefaultListModel<String>();
-        list2.setModel(model2);
+       
+        label.setBounds(0,0,400,20);
+		
+        titre.setBounds			(50,20,200,20);
+        auteur.setBounds		(50,40,200,20);
+		identifiant.setBounds	(50,60,200,20);
+		editeur.setBounds		(50,80,200,20);
+		dateParution.setBounds	(50,100,200,20);
+		resume.setBounds		(50,120,200,20);
+		prix.setBounds			(50,140,200,20);
+		categorie.setBounds		(50,160,200,20);
+		
+		r_titre.setBounds		(200,20,200,20);
+		r_auteur.setBounds		(200,40,200,20);
+		r_identifiant.setBounds	(200,60,200,20);
+		r_editeur.setBounds		(200,80,200,20);
+		r_dateParution.setBounds(200,100,200,20);
+		r_resume.setBounds		(200,120,200,20);
+		r_prix.setBounds		(200,140,200,20);
+		r_categorie.setBounds	(200,160,200,20);
+		
+		list.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent arg0) {
+				if (!arg0.getValueIsAdjusting()) {
+					
+					label.setVisible(false);
+					liv = m.rchLivreId(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
+					
+					titre.setText("Titre : ");
+					auteur.setText("Auteur : ");
+                	identifiant.setText("Identifiant : ");
+                	editeur.setText("Editeur : ");
+                	dateParution.setText("Date de parution : ");
+                	resume.setText("Résumé : ");
+                	prix.setText("Prix : ");
+                	categorie.setText("Catégorie : ");
+                	
+                	r_titre.setText(liv.getTitre());
+                	r_auteur.setText(liv.getAuteur());
+                	r_identifiant.setText(String.valueOf(liv.getId()));
+                	r_editeur.setText(liv.getEditeur());
+                	r_dateParution.setText(String.valueOf(liv.getDateParution()));
+                	r_resume.setText(liv.getResume());
+                	r_prix.setText(String.valueOf(liv.getPrix()));
+                	r_categorie.setText(liv.getCategorie());
+				}
+			}
+		});
+		
+		panel2.add(label);
+		panel2.add(titre);
+		panel2.add(auteur);
+		panel2.add(identifiant);
+		panel2.add(editeur);
+		panel2.add(dateParution);
+		panel2.add(resume);
+		panel2.add(prix);
+		panel2.add(categorie);
+		
+		panel2.add(r_titre);
+		panel2.add(r_auteur);
+		panel2.add(r_identifiant);
+		panel2.add(r_editeur);
+		panel2.add(r_dateParution);
+		panel2.add(r_resume);
+		panel2.add(r_prix);
+		panel2.add(r_categorie);
+		        
+		
+		
+		list2.setModel(model2);
         
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
@@ -141,9 +234,16 @@ public class Fen3_Gest_Liv extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if(list.getSelectedValue()==null) {
+					JFrame f = new JFrame();
+					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un employé.", "Erreur", 2);
+				}
+				else {
 				dispose();
-				new Fen4_Gest_ModifLiv(m);
+				new Fen4_Gest_ModifLiv(m, liv);}
 			}
+			
 		});
 		p.add(b_modifier);
 		
@@ -151,10 +251,8 @@ public class Fen3_Gest_Liv extends JFrame {
 		b_ajouter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(list.getSelectedValue()!=null) {
-					model.addElement("Test nÂ°"+count);
-					count++;
-				}         
+				dispose();
+				new Fen4_Gest_NewLiv(m);
 			}
 		});
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
