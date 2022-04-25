@@ -7,7 +7,8 @@ import javax.swing.border.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import controller.*;
+import controller.ListClient;
+import controller.ListEmploye;
 import model.*;
 
 public class Fen3_Gest_Cli extends JFrame {
@@ -47,6 +48,9 @@ public class Fen3_Gest_Cli extends JFrame {
     public JLabel r_mail = new JLabel(" ");
     public JLabel r_adresse = new JLabel(" ");
     public JLabel r_tel = new JLabel(" ");
+	
+	
+	
 	
 	
 	public JLabel label = new JLabel("Veuillez sélectionné un client pour afficher ses informations");
