@@ -12,7 +12,7 @@ public class ListLivres {
 		formattedList = new String[list.length];
 		System.out.println("Beginning list construction");
 		for(int i = 0; i < list.length; i++) {
-			String b = (((Livre) list[i]).id + " - " + ((Livre) list[i]).titre);
+			String b = (((Livre) list[i]).id + " - " + ((Livre) list[i]).getTitre() + " - " + ((Livre) list[i]).getAuteur() );
 			formattedList[i] = b;
 			System.out.println(b);
 		}
