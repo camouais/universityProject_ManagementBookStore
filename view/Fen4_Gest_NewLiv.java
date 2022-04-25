@@ -2,7 +2,12 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.swing.*;
+
+import controller.NewLivre;
 import model.*;
 
 public class Fen4_Gest_NewLiv extends JFrame{
@@ -160,6 +165,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_retour.setBounds(30, 610, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				dispose();
 				new Fen3_Gest_Liv(m);
 			}
@@ -174,9 +180,11 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_enregistrer.setBackground(new Color(30, 144, 255));
 		b_enregistrer.setBounds(574, 610, 235, 64);
 		b_enregistrer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new Fen3_Gest_Liv(m);
+			public void actionPerformed(ActionEvent e) {				
+				dispose();	
+				new NewLivre(m, t_titre, t_auteur, t_editeur,t_dateP, t_prix, t_categorie, t_resume) ;
+					
+
 			}
 		});
 		contentPane.add(b_enregistrer);
