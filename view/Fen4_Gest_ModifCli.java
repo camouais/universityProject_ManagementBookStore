@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import controller.Modif_InfoClient;
-import controller.Modif_InfoEmploye;
+import controller.*;
 import model.*;
 
 public class Fen4_Gest_ModifCli extends JFrame {
