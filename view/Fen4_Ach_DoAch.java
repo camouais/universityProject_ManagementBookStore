@@ -125,6 +125,11 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_tEffacer.setForeground(Color.WHITE);
 		b_tEffacer.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_tEffacer.setBounds(540, 555, 400, 50);
+		b_tEffacer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model2.clear();
+				}
+			});
 		p.add(b_tEffacer);
 		
 		b_ajouter.setBackground(new Color(150, 255, 150));
