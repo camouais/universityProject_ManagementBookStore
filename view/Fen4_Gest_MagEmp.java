@@ -206,8 +206,13 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(list.getSelectedValue()==null) {
+					JFrame f = new JFrame();
+					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un employé.", "Erreur", 2);
+				}
+				else {
 				dispose();
-				new Fen5_Gest_ModifEmp(m, emp);
+				new Fen5_Gest_ModifEmp(m, emp);}
 			}
 		});
 		p.add(b_modifier);
