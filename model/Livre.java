@@ -4,26 +4,28 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import javax.swing.JLabel;
+
 public class Livre implements Serializable {
 	
 	// Attributs
     public static int totalLivre;
 	
+    public Set<Commande> listCom;
     private String titre;
     private String auteur;
     private String editeur;
-    private Date dateParution;
+    private String dateParution;
     private String resume;
-    private float prix;
-    private int id;
-    private String categorie;
+    public float prix;
+    public int id;
+    public String categorie;
     public Set<String> l_format;
     public Set<String> l_trad;
-    public Set<Commande> listCom;
 
     // Constructeur
     
-    public Livre(String titre, String auteur, String editeur, Date dateParution, String categorie, float prix) {
+    public Livre(String titre, String auteur, String editeur, String dateParution, String categorie, float prix) {
     	this.titre = titre;
     	this.auteur = auteur;
     	this.editeur = editeur;
@@ -35,10 +37,15 @@ public class Livre implements Serializable {
     }
     
     // M�thodes
-
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+    	return id;
+    }
+    
+    public void setId(int i) {
+    	id = i;
+    }
+      
+    
     
     public String getTitre() {
     	return titre;
@@ -64,11 +71,11 @@ public class Livre implements Serializable {
     	editeur = t;
     }
     
-    public Date getDateParution() {
+    public String getDateParution() {
     	return dateParution;
     }
     
-    public void setDateParution(Date t) {
+    public void setDateParution(String t) {
     	dateParution = t;
     }
     
@@ -95,5 +102,5 @@ public class Livre implements Serializable {
     public void setCategorie(String c) {
     	categorie = c;
     }
-    
+   
 }
