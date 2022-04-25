@@ -34,9 +34,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
-		ListLivres t = new ListLivres(m);
-		
-		// Fenêtre
+		// FenÃªtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,10 +48,21 @@ public class Fen4_Ach_DoAch extends JFrame {
 		setVisible(true);
 		
 		// Panel 1 (Liste de livres)
-
+		
+		ListLivres l = new ListLivres(m);
+		
         model = new DefaultListModel<String>();
-        for(int i = 0; i < t.getList().length; i++) {
-        	model.addElement(t.getList()[i]);
+        for (int i = 0; i < l.getList().length; i++) {
+			for (int j = 0; j < l.getList().length; j++) {
+				if (Integer.parseInt((l.getList()[i]).split(" ")[0]) < Integer.parseInt((l.getList()[j]).split(" ")[0])) {
+					String temp = l.getList()[i];
+					l.getList()[i] = l.getList()[j];
+					l.getList()[j] = temp;
+				}
+			}
+		}
+        for(int i = 0; i < l.getList().length; i++) {
+        	model.addElement(l.getList()[i]);
         }
         list.setModel(model);
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -90,7 +99,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel Réalisation de l'achat
+		// JLabel RÃ©alisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
