@@ -29,8 +29,9 @@ public class Fen4_Ach_DoAch extends JFrame {
 	JButton b_effacer = new JButton("Effacer");
 	JButton b_tEffacer = new JButton("Tout Effacer");
 	JButton b_ajouter = new JButton("Ajouter");
-    JButton b_retour = new JButton("Retour");
+	JButton b_retour = new JButton("Retour");
 	JButton b_enregistrer = new JButton("Enregistrer");
+	JButton b_clearSearch = new JButton("X");
 
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
@@ -49,7 +50,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		
 		// Panel 1 (Liste de livres)
 		
-		ListLivres l = new ListLivres(m);
+		ListLivres l = new ListLivres(m,m.listLivre);
 		
         model = new DefaultListModel<String>();
         for (int i = 0; i < l.getList().length; i++) {
@@ -95,7 +96,34 @@ public class Fen4_Ach_DoAch extends JFrame {
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un livre");
-		t_rech.setBounds(50, 100, 400, 45);
+		t_rech.setBounds(50, 100, 345, 45);
+		t_rech.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model.clear();
+				String[] a = new ListLivres(m, new RechercheLivre(m, t_rech).getList()).getList();
+				if(a.length == 0) {
+					if(t_rech.getText().equals("")) {
+				        for(int i = 0; i < l.getList().length; i++) {
+				        	model.addElement(l.getList()[i]);
+				        }
+					}
+				} else {
+					ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech).getList());
+			        for (int i = 0; i < def.getList().length; i++) {
+						for (int j = 0; j < def.getList().length; j++) {
+							if (Integer.parseInt((def.getList()[i]).split(" ")[0]) < Integer.parseInt((def.getList()[j]).split(" ")[0])) {
+								String temp = def.getList()[i];
+								def.getList()[i] = def.getList()[j];
+								def.getList()[j] = temp;
+							}
+						}
+					}
+					for (int i = 0; i < def.getList().length; i++) {
+						model.addElement(def.getList()[i]);
+					}
+				}
+			}
+		});
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
@@ -167,6 +195,30 @@ public class Fen4_Ach_DoAch extends JFrame {
 			}
 		});
 		p.add(b_enregistrer);
+		
+		b_clearSearch.setForeground(new Color(255, 255, 255));
+		b_clearSearch.setBackground(new Color(165, 42, 42));
+		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
+		b_clearSearch.setBounds(405, 100, 45, 45);
+		b_clearSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				t_rech.setText("");
+				model.clear();
+				for (int i = 0; i < l.getList().length; i++) {
+					for (int j = 0; j < l.getList().length; j++) {
+						if (Integer.parseInt((l.getList()[i]).split(" ")[0]) < Integer.parseInt((l.getList()[j]).split(" ")[0])) {
+							String temp = l.getList()[i];
+							l.getList()[i] = l.getList()[j];
+							l.getList()[j] = temp;
+						}
+					}
+				}
+		        for(int i = 0; i < l.getList().length; i++) {
+		        	model.addElement(l.getList()[i]);
+		        }
+			}
+		});
+		p.add(b_clearSearch);
 		
 		JFrame error = new JFrame();
 		int a = m.listLivre.size();
