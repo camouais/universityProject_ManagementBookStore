@@ -1,9 +1,15 @@
 package controller;
 
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import javax.swing.*;
 import model.*;
 import view.*;
+import java.text.ParseException;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class NewCommande {
 	
@@ -23,7 +29,10 @@ public class NewCommande {
 			fin.add(m.rchLivre(temp2[i]));
 		}
 		
-		c = new Commande(new Date(System.currentTimeMillis()), cli, fin);
+		//c = new Commande(new Date(System.currentTimeMillis()), cli, fin);
+		c = new Commande((new Date(System.currentTimeMillis()).toInstant()
+				.atOffset(ZoneOffset.UTC)
+				.format( DateTimeFormatter.ofPattern("dd-MM-yyyy"))), cli, fin);
 		
 		status = 1;
 		new Fen5_Ach_Fact(m, cli, c);
@@ -32,7 +41,7 @@ public class NewCommande {
 	public Vector<String> buildSet(JList<String> list) {
 		Vector<String> temp = new Vector<String>();
 		for(int i = 0; i < list.getModel().getSize();i++) {
-			System.out.println("Ajout de l'élément : " + (i+1) + " - " + ((String.valueOf(list.getModel().getElementAt(i)).split(" ")[2])));
+			System.out.println("Ajout de l'ï¿½lï¿½ment : " + (i+1) + " - " + ((String.valueOf(list.getModel().getElementAt(i)).split(" ")[2])));
             temp.add((String.valueOf(list.getModel().getElementAt(i)).split(" ")[2]));
         }
 		return temp;
