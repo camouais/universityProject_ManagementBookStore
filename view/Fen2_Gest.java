@@ -25,7 +25,7 @@ public class Fen2_Gest extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 500, 800);
+		setBounds(0, 0, 500, 720);
 		setLocationRelativeTo(null);
 		setResizable(false);
 	    setVisible(true);
@@ -45,7 +45,7 @@ public class Fen2_Gest extends JFrame {
 		
 		b_magasin.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_magasin.setBackground(new Color(255, 255, 153));
-		b_magasin.setBounds(50, 500, 400, 100);
+		b_magasin.setBounds(50, 350, 400, 100);
 		b_magasin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -67,7 +67,7 @@ public class Fen2_Gest extends JFrame {
 		
 		b_achats.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_achats.setBackground(new Color(0, 102, 102));
-		b_achats.setBounds(50, 350, 400, 100);
+		b_achats.setBounds(50, 500, 400, 100);
 		b_achats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -78,7 +78,7 @@ public class Fen2_Gest extends JFrame {
 		
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(50, 680, 200, 50);
+		b_retour.setBounds(50, 620, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
