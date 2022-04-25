@@ -118,6 +118,16 @@ public class Magasin implements Serializable {
         return null;
     }
     
+    public Client rchCli(int id) {
+        Client[] t = new Client[listClient.size()];
+        for (int i = 0; i < listClient.size(); i++) {
+            if((listClient.toArray(t)[i].getId() == id)) {
+                return (Client) listClient.toArray()[i];
+            }
+        }
+        return null;
+    }
+    
     // Ajout d'un client
     
     public int addCli(Client c) {
