@@ -118,7 +118,7 @@ public class Magasin implements Serializable {
 	
     // Recherche d'un client par son nom et prénom
 	
-    public Client rchCli_npmail(String n, String p, String mail) {
+    public Client rchCli(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
             if((listClient.toArray(t)[i].getNom().equals(n)) && (listClient.toArray(t)[i].getPrenom().equals(p)) && (listClient.toArray(t)[i].getMail().equals(mail))) {
