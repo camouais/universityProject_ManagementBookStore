@@ -1,21 +1,23 @@
 package model;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.*;
 
-public class Commande implements Serializable {
+public class Commande  {
 	
 	// Attributs
 	
 	public static int totalCom;
 	private int id;
-	private Date dateAchat;
+	private String dateAchat;
 	private Client client;
 	public Vector<Livre> listLivres;
 	
 	// Constructeur
 	
-	public Commande(Date dA, Client c, Vector<Livre> l) {
+	public Commande(String dA, Client c, Vector<Livre> l) {
 		dateAchat = dA;
 		client = c;
 		listLivres = l;
@@ -27,24 +29,27 @@ public class Commande implements Serializable {
 		listLivres.add(l);
 	}
 	
-	public float getPrixTotal() {
+	public String getPrixTotal() {
+		DecimalFormat df = new DecimalFormat("#.##");
 		Object[] arrayLivres = listLivres.toArray();
 		float prixCount = 0;
 		for(int i = 0; i < arrayLivres.length; i++) {
 			prixCount += ((Livre) arrayLivres[i]).getPrix();
 		}
-		return prixCount;
+		return df.format(prixCount);
 	}
+	
+	
 	
     public int getId() {
     	return id;
     }
     
-    public Date getDateAchat() {
+    public String getDateAchat() {
     	return dateAchat;
     }
     
-    public void setNom(Date a) {
+    public void setNom(String a) {
     	dateAchat = a;
     }
     
