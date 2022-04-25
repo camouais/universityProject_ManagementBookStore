@@ -23,25 +23,19 @@ public class NewClient {
 		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
 		} else if (prenom.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Prénom vide. Veuillez saisir un prénom.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Prï¿½nom vide. Veuillez saisir un prï¿½nom.", "Erreur", 2);
 		} else if (adresse.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Adresse vide. Veuillez saisir une adresse.", "Erreur", 2);
 		} else if (tel.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Aucun numéro de téléphone renseigné. Veuillez en renseigner un.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Aucun numï¿½ro de tï¿½lï¿½phone renseignï¿½. Veuillez en renseigner un.", "Erreur", 2);
 		} else if (mail.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseignée. Veuillez en renseigner une.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseignï¿½e. Veuillez en renseigner une.", "Erreur", 2);
 		} else {
 			c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem());
-			System.out.println("Client créé avec les attributs suivants :");
-			System.out.println("Nom = " + c.getNom());
-			System.out.println("Prénom = " + c.getPrenom());
-			System.out.println("Adresse = " + c.getAdresse());
-			System.out.println("Téléphone = " + c.getTel());
-			System.out.println("Mail = " + c.getMail());
-			System.out.println("Sexe = " + c.getSexe());
+			
 			m.addCli(c);
 			new Fen4_Ach_DoAch(m,c);
 			status = 1;
