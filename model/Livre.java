@@ -9,17 +9,17 @@ public class Livre implements Serializable {
 	// Attributs
     public static int totalLivre;
 	
-    public Set<Commande> listCom;
     private String titre;
     private String auteur;
     private String editeur;
     private Date dateParution;
     private String resume;
-    public float prix;
-    public int id;
-    public String categorie;
+    private float prix;
+    private int id;
+    private String categorie;
     public Set<String> l_format;
     public Set<String> l_trad;
+    public Set<Commande> listCom;
 
     // Constructeur
     
@@ -35,6 +35,10 @@ public class Livre implements Serializable {
     }
     
     // M�thodes
+
+	public int getId() {
+		return id;
+	}
     
     public String getTitre() {
     	return titre;
