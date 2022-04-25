@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Livre implements Serializable {
@@ -9,17 +10,17 @@ public class Livre implements Serializable {
     public static int totalLivre;
 	
     public Set<Commande> listCom;
-    public String titre;
-    public String auteur;
-    public String editeur;
-    public Date dateParution;
+    private String titre;
+    private String auteur;
+    private String editeur;
+    private Date dateParution;
     private String resume;
     public float prix;
     public int id;
     public String categorie;
     public Set<String> l_format;
     public Set<String> l_trad;
-    
+
     // Constructeur
     
     public Livre(String titre, String auteur, String editeur, Date dateParution, String categorie, float prix) {
@@ -33,7 +34,7 @@ public class Livre implements Serializable {
     	totalLivre++;
     }
     
-    // Méthodes
+    // Mï¿½thodes
     
     public String getTitre() {
     	return titre;
