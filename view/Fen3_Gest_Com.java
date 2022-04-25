@@ -15,8 +15,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-import model.Magasin;
+import controller.*;
+import model.*;
+
+
+
 
 public class Fen3_Gest_Com extends JFrame {
 		
@@ -38,8 +44,28 @@ public class Fen3_Gest_Com extends JFrame {
 		JButton b_ajouter = new JButton("Ajouter");
 		JButton b_retour = new JButton("Retour");
 
+		public JLabel nom = new JLabel(" ");
+		public JLabel prenom = new JLabel();
+		public JLabel identifiant_com = new JLabel(" ");
+		public JLabel identifiant_cli = new JLabel(" ");
+		public JLabel dateC = new JLabel(" ");
+		public JLabel livraison = new JLabel(" ");
+		public JLabel adresse = new JLabel(" ");
+		public JLabel prix = new JLabel(" ");
+
+		public JLabel r_nom = new JLabel(" ");
+		public JLabel r_prenom = new JLabel();
+		public JLabel r_identifiant_com = new JLabel(" ");
+		public JLabel r_identifiant_cli = new JLabel(" ");
+		public JLabel r_dateC = new JLabel(" ");
+		public JLabel r_livraison = new JLabel(" ");
+		public JLabel r_adresse = new JLabel(" ");
+		public JLabel r_prix = new JLabel(" ");
+		
 		public JLabel label = new JLabel("Veuillez sélectionné un achat pour afficher ses informations");
-		    
+
+		Commande com;
+    
 		
 		public Fen3_Gest_Com(Magasin m) {
 			
@@ -58,6 +84,25 @@ public class Fen3_Gest_Com extends JFrame {
 			
 			// Liste 1 (Liste des achats)
 			
+			ListCommande c = new ListCommande(m);
+			
+			model = new DefaultListModel<String>();
+	        for (int i = 0; i < c.getListCom().length; i++) {
+	            for (int j = 0; j < c.getListCom().length; j++) {
+	                if (Integer.parseInt((c.getListCom()[i]).split(" ")[0]) < Integer.parseInt((c.getListCom()[j]).split(" ")[0])) {
+	                    String temp = c.getListCom()[i];
+	                    c.getListCom()[i] = c.getListCom()[j];
+	                    c.getListCom()[j] = temp;
+	                }
+	            }
+	        }
+	        for (int i = 0; i < c.getListCom().length; i++) {
+	            model.addElement(c.getListCom()[i]);
+	        }
+	        
+	        list.setModel(model);
+	        
+	        
 	        list.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	        scrollPane.setViewportView(list);
 	        list.setLayoutOrientation(JList.VERTICAL);
@@ -70,7 +115,82 @@ public class Fen3_Gest_Com extends JFrame {
 	        
 	        // Liste 2 (Informations de l'achat sélectionné)
 	        
-	        model=new DefaultListModel<String>();
+	        model = new DefaultListModel<String>();
+	        
+	        
+	        
+	        label.setBounds(0,0,400,20);
+	        
+	        
+	        
+	        identifiant_com.setBounds	(50,20,200,20);
+	        identifiant_cli.setBounds 	(50,40,200,20);
+	        nom.setBounds			    (50,60,200,20);
+	        prenom.setBounds			(50,80,200,20);
+	        dateC.setBounds				(50,100,200,20);
+	        livraison.setBounds			(50,120,200,20);
+	        adresse.setBounds			(50,140,200,20);
+	        prix.setBounds				(50,160,200,20);  
+	        
+	        r_identifiant_com.setBounds	(200,20,200,20);
+	        r_identifiant_cli.setBounds	(200,40,200,20);
+	        r_nom.setBounds				(200,60,200,20);
+	        r_prenom.setBounds			(200,80,200,20);
+	        r_dateC.setBounds			(200,100,200,20);
+	        r_livraison.setBounds		(200,120,200,20);
+	        r_adresse.setBounds			(200,140,200,20);
+	        r_prix.setBounds			(200,160,200,20);
+	       
+	        
+	        list.addListSelectionListener(new ListSelectionListener() {
+
+	            public void valueChanged(ListSelectionEvent arg0) {
+	                if (!arg0.getValueIsAdjusting()) {
+	                	
+	                	label.setVisible(false);
+	                	
+	             
+	                	com = m.rchCm1(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
+	                	
+	                	
+	                	nom.setText("Nom :");
+	                	prenom.setText("Prénom :");
+	                	identifiant_com.setText("Identifiant commande :");
+	                	identifiant_cli.setText("Identifiant client:");
+	                	dateC.setText("Date :");
+	                	adresse.setText("Adresse :");
+	                	livraison.setText("Livraison :");
+	                	prix.setText("Prix total : ");
+	                	
+	                	r_nom.setText(com.getClient().getNom());
+	                	r_prenom.setText((com.getClient()).getPrenom());
+	                	r_identifiant_com.setText(String.valueOf(com.getId()));
+	                	r_dateC.setText(com.getDateAchat());
+	                	r_identifiant_cli.setText(String.valueOf((com.getClient()).getId()));	         
+	                	r_adresse.setText((com.getClient()).getAdresse());
+	                	r_prix.setText(com.getPrixTotal());
+	                	
+	                }
+	            }
+	        });
+	        panel2.add(label);
+	        panel2.add(nom);
+	        panel2.add(prenom);
+	        panel2.add(identifiant_com);
+	        panel2.add(identifiant_cli);
+	        panel2.add(adresse);
+	        panel2.add(livraison);
+	        panel2.add(dateC);
+	        panel2.add(prix);
+	        
+	        panel2.add(r_nom);
+	        panel2.add(r_prenom);
+	        panel2.add(r_identifiant_com);
+	        panel2.add(r_identifiant_cli);
+	        panel2.add(r_adresse);
+	        panel2.add(r_dateC);
+	        panel2.add(r_prix);
+	        
 	        list2.setModel(model);
 	        
 			list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -110,22 +230,7 @@ public class Fen3_Gest_Com extends JFrame {
 				}
 			});
 			p.add(b_modifier);
-			
-			b_ajouter.setIcon(null);
-			b_ajouter.addActionListener(new ActionListener() {
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	                if(list.getSelectedValue()!=null) {
-		                model.addElement("Test n°"+count);
-		                count++;
-	                }           
-	            }
-			});
-			b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
-			b_ajouter.setBounds(50, 650, 400, 60);
-			b_ajouter.setBackground(new Color(100, 200, 120));
-			p.add(b_ajouter);
-	        
+		
 			b_retour.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
