@@ -46,8 +46,10 @@ public class Fen0 extends JFrame {
 		b_valider.setFont(new Font("Arial", Font.PLAIN, 20));
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new NewMagasin(t_mag);
+				if (new NewMagasin(t_mag).status == 1) {
+					dispose();
+				}
+				
 			}
 		});
 		b_valider.setBackground(new Color(100, 200, 120));
