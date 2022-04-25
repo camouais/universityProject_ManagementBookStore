@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import controller.Modif_InfoEmploye;
-import controller.Modif_InfoMag;
+import controller.*;
 import model.*;
 
 public class Fen5_Gest_ModifEmp extends JFrame {
@@ -33,7 +32,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) {
+	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) { 
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -173,11 +172,11 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_enreg.setBounds(350, 410, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	new Modif_InfoEmploye(m, emp,  t_nom,t_prenom,t_id,t_fonction, t_adresse,
-            			t_mail, t_tel);
-            }
-        });
+			public void actionPerformed(ActionEvent e) {
+				new Modif_InfoEmploye(m, emp,  t_nom,t_prenom,t_id,t_fonction, t_adresse,
+						t_mail, t_tel);
+			}
+		});
 		
 		p.add(b_enreg);
 	}
