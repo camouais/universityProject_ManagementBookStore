@@ -1,32 +1,27 @@
 package controller;
 
-import java.awt.event.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Set;
 
-import javax.swing.*;
 import model.*;
-import view.*;
 
-public class NewLivre {
-
-	Magasin m;
-	Livre l;
+public class ListLivres {
 	
-
-	public NewLivre(Magasin m, JTextField titre,JTextField auteur,
-			JTextField editeur, JTextField date, JTextField prix, JTextField categorie, JTextField resume)  {
-		float p = 0;
-		try {
-		      p = Float.parseFloat(prix.getText());
-		} catch (Exception e) {
-			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Valeur invalide dans prix", "Erreur", 2);
+	Object[] list;
+	String[] formattedList;
+	
+	public ListLivres(Magasin m, Set<Livre> livres){
+		list = m.listLivre.toArray();
+		formattedList = new String[list.length];
+		System.out.println("Beginning list construction");
+		for(int i = 0; i < list.length; i++) {
+			String b = (((Livre) list[i]).getId() + " - " + ((Livre) list[i]).getTitre() + " - " + ((Livre) list[i]).getAuteur() );
+			formattedList[i] = b;
+			System.out.println(b);
 		}
-		l = new Livre(titre.getText(), auteur.getText(), editeur.getText(),
-				date.getText(), categorie.getText(),Float.parseFloat(prix.getText()));
-		m.addLivre(l);
-		new Fen3_Gest_Liv(m);
+		System.out.println("Ending list construction");
+	}
+	
+	public String[] getList() {
+		return formattedList;
 	}
 }
