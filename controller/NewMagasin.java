@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Vector;
+import java.util.*;
 import javax.swing.*;
 import model.*;
 import view.*;
@@ -29,7 +31,29 @@ public class NewMagasin {
 		Client cl4 = new Client("Anderson", "Jean", "1 Rue Saint-Rustique", "0608539386", "Anderson.Jean@hotmail.fr", "Homme");
 		Client cl5= new Client("Du Château", "Romain", "22 Rue Oberkampf", "0698255138", "Romain.DuCH@gmail.com", "Homme");
 		
+		Livre[] arr1 = { liv1, liv2 };
+		Vector<Livre> v1 = new Vector<Livre>();
+		 for (int i = 0; i < arr1.length; i++)
+	            v1.addElement(arr1[i]);
+    
+		Commande com1 = new Commande("12-01-2022",cl1,v1); 
 		
+		Livre[] arr2 = { liv1, liv2,liv3 };
+		Vector<Livre> v2 = new Vector<Livre>(Arrays.asList(arr2));
+		Commande com2 = new Commande("12-01-2022",cl2,v2); 
+		
+		
+		Livre[] arr3 = { liv1 };
+		Vector<Livre> v3 = new Vector<Livre>(Arrays.asList(arr3));
+		Commande com3 = new Commande("12-01-2022",cl3,v3); 
+		
+		Livre[] arr4 = { liv2, liv4};
+		Vector<Livre> v4 = new Vector<Livre>(Arrays.asList(arr4));
+		Commande com4 = new Commande("12-01-2022",cl4,v4); 
+		
+		Livre[] arr5 = { liv1, liv2 ,liv4, liv5};
+		Vector<Livre> v5 = new Vector<Livre>(Arrays.asList(arr5));
+		Commande com5 = new Commande("12-01-2022",cl5,v5); 
 		
     	if(n.getText().equals("")) {
     	} else {
@@ -53,6 +77,11 @@ public class NewMagasin {
 			m.addCli(cl4);
 			m.addCli(cl5);
 			
+			m.addCom(com1);
+			m.addCom(com2);
+			m.addCom(com3);
+			m.addCom(com4);
+			m.addCom(com5);
 	        new Fen1(m);
     	}
     }
