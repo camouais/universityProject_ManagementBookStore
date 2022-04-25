@@ -7,8 +7,7 @@ import javax.swing.border.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import controller.ListClient;
-import controller.ListEmploye;
+import controller.*;
 import model.*;
 
 public class Fen3_Gest_Cli extends JFrame {
