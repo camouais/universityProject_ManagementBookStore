@@ -6,6 +6,8 @@ import model.*;
 import view.*;
 
 public class NewMagasin {
+	
+	public int status;
     
     public NewMagasin(JTextField n) {
     	
@@ -49,7 +51,8 @@ public class NewMagasin {
 		Commande com5 = new Commande("12-01-2022",cl5,v5); 
 		
     	if(n.getText().equals("")) {
-    		new Fen0();
+    		JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
     	} else {
     		
 	        System.out.println("Magasin créé avec le nom : " + n.getText());
@@ -80,6 +83,7 @@ public class NewMagasin {
 			m.addCom(com5);
 			
 	        new Fen1(m);
+	        status = 1;
     	}
     }
 }
