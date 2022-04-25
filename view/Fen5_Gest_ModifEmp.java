@@ -33,7 +33,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 
-	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
