@@ -77,6 +77,29 @@ public class Magasin implements Serializable {
     	return -1;
     }
     
+    // Suppression d'un livre 
+    
+    public int supLivre(Livre c) {
+    	if(listLivre.contains(c)) {
+    		listLivre.remove(c);
+    		return 0;
+    	}
+    	return -1;
+    }
+    
+    
+    // Recherche d'un livre par son id
+    public Livre rchLivreId(int id) {
+		Livre[] t = new Livre[listLivre.size()];
+		for (int i = 0; i < listLivre.size(); i++) {
+			if(listLivre.toArray(t)[i].getId()==id) {
+				return (Livre) listLivre.toArray()[i];
+			}
+		}
+		return null;
+    }
+    
+    
     // Recherche d'un livre par son titre
     public Livre rchLivre(String titre) {
 		Livre[] t = new Livre[listLivre.size()];
@@ -118,7 +141,7 @@ public class Magasin implements Serializable {
 	
     // Recherche d'un client par son nom et prénom
 	
-    public Client rchCli(String n, String p, String mail) {
+    public Client rchCli_npmail(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
             if((listClient.toArray(t)[i].getNom().equals(n)) && (listClient.toArray(t)[i].getPrenom().equals(p)) && (listClient.toArray(t)[i].getMail().equals(mail))) {
