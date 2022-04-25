@@ -45,7 +45,7 @@ public class Fen2_Gest extends JFrame {
 		
 		b_magasin.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_magasin.setBackground(new Color(255, 255, 153));
-		b_magasin.setBounds(50, 350, 400, 100);
+		b_magasin.setBounds(50, 500, 400, 100);
 		b_magasin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -67,7 +67,7 @@ public class Fen2_Gest extends JFrame {
 		
 		b_achats.setFont(new Font("Tahoma", Font.BOLD, 55));
 		b_achats.setBackground(new Color(0, 102, 102));
-		b_achats.setBounds(50, 500, 400, 100);
+		b_achats.setBounds(50, 350, 400, 100);
 		b_achats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
