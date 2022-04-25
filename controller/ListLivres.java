@@ -13,7 +13,7 @@ public class ListLivres {
 			list = livres.toArray();
 			formattedList = new String[list.length];
 			for(int i = 0; i < list.length; i++) {
-				String b = (((Livre) list[i]).id + " - " + ((Livre) list[i]).titre);
+				String b = (((Livre) list[i]).getId() + " - " + ((Livre) list[i]).getTitre());
 				formattedList[i] = b;
 			}
 		}
