@@ -1,25 +1,32 @@
 package controller;
 
-import java.util.*;
-import model.*;
+import java.awt.event.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Set;
 
-public class ListLivres {
+import javax.swing.*;
+import model.*;
+import view.*;
+
+public class NewLivre {
+
+	Magasin m;
+	Livre l;
 	
-	Object[] list;
-	String[] formattedList;
-	
-	public ListLivres(Magasin m, Set<Livre> livres) {
-		if(livres != null) {
-			list = livres.toArray();
-			formattedList = new String[list.length];
-			for(int i = 0; i < list.length; i++) {
-				String b = (((Livre) list[i]).getId() + " - " + ((Livre) list[i]).getTitre());
-				formattedList[i] = b;
-			}
+
+	public NewLivre(Magasin m, JTextField titre,JTextField auteur,
+			JTextField editeur, JTextField date, JTextField prix, JTextField categorie, JTextField resume)  {
+		float p = 0;
+		try {
+		      p = Float.parseFloat(prix.getText());
+		} catch (Exception e) {
+			JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Valeur invalide dans prix", "Erreur", 2);
 		}
-	}
-	
-	public String[] getList() {
-		return formattedList;
+		l = new Livre(titre.getText(), auteur.getText(), editeur.getText(),
+				date.getText(), categorie.getText(),Float.parseFloat(prix.getText()));
+		m.addLivre(l);
+		new Fen3_Gest_Liv(m);
 	}
 }
