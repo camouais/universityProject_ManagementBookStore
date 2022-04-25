@@ -206,8 +206,14 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(list.getSelectedValue()==null) {
+					JFrame f = new JFrame();
+					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un client.", "Erreur", 2);
+				}
+				else {
 				dispose();
 				new Fen4_Gest_ModifCli(m, cli);
+				}
 			}
 		});
 		p.add(b_modifier);
