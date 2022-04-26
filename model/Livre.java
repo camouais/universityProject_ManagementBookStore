@@ -19,19 +19,23 @@ public class Livre implements Serializable {
     private String resume;
     public float prix;
     public int id;
+    private int qtStock;
+    private int qtEntree;
     public String categorie;
     public Set<String> l_format;
     public Set<String> l_trad;
 
     // Constructeur
     
-    public Livre(String titre, String auteur, String editeur, String dateParution, String categorie, float prix) {
+    public Livre(String titre, String auteur, String editeur, String dateParution, String categorie, float prix, int qtStock) {
     	this.titre = titre;
     	this.auteur = auteur;
     	this.editeur = editeur;
     	this.dateParution = dateParution;
     	this.categorie = categorie;
     	this.prix = prix;
+    	qtEntree = qtStock;
+    	this.qtStock = qtStock;
     	id = totalLivre;
     	totalLivre++;
     }
@@ -44,8 +48,6 @@ public class Livre implements Serializable {
     public void setId(int i) {
     	id = i;
     }
-      
-    
     
     public String getTitre() {
     	return titre;
@@ -102,5 +104,21 @@ public class Livre implements Serializable {
     public void setCategorie(String c) {
     	categorie = c;
     }
-   
+    
+    public int getStock() {
+    	return qtStock;
+    }
+    
+    public void addStock(int n) {
+    	qtStock += n;
+    	qtEntree += n;
+    }
+    
+    public void decStock(int n) {
+    	qtStock -= n;
+    }
+    
+    public int qtSortie() {
+    	return qtEntree - qtStock;
+    }
 }

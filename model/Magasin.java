@@ -11,7 +11,6 @@ public class Magasin implements Serializable {
     private String adresse;
     // [...]
     public Set<Employe> listEmp = new HashSet<>();
-    public Set<Stock> listStock = new HashSet<>();
     public Set<Client> listClient = new HashSet<>();
     public Set<Commande> listCom = new HashSet<>();
     public Set<Livre> listLivre = new HashSet<>();
@@ -113,27 +112,6 @@ public class Magasin implements Serializable {
 		System.out.println("Fin de recherche");
 		return null;
     }
-    
-	////////////////////////////////////////////
-	//-----------------STOCKS-----------------//
-	////////////////////////////////////////////
-    
-    // Création d'un Stock
-    public void addStock(Livre l, int qE) {
-    	Stock s = new Stock(qE, l);
-    	listStock.add(s);
-    }
-    
-	// Recherche d'un stock par son ID
-	public Stock rchStock(int id) {
-		Stock[] t = new Stock[listStock.size()];
-		for (int i = 0; i < listStock.size(); i++) {
-			if(listStock.toArray(t)[i].getIdStock()==id) {
-				return (Stock) listStock.toArray()[i];
-			}
-		}
-		return null;
-	}
 	
     /////////////////////////////////////////////
     //-----------------CLIENTS-----------------//
