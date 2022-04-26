@@ -16,7 +16,6 @@
   - Permettre de pouvoir afficher les infos d'un livre en double-cliquant sur un élément de la liste de livre 
 
 <h2>MODEL</h2>
-[...]
 
 <b>Magasin</b> : 
   - Ajout d'autres arguments facultatifs (Mot de passe inclus)
