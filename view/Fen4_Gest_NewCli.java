@@ -3,9 +3,6 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-import controller.NewClient;
-import controller.NewClient_Gest;
 import model.*;
 
 public class Fen4_Gest_NewCli extends JFrame {
@@ -17,8 +14,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 	private JTextField t_prenom;
 	private JTextField t_adresse;
 	private JTextField t_tel;
-
-	private final JComboBox<String> c_sexe = new JComboBox<String>();
+	private JTextField t_sexe;
 	private JTextField t_mail;
 	private JTextField t_dateN;
 
@@ -115,12 +111,12 @@ public class Fen4_Gest_NewCli extends JFrame {
 		t_tel.setBounds(115, 513, 389, 58);
 		p.add(t_tel);
 		
-		//combobox sexe 
+		//JTextfield sexe 
 		
-		c_sexe.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		c_sexe.setModel(new DefaultComboBoxModel<String>(new String[] {"Homme", "Femme"}));
-		c_sexe.setBounds(643, 154, 389, 58);
-		p.add(c_sexe);
+		t_sexe = new JTextField();
+		t_sexe.setBounds(643, 154, 389, 58);
+		p.add(t_sexe);
+		
 		//JTextfield mail
 		
 		t_mail = new JTextField();
@@ -154,7 +150,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new NewClient_Gest(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe);
+				new Fen3_Gest_Cli(m);
 			}
 		});
 		p.add(b_valider);

@@ -24,6 +24,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	private JTextField t_format;
 	private JTextField t_langueVO;
 	private JTextField t_dateP;
+	private JTextField t_stock;
 
 
 	JButton b_effacer = new JButton("EFFACER");
@@ -35,7 +36,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 864, 719);
+		setBounds(100, 100, 864, 800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -97,9 +98,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_prix.setBounds(35, 372, 319, 31);
 		contentPane.add(t_prix);
 		
-		// JLabel & JTextfield "RÃ©sumÃ©"
+		// JLabel & JTextfield "Résumé"
 		
-		JLabel l_resume = new JLabel("RÃ©sumÃ© : ");
+		JLabel l_resume = new JLabel("Résumé : ");
 		l_resume.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_resume.setBounds(35, 410, 190, 31);
 		contentPane.add(l_resume);
@@ -109,9 +110,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_resume.setBounds(35, 440, 774, 139);
 		contentPane.add(t_resume);
 		
-		// JLabel & JTextfield "CatÃ©gorie"
+		// JLabel & JTextfield "Catégorie"
 		
-		JLabel l_categorie = new JLabel("CatÃ©gorie : ");
+		JLabel l_categorie = new JLabel("Catégorie : ");
 		l_categorie.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_categorie.setBounds(490, 128, 190, 31);
 		contentPane.add(l_categorie);
@@ -135,7 +136,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		
 		// JLabel & JTextfield "Langue originale"
 		
-		JLabel l_langueVO = new JLabel("Lange originale :");
+		JLabel l_langueVO = new JLabel("Langue originale :");
 		l_langueVO.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_langueVO.setBounds(490, 273, 319, 31);
 		contentPane.add(l_langueVO);
@@ -162,7 +163,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		JButton b_retour = new JButton("Retour");
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(30, 610, 207, 64);
+		b_retour.setBounds(30, 675, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -178,15 +179,23 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_enregistrer.setBackground(new Color(255, 215, 0));
 		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_enregistrer.setBackground(new Color(30, 144, 255));
-		b_enregistrer.setBounds(574, 610, 235, 64);
+		b_enregistrer.setBounds(574, 675, 235, 64);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
 				dispose();	
-				new NewLivre(m, t_titre, t_auteur, t_editeur,t_dateP, t_prix, t_categorie, t_resume) ;
-					
-
+				new NewLivre(m, t_titre, t_auteur, t_editeur,t_dateP, t_prix, t_categorie, t_resume, t_stock) ;
 			}
 		});
 		contentPane.add(b_enregistrer);
+		
+		JLabel l_prix_1 = new JLabel("Stock initial :");
+		l_prix_1.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
+		l_prix_1.setBounds(35, 590, 190, 31);
+		contentPane.add(l_prix_1);
+		
+		t_stock = new JTextField();
+		t_stock.setColumns(10);
+		t_stock.setBounds(35, 630, 319, 31);
+		contentPane.add(t_stock);
 	}
 }

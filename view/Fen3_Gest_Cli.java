@@ -8,7 +8,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import controller.ListClient;
-import controller.ListEmploye;
 import model.*;
 
 public class Fen3_Gest_Cli extends JFrame {
@@ -53,13 +52,13 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	
 	
-	public JLabel label = new JLabel("Veuillez sÃ©lectionnÃ© un client pour afficher ses informations");
+	public JLabel label = new JLabel("Veuillez sélectionné un client pour afficher ses informations");
     
 	Client cli;
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,7 +101,7 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sÃ©lectionnÃ©)
+        // Liste 2 (Informations du client sélectionné)
         
         model = new DefaultListModel<String>();
         
@@ -140,11 +139,11 @@ public class Fen3_Gest_Cli extends JFrame {
                 	
                 	
                 	nom.setText("Nom :");
-                	prenom.setText("PrÃ©nom :");
+                	prenom.setText("Prénom :");
                 	identifiant.setText("Identifiant :");
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("TÃ©lÃ©phone :");
+                	tel.setText("Téléphone :");
                 	
                 	r_nom.setText(cli.getNom());
                 	r_prenom.setText(cli.getPrenom());
@@ -206,14 +205,8 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(list.getSelectedValue()==null) {
-					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sÃ©lectionner un client.", "Erreur", 2);
-				}
-				else {
 				dispose();
 				new Fen4_Gest_ModifCli(m, cli);
-				}
 			}
 		});
 		p.add(b_modifier);

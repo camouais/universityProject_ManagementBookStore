@@ -35,7 +35,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -127,7 +127,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel RÃ©alisation de l'achat
+		// JLabel Réalisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));

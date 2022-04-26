@@ -33,7 +33,7 @@ public class Fen3_Gest_Liv extends JFrame {
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez s�lectionner un livre pour afficher ses informations.");
 	
 	public JLabel titre = new JLabel(" ");
 	public JLabel auteur = new JLabel();
@@ -43,7 +43,7 @@ public class Fen3_Gest_Liv extends JFrame {
 	public JLabel resume = new JLabel(" ");
 	public JLabel prix = new JLabel(" ");
 	public JLabel categorie = new JLabel(" ");
-	
+	public JLabel stock = new JLabel(" ");
 	
 	public JLabel r_titre = new JLabel(" ");
 	public JLabel r_auteur = new JLabel();
@@ -53,13 +53,14 @@ public class Fen3_Gest_Liv extends JFrame {
 	public JLabel r_resume = new JLabel(" ");
 	public JLabel r_prix = new JLabel(" ");
 	public JLabel r_categorie = new JLabel(" ");
+	public JLabel r_stock = new JLabel(" ");
 	
 	Livre liv;
 	public Fen3_Gest_Liv(Magasin m) {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,7 +73,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Liste 1 (Liste d'employÃ©s)
+		// Liste 1 (Liste d'employés)
 
         model = new DefaultListModel<String>();
         for (int i = 0; i < l.getList().length; i++) {
@@ -100,7 +101,7 @@ public class Fen3_Gest_Liv extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations de l'employÃ© sÃ©lectionnÃ©)
+        // Liste 2 (Informations de l'employé sélectionné)
         model2 = new DefaultListModel<String>();
        
         label.setBounds(0,0,400,20);
@@ -113,6 +114,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		resume.setBounds		(50,120,200,20);
 		prix.setBounds			(50,140,200,20);
 		categorie.setBounds		(50,160,200,20);
+		stock.setBounds			(50,180,200,20);
 		
 		r_titre.setBounds		(200,20,200,20);
 		r_auteur.setBounds		(200,40,200,20);
@@ -122,6 +124,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		r_resume.setBounds		(200,120,200,20);
 		r_prix.setBounds		(200,140,200,20);
 		r_categorie.setBounds	(200,160,200,20);
+		r_stock.setBounds		(200,180,200,20);
 		
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
@@ -135,9 +138,10 @@ public class Fen3_Gest_Liv extends JFrame {
                 	identifiant.setText("Identifiant : ");
                 	editeur.setText("Editeur : ");
                 	dateParution.setText("Date de parution : ");
-                	resume.setText("Résumé : ");
+                	resume.setText("R�sum� : ");
                 	prix.setText("Prix : ");
-                	categorie.setText("Catégorie : ");
+                	categorie.setText("Cat�gorie : ");
+                	stock.setText("Stock");
                 	
                 	r_titre.setText(liv.getTitre());
                 	r_auteur.setText(liv.getAuteur());
@@ -147,6 +151,7 @@ public class Fen3_Gest_Liv extends JFrame {
                 	r_resume.setText(liv.getResume());
                 	r_prix.setText(String.valueOf(liv.getPrix()));
                 	r_categorie.setText(liv.getCategorie());
+                	r_stock.setText(String.valueOf(liv.getStock()));
 				}
 			}
 		});
@@ -160,6 +165,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		panel2.add(resume);
 		panel2.add(prix);
 		panel2.add(categorie);
+		panel2.add(stock);
 		
 		panel2.add(r_titre);
 		panel2.add(r_auteur);
@@ -169,8 +175,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		panel2.add(r_resume);
 		panel2.add(r_prix);
 		panel2.add(r_categorie);
-		        
-		
+		panel2.add(r_stock);
 		
 		list2.setModel(model2);
         
@@ -237,7 +242,7 @@ public class Fen3_Gest_Liv extends JFrame {
 				
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un employé.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez s�lectionner un employ�.", "Erreur", 2);
 				}
 				else {
 				dispose();

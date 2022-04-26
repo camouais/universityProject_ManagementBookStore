@@ -17,7 +17,7 @@ public class Fen1 extends JFrame {
 	
 	public Fen1(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);

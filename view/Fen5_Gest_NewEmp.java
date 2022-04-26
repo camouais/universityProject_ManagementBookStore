@@ -21,9 +21,9 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	private JTextField t_tel;
 	private JTextField t_salaire;
 	
-	private JLabel l_rens = new JLabel("Renseignements du nouvel employÃ©");
+	private JLabel l_rens = new JLabel("Renseignements du nouvel employé");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Prénom :");
 	private JLabel l_dateN = new JLabel("Date de naissance :");
 	private JLabel l_salaire = new JLabel("Salaire : ");
 	
@@ -31,7 +31,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	private JLabel l_adresse = new JLabel("Adresse : ");
 	private JLabel l_sexe = new JLabel("Sexe : ");
 	private JLabel l_mail = new JLabel("Mail : ");
-	private JLabel l_tel = new JLabel("TÃ©lÃ©phone : ");
+	private JLabel l_tel = new JLabel("Téléphone : ");
 	
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
@@ -50,7 +50,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 700, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 700, 82); //définit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 
 
@@ -66,7 +66,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 		
-		// JLabel & JTextfield : PrÃ©nom
+		// JLabel & JTextfield : Prénom
 		
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(50, 140, 150, 30);
@@ -91,7 +91,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		p.add(t_adresse);
 		
 
-		// JLabel & JTextfield : TÃ©lÃ©phone
+		// JLabel & JTextfield : Téléphone
 		
 		
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));

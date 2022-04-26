@@ -19,13 +19,13 @@ public class Fen2_Gest extends JFrame {
 	
 	public Fen2_Gest(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 500, 720);
+		setBounds(0, 0, 500, 800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 	    setVisible(true);
@@ -78,7 +78,7 @@ public class Fen2_Gest extends JFrame {
 		
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(50, 620, 200, 50);
+		b_retour.setBounds(50, 680, 200, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

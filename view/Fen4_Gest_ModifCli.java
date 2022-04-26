@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import controller.Modif_InfoClient;
-import controller.Modif_InfoEmploye;
+import controller.*;
 import model.*;
 
 public class Fen4_Gest_ModifCli extends JFrame {
@@ -15,7 +14,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 	private JPanel p = new JPanel();
 	private JLabel l_rens = new JLabel("Renseignements du client");
 	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("PrÃ©nom :");
+	private JLabel l_prenom = new JLabel("Prénom :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	private JLabel l_adresse = new JLabel("Adresse : ");
 	private JLabel l_mail = new JLabel("Mail : ");
@@ -46,7 +45,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabels & JTextfield nom
@@ -62,7 +61,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 
-		//JLabels & JTextfield prÃ©nom
+		//JLabels & JTextfield prénom
 		
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
@@ -113,7 +112,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		t_mail.setBounds(150, 260, 380, 30);
 		p.add(t_mail);
 
-		// JLabel & JTextfield tÃ©lÃ©phone
+		// JLabel & JTextfield téléphone
 		
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_tel.setBounds(20, 300, 150, 30);

@@ -61,14 +61,14 @@ public class Fen3_Gest_Com extends JFrame {
 		public JLabel r_adresse = new JLabel(" ");
 		public JLabel r_prix = new JLabel(" ");
 		
-		public JLabel label = new JLabel("Veuillez sÃ©lectionnÃ© un achat pour afficher ses informations");
+		public JLabel label = new JLabel("Veuillez sélectionner un achat pour afficher ses informations");
 
 		Commande com;
     
 		
 		public Fen3_Gest_Com(Magasin m) {
 			
-			// FenÃªtre
+			// Fenêtre
 			
 			p = new JPanel();
 			p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -112,7 +112,7 @@ public class Fen3_Gest_Com extends JFrame {
 	        panel1.add(scrollPane);
 	        p.add(panel1);
 	        
-	        // Liste 2 (Informations de l'achat sÃ©lectionnÃ©)
+	        // Liste 2 (Informations de l'achat sélectionné)
 	        
 	        model = new DefaultListModel<String>();
 	        
@@ -153,7 +153,7 @@ public class Fen3_Gest_Com extends JFrame {
 	                	
 	                	
 	                	nom.setText("Nom :");
-	                	prenom.setText("PrÃ©nom :");
+	                	prenom.setText("Prénom :");
 	                	identifiant_com.setText("Identifiant commande :");
 	                	identifiant_cli.setText("Identifiant client:");
 	                	dateC.setText("Date :");
