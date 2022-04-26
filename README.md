@@ -1,6 +1,10 @@
 <h1>À FAIRE</h1>
 
 <h2>GLOBAL</h2>
+  - Refaire le rendu graphique du logiciel
+        - Ajout d'une icône
+  - Permettre un enregistrement des données à travers les sessions
+  - Modification du nom / MDP d'un magasin
 
 <h2>VIEW</h2>
 
@@ -11,8 +15,7 @@
   - Permettre de pouvoir afficher les infos d'un livre en double-cliquant sur un élément de la liste de livre 
 
 <h2>MODEL</h2>
-
-  - Implémenter la création d'une base de données permettant de sauvegarder les données à travers les sessions
+[...]
 
 <b>Magasin</b> : 
-  - Ajout d'autres arguments facultatifs
+  - Ajout d'autres arguments facultatifs (Mot de passe inclus)
