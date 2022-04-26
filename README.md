@@ -12,14 +12,5 @@
 
   - Implémenter la création d'une base de données permettant de sauvegarder les données à travers les sessions
 
-<b>Client</b> :
-  - Calcul âge client (méthode)
-
 <b>Magasin</b> : 
   - Ajout d'autres arguments facultatifs
-  - Revue des méthodes
-
-
-<h2>CONTROLLER</h2>
-
-  - Mettre des checks un peu partout, histoire de contrôler les entrées de variables (par exemple à la création de nouveaux livres/employés/clients/...)
