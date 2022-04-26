@@ -17,7 +17,7 @@ public class Fen1 extends JFrame {
 	
 	public Fen1(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -53,8 +53,8 @@ public class Fen1 extends JFrame {
 		p.add(b_ach);
 		
 		b_quit.setBackground(new Color(255, 200, 200));
-		b_quit.setFont(new Font("Arial", Font.BOLD, 10));
-		b_quit.setBounds(0, 0, 80, 20);
+		b_quit.setFont(new Font("Arial", Font.BOLD, 15));
+		b_quit.setBounds(0, 0, 100, 40);
 		b_quit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
