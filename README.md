@@ -17,5 +17,11 @@
 
 <h2>MODEL</h2>
 
+<b>Client</b> :
+  - Finaliser l'implémentation de la date de naissance dans NewClient
+
 <b>Magasin</b> : 
   - Ajout d'autres arguments facultatifs (Mot de passe inclus)
+
+<h2>CONTROLLER</h2>
+  - (basse priorité) Trouver un moyen de fusionner les méthodes à mêmes fonctions pour différentes fenêtres (exemple : NewClient et NewClient_gest)
