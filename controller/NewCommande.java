@@ -1,15 +1,11 @@
 package controller;
 
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.time.*;
+import java.time.format.*;
 import javax.swing.*;
 import model.*;
 import view.*;
-import java.text.ParseException;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class NewCommande {
 	
@@ -22,10 +18,10 @@ public class NewCommande {
 		fin = new Vector<Livre>();
 		Vector<String> temp = buildSet(list);
 		String[] temp2 = temp.toArray(new String[temp.size()]);
-
+		
 		System.out.println(temp2.length);
 		for(int i = 0; i < temp2.length; i++) {
-			System.out.println("Ajout 2 : " + m.rchLivre(temp2[i]));
+			System.out.println("Ajout 2 : " + m.rchLivre(temp2[i]).getTitre());
 			fin.add(m.rchLivre(temp2[i]));
 		}
 		
@@ -41,8 +37,8 @@ public class NewCommande {
 	public Vector<String> buildSet(JList<String> list) {
 		Vector<String> temp = new Vector<String>();
 		for(int i = 0; i < list.getModel().getSize();i++) {
-			System.out.println("Ajout de l'�l�ment : " + (i+1) + " - " + ((String.valueOf(list.getModel().getElementAt(i)).split(" ")[2])));
-            temp.add((String.valueOf(list.getModel().getElementAt(i)).split(" ")[2]));
+			System.out.println("Ajout de l'élément : " + (i+1) + " - " + ((String.valueOf(list.getModel().getElementAt(i)).split("\"")[1])));
+            temp.add((String.valueOf(list.getModel().getElementAt(i)).split("\"")[1]));
         }
 		return temp;
 	}
