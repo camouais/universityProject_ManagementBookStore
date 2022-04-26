@@ -5,12 +5,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import model.*;
 
-public class Fen5_Gest_StatComp extends JFrame {
+public class Fen5_Gest_StatCompta extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel p = new JPanel();
-    private JLabel l_stem = new JLabel("Comptabilités");
+    private JLabel l_stem = new JLabel("ComptabilitÃ©s");
     private JLabel l_valueAg = new JLabel("tv");
     private JLabel l_valueT = new JLabel("nb");
     private JLabel l_nbrt = new JLabel("Nombre total de livres : ");
@@ -19,9 +19,9 @@ public class Fen5_Gest_StatComp extends JFrame {
     JScrollPane scrollPane = new JScrollPane();
     JButton b_retour = new JButton("Retour");
     
-	public Fen5_Gest_StatComp(Magasin m) {
+	public Fen5_Gest_StatCompta(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
