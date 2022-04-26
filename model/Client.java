@@ -37,6 +37,19 @@ public class Client implements Serializable {
     	id = totalC;
     }
     
+
+    public Client(String n, String p, String ad, String t, String am, String s) {
+    	nom = n;
+    	prenom = p;
+    	sexe = s;
+    	mail = am;
+    	tel = t;
+    	dateCreationCompte = new Date(System.currentTimeMillis());
+    	adresse = ad;
+    	totalC++;
+    	id = totalC;
+    }
+    
     public Client() {
     	totalC = 0;
     }
