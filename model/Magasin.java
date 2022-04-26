@@ -9,6 +9,7 @@ public class Magasin implements Serializable {
 	
     private String nom;
     private String adresse;
+    private String mdp;
     // [...]
     public Set<Employe> listEmp = new HashSet<>();
     public Set<Client> listClient = new HashSet<>();
@@ -17,8 +18,9 @@ public class Magasin implements Serializable {
     
     // Constructeur
     
-    public Magasin(String name) {
+    public Magasin(String name, String mdp) {
     	nom = name;
+    	this.mdp = mdp;
     }
     
     // Méthodes
@@ -198,32 +200,6 @@ public class Magasin implements Serializable {
         return (Client) s;
     }
     
-    /////////////////////////////////////////////
-    //-----------------MAGASIN-----------------//
-    /////////////////////////////////////////////
-    
-    // Modification de l'adresse du magasin
-    
-    public int updateAdr(String adr) {
-		if(adr != adresse) {
-			adresse=adr; 
-			return 0;
-		}
-		else {
-			return-1;
-		}
-    }
-    
-    // Modification du nom du magasin
-    
-    public String getNom() {
-    	return nom;
-    }
-    
-    public void setNom(String n) {
-		nom = n;
-    }
-    
     //////////////////////////////////////////////
     //-----------------EMPLOY�S-----------------//
     //////////////////////////////////////////////
@@ -301,4 +277,39 @@ public class Magasin implements Serializable {
         }
         return sameSalai;
     }
+    
+	/////////////////////////////////////////////
+	//-----------------MAGASIN-----------------//
+	/////////////////////////////////////////////
+	
+	// Modification de l'adresse du magasin
+	
+	public int updateAdr(String adr) {
+		if(adr != adresse) {
+			adresse=adr; 
+			return 0;
+		}
+		else {
+			return-1;
+		}
+	}
+	
+	// Modification du nom du magasin
+	
+	public String getNom() {
+		return nom;
+	}
+	
+	public void setNom(String n) {
+		nom = n;
+	}
+	
+	public String getPW() {
+		return mdp;
+	}
+	
+	public void setPW(String mdp) {
+		this.mdp = mdp;
+	}
+    
 }
