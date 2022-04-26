@@ -100,26 +100,28 @@ public class Fen4_Ach_DoAch extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				String[] a = new ListLivres(m, new RechercheLivre(m, t_rech).getList()).getList();
+				ListLivres def = new ListLivres(m, new RechercheLivre(m, t_rech).getList());
+				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
-				        for(int i = 0; i < l.getList().length; i++) {
-				        	model.addElement(l.getList()[i]);
+			        	System.out.println("check1");
+				        for(int i = 0; i < a.length; i++) {
+				        	model.addElement(a[i]);
 				        }
 					}
 				} else {
-					ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech).getList());
-			        for (int i = 0; i < def.getList().length; i++) {
-						for (int j = 0; j < def.getList().length; j++) {
-							if (Integer.parseInt((def.getList()[i]).split(" ")[0]) < Integer.parseInt((def.getList()[j]).split(" ")[0])) {
+			        for (int i = 0; i < a.length; i++) {
+						for (int j = 0; j < a.length; j++) {
+							if (Integer.parseInt((a[i]).split(" ")[0]) < Integer.parseInt((a[j]).split(" ")[0])) {
 								String temp = def.getList()[i];
-								def.getList()[i] = def.getList()[j];
-								def.getList()[j] = temp;
+								a[i] = a[j];
+								a[j] = temp;
 							}
 						}
 					}
-					for (int i = 0; i < def.getList().length; i++) {
-						model.addElement(def.getList()[i]);
+					for (int i = 0; i < a.length; i++) {
+			        	System.out.println("check2 " + a[i]);
+						model.addElement(a[i]);
 					}
 				}
 			}
@@ -127,7 +129,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel RÃ©alisation de l'achat
+		// JLabel Réalisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));

@@ -48,7 +48,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(l_main);
 		
-		// Labels : "Nom", "PrÃ©nom", "Adresse", "TÃ©lÃ©phone", "Sexe", "Mail", "Date de naissance"
+		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
 		
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
@@ -74,7 +74,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_mail.setBounds(650, 237, 147, 37);
 		p.add(l_mail);
 		
-		// Text Fields : Nom, PrÃ©nom, Adresse, TÃ©lÃ©phone, Mail, Date de naissance
+		// Text Fields : Nom, Prénom, Adresse, Téléphone, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));

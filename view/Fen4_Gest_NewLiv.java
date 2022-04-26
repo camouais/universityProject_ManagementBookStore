@@ -166,7 +166,6 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_retour.setBounds(30, 675, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				dispose();
 				new Fen3_Gest_Liv(m);
 			}
