@@ -6,7 +6,7 @@ import model.Magasin;
 public class ListClient {
 	Object[] list;
 	String[] formattedList;
-	
+
 	public ListClient(Magasin m) {
 		list = m.listClient.toArray();
 		formattedList = new String[list.length];
@@ -18,7 +18,7 @@ public class ListClient {
 		}
 		System.out.println("Ending list construction");
 	}
-	
+
 	public String[] getListCli() {
 		return formattedList;
 	}

@@ -10,7 +10,7 @@ public class ClientExists {
 	public int status;
 	
 	public ClientExists(Magasin m, JTextField n, JTextField p, JTextField mail) {
-		Client a = m.rchCli(n.getText(), p.getText(), mail.getText());
+		Client a = m.rchCli_npmail(n.getText(), p.getText(), mail.getText());
 		if(a == null) {
 			JFrame b = new JFrame();
 			JOptionPane.showMessageDialog( b, "Le client n'existe pas dans la liste de clients.", "Erreur", 2);

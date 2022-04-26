@@ -18,17 +18,17 @@ public class NewMagasin {
     	Employe e_4 = new Employe("Djisk", "Lili", 5425, "Vendeur", "45 Avenue des Chevaleries", "Djisk.Lili@gmail.com", "09364136");
     	Employe e_5 = new Employe("Wo", "Serena", 10001, "Responsable", "78 Rue des Savants", "Wo.Serena@gmail.com", "06546775");
     	
-    	Livre liv1 = new Livre("Le Petit Prince", "Antoine de Saint-Exup√©ry", "Folio Junior", null, "Litt√©rature pour enfants", 4.87f);
-		Livre liv2 = new Livre("Paroles", "Jacques Pr√©vert", "Folio", null, "Calligraphe", 3.14F);
-		Livre liv3 = new Livre("Candide", "Voltaire", "Poche", null, "Classiques & Patrimoine", 2.85f);
-		Livre liv4 = new Livre("Antigone", "Jean Anouilh", "Poche", null, "Pi√®ce de th√©√¢tre", 6.10F);
-		Livre liv5 = new Livre("La Promesse de l'aube", "Romain Gary", "Folio Junior", null, "Autobiographie", 8.70f);
+    	Livre liv1 = new Livre("Le Petit Prince", "Antoine de Saint-ExupÈry", "Folio Junior", null, "LittÈrature pour enfants", 4.87f, 16);
+		Livre liv2 = new Livre("Paroles", "Jacques PrÈvert", "Folio", null, "Calligraphe", 3.14f, 32);
+		Livre liv3 = new Livre("Candide", "Voltaire", "Poche", null, "Classiques & Patrimoine", 2.85f, 24);
+		Livre liv4 = new Livre("Antigone", "Jean Anouilh", "Poche", null, "PiËce de thÈ‚tre", 6.10f, 21);
+		Livre liv5 = new Livre("La Promesse de l'aube", "Romain Gary", "Folio Junior", null, "Autobiographie", 8.70f, 7);
 		
 		Client cl1 = new Client("Dia", "Cameron", "30 Avenue du Parc", "0676412933", "Cameron.Dia@gmail.com", "Homme" );
-		Client cl2 = new Client("Ba", "Margot", "55 Avenue des Champs-√âlys√©es", "0605486270", "BaMargot@hotmail.fr", "Femme");
+		Client cl2 = new Client("Ba", "Margot", "55 Avenue des Champs-…lysÈes", "0605486270", "BaMargot@hotmail.fr", "Femme");
 		Client cl3 = new Client("Philipe", "Victor", "87 Rue Victor Hugo", "0627266238", "phiVi@gmail.com", "Homme");
 		Client cl4 = new Client("Anderson", "Jean", "1 Rue Saint-Rustique", "0608539386", "Anderson.Jean@hotmail.fr", "Homme");
-		Client cl5 = new Client("Du Ch√¢teau", "Romain", "22 Rue Oberkampf", "0698255138", "Romain.DuCH@gmail.com", "Homme");
+		Client cl5 = new Client("Du Ch‚teau", "Romain", "22 Rue Oberkampf", "0698255138", "Romain.DuCH@gmail.com", "Homme");
 
 		Livre[] arr1 = { liv1, liv2 };
 		Vector<Livre> v1 = new Vector<Livre>(Arrays.asList(arr1));
@@ -55,7 +55,7 @@ public class NewMagasin {
 		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
     	} else {
     		
-	        System.out.println("Magasin cr√©√© avec le nom : " + n.getText());
+	        System.out.println("Magasin crÈÈ avec le nom : " + n.getText());
 	        Magasin m = new Magasin(n.getText());
 	        m.addEmp(e_0);
 	        m.addEmp(e_1);

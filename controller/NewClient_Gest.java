@@ -5,7 +5,7 @@ package controller;
 	import view.*;
 
 public class NewClient_Gest {
-	
+
 		Magasin m;
 		Client c;
 		public int status;
@@ -16,7 +16,7 @@ public class NewClient_Gest {
 		JTextField tel;
 		JTextField mail;
 		JTextField sexe;
-		
+
 		public NewClient_Gest(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe) {
 			if (nom.getText().isEmpty()) {
 				JFrame a = new JFrame();
@@ -35,11 +35,11 @@ public class NewClient_Gest {
 			    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseign�e. Veuillez en renseigner une.", "Erreur", 2);
 			} else {
 				c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem());
-				
+
 				m.addCli(c);
 				new Fen3_Gest_Cli(m);
 				status = 1;
 			}
-		
+
 	}
 }
