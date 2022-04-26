@@ -24,12 +24,14 @@ public class Fen3_Ach_NewC extends JFrame {
 	private JTextField t_adresse;
 	private JTextField t_tel;
 	private JTextField t_mail;
-	private JTextField t_dateN;
 
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 	private final JComboBox<String> c_sexe = new JComboBox<String>();
+	private final JComboBox c_jour = new JComboBox();
+	private final JComboBox c_mois = new JComboBox();
+	private JTextField t_annee;
 	
 	public Fen3_Ach_NewC(Magasin m) {
 		
@@ -46,7 +48,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(l_main);
 		
-		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
+		// Labels : "Nom", "PrÃ©nom", "Adresse", "TÃ©lÃ©phone", "Sexe", "Mail", "Date de naissance"
 		
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
@@ -65,18 +67,14 @@ public class Fen3_Ach_NewC extends JFrame {
 		p.add(l_tel);
 		
 		l_sexe.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
-		l_sexe.setBounds(643, 119, 147, 37);
+		l_sexe.setBounds(650, 119, 147, 37);
 		p.add(l_sexe);
 		
 		l_mail.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
-		l_mail.setBounds(643, 237, 147, 37);
+		l_mail.setBounds(650, 237, 147, 37);
 		p.add(l_mail);
 		
-		l_dateN.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
-		l_dateN.setBounds(643, 353, 326, 37);
-		p.add(l_dateN);
-		
-		// Text Fields : Nom, Prénom, Adresse, Téléphone, Mail, Date de naissance
+		// Text Fields : Nom, PrÃ©nom, Adresse, TÃ©lÃ©phone, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -100,13 +98,8 @@ public class Fen3_Ach_NewC extends JFrame {
 		
 		t_mail = new JTextField();
 		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_mail.setBounds(643, 272, 389, 58);
+		t_mail.setBounds(650, 272, 389, 58);
 		p.add(t_mail);
-		
-		t_dateN = new JTextField();
-		t_dateN.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_dateN.setBounds(643, 392, 389, 58);
-		p.add(t_dateN);
 		
 		// Boutons : Effacer, Valider, Retour
 		
@@ -122,7 +115,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		b_valider.setBounds(739, 619, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (new NewClient(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe).status == 1) {
+				if (new NewClient(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe, c_jour, c_mois, t_annee).status == 1) {
 					dispose();
 				}
 			}
@@ -143,8 +136,41 @@ public class Fen3_Ach_NewC extends JFrame {
 		
 		c_sexe.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		c_sexe.setModel(new DefaultComboBoxModel<String>(new String[] {"Homme", "Femme"}));
-		c_sexe.setBounds(643, 154, 389, 58);
+		c_sexe.setBounds(650, 154, 389, 58);
 		
 		p.add(c_sexe);
+		
+		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setBounds(650, 420, 100, 30);
+		p.add(c_jour);
+		
+		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setBounds(800, 420, 100, 30);
+		p.add(c_mois);
+		
+		t_annee = new JTextField();
+		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_annee.setBounds(950, 420, 100, 30);
+		p.add(t_annee);
+		
+		JLabel l_jour = new JLabel("Jour");
+		l_jour.setFont(new Font("Arial", Font.PLAIN, 20));
+		l_jour.setBounds(650, 390, 147, 30);
+		p.add(l_jour);
+		
+		JLabel l_mois = new JLabel("Mois");
+		l_mois.setFont(new Font("Arial", Font.PLAIN, 20));
+		l_mois.setBounds(799, 390, 147, 30);
+		p.add(l_mois);
+		
+		JLabel l_annee = new JLabel("Ann\u00E9e");
+		l_annee.setFont(new Font("Arial", Font.PLAIN, 20));
+		l_annee.setBounds(950, 390, 147, 30);
+		p.add(l_annee);
+		
+		JLabel l_mail_1 = new JLabel("Date de naissance : ");
+		l_mail_1.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_mail_1.setBounds(653, 338, 386, 37);
+		p.add(l_mail_1);
 	}
 }
