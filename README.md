@@ -2,7 +2,7 @@
 
 <h2>VIEW</h2>
 
-<b>Fen5_Gest_StatCom</b> : À réaliser (Statistiques liées aux commandes)
+<b>Statistiques (Fen5_Gest_StatX)</b> : À compléter
 
 <b>Fen4_Ach_DoAch</b> : 
   - Ajouter un moyen de prendre en compte la livraison (attention aux paramètres de livraison : magasin ou adresse chez le client)
