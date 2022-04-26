@@ -1,6 +1,8 @@
 package model;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 public class Client implements Serializable {
@@ -14,7 +16,7 @@ public class Client implements Serializable {
     private String mail;
     private String tel;
     private Date dateCreationCompte;
-    private Date dateNaiss;
+    private LocalDate dateNaiss;
     private String adresse;
     private int age;
     private String sexe;
@@ -22,13 +24,14 @@ public class Client implements Serializable {
     
     // Constructeur
 
-    public Client(String n, String p, String ad, String t, String am, String s) {
+    public Client(String n, String p, String ad, String t, String am, String s, LocalDate dn) {
     	nom = n;
     	prenom = p;
     	sexe = s;
     	mail = am;
     	tel = t;
     	dateCreationCompte = new Date(System.currentTimeMillis());
+    	dateNaiss = dn;
     	adresse = ad;
     	totalC++;
     	id = totalC;
@@ -38,19 +41,16 @@ public class Client implements Serializable {
     	totalC = 0;
     }
     
-    // Méthodes
+    // MÃ©thodes
     
-    // Ajouter / Mettre à jour une adresse mail
+    // Ajouter / Mettre Ã  jour une adresse mail
     
     public void updMail(String m) {
     	mail = m;
     }
     
-    // Ajouter / Mettre à jour un numéro de téléphone
+    // Ajouter / Mettre Ã  jour un numÃ©ro de tÃ©lÃ©phone
     
-    public void updTel(String t) {
-    	tel = t;
-    }
     public int getId() {
     	return id;
     }
@@ -115,12 +115,17 @@ public class Client implements Serializable {
     	return dateCreationCompte;
     }
     
-    public Date getDateNaissance() {
+    public LocalDate getDateNaissance() {
     	return dateNaiss;
     }
     
-    public void setDateNaissance(Date a) {
+    public void setDateNaissance(LocalDate a) {
     	dateNaiss = a;
+    }
+    
+    public int age() {
+    	LocalDate curDate = LocalDate.now();
+    	return Period.between(dateNaiss, curDate).getYears();
     }
 } 
     
