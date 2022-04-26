@@ -21,7 +21,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 	
 	public Fen4_Gest_MagStat(Magasin m) {
 		
-		//Fenêtre
+		//FenÃªtre
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -39,7 +39,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		l_main.setBounds(112, 18, 371, 66);
 		p.add(l_main);
     
-		// Boutons : Livres, Clients, Achats, Employés
+		// Boutons : Livres, Clients, Achats, EmployÃ©s
     
 		b_livres.setBackground(new Color(180, 112, 147));
 		b_livres.setFont(new Font("Tahoma", Font.BOLD, 43));
@@ -91,7 +91,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		b_compta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new Fen5_Gest_StatComp(m);
+				new Fen5_Gest_StatCompta(m);
 			}
 		});
 		p.add(b_compta);
