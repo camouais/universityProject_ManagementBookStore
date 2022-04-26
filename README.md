@@ -2,7 +2,7 @@
 
 <h2>GLOBAL</h2>
   - Refaire le rendu graphique du logiciel
-        - Ajout d'une icône
+  - Ajout d'une icône
   - Permettre un enregistrement des données à travers les sessions
   - Modification du nom / MDP d'un magasin
 
