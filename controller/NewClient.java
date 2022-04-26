@@ -1,5 +1,7 @@
 package controller;
 
+import java.time.*;
+
 import javax.swing.*;
 import model.*;
 import view.*;
@@ -17,7 +19,7 @@ public class NewClient {
 	JTextField mail;
 	JTextField sexe;
 	
-	public NewClient(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe) {
+	public NewClient(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe, JComboBox jour, JComboBox mois, JTextField annee) {
 		if (nom.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
@@ -33,7 +35,12 @@ public class NewClient {
 		} else if (mail.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseignée. Veuillez en renseigner une.", "Erreur", 2);
+		} else if (annee.getText().isEmpty()) {
+			JFrame a = new JFrame();
+			JOptionPane.showMessageDialog(a, "Aucune année de naissance renseignée. Veuillez en sélectionner une.", "Erreur", 2);
 		} else {
+			LocalDate dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), Integer.parseInt(String.valueOf(mois.getSelectedIndex() + 1)), Integer.parseInt((String) jour.getSelectedItem()));
+			
 			c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem());
 			System.out.println("Client créé avec les attributs suivants :");
 			System.out.println("Nom = " + c.getNom());
@@ -41,7 +48,7 @@ public class NewClient {
 			System.out.println("Adresse = " + c.getAdresse());
 			System.out.println("Téléphone = " + c.getTel());
 			System.out.println("Mail = " + c.getMail());
-			System.out.println("Sexe = " + c.getSexe());
+			System.out.println("Sexe = " + c.getSexe() + "\n");
 			m.addCli(c);
 			new Fen4_Ach_DoAch(m,c);
 			status = 1;

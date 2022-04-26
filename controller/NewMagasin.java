@@ -1,5 +1,6 @@
 package controller;
 
+import java.time.*;
 import java.util.*;
 import javax.swing.*;
 import model.*;
@@ -9,7 +10,7 @@ public class NewMagasin {
 	
 	public int status;
     
-    public NewMagasin(JTextField n) {
+    public NewMagasin(JTextField n, JPasswordField mdp) {
     	
     	Employe e_0 = new Employe("Alfred", "Jo", 4521, "Caissier", "5 Rue des Sangliers", "Alfred.Jo@gmail.com", "06352192");
     	Employe e_1 = new Employe("Tulipe", "William", 1234, "Responsable", "23 Rue des Sangliers", "Tulipe.William@gmail.com", "09318995");
@@ -24,11 +25,11 @@ public class NewMagasin {
 		Livre liv4 = new Livre("Antigone", "Jean Anouilh", "Poche", null, "Pièce de théâtre", 6.10f, 21);
 		Livre liv5 = new Livre("La Promesse de l'aube", "Romain Gary", "Folio Junior", null, "Autobiographie", 8.70f, 7);
 		
-		Client cl1 = new Client("Dia", "Cameron", "30 Avenue du Parc", "0676412933", "Cameron.Dia@gmail.com", "Homme" );
-		Client cl2 = new Client("Ba", "Margot", "55 Avenue des Champs-Élysées", "0605486270", "BaMargot@hotmail.fr", "Femme");
-		Client cl3 = new Client("Philipe", "Victor", "87 Rue Victor Hugo", "0627266238", "phiVi@gmail.com", "Homme");
-		Client cl4 = new Client("Anderson", "Jean", "1 Rue Saint-Rustique", "0608539386", "Anderson.Jean@hotmail.fr", "Homme");
-		Client cl5 = new Client("Du Château", "Romain", "22 Rue Oberkampf", "0698255138", "Romain.DuCH@gmail.com", "Homme");
+		Client cl1 = new Client("Dia", "Cameron", "30 Avenue du Parc", "0676412933", "Cameron.Dia@gmail.com", "Homme", LocalDate.of(1995, 07, 18));
+		Client cl2 = new Client("Ba", "Margot", "55 Avenue des Champs-Élysées", "0605486270", "BaMargot@hotmail.fr", "Femme", LocalDate.of(1995, 07, 18));
+		Client cl3 = new Client("Philipe", "Victor", "87 Rue Victor Hugo", "0627266238", "phiVi@gmail.com", "Homme", LocalDate.of(1995, 07, 18));
+		Client cl4 = new Client("Anderson", "Jean", "1 Rue Saint-Rustique", "0608539386", "Anderson.Jean@hotmail.fr", "Homme", LocalDate.of(1995, 07, 18));
+		Client cl5 = new Client("Du Château", "Romain", "22 Rue Oberkampf", "0698255138", "Romain.DuCH@gmail.com", "Homme", LocalDate.of(1995, 07, 18));
 
 		Livre[] arr1 = { liv1, liv2 };
 		Vector<Livre> v1 = new Vector<Livre>(Arrays.asList(arr1));
@@ -54,9 +55,8 @@ public class NewMagasin {
     		JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
     	} else {
-    		
-	        System.out.println("Magasin créé avec le nom : " + n.getText());
-	        Magasin m = new Magasin(n.getText());
+	        System.out.println("Magasin créé avec le nom : " + n.getText() + " et le mot de passe " + new String(mdp.getPassword()));
+	        Magasin m = new Magasin(n.getText(), new String(mdp.getPassword()));
 	        m.addEmp(e_0);
 	        m.addEmp(e_1);
 	        m.addEmp(e_2);
