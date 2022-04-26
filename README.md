@@ -1,5 +1,7 @@
 <h1>À FAIRE</h1>
 
+<h2>GLOBAL</h2>
+
 <h2>VIEW</h2>
 
 <b>Statistiques (Fen5_Gest_StatX)</b> : À compléter
