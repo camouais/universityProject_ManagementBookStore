@@ -12,8 +12,8 @@ public class ListLivres {
 		if(livres != null) {
 			list = livres.toArray();
 			formattedList = new String[list.length];
-			for(int i = 0; i < list.length; i++) {
-				String b = (((Livre) list[i]).getId() + " - " + ((Livre) list[i]).getTitre());
+			for(int i = 0; i < list.length; i++) {		
+				String b = (((Livre) list[i]).getId() + " - \"" + ((Livre) list[i]).getTitre() + "\" - " + ((Livre) list[i]).getAuteur());
 				formattedList[i] = b;
 			}
 		}
