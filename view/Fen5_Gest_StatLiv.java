@@ -2,30 +2,20 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Vector;
+
 import javax.swing.*;
 import model.*;
 
 public class Fen5_Gest_StatLiv extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-
-	Object[][] donnees1 = {
-            {"Titre 1", "Auteur 1", "Éditeur 1", "Catégorie 1", "Date 1", "89"},
-            {"Titre 2", "Auteur 2", "Éditeur 1", "Catégorie 2", "Date 2", "55"},
-            {"Titre 3", "Auteur 1", "Éditeur 2", "Catégorie 1", "Date 3", "107"},
-            {"Titre 4", "Auteur 3", "Éditeur 3", "Catégorie 3", "Date 4", "8"},
-            {"Titre 5", "Auteur 4", "Éditeur 1", "Catégorie 2", "Date 5", "95344"},
-            {"Titre 6", "Auteur 2", "Éditeur 4", "Catégorie 4", "Date 6", "1085134"},
-            {"Titre 7", "Auteur 5", "Éditeur 5", "Catégorie 2", "Date 7", "87261931"},
-            {"Titre 8", "Auteur 6", "Éditeur 3", "Catégorie 2", "Date 8", "917324728923"},
-            {"Titre 9", "Auteur 3", "Éditeur 4", "Catégorie 3", "Date 9", "beaucoup"},
-    };
-    
+	
     String[] entetes1 = {"Titre", "Auteur", "Éditeur", "Catégorie", "Date de parution", "Nombre de ventes"};
     
     private JPanel p = new JPanel();
-    private JTable table1 = new JTable(donnees1, entetes1); 
-    private JScrollPane scrollPane_1 = new JScrollPane(table1);
+    private JTable table1; 
+    private JScrollPane scrollPane_1;
     private JLabel l_stem = new JLabel("Statistiques au niveau des livres");
     private JLabel l_valueAg = new JLabel("tv");
     private JLabel l_valueT = new JLabel("nb");
@@ -49,9 +39,21 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    p.setBackground(new Color(180, 112, 147));
 		
 		// Tableau
-	   
+	    String[][] donnees2 = new String[m.listLivre.size()][6];
+	    for(int i = 0; i < m.listLivre.size(); i++) {
+	    	String[] temp = new String[6];
+	    	temp[0] = ((Livre) (m.listLivre.toArray()[i])).getTitre();
+	    	temp[1] = ((Livre) (m.listLivre.toArray()[i])).getAuteur();
+	    	temp[2] = ((Livre) (m.listLivre.toArray()[i])).getEditeur();
+	    	temp[3] = ((Livre) (m.listLivre.toArray()[i])).getCategorie();
+	    	temp[4] = ((Livre) (m.listLivre.toArray()[i])).getDateParution();
+	    	temp[5] = String.valueOf(((Livre) (m.listLivre.toArray()[i])).qtSortie());
+	    	donnees2[i] = temp;
+	    }
+	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
 	    table1.setBounds(100, 150, 800, 400);
+	    scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100, 150, 800, 400);
 	    p.add(scrollPane_1);
 	    
