@@ -5,6 +5,8 @@ import java.awt.event.*;
 import java.text.SimpleDateFormat;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+
 import model.*;
 
 public class Fen5_Gest_StatAch extends JFrame {
@@ -14,12 +16,13 @@ public class Fen5_Gest_StatAch extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"Nom","Prénom", "Date", "Quantité", "Prix total"};
+    String[] entetes1 = {"id","Nom","Prénom", "Date", "Quantité", "Prix total"};
+    DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
     private JScrollPane scrollPane_1 = new JScrollPane(table1);
-     private JLabel l_stem = new JLabel("Statistiques au niveau des achats");
+    private JLabel l_stem = new JLabel("Statistiques au niveau des achats");
     private JLabel r_l_valueAg = new JLabel("tv");
     private JLabel r_l_valueT = new JLabel("nb");
     private JLabel l_nbrt = new JLabel("Nombre de ventes : ");
@@ -46,7 +49,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 	    
 	    
 	   
-	    String[][] donnees2 = new String[m.listClient.size()][5];
+	    String[][] donnees2 = new String[m.listClient.size()][6];
 	    
 	    
 	    
@@ -54,21 +57,26 @@ public class Fen5_Gest_StatAch extends JFrame {
 	    
 	    
 	    for(int i = 0; i < m.listCom.size(); i++) {
-	    	String[] temp = new String[5];
-	    	temp[0] = (((Commande) (m.listCom.toArray()[i])).getClient()).getNom();
-	    	temp[1] = (((Commande) (m.listCom.toArray()[i])).getClient()).getPrenom();
-	    	temp[2] = ((Commande) (m.listCom.toArray()[i])).getDateAchat();
-	    	temp[3] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getAchat(((Commande) (m.listCom.toArray()[i])).getClient()).size());
-	    	temp[4] = ((Commande) (m.listCom.toArray()[i])).getPrixTotal();
+	    	String[] temp = new String[6];
+	    	temp[0] = String.valueOf((((Commande) (m.listCom.toArray()[i])).getId()));
+	    	temp[1] = (((Commande) (m.listCom.toArray()[i])).getClient()).getNom();
+	    	temp[2] = (((Commande) (m.listCom.toArray()[i])).getClient()).getPrenom();
+	    	temp[3] = ((Commande) (m.listCom.toArray()[i])).getDateAchat();
+	    	temp[4] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getAchat(((Commande) (m.listCom.toArray()[i])).getClient()).size());
+	    	temp[5] = ((Commande) (m.listCom.toArray()[i])).getPrixTotal();
 	    	
 	    	donnees2[i] = temp;
 	    }
 		
-		
-		
+	   
 		
 	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
+	    // Centre les données du tableaux
+	     custom.setHorizontalAlignment(JLabel.CENTER); 
+	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
+	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
+	    }
 	    table1.setBounds(100, 150, 800, 400);
 	    scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100, 150, 800, 400);
