@@ -16,7 +16,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"id","Nom","Prénom", "Date", "Quantité", "Prix total"};
+    String[] entetes1 = {"id","Nom","Prénom", "Date", "Nombre d'articles", "Prix total"};
     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
@@ -45,17 +45,8 @@ public class Fen5_Gest_StatAch extends JFrame {
 		p.setBackground(new Color(221, 150, 221));
 		
 		// Tableau
-	   
-	    
-	    
-	   
 	    String[][] donnees2 = new String[m.listClient.size()][6];
-	    
-	    
-	    
-	    
-	    
-	    
+	   
 	    for(int i = 0; i < m.listCom.size(); i++) {
 	    	String[] temp = new String[6];
 	    	temp[0] = String.valueOf((((Commande) (m.listCom.toArray()[i])).getId()));
