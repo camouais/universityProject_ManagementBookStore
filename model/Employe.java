@@ -21,10 +21,11 @@ public class Employe implements Serializable {
     
     // Constructeur
     
-    public Employe(String n, String p, float s, String f, String a, String ml, String t) {
+    public Employe(String n, String p, String s,  float d, String f, String a, String ml, String t) {
     	nom = n; 
     	prenom = p;
-    	salaire = s;
+    	sexe =s;
+    	salaire = d;
     	fonction = f;
     	adresse = a;
     	mail = ml;
