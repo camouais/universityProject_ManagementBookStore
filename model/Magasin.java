@@ -116,6 +116,17 @@ public class Magasin implements Serializable {
 		return null;
     }
 	
+    // Decrementer le stock d'un livre
+    public int decStokLiv(Livre l, int n) {
+    	int a =0;
+		if(listLivre.contains(l)) {
+			a = l.decStock(n);
+			return a;
+		}
+		return a;
+    }
+    
+    
     /////////////////////////////////////////////
     //-----------------CLIENTS-----------------//
     /////////////////////////////////////////////
