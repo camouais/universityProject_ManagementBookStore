@@ -9,7 +9,12 @@
 
 <h2>VIEW</h2>
 
-<b>Statistiques (Fen5_Gest_StatX)</b> : À compléter
+<b>Statistiques (Fen5_Gest_StatX)</b> : 
+* statistiques clients
+* statistiques livres
+* statistiques employés
+* statistiques compta
+* statistiques achats
 
 <b>Fen4_Ach_DoAch</b> : 
 * Ajouter un moyen de prendre en compte la livraison (attention aux paramètres de livraison : magasin ou adresse chez le client)
