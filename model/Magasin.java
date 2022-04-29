@@ -203,6 +203,23 @@ public class Magasin implements Serializable {
         
     }
     
+    //Calcul age moyen des clients d'un magasin
+    
+    public String getMoyAge(Magasin m) {
+    	if(m.listClient!=null) {
+    		DecimalFormat df = new DecimalFormat("##.#");
+    	
+    		Object[] arrayClient = m.listClient.toArray();
+    		float age = 0.F;
+    		for(int i = 0; i < arrayClient.length; i++) {
+    			age =+ ((Client) arrayClient[i]).getAge();
+    		}
+    		age = (age)/(arrayClient.length);
+    		return df.format(age);
+    	}
+    	return null;
+    }
+    
     // Ajout d'un client
     
     public int addCli(Client c) {
@@ -314,6 +331,8 @@ public class Magasin implements Serializable {
         return (Client) s;
     }
     
+   
+    
     //////////////////////////////////////////////
     //-----------------EMPLOY�S-----------------//
     //////////////////////////////////////////////
@@ -378,6 +397,40 @@ public class Magasin implements Serializable {
         }
         return samePoste;
     }
+    
+    //Calcul age moyen des employés d'un magasin
+    
+    public String getEmpMoyAge(Magasin m) {
+    	if(m.listEmp!=null) {
+    		DecimalFormat df = new DecimalFormat("##.#");
+    	
+    		Object[] arrayEmp = m.listEmp.toArray();
+    		float age = 0.F;
+    		for(int i = 0; i < arrayEmp.length; i++) {
+    			age += ((Employe) arrayEmp[i]).getAge();
+    		}
+    		age = (age)/(arrayEmp.length);
+    		return df.format(age);
+    	}
+    	return null;
+    }
+    
+    //	Somme des salaires des employés d'un magasin
+    
+    public float getSomSalaire(Magasin m) {
+    	if(m.listEmp!=null) {
+    		
+    		Object[] arrayEmp = m.listEmp.toArray();
+    		float somme = 0.F;
+    		for(int i = 0; i < arrayEmp.length; i++) {
+    			somme += ((Employe) arrayEmp[i]).getSalaire();
+    		}
+    		
+    		return somme;
+    	}
+    	return 0;
+    }
+    
     
     // Liste de tous les employés ayant le même salaire
     
