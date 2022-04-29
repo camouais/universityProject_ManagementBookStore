@@ -129,7 +129,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel Réalisation de l'achat
+		// JLabel Rï¿½alisation de l'achat
 		
 		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
 		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
@@ -169,6 +169,8 @@ public class Fen4_Ach_DoAch extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	if(list.getSelectedValue()!=null) {
 	                model2.addElement(list.getSelectedValue());
+	                m.decStokLiv(m.rchLivreId(Integer.parseInt((list.getSelectedValue()).split(" ")[0])),1);
+	                
 	                count++;
                 }
             }
@@ -191,7 +193,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBounds(540, 650, 400, 60);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(new NewCommande(m, c, list2).status == 1) {
+				if(new NewCommande(m, c, list2).status >-1 ) {
 					dispose();
 				}
 			}
