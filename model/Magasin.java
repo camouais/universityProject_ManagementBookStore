@@ -90,6 +90,54 @@ public class Magasin implements Serializable {
     }
     
     
+   
+    
+    // Obtenir le stock total des livres
+    
+    public int getAllStock(Magasin m) {
+    	int stock = 0;
+    	if(m.listLivre!=null) {
+    		Object[] arrayLiv = m.listLivre.toArray();
+    		
+    		for(int i = 0; i < arrayLiv.length; i++) {
+    			stock += ((Livre) arrayLiv[i]).getStock();
+    		}
+    		return stock;
+    	}
+    	return stock;
+    }
+    
+    // Obtenir le stock intial des livres
+    
+    public int getAllInitStock(Magasin m) {
+    	int stock = 0;
+    	if(m.listLivre!=null) {
+    		Object[] arrayLiv = m.listLivre.toArray();
+    		
+    		for(int i = 0; i < arrayLiv.length; i++) {
+    			stock += ((Livre) arrayLiv[i]).getQtEntree();
+    		}
+    		return stock;
+    	}
+    	return stock;
+    }
+    
+    // Obtenir le nombre de ventes total 
+    
+    public int getAllVentes(Magasin m) {
+    	int vente = 0;
+    	if(m.listLivre!=null) {
+    		Object[] arrayLiv = m.listLivre.toArray();
+    		
+    		for(int i = 0; i < arrayLiv.length; i++) {
+    			vente += ((Livre) arrayLiv[i]).qtSortie();
+    		}
+    		return vente;
+    	}
+    	return vente;
+    }
+    
+    
     // Recherche d'un livre par son id
     public Livre rchLivreId(int id) {
 		Livre[] t = new Livre[listLivre.size()];
@@ -193,8 +241,10 @@ public class Magasin implements Serializable {
     
     public String panierMoy(Client c) {
     	
-    	
-    	 return  String.valueOf((getPrixTotalComCli2(c))/ (c.listCom.size()));
+    	if(c.listCom.size()==0) {
+    		return "None";
+    	}else {
+    	 return  String.valueOf((getPrixTotalComCli2(c))/ (c.listCom.size()));}
     }
     
     // Liste des commandes d'un client
@@ -246,7 +296,7 @@ public class Magasin implements Serializable {
     		}
     		return (prixCount);
     	}
-    	return 0;
+    	return 0.F;
     }
     
     
