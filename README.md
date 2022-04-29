@@ -14,7 +14,7 @@
 * <strike>statistiques livres</strike>
 * statistiques employés
 * statistiques compta
-* statistiques achats
+* <strike>statistiques achats</strike>
 
 <b>Fen4_Ach_DoAch</b> : 
 * Ajouter un moyen de prendre en compte la livraison (attention aux paramètres de livraison : magasin ou adresse chez le client)
