@@ -10,6 +10,7 @@ public class Commande  {
 	// Attributs
 	
 	public static int totalCom;
+	
 	private int id;
 	private String dateAchat;
 	private Client client;
@@ -23,11 +24,19 @@ public class Commande  {
 		listLivres = l;
 		id = totalCom;
 		totalCom++;
+		
 	}
+	
+	
 	
 	public void addLivre(Livre l) {
 		listLivres.add(l);
 	}
+	
+	public Vector<Livre> getAchat(Client c){
+		return listLivres;
+	}
+	
 	
 	public String getPrixTotal() {
 		DecimalFormat df = new DecimalFormat("#.##");
@@ -39,6 +48,14 @@ public class Commande  {
 		return df.format(prixCount);
 	}
 	
+	public float getPrixTotal2() {
+		Object[] arrayLivres = listLivres.toArray();
+		float prixCount = 0;
+		for(int i = 0; i < arrayLivres.length; i++) {
+			prixCount += ((Livre) arrayLivres[i]).getPrix();
+		}
+		return prixCount;
+	}
 	
 	
     public int getId() {
