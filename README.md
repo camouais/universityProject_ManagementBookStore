@@ -10,7 +10,7 @@
 <h2>VIEW</h2>
 
 <b>Statistiques (Fen5_Gest_StatX)</b> : 
-<p class="line">statistiques clients</p> 
+* <p class="line">statistiques clients</p> 
 * statistiques livres
 * statistiques employés
 * statistiques compta
