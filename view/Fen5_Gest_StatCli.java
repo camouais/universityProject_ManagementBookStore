@@ -2,30 +2,25 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+
 import model.*;
 
 public class Fen5_Gest_StatCli extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
-	Object[][] donnees1 = {
-            {"Nom 1", "Prénom 1", "27", "M", "&", "21/02/2021", "13"},
-            {"Nom 2", "Prénom 2", "25", "M", "é", "28/05/2021", "2"},
-            {"Nom 3", "Prénom 3", "32", "F", "(", "11/01/2021", "4"},
-            {"Nom 4", "Prénom 4", "50", "F", "-", "05/03/2047", "33"},
-            {"Nom 5", "Prénom 5", "41", "F"," è", "11/12/2019", "15"},
-            {"Nom 6", "Prénom 6", "-7", "M", "_", "03/09/2009", "12"},
-            {"Nom 7", "Prénom 7", "35", "M", "ç", "22/10/2021", "8"},
-            {"Nom 8", "Prénom 8", "33", "F", "&", "01/07/2022", "2"},
-            {"Nom 9", "Prénom 9", "19", "F", "&", "08/04/2020", "20"},
-            {"Nom 10", "Prénom 10", "23", "M", "é", "21/02/2021", "37"},
-            {"Nom 11", "Prénom 11", "198", "F", "(", "03/13/152", "-9223372036854775808"},
-            {"Nom 12", "Prénom 12", "15", "M", "-", "30/03/2022", "12"},
-            
-    };
+	Object[][] donnees1;
     
-    String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Date de création", "Nombre d'achats", "Dépenses totales"};
+    String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Date de création", "Nombre d'achats", "Dépenses totales", "Panier moyen"};
+    DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
     private JTable table1 = new JTable(donnees1, entetes1); 
@@ -51,12 +46,42 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    p.setBackground(new Color(244, 164, 96));
 	    
 	    // Tableau
-	   
+	    
+	    
+	    
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+	    String[][] donnees2 = new String[m.listClient.size()][8];
+	    
+	    for(int i = 0; i < m.listClient.size(); i++) {
+	    	String[] temp = new String[8];
+	    	temp[0] = ((Client) (m.listClient.toArray()[i])).getNom();
+	    	temp[1] = ((Client) (m.listClient.toArray()[i])).getPrenom();
+	    	temp[2] = String.valueOf(((Client) (m.listClient.toArray()[i])).getAge());
+	    	temp[3] = ((Client) (m.listClient.toArray()[i])).getSexe();
+	    	temp[4] = formatter.format(((Client) (m.listClient.toArray()[i])).getDateCC());
+	    	temp[5] = String.valueOf((m.listComCli(((Client) (m.listClient.toArray()[i])))).size());
+	    	temp[6] = String.valueOf((m.getPrixTotalComCli(((Client) (m.listClient.toArray()[i])))));
+	    	temp[7] =  (m.panierMoy(((((Client) (m.listClient.toArray()[i]))))));;
+	    	
+	    	donnees2[i] = temp;
+	    }
+	    
+	    
+	    
+	    
+	    
+	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
+	    // Centre les données du tableaux
+	     custom.setHorizontalAlignment(JLabel.CENTER); 
+	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
+	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
+	    }
 	    table1.setBounds(100, 150, 800, 400);
+	    scrollPane_1 = new JScrollPane(table1);
 	    scrollPane_1.setBounds(100, 150, 800, 400);
 	    p.add(scrollPane_1);
-	    
+	     
 	    // JLabel "Statistiques au niveau des clients"
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
@@ -79,6 +104,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    // JLabel : Valeur totale de clients
 	    
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    l_valueT.setText(String.valueOf((m.listClient).size()));
 	    l_valueT.setBounds(799, 591, 47, 42);
 	    p.add(l_valueT);
 	    
@@ -86,6 +112,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);
+	    l_valueAg.setText(m.getMoyAge(m));
 	    p.add(l_valueAg);
 	    
 	    // Bouton "Retour"
@@ -101,4 +128,5 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    b_retour.setBackground(new Color(64,128,0));
 	    p.add(b_retour);
 	}
+
 }
