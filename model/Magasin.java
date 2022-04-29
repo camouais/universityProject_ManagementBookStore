@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Magasin implements Serializable {
@@ -177,6 +178,14 @@ public class Magasin implements Serializable {
         return (Client) sNom;
     }
     
+    // Calul du panier moyen d'un client 
+    
+    public String panierMoy(Client c) {
+    	
+    	
+    	 return  String.valueOf((getPrixTotalComCli2(c))/ (c.listCom.size()));
+    }
+    
     // Liste des commandes d'un client
     
     public Vector<Commande> listComCli(Client c) {
@@ -185,6 +194,36 @@ public class Magasin implements Serializable {
     	}
     	return null;
     }
+    
+    // Prix total des commandes d'un client
+    
+    public String getPrixTotalComCli (Client c) {
+    	if(c.listCom!=null) {
+    		DecimalFormat df = new DecimalFormat("#.##");
+    	
+    		Object[] arrayCom = c.listCom.toArray();
+    		float prixCount = 0.F;
+    		for(int i = 0; i < arrayCom.length; i++) {
+    			prixCount += ((Commande) arrayCom[i]).getPrixTotal2();
+    		}
+    		return df.format(prixCount);
+    	}
+    	return null;
+    }
+    // Prix total des commandes d'un client - version float 
+    
+    public float getPrixTotalComCli2 (Client c) {
+    	if(c.listCom!=null) {
+    		Object[] arrayCom = c.listCom.toArray();
+    		float prixCount = 0.F;
+    		for(int i = 0; i < arrayCom.length; i++) {
+    			prixCount += ((Commande) arrayCom[i]).getPrixTotal2();
+    		}
+    		return (prixCount);
+    	}
+    	return 0;
+    }
+    
     
     // Liste des clients possédant la même date de création de compte
     
