@@ -11,7 +11,7 @@
 
 <b>Statistiques (Fen5_Gest_StatX)</b> : 
 * <strike>statistiques clients</strike>
-* statistiques livres
+* <strike>statistiques livres</strike>
 * statistiques employés
 * statistiques compta
 * statistiques achats
