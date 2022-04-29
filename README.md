@@ -22,17 +22,19 @@
 
 <h2>MODEL</h2>
 
-
 <b>Client</b> :
 * Finaliser l'implémentation de la date de naissance dans NewClient
 
 <b>Magasin</b> : 
 * Ajout d'autres arguments facultatifs (Mot de passe inclus)
 
-<b>Statistiques Achats</b> : 
-* Trouver un moyen de prendre en compte les différentes catégories de livres
-=> afficher le nombre de livres vendus par catégorie 
-
 <h2>CONTROLLER</h2>
 
 * (basse priorité) Trouver un moyen de fusionner les méthodes à mêmes fonctions pour différentes fenêtres (exemple : NewClient et NewClient_gest)
+
+
+<h2>VIEW</h2>
+
+<b>Statistiques Achats</b> : 
+* Trouver un moyen de prendre en compte les différentes catégories de livres
+=> afficher le nombre de livres vendus par catégorie 
