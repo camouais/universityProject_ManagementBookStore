@@ -105,6 +105,10 @@ public class Livre implements Serializable {
     	categorie = c;
     }
     
+    public int getQtEntree() {
+    	return qtEntree;
+    }
+    
     public int getStock() {
     	return qtStock;
     }
@@ -114,8 +118,8 @@ public class Livre implements Serializable {
     	qtEntree += n;
     }
     
-    public void decStock(int n) {
-    	qtStock -= n;
+    public int decStock(int n) {
+    	return qtStock -= n;
     }
     
     public int qtSortie() {
