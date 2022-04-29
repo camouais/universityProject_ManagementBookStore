@@ -10,7 +10,9 @@
 <h2>VIEW</h2>
 
 <b>Statistiques (Fen5_Gest_StatX)</b> : 
-* <p class="line">statistiques clients</p> 
+<strike>
+  Plat du jour : Saumon
+</strike>
 * statistiques livres
 * statistiques employés
 * statistiques compta
