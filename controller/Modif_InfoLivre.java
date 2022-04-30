@@ -7,7 +7,7 @@ import model.*;
 import view.*;
 
 public class Modif_InfoLivre {
-    public Modif_InfoLivre (Magasin m, Livre l, JTextField titre, JTextField auteur, JTextField editeur, JTextField prix, JTextField categorie) {
+    public Modif_InfoLivre (Magasin m, Livre l, JTextField titre, JTextField auteur, JTextField editeur, JTextField prix, JTextField categorie, JTextField stock) {
     	if(titre.getText().equals("")) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Champ \"Titre\" vide.", "Erreur", 2);
@@ -23,6 +23,9 @@ public class Modif_InfoLivre {
     	} else if(categorie.getText().equals("")) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Champ \"Cat\u00E9gorie\" vide.", "Erreur", 2);
+    	} else if(stock.getText().equals("")) {
+			JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Champ \"Stock\" vide.", "Erreur", 2);
     	} else {
     		l.setTitre(titre.getText());
 			l.setAuteur(auteur.getText());
