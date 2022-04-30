@@ -169,8 +169,7 @@ public class Fen4_Ach_DoAch extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	if(list.getSelectedValue()!=null) {
 	                model2.addElement(list.getSelectedValue());
-	                m.decStokLiv(m.rchLivreId(Integer.parseInt((list.getSelectedValue()).split(" ")[0])),1);
-	                
+	                m.decStockLiv(m.rchLivreId(Integer.parseInt((list.getSelectedValue()).split(" ")[0])),1);
 	                count++;
                 }
             }
