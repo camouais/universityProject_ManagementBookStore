@@ -24,7 +24,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	private JLabel l_auteur = new JLabel("Auteur :");
 	private JLabel l_id = new JLabel("Identifiant :");
 	private JLabel l_editeur = new JLabel("Editeur : ");
-	private JLabel l_categorie = new JLabel("Categorie : ");
+	private JLabel l_categorie = new JLabel("Cat\u00E9gorie : ");
 	private JLabel l_prix = new JLabel("Prix : ");
 	
 	JButton b_retour = new JButton("RETOUR");
@@ -33,7 +33,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	private final JLabel l_stock = new JLabel("Stock :");
 	private final JTextField t_stock = new JTextField();
 
-	public Fen4_Gest_ModifLiv(Magasin m, Livre l) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen4_Gest_ModifLiv(Magasin m, Livre l) {
 		
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -48,7 +48,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //dÃ©finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabel & JTextField : Titre
@@ -160,8 +160,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBounds(350, 400, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Modif_InfoLivre(m, l,  t_titre,t_auteur,t_editeur,
-            			t_prix, t_categorie);
+				new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie);
 			}
 		});
 		p.add(b_enreg);
