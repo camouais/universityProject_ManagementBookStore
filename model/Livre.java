@@ -113,16 +113,15 @@ public class Livre implements Serializable {
     	return qtStock;
     }
     
-    public void addStock(int n) {
-    	qtStock += n;
-    	qtEntree += n;
-    }
-    
-    public int decStock(int n) {
-    	return qtStock -= n;
-    }
+    public void setStock(int s) {
+		if(s > 0) {
+			qtEntree += s;
+		}
+		qtStock = s;
+	}
     
     public int qtSortie() {
     	return qtEntree - qtStock;
     }
+    
 }
