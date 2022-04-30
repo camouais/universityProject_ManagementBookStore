@@ -27,11 +27,21 @@ public class Modif_InfoLivre {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Champ \"Stock\" vide.", "Erreur", 2);
     	} else {
+    		try {
+    			int a = Integer.parseInt(stock.getText());
+    			l.setStock(a);
+    		}
+    		catch (NumberFormatException e) {
+    			JFrame a = new JFrame();
+    			JOptionPane.showMessageDialog(a, "Valeur invalide dans le champ \"Stock\".", "Erreur", 2);
+    		}
     		l.setTitre(titre.getText());
 			l.setAuteur(auteur.getText());
 			l.setEditeur(editeur.getText());
 			l.setPrix(Float.parseFloat(prix.getText()));
 			l.setCategorie(categorie.getText());
+			JFrame a = new JFrame();
+		    JOptionPane.showMessageDialog(a, "Changements appliqu\u00E9s.", "Succ\u00E8s", 1);
     	}
     }
 }
