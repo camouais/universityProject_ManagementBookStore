@@ -129,6 +129,19 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_prix.setBounds(150, 300, 380, 30);
 		p.add(t_prix);
 		
+		// JLabel & JTextField : Stock
+		
+		l_stock.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_stock.setBounds(20, 341, 150, 30);
+		p.add(l_stock);
+		
+		t_stock.setText(String.valueOf(l.getStock()));
+		t_stock.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_stock.setColumns(10);
+		t_stock.setBounds(150, 341, 380, 30);
+		
+		p.add(t_stock);
+		
 		// Boutons : Retour, Effacer, Enregistrer
 		
 		b_retour.setBackground(new Color(255, 215, 0));
@@ -160,19 +173,9 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBounds(350, 400, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie);
+				new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock);
 			}
 		});
 		p.add(b_enreg);
-		l_stock.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_stock.setBounds(20, 341, 150, 30);
-		
-		p.add(l_stock);
-		t_stock.setText("0");
-		t_stock.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_stock.setColumns(10);
-		t_stock.setBounds(150, 341, 380, 30);
-		
-		p.add(t_stock);
 	}
 }
