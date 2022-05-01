@@ -12,7 +12,7 @@
 <h2>MODEL</h2>
 
 <b>Client</b> :
-* Finaliser l'implémentation de la date de naissance dans NewClient
+* Finaliser l'implémentation de la date de naissance dans NewClient/NewEmploye
 
 <b>Magasin</b> : 
 * Ajout d'autres arguments facultatifs (Mot de passe/Site web/téléphone/Nom du directeur/date de création/logo?)
