@@ -19,10 +19,5 @@ public class ListEmploye {
 		return tab;
 	}
 	
-	public Employe compare(Employe e1, Employe e2) {
-		if (e1.getId()<(e2.getId())) {
-			return e1;
-		}
-		return e2;        	
-	}
+
 }
