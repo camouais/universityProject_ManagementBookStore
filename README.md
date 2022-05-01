@@ -42,3 +42,9 @@
 <b>Gest_Achats </b> : 
 
 * Afficher les articles de l'achat dans la partie à droite
+
+<b>Gest_Livre/Client/Employé </b> : 
+
+* Afficher les articles de l'achat dans la partie à droite
+* Bloquer l'accès à la modification du JTextfield id ou créer un JLabel
+* 
