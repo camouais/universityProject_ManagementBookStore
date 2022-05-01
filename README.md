@@ -8,18 +8,6 @@
 * Permettre un enregistrement des données à travers les sessions
 * Modification du nom / MDP d'un magasin
 
-<h2>VIEW</h2>
-
-<b>Statistiques (Fen5_Gest_StatX)</b> : 
-* <strike>statistiques clients</strike>
-* <strike>statistiques livres</strike>
-* <strike>statistiques employés</strike>
-* statistiques compta
-* <strike>statistiques achats</strike>
-
-<b>Fen4_Ach_DoAch</b> : 
-* Ajouter un moyen de prendre en compte la livraison (attention aux paramètres de livraison : magasin ou adresse chez le client)
-* Permettre de pouvoir afficher les infos d'un livre en double-cliquant sur un élément de la liste de livre 
 
 <h2>MODEL</h2>
 
@@ -49,6 +37,7 @@
 * afficher le prix de chacun des articles ajoutés 
 * si on sélectionne plusieurs fois le même article n'afficher qu'un seul article avec x2 (par exemple) sinon x1
 * afficher le prix total courant
+* Permettre de pouvoir afficher les infos d'un livre en double-cliquant sur un élément de la liste de livre 
 
 <b>Gest_Achats </b> : 
 
