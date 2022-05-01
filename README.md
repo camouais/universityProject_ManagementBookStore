@@ -1,6 +1,5 @@
 
 <h1>À FAIRE</h1>
-<input type="checkbox">
 <h3>ENLEVER TOUT CE QUI EST EN RAPPORT AVEC LA LIVRAISON </h3>
 <h2>GLOBAL</h2>
 
@@ -53,6 +52,4 @@
 
 <b>Gest_Achats </b> : 
 
-* <option>Afficher les articles de l'achat dans la partie à droite</option>
-
-</input>
+* Afficher les articles de l'achat dans la partie à droite
