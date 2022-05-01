@@ -37,7 +37,6 @@ public class NewCommande {
 	public Vector<String> buildSet(JList<String> list) {
 		Vector<String> temp = new Vector<String>();
 		for(int i = 0; i < list.getModel().getSize();i++) {
-			System.out.println("Ajout de l'élément : " + (i+1) + " - " + ((String.valueOf(list.getModel().getElementAt(i)).split("\"")[1])));
             temp.add((String.valueOf(list.getModel().getElementAt(i)).split("\"")[1]));
         }
 		return temp;

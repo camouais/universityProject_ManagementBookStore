@@ -9,10 +9,8 @@ public class NewEmploye {
 
 	Magasin m;
 	Employe e;
-	
-    public Set<Livraison> listLiv; 
 
-	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe,JTextField salaire, JTextField fonction, 
+	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe, JTextField salaire, JTextField fonction, 
 			JTextField adresse, JTextField mail, JTextField tel) {
 		float tempSalaire = 0;
 		try {
@@ -22,7 +20,7 @@ public class NewEmploye {
 		    JOptionPane.showMessageDialog(a, "Valeur invalide dans Salaire", "Erreur", 2);
 		}
 		
-		e = new Employe(nom.getText(), prenom.getText(), sexe.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText());
+		e = new Employe(nom.getText(), prenom.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText());
 		m.addEmp(e);
 		new Fen4_Gest_MagEmp(m);
 	}

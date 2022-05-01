@@ -39,19 +39,17 @@ public class NewClient {
 			JFrame a = new JFrame();
 			JOptionPane.showMessageDialog(a, "Aucune année de naissance renseignée. Veuillez en sélectionner une.", "Erreur", 2);
 		} else {
-			LocalDate dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), Integer.parseInt(String.valueOf(mois.getSelectedIndex() + 1)), Integer.parseInt((String) jour.getSelectedItem()));
-			
-			c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem());
-			System.out.println("Client créé avec les attributs suivants :");
-			System.out.println("Nom = " + c.getNom());
-			System.out.println("Prénom = " + c.getPrenom());
-			System.out.println("Adresse = " + c.getAdresse());
-			System.out.println("Téléphone = " + c.getTel());
-			System.out.println("Mail = " + c.getMail());
-			System.out.println("Sexe = " + c.getSexe() + "\n");
-			m.addCli(c);
-			new Fen4_Ach_DoAch(m,c);
-			status = 1;
+			try {
+			      int p = Integer.parseInt(annee.getText());
+			      LocalDate dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), Integer.parseInt(String.valueOf(mois.getSelectedIndex() + 1)), Integer.parseInt((String) jour.getSelectedItem()));
+			      c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
+			      m.addCli(c);
+			      new Fen4_Ach_DoAch(m,c);
+			      status = 1;
+			} catch (Exception e) {
+				JFrame a = new JFrame();
+			    JOptionPane.showMessageDialog(a, "Valeur invalide dans Année. Veuillez réessayer.", "Erreur", 2);
+			}
 		}
 	}
 }
