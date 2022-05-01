@@ -1,28 +1,29 @@
 package controller;
 
 import javax.swing.*;
+import java.util.*;
 import model.*;
 import view.*;
 
-public class NewLivre {
+public class NewEmploye {
 
 	Magasin m;
-	Livre l;
-	int s;
-	public int status;
+	Employe e;
 	
-	public NewLivre(Magasin m, JTextField titre,JTextField auteur, JTextField editeur, JTextField date, JTextField prix, JTextField categorie, JTextField resume, JTextField stock) {
-		float p = 0;
+    public Set<Livraison> listLiv; 
+
+	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe,JTextField salaire, JTextField fonction, 
+			JTextField adresse, JTextField mail, JTextField tel) {
+		float tempSalaire = 0;
 		try {
-		      p = Float.parseFloat(prix.getText());
-		      s = Integer.parseInt(stock.getText());
+		      tempSalaire = Float.parseFloat(salaire.getText());
 		} catch (Exception e) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Valeur invalide dans Prix ou Stock. Veuillez réessayer.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Valeur invalide dans Salaire", "Erreur", 2);
 		}
-		l = new Livre(titre.getText(), auteur.getText(), editeur.getText(),	date.getText(), categorie.getText(),p,s);
-		m.addLivre(l);
-		new Fen3_Gest_Liv(m);
-		status = 1;
+		
+		e = new Employe(nom.getText(), prenom.getText(), sexe.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText());
+		m.addEmp(e);
+		new Fen4_Gest_MagEmp(m);
 	}
 }
