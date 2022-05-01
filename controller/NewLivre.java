@@ -1,29 +1,31 @@
 package controller;
 
+import java.awt.event.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Set;
+
 import javax.swing.*;
-import java.util.*;
 import model.*;
 import view.*;
-
-public class NewEmploye {
+public class NewLivre {
 
 	Magasin m;
-	Employe e;
-	
-    public Set<Livraison> listLiv; 
+	Livre l;
 
-	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe,JTextField salaire, JTextField fonction, 
-			JTextField adresse, JTextField mail, JTextField tel) {
-		float tempSalaire = 0;
+
+	public NewLivre(Magasin m, JTextField titre,JTextField auteur,
+			JTextField editeur, JTextField date, JTextField prix, JTextField categorie, JTextField resume)  {
+		float p = 0;
 		try {
-		      tempSalaire = Float.parseFloat(salaire.getText());
+		      p = Float.parseFloat(prix.getText());
 		} catch (Exception e) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Valeur invalide dans Salaire", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Valeur invalide dans prix", "Erreur", 2);
 		}
-		
-		e = new Employe(nom.getText(), prenom.getText(), sexe.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText());
-		m.addEmp(e);
-		new Fen4_Gest_MagEmp(m);
+		l = new Livre(titre.getText(), auteur.getText(), editeur.getText(),
+				date.getText(), categorie.getText(),Float.parseFloat(prix.getText()));
+		m.addLivre(l);
+		new Fen3_Gest_Liv(m);
 	}
 }
