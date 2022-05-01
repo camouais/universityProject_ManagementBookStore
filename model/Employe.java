@@ -21,11 +21,10 @@ public class Employe implements Serializable {
     
     // Constructeur
     
-    public Employe(String n, String p, String s,  float d, String f, String a, String ml, String t) {
+    public Employe(String n, String p, float s, String f, String a, String ml, String t) {
     	nom = n; 
     	prenom = p;
-    	sexe =s;
-    	salaire = d;
+    	salaire = s;
     	fonction = f;
     	adresse = a;
     	mail = ml;
@@ -34,7 +33,7 @@ public class Employe implements Serializable {
     	totalE++;
     }
     
-    // Méthodes
+    // MÃ©thodes
 
     
     public int getId() {
