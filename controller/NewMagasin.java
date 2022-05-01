@@ -12,12 +12,12 @@ public class NewMagasin {
 	
 	public NewMagasin(JTextField n, JPasswordField mdp) {
     	
-		Employe e_0 = new Employe("Alfred", "Jo", 4521, "Caissier", "5 Rue des Sangliers", "Alfred.Jo@gmail.com", "06352192");
-		Employe e_1 = new Employe("Tulipe", "William", 1234, "Responsable", "23 Rue des Sangliers", "Tulipe.William@gmail.com", "09318995");
-		Employe e_2 = new Employe("Armand", "Sarah", 2687, "Caissier", "6 Rue des Sangliers", "Armand.Sarah@gmail.com", "06357196");
-		Employe e_3 = new Employe("Van", "Jean", 3214, "Vendeur", "11 Rue de la Tour Eiffel", "Van.Jean@gmail.com", "063367195");
-		Employe e_4 = new Employe("Djisk", "Lili", 5425, "Vendeur", "45 Avenue des Chevaleries", "Djisk.Lili@gmail.com", "09364136");
-		Employe e_5 = new Employe("Wo", "Serena", 10001, "Responsable", "78 Rue des Savants", "Wo.Serena@gmail.com", "06546775");
+		Employe e_0 = new Employe("Alfred", "Jo", "Homme", 4521.F, "Caissier", "5 Rue des Sangliers", "Alfred.Jo@gmail.com", "06352192");
+		Employe e_1 = new Employe("Tulipe", "William", "Homme", 1234.F, "Responsable", "23 Rue des Sangliers", "Tulipe.William@gmail.com", "09318995");
+		Employe e_2 = new Employe("Armand", "Sarah", "Femme", 2687.F, "Caissier", "6 Rue des Sangliers", "Armand.Sarah@gmail.com", "06357196");
+		Employe e_3 = new Employe("Van", "Jean", "Homme", 3214.F, "Vendeur", "11 Rue de la Tour Eiffel", "Van.Jean@gmail.com", "063367195");
+		Employe e_4 = new Employe("Djisk", "Lili", "Femme", 5425.F, "Vendeur", "45 Avenue des Chevaleries", "Djisk.Lili@gmail.com", "09364136");
+		Employe e_5 = new Employe("Wo", "Serena", "Femme", 10001.F, "Responsable", "78 Rue des Savants", "Wo.Serena@gmail.com", "06546775");
 		
 		Livre liv1 = new Livre("Le Petit Prince", "Antoine de Saint-Exupéry", "Folio Junior", null, "Littérature pour enfants", 4.87f, 16);
 		Livre liv2 = new Livre("Paroles", "Jacques Prévert", "Folio", null, "Calligraphe", 3.14f, 32);
