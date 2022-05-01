@@ -48,11 +48,7 @@ public class Fen3_Gest_Cli extends JFrame {
     public JLabel r_adresse = new JLabel(" ");
     public JLabel r_tel = new JLabel(" ");
 	
-	
-	
-	
-	
-	public JLabel label = new JLabel("Veuillez sélectionné un client pour afficher ses informations");
+	public JLabel label = new JLabel("Veuillez s\u00E9lectionner un client pour afficher ses informations.");
     
 	Client cli;
 	
@@ -205,8 +201,13 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_modifier.setBackground(new Color(200, 200, 100));
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new Fen4_Gest_ModifCli(m, cli);
+				if(list.getSelectedValue()==null) {
+					JFrame f = new JFrame();
+					JOptionPane.showMessageDialog(f, "Veuillez s\u00E9lectionner un client.", "Erreur", 2);
+				} else {
+					dispose();
+					new Fen4_Gest_ModifCli(m, cli);
+				}
 			}
 		});
 		p.add(b_modifier);

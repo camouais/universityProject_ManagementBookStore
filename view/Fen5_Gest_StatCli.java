@@ -19,7 +19,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"Nom", "PrÃ©nom", "Age", "Sexe", "Date de crÃ©ation", "Nombre d'achats", "DÃ©penses totales", "Panier moyen"};
+    String[] entetes1 = {"Nom", "Prénom", "Age", "Sexe", "Date de création", "Nombre d'achats", "Dépenses totales", "Panier moyen"};
     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
@@ -72,7 +72,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    
 	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
-	    // Centre les donnÃ©es du tableaux
+	    // Centre les données du tableaux
 	     custom.setHorizontalAlignment(JLabel.CENTER); 
 	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
 	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
@@ -95,7 +95,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    l_nbrt.setBounds(472, 591, 341, 42);
 	    p.add(l_nbrt);
 	    
-	    // JLabel "Ã‚ge moyen"
+	    // JLabel "Âge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
@@ -108,7 +108,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    l_valueT.setBounds(799, 591, 47, 42);
 	    p.add(l_valueT);
 	    
-	    // JLabel : Valeur de l'Ã¢ge moyen
+	    // JLabel : Valeur de l'âge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);

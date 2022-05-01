@@ -64,7 +64,6 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_retour.setBounds(50, 200, 150, 50);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-                System.out.println("nom sortant = " + m.getNom());
 				dispose();
 				new Fen3_Gest_Mag(m);
 			}

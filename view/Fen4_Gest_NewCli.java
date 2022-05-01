@@ -2,131 +2,175 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
-
+import controller.*;
 import model.*;
 
-public class Fen5_Gest_StatCli extends JFrame {
+public class Fen4_Gest_NewCli extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private JPanel p = new JPanel();
+	private JLabel l_main = new JLabel("Ajout d'un nouveau client");
+	private JLabel l_nom = new JLabel("Nom :");
+	private JLabel l_prenom = new JLabel("Pr\u00E9nom :");
+	private JLabel l_adresse = new JLabel("Adresse :");
+	private JLabel l_tel = new JLabel("T\u00E9l\u00E9phone :");
+	private JLabel l_sexe = new JLabel("Sexe :");
+	private JLabel l_mail = new JLabel("Mail :");
+	private JLabel l_dateN = new JLabel("Date de naissance :");
+	private JTextField t_nom;
+	private JTextField t_prenom;
+	private JTextField t_adresse;
+	private JTextField t_tel;
+	private JTextField t_mail;
 
-	Object[][] donnees1;
-    
-    String[] entetes1 = {"Nom", "Pr√©nom", "Age", "Sexe", "Date de cr√©ation", "Nombre d'achats", "D√©penses totales", "Panier moyen"};
-    DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
-    
-    private JPanel p = new JPanel();
-    private JTable table1 = new JTable(donnees1, entetes1); 
-    private JScrollPane scrollPane_1 = new JScrollPane(table1);
-    private JLabel l_stem = new JLabel("Statistiques au niveau des clients");
-    private JLabel l_valueAg = new JLabel("ag");
-    private JLabel l_valueT = new JLabel("nb");
-    private JLabel l_nbrt = new JLabel("Nombre total de clients :");
-    private JLabel l_agm = new JLabel("Age moyen :");
-    
-    JButton b_retour = new JButton("Retour");
-    JScrollPane scrollPane = new JScrollPane();
-    
-	public Fen5_Gest_StatCli(Magasin m) {
+	JButton b_effacer = new JButton("EFFACER");
+	JButton b_valider = new JButton("VALIDER");
+	JButton b_retour = new JButton("RETOUR");
+	private final JComboBox<String> c_sexe = new JComboBox<String>();
+	private final JComboBox c_jour = new JComboBox();
+	private final JComboBox c_mois = new JComboBox();
+	private JTextField t_annee;
+	
+	public Fen4_Gest_NewCli(Magasin m) {
 		
+		p.setBackground(new Color(200, 200, 200));
+		p.setLayout(null);
+		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 800);
+		setBounds(100, 100, 1200, 800);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		setContentPane(p);
-	    p.setLayout(null);
-	    p.setBackground(new Color(244, 164, 96));
-	    
-	    // Tableau
-	    
-	    
-	    
-	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-	    String[][] donnees2 = new String[m.listClient.size()][8];
-	    
-	    for(int i = 0; i < m.listClient.size(); i++) {
-	    	String[] temp = new String[8];
-	    	temp[0] = ((Client) (m.listClient.toArray()[i])).getNom();
-	    	temp[1] = ((Client) (m.listClient.toArray()[i])).getPrenom();
-	    	temp[2] = String.valueOf(((Client) (m.listClient.toArray()[i])).getAge());
-	    	temp[3] = ((Client) (m.listClient.toArray()[i])).getSexe();
-	    	temp[4] = formatter.format(((Client) (m.listClient.toArray()[i])).getDateCC());
-	    	temp[5] = String.valueOf((m.listComCli(((Client) (m.listClient.toArray()[i])))).size());
-	    	temp[6] = String.valueOf((m.getPrixTotalComCli(((Client) (m.listClient.toArray()[i])))));
-	    	temp[7] =  (m.panierMoy(((((Client) (m.listClient.toArray()[i]))))));;
-	    	
-	    	donnees2[i] = temp;
-	    }
-	    
-	    
-	    
-	    
-	    
-	    table1 = new JTable(donnees2, entetes1);
-	    table1.setAutoCreateRowSorter(true);
-	    // Centre les donn√©es du tableaux
-	     custom.setHorizontalAlignment(JLabel.CENTER); 
-	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
-	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
-	    }
-	    table1.setBounds(100, 150, 800, 400);
-	    scrollPane_1 = new JScrollPane(table1);
-	    scrollPane_1.setBounds(100, 150, 800, 400);
-	    p.add(scrollPane_1);
-	     
-	    // JLabel "Statistiques au niveau des clients"
-	    
-	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
-	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
-	    l_stem.setBounds(144, 50, 704, 42);
-	    p.add(l_stem);
-	    
-	    // JLabel "Nombre total de clients"
-
-	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_nbrt.setBounds(472, 591, 341, 42);
-	    p.add(l_nbrt);
-	    
-	    // JLabel "√Çge moyen"
-
-	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_agm.setBounds(472, 643, 341, 42);
-	    p.add(l_agm);
-	    
-	    // JLabel : Valeur totale de clients
-	    
-	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueT.setText(String.valueOf((m.listClient).size()));
-	    l_valueT.setBounds(799, 591, 47, 42);
-	    p.add(l_valueT);
-	    
-	    // JLabel : Valeur de l'√¢ge moyen
-	    
-	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueAg.setBounds(799, 644, 47, 42);
-	    l_valueAg.setText(m.getMoyAge(m));
-	    p.add(l_valueAg);
-	    
-	    // Bouton "Retour"
-	    
-	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
-	    b_retour.addActionListener(new ActionListener() {
+		
+		l_main.setBounds(350, 21, 912, 48);
+		l_main.setFont(new Font("Tahoma", Font.BOLD, 39));
+		p.add(l_main);
+		
+		// Labels : "Nom", "PrÈnom", "Adresse", "TÈlÈphone", "Sexe", "Mail", "Date de naissance"
+		
+		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_nom.setBounds(115, 119, 147, 37);
+		p.add(l_nom);
+		
+		l_prenom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_prenom.setBounds(115, 237, 147, 37);
+		p.add(l_prenom);
+		
+		l_adresse.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_adresse.setBounds(115, 353, 147, 37);
+		p.add(l_adresse);
+		
+		l_tel.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_tel.setBounds(115, 477, 207, 37);
+		p.add(l_tel);
+		
+		l_sexe.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_sexe.setBounds(650, 119, 147, 37);
+		p.add(l_sexe);
+		
+		l_mail.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_mail.setBounds(650, 237, 147, 37);
+		p.add(l_mail);
+		
+		// Text Fields : Nom, PrÈnom, Adresse, TÈlÈphone, Mail, Date de naissance
+		
+		t_nom = new JTextField();
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_nom.setBounds(115, 154, 389, 58);
+		p.add(t_nom);
+		
+		t_prenom = new JTextField();
+		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_prenom.setBounds(115, 272, 389, 58);
+		p.add(t_prenom);
+		
+		t_adresse = new JTextField();
+		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_adresse.setBounds(115, 392, 389, 58);
+		p.add(t_adresse);
+		
+		t_tel = new JTextField();
+		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_tel.setBounds(115, 513, 389, 58);
+		p.add(t_tel);
+		
+		t_mail = new JTextField();
+		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_mail.setBounds(650, 272, 389, 58);
+		p.add(t_mail);
+		
+		// Boutons : Effacer, Valider, Retour
+		
+		b_effacer.setForeground(Color.BLACK);
+		b_effacer.setBackground(Color.LIGHT_GRAY);
+		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_effacer.setBounds(739, 502, 207, 64);
+		p.add(b_effacer);
+		
+		b_valider.setBackground(new Color(0, 128, 0));
+		b_valider.setForeground(Color.BLACK);
+		b_valider.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_valider.setBounds(739, 619, 207, 64);
+		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new Fen4_Gest_MagStat(m);
+				if (new NewClient_Gest(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe, c_jour, c_mois, t_annee).status == 1) {
+					dispose();
+				}
 			}
 		});
-	    b_retour.setBounds(71, 634, 222, 57);
-	    b_retour.setBackground(new Color(64,128,0));
-	    p.add(b_retour);
+		p.add(b_valider);
+		
+		b_retour.setForeground(Color.BLACK);
+		b_retour.setBackground(new Color(255, 215, 0));
+		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
+		b_retour.setBounds(208, 619, 207, 64);
+		b_retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new Fen3_Gest_Cli(m);
+			}
+		});
+		p.add(b_retour);
+		
+		c_sexe.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		c_sexe.setModel(new DefaultComboBoxModel<String>(new String[] {"Homme", "Femme"}));
+		c_sexe.setBounds(650, 154, 389, 58);
+		
+		p.add(c_sexe);
+		
+		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setBounds(650, 420, 100, 30);
+		p.add(c_jour);
+		
+		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setBounds(800, 420, 100, 30);
+		p.add(c_mois);
+		
+		t_annee = new JTextField();
+		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_annee.setBounds(950, 420, 100, 30);
+		p.add(t_annee);
+		
+		JLabel l_jour = new JLabel("Jour");
+		l_jour.setFont(new Font("Arial", Font.PLAIN, 20));
+		l_jour.setBounds(650, 390, 147, 30);
+		p.add(l_jour);
+		
+		JLabel l_mois = new JLabel("Mois");
+		l_mois.setFont(new Font("Arial", Font.PLAIN, 20));
+		l_mois.setBounds(799, 390, 147, 30);
+		p.add(l_mois);
+		
+		JLabel l_annee = new JLabel("Ann\u00E9e");
+		l_annee.setFont(new Font("Arial", Font.PLAIN, 20));
+		l_annee.setBounds(950, 390, 147, 30);
+		p.add(l_annee);
+		
+		JLabel l_mail_1 = new JLabel("Date de naissance : ");
+		l_mail_1.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_mail_1.setBounds(653, 338, 386, 37);
+		p.add(l_mail_1);
 	}
-
 }
