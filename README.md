@@ -1,6 +1,6 @@
 
 <h1>À FAIRE</h1>
-<h3  style="color:#FFFF00;">ENLEVER TOUT CE QUI EST EN RAPPORT AVEC LA LIVRAISON </h3>
+<h3>ENLEVER TOUT CE QUI EST EN RAPPORT AVEC LA LIVRAISON </h3>
 <h2>GLOBAL</h2>
 
 * Refaire le rendu graphique du logiciel
