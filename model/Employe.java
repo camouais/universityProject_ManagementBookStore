@@ -17,14 +17,12 @@ public class Employe implements Serializable {
     private String tel;
     private int age;
     private String sexe;
-    public Set<Livraison> listLiv; 
     
     // Constructeur
     
-    public Employe(String n, String p, String l, float s, String f, String a, String ml, String t) {
+    public Employe(String n, String p, float s, String f, String a, String ml, String t) {
     	nom = n; 
     	prenom = p;
-    	sexe = l;
     	salaire = s;
     	fonction = f;
     	adresse = a;
@@ -34,7 +32,7 @@ public class Employe implements Serializable {
     	totalE++;
     }
     
-    // MÃ©thodes
+    // Méthodes
 
     
     public int getId() {

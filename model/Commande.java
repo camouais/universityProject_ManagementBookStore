@@ -24,7 +24,6 @@ public class Commande  {
 		listLivres = l;
 		id = totalCom;
 		totalCom++;
-		
 	}
 	
 	
