@@ -8,6 +8,9 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Magasin implements Serializable {
@@ -17,6 +20,9 @@ public class Magasin implements Serializable {
     private String nom;
     private String adresse;
     private String mdp;
+    private String tel;
+    private String site;
+    private String dateC; 
     // [...]
     public Set<Employe> listEmp = new HashSet<>();
     public Set<Client> listClient = new HashSet<>();
@@ -29,6 +35,9 @@ public class Magasin implements Serializable {
     public Magasin(String name, String mdp) {
     	nom = name;
     	this.mdp = mdp;
+    	dateC = new Date(System.currentTimeMillis()).toInstant()
+				.atOffset(ZoneOffset.UTC)
+				.format( DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
     
     // Méthodes
@@ -54,19 +63,6 @@ public class Magasin implements Serializable {
             }
         }
         return null;
-    }
-    
-    // Liste des commandes ayant la même date
-    
-    public Set<Commande> rchCm(String d) {
-    	Set<Commande> sameDate = new HashSet<>();
-        Commande[] t1 = new Commande[listCom.size()];
-        for (int i = 0; i < listCom.size(); i++) {
-            if(listCom.toArray(t1)[i].getDateAchat() == d) {
-            	sameDate.add(listCom.toArray(t1)[i]);
-            }
-        }
-        return sameDate;
     }
     
     // Ajout d'une commande

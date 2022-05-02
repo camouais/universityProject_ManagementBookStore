@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Commande  {
@@ -12,13 +13,13 @@ public class Commande  {
 	public static int totalCom;
 	
 	private int id;
-	private String dateAchat;
+	private LocalDate dateAchat;
 	private Client client;
 	public Vector<Livre> listLivres;
 	
 	// Constructeur
 	
-	public Commande(String dA, Client c, Vector<Livre> l) {
+	public Commande(LocalDate dA, Client c, Vector<Livre> l) {
 		dateAchat = dA;
 		client = c;
 		listLivres = l;
@@ -64,11 +65,11 @@ public class Commande  {
     	return id;
     }
     
-    public String getDateAchat() {
+    public LocalDate getDateAchat() {
     	return dateAchat;
     }
     
-    public void setNom(String a) {
+    public void setNom(LocalDate a) {
     	dateAchat = a;
     }
     

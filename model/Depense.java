@@ -14,7 +14,7 @@ public class Depense {
 	
 	public Depense(Employe e, String c, float p, LocalDate d) {
 		description =c;
-		cout =p;
+		cout = p;
 		emp = e;
 		dateDep = d;
 		id = totalDep;
