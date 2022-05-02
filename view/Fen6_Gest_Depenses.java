@@ -5,8 +5,10 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -61,7 +63,8 @@ public class Fen6_Gest_Depenses extends JFrame {
 	public JLabel r_Iemploye = new JLabel(" ");
 	public JLabel r_dateDep = new JLabel(" ");
 
-	
+
+	private final JComboBox<String> c_filtre = new JComboBox<String>();
 	Depense dep;
 	Employe e;
 	public Fen6_Gest_Depenses(Magasin m) {
@@ -158,7 +161,11 @@ public class Fen6_Gest_Depenses extends JFrame {
                 }
             }
         });
-        
+        c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "id dépense", "id employe", "nom employe", "date"}));
+        c_filtre.setBounds(480, 100, 200, 48);
+		
+		p.add(c_filtre);
         
         panel2.add(label);
         panel2.add(identifiant);
@@ -197,7 +204,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				ListDepense def = new ListDepense(m,new RechercheDepense(m, t_rech).getList());
+				ListDepense def = new ListDepense(m,new RechercheDepense(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
