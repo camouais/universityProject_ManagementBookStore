@@ -51,7 +51,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 	    	temp[0] = String.valueOf((((Commande) (m.listCom.toArray()[i])).getId()));
 	    	temp[1] = (((Commande) (m.listCom.toArray()[i])).getClient()).getNom();
 	    	temp[2] = (((Commande) (m.listCom.toArray()[i])).getClient()).getPrenom();
-	    	temp[3] = ((Commande) (m.listCom.toArray()[i])).getDateAchat();
+	    	temp[3] = ((Commande) (m.listCom.toArray()[i])).getDateAchat().toString();
 	    	temp[4] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getAchat(((Commande) (m.listCom.toArray()[i])).getClient()).size());
 	    	temp[5] = ((Commande) (m.listCom.toArray()[i])).getPrixTotal();
 	    	

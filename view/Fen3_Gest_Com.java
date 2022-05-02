@@ -164,7 +164,7 @@ public class Fen3_Gest_Com extends JFrame {
 	                	r_nom.setText(com.getClient().getNom());
 	                	r_prenom.setText((com.getClient()).getPrenom());
 	                	r_identifiant_com.setText(String.valueOf(com.getId()));
-	                	r_dateC.setText(com.getDateAchat());
+	                	r_dateC.setText(com.getDateAchat().toString());
 	                	r_identifiant_cli.setText(String.valueOf((com.getClient()).getId()));	         
 	                	r_adresse.setText((com.getClient()).getAdresse());
 	                	r_prix.setText(com.getPrixTotal());
