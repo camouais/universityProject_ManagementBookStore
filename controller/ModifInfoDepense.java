@@ -15,7 +15,7 @@ public class ModifInfoDepense {
     	LocalDate d = null;
     	int checksum = 1;
     	int g = -1;
-        float p = 0;
+        float p = -1;
         Employe emp = m.rchEmpINP(Integer.parseInt(i.getText()), n.getText(), pr.getText());
         try {
               p = Float.parseFloat(cout.getText());

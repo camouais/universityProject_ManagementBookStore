@@ -37,23 +37,23 @@ public class NewMagasin {
 		
 		Livre[] arr1 = { liv1, liv2 };
 		Vector<Livre> v1 = new Vector<Livre>(Arrays.asList(arr1));
-		Commande com1 = new Commande("12-01-2022",cl1,v1);
+		Commande com1 = new Commande(LocalDate.of(2020, 12, 1),cl1,v1);
 		
 		Livre[] arr2 = { liv1, liv2, liv3 };
 		Vector<Livre> v2 = new Vector<Livre>(Arrays.asList(arr2));
-		Commande com2 = new Commande("12-01-2022",cl2,v2); 
+		Commande com2 = new Commande(LocalDate.of(2021, 7, 18),cl2,v2); 
 		
 		Livre[] arr3 = { liv1 };
 		Vector<Livre> v3 = new Vector<Livre>(Arrays.asList(arr3));
-		Commande com3 = new Commande("12-01-2022",cl3,v3); 
+		Commande com3 = new Commande(LocalDate.of(2021, 8, 9),cl3,v3); 
 		
 		Livre[] arr4 = { liv2, liv4 };
 		Vector<Livre> v4 = new Vector<Livre>(Arrays.asList(arr4));
-		Commande com4 = new Commande("12-01-2022",cl4,v4);
+		Commande com4 = new Commande(LocalDate.of(2021, 8, 3),cl4,v4);
 		
 		Livre[] arr5 = { liv1, liv2, liv4, liv5 };
 		Vector<Livre> v5 = new Vector<Livre>(Arrays.asList(arr5));
-		Commande com5 = new Commande("12-01-2022",cl5,v5);
+		Commande com5 = new Commande(LocalDate.of(2022, 5, 27),cl5,v5);
 		
 		if(n.getText().equals("")) {
 			JFrame a = new JFrame();
