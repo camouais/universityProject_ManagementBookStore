@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Employe implements Serializable {
@@ -15,26 +16,30 @@ public class Employe implements Serializable {
     private String adresse;
     private String mail;
     private String tel;
+    private LocalDate dateNaiss;
     private int age;
     private String sexe;
-    public Set<Livraison> listLiv; 
     
     // Constructeur
     
-    public Employe(String n, String p, String l, float s, String f, String a, String ml, String t) {
+    public Employe(String n, String p, float s, String f, String a, String ml, String t, LocalDate dateN) {
     	nom = n; 
     	prenom = p;
-    	sexe = l;
     	salaire = s;
     	fonction = f;
     	adresse = a;
     	mail = ml;
-    	tel = t;	
+    	tel = t;
+    	dateNaiss = dateN;
     	id = totalE;
     	totalE++;
     }
     
-    // MÃ©thodes
+    public Employe() {
+    	totalE = 0;
+    }
+    
+    // Méthodes
 
     
     public int getId() {
@@ -111,6 +116,14 @@ public class Employe implements Serializable {
     
     public void setSexe(String a) {
     	sexe = a;
+    }
+    
+    public LocalDate getDateNaissance() {
+    	return dateNaiss;
+    }
+    
+    public void setDateNaissance(LocalDate a) {
+    	dateNaiss = a;
     }
     
 }

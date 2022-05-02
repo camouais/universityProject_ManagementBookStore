@@ -26,6 +26,9 @@ public class Commande  {
 		totalCom++;
 	}
 	
+	public Commande() {
+		totalCom = 0;
+	}
 	
 	
 	public void addLivre(Livre l) {

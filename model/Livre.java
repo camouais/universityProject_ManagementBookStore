@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 import javax.swing.JLabel;
@@ -15,7 +16,7 @@ public class Livre implements Serializable {
     private String titre;
     private String auteur;
     private String editeur;
-    private String dateParution;
+    private LocalDate dateParution;
     private String resume;
     public float prix;
     public int id;
@@ -27,7 +28,7 @@ public class Livre implements Serializable {
 
     // Constructeur
     
-    public Livre(String titre, String auteur, String editeur, String dateParution, String categorie, float prix, int qtStock) {
+    public Livre(String titre, String auteur, String editeur, LocalDate dateParution, String categorie, float prix, int qtStock) {
     	this.titre = titre;
     	this.auteur = auteur;
     	this.editeur = editeur;
@@ -38,6 +39,10 @@ public class Livre implements Serializable {
     	this.qtStock = qtStock;
     	id = totalLivre;
     	totalLivre++;
+    }
+    
+    public Livre() {
+    	totalLivre = 0;
     }
     
     // M�thodes
@@ -73,11 +78,11 @@ public class Livre implements Serializable {
     	editeur = t;
     }
     
-    public String getDateParution() {
+    public LocalDate getDateParution() {
     	return dateParution;
     }
     
-    public void setDateParution(String t) {
+    public void setDateParution(LocalDate t) {
     	dateParution = t;
     }
     

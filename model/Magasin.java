@@ -1,5 +1,11 @@
 package model;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -16,6 +22,7 @@ public class Magasin implements Serializable {
     public Set<Client> listClient = new HashSet<>();
     public Set<Commande> listCom = new HashSet<>();
     public Set<Livre> listLivre = new HashSet<>();
+    public Set<Depense> listDep = new HashSet<>();
     
     // Constructeur
     
@@ -29,6 +36,13 @@ public class Magasin implements Serializable {
     //////////////////////////////////////////////
     //-----------------COMMANDES----------------//
     //////////////////////////////////////////////
+    
+    // Lister les commandes enregistrées 
+    
+    public Set<Commande> listCommandes(){
+    	return listCom;
+    }
+    
     
     // Recherche d'une commande par son ID 
     
@@ -63,6 +77,52 @@ public class Magasin implements Serializable {
     		return 0;
     	} 
     	return -1;
+    }
+    
+    //////////////////////////////////////////////
+    //-----------------DEPENSES-----------------//
+    //////////////////////////////////////////////
+    
+    // Ajout d'une nouvelle
+    public int addDepense(Depense d) {
+    	if(!listDep.contains(d)) {
+    		listDep.add(d);
+    		return 0;
+    	}
+    	return -1;
+    }
+    
+    public int supDepense(Depense d) {
+    	if(listDep.contains(d)) {
+    		listDep.remove(d);
+    		return 0;
+    	}
+    	return -1;
+    }
+    
+   
+    // Recherche d'une dépense par son id 
+    
+    public Depense rchDep(int id) {
+    	Depense[] t = new Depense[listDep.size()];
+		for (int i = 0; i < listDep.size(); i++) {
+			if(listDep.toArray(t)[i].getId()==id) {
+				return (Depense) listDep.toArray()[i];
+			}
+		}
+		return null;
+    }
+    
+    // Recherche d'une dépense par sa description
+    
+    public Depense getDepDesc(String d) {
+    	Depense[] t = new Depense[listDep.size()];
+		for (int i = 0; i < listDep.size(); i++) {
+			if(listDep.toArray(t)[i].getDescription()==d) {
+				return (Depense) listDep.toArray()[i];
+			}
+		}
+		return null;
     }
     
     ///////////////////////////////////////////
@@ -172,6 +232,7 @@ public class Magasin implements Serializable {
 		}
 		return -1;
     }
+    
     
     /////////////////////////////////////////////
     //-----------------CLIENTS-----------------//
@@ -370,18 +431,19 @@ public class Magasin implements Serializable {
         
     }
     
-    // Recherche d'un employé par son nom
+    // Recherche d'un employé par son id, nom et prénom
     
-    public Set<Employe> listEmpNom(String n, String p) {
-    	Set<Employe> sNom = new HashSet<>();
+    public Employe rchEmpINP(int id,String n, String p) {
     	Employe[] tab = new Employe[listEmp.size()];
         for (int i = 0; i < listEmp.size(); i++) {
-        	if(listEmp.toArray(tab)[i].getNom() == n) {
-        		sNom.add(listEmp.toArray(tab)[i]);
+        	if((listEmp.toArray(tab)[i].getId() == id) && (listEmp.toArray(tab)[i].getNom().equals(n)) &&(listEmp.toArray(tab)[i].getPrenom().equals(p)) ) {
+        		return  (Employe) (listEmp.toArray()[i]);
             }
         }
-        return sNom;
+        return null;
     }
+    
+   
     
     // Liste de tous les employés ayant le même poste
     
