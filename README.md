@@ -19,10 +19,8 @@
 
 <h2>CONTROLLER</h2>
 
-* (basse priorité) Trouver un moyen de fusionner les méthodes à mêmes fonctions pour différentes fenêtres (exemple : NewClient et NewClient_gest)
-* prendre une date valide JTextfiel de la date => taille 4 + date => comprise entre 1910-2010
+* Faire en sorte que les appels aux fenêtres dans la View ne se déroulent que dans la partie View (en utilisant les variables de statut au niveau des contrôleur ainsi que des getters pour les différentes données modifiées)
 * modifier l'affichage du téléphone |FRA|+33|nombre de taille 9|
-* afficher les messages d'erreur lorsque l'on crée un livre/client/employé
 * afficher un message d'erreur lorsque l'on souhaite supprimer un achat/employé/client/livre "Etes-vous sûre de vouloir supprimer cet ...?"
 
 <h2>VIEW</h2>
@@ -47,4 +45,3 @@
 
 * Afficher les articles de l'achat dans la partie à droite
 * Bloquer l'accès à la modification du JTextfield id ou créer un JLabel
-* 
