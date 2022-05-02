@@ -21,15 +21,12 @@ public class NewCommande {
 		
 		System.out.println(temp2.length);
 		for(int i = 0; i < temp2.length; i++) {
-			System.out.println("Ajout 2 : " + m.rchLivre(temp2[i]).getTitre());
 			fin.add(m.rchLivre(temp2[i]));
 		}
 		
-		//c = new Commande(new Date(System.currentTimeMillis()), cli, fin);
 		c = new Commande((new Date(System.currentTimeMillis()).toInstant()
 				.atOffset(ZoneOffset.UTC)
 				.format( DateTimeFormatter.ofPattern("dd-MM-yyyy"))), cli, fin);
-		
 		status = 1;
 		new Fen5_Ach_Fact(m, cli, c);
 	}

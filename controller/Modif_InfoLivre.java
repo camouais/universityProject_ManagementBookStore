@@ -7,7 +7,11 @@ import model.*;
 import view.*;
 
 public class Modif_InfoLivre {
+	
+	public int status = 0;
+	
     public Modif_InfoLivre (Magasin m, Livre l, JTextField titre, JTextField auteur, JTextField editeur, JTextField prix, JTextField categorie, JTextField stock) {
+    	int checksum = 1;
     	if(titre.getText().equals("")) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Champ \"Titre\" vide.", "Erreur", 2);
@@ -34,14 +38,25 @@ public class Modif_InfoLivre {
     		catch (NumberFormatException e) {
     			JFrame a = new JFrame();
     			JOptionPane.showMessageDialog(a, "Valeur invalide dans le champ \"Stock\".", "Erreur", 2);
+    			checksum = -1;
     		}
-    		l.setTitre(titre.getText());
-			l.setAuteur(auteur.getText());
-			l.setEditeur(editeur.getText());
-			l.setPrix(Float.parseFloat(prix.getText()));
-			l.setCategorie(categorie.getText());
-			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Changements appliqu\u00E9s.", "Succ\u00E8s", 1);
+    		if(checksum > 0) {
+        		try {
+        			l.setPrix(Float.parseFloat(prix.getText()));
+        		}
+        		catch (NumberFormatException e) {
+        			JFrame a = new JFrame();
+        			JOptionPane.showMessageDialog(a, "Valeur invalide dans le champ \"Stock\".", "Erreur", 2);
+        			checksum = -1;
+        		}
+    		}
+    		if(checksum > 0) {
+	    		l.setTitre(titre.getText());
+				l.setAuteur(auteur.getText());
+				l.setEditeur(editeur.getText());
+				l.setCategorie(categorie.getText());
+				status = 1;
+    		}
     	}
     }
 }
