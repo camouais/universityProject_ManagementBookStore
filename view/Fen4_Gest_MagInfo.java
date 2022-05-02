@@ -77,6 +77,8 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_enreg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	new Modif_InfoMag(m,t_nom);
+            	JFrame a = new JFrame();
+    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
             }
         });
 		p.add(b_enreg);

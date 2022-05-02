@@ -23,13 +23,17 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	private JTextField t_categorie;
 	private JTextField t_format;
 	private JTextField t_langueVO;
-	private JTextField t_dateP;
 	private JTextField t_stock;
 
 
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
+	JComboBox c_jour = new JComboBox();
+	JComboBox c_mois = new JComboBox();
+	
+	private JTextField t_annee;
+	private JTextField t_pStock;
 	
 	public Fen4_Gest_NewLiv(Magasin m) {
 		contentPane.setBackground(new Color(200, 200, 200));
@@ -58,6 +62,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_titre);
 		
 		t_titre = new JTextField();
+		t_titre.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_titre.setBounds(35, 159, 319, 31);
 		contentPane.add(t_titre);
 		t_titre.setColumns(10);
@@ -70,6 +75,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_auteur);
 		
 		t_auteur = new JTextField();
+		t_auteur.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_auteur.setColumns(10);
 		t_auteur.setBounds(35, 231, 319, 31);
 		contentPane.add(t_auteur);
@@ -82,6 +88,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_editeur);
 		
 		t_editeur = new JTextField();
+		t_editeur.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_editeur.setColumns(10);
 		t_editeur.setBounds(35, 303, 319, 31);
 		contentPane.add(t_editeur);
@@ -94,6 +101,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_prix);
 		
 		t_prix = new JTextField();
+		t_prix.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_prix.setColumns(10);
 		t_prix.setBounds(35, 372, 319, 31);
 		contentPane.add(t_prix);
@@ -106,6 +114,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_resume);
 		
 		t_resume = new JTextField();
+		t_resume.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_resume.setColumns(10);
 		t_resume.setBounds(35, 440, 774, 139);
 		contentPane.add(t_resume);
@@ -118,6 +127,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_categorie);
 		
 		t_categorie = new JTextField();
+		t_categorie.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_categorie.setColumns(10);
 		t_categorie.setBounds(490, 159, 319, 31);
 		contentPane.add(t_categorie);
@@ -130,6 +140,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_format);
 		
 		t_format = new JTextField();
+		t_format.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_format.setColumns(10);
 		t_format.setBounds(490, 231, 319, 31);
 		contentPane.add(t_format);
@@ -142,6 +153,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		contentPane.add(l_langueVO);
 		
 		t_langueVO = new JTextField();
+		t_langueVO.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_langueVO.setColumns(10);
 		t_langueVO.setBounds(490, 303, 319, 31);
 		contentPane.add(t_langueVO);
@@ -152,11 +164,6 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		l_dateP.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_dateP.setBounds(490, 340, 319, 31);
 		contentPane.add(l_dateP);
-		
-		t_dateP = new JTextField();
-		t_dateP.setColumns(10);
-		t_dateP.setBounds(490, 372, 319, 31);
-		contentPane.add(t_dateP);
 		
 		// Bouton retour 
 		
@@ -174,15 +181,16 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		
 		// Bouton enregistrer
 		
-		JButton b_enregistrer = new JButton("Enregistrer ");
+		JButton b_enregistrer = new JButton("Enregistrer");
 		b_enregistrer.setBackground(new Color(255, 215, 0));
 		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_enregistrer.setBackground(new Color(30, 144, 255));
 		b_enregistrer.setBounds(574, 675, 235, 64);
 		b_enregistrer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {				
-				dispose();	
-				new NewLivre(m, t_titre, t_auteur, t_editeur,t_dateP, t_prix, t_categorie, t_resume, t_stock) ;
+			public void actionPerformed(ActionEvent e) {
+				if(new NewLivre(m, t_titre, t_auteur, t_editeur, c_jour, c_mois, t_annee, t_prix, t_categorie, t_resume, t_stock).status == 1) {
+					dispose();
+				}
 			}
 		});
 		contentPane.add(b_enregistrer);
@@ -192,9 +200,49 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		l_prix_1.setBounds(35, 590, 190, 31);
 		contentPane.add(l_prix_1);
 		
-		t_stock = new JTextField();
+		t_stock = new JTextField("0");
+		t_stock.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_stock.setColumns(10);
 		t_stock.setBounds(35, 630, 319, 31);
 		contentPane.add(t_stock);
+		
+		t_annee = new JTextField();
+		t_annee.setColumns(10);
+		t_annee.setBounds(729, 407, 80, 22);
+		contentPane.add(t_annee);
+		
+		JLabel l_annee = new JLabel("Ann\u00E9e");
+		l_annee.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 20));
+		l_annee.setBounds(729, 372, 80, 31);
+		contentPane.add(l_annee);
+		
+		JLabel l_jour = new JLabel("Jour");
+		l_jour.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 20));
+		l_jour.setBounds(490, 372, 80, 31);
+		contentPane.add(l_jour);
+		
+		JLabel l_mois = new JLabel("Mois");
+		l_mois.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 20));
+		l_mois.setBounds(600, 372, 80, 31);
+		contentPane.add(l_mois);
+		
+		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setBounds(490, 407, 80, 22);
+		contentPane.add(c_jour);
+		
+		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\\u00E8vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E8cembre"}));
+		c_mois.setBounds(600, 407, 80, 22);
+		contentPane.add(c_mois);
+		
+		JLabel l_pStock = new JLabel("Prix du stock :");
+		l_pStock.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
+		l_pStock.setBounds(380, 590, 190, 31);
+		contentPane.add(l_pStock);
+		
+		t_pStock = new JTextField();
+		t_pStock.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		t_pStock.setColumns(10);
+		t_pStock.setBounds(380, 630, 319, 31);
+		contentPane.add(t_pStock);
 	}
 }

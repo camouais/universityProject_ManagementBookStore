@@ -2,7 +2,6 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.SimpleDateFormat;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

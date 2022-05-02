@@ -87,7 +87,6 @@ public class Fen3_Gest_Liv extends JFrame {
 		}
         for(int i = 0; i < l.getList().length; i++) {
         	model.addElement(l.getList()[i]);
-        	System.out.printf("a");
         }
         list.setModel(model);
 		
@@ -147,7 +146,7 @@ public class Fen3_Gest_Liv extends JFrame {
                 	r_auteur.setText(liv.getAuteur());
                 	r_identifiant.setText(String.valueOf(liv.getId()));
                 	r_editeur.setText(liv.getEditeur());
-                	r_dateParution.setText(String.valueOf(liv.getDateParution()));
+                	r_dateParution.setText(liv.getDateParution().toString());
                 	r_resume.setText(liv.getResume());
                 	r_prix.setText(String.valueOf(liv.getPrix()));
                 	r_categorie.setText(liv.getCategorie());

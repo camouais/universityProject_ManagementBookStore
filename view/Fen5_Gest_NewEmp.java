@@ -13,7 +13,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	private JPanel p = new JPanel();
 	private JTextField t_nom;
 	private JTextField t_prenom;
-	private JTextField t_dateN;
+	private JTextField t_annee;
 	private JTextField t_fonction;
 	private JTextField t_adresse;
 	private JTextField t_sexe;
@@ -36,6 +36,8 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
+	private final JComboBox c_jour = new JComboBox();
+	private final JComboBox c_mois = new JComboBox();
 
 	public Fen5_Gest_NewEmp(Magasin m) {
 
@@ -137,11 +139,11 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		l_dateN.setBounds(50, 340, 200, 30);
 		p.add(l_dateN);
 		
-		t_dateN = new JTextField();
-		t_dateN.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_dateN.setColumns(10);
-		t_dateN.setBounds(260, 340, 380, 30);
-		p.add(t_dateN);
+		t_annee = new JTextField();
+		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_annee.setColumns(10);
+		t_annee.setBounds(520, 340, 120, 30);
+		p.add(t_annee);
 		
 
 		// JLabel & JTextfield : Fonction
@@ -173,8 +175,11 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		b_valider.setBounds(470, 480, 200, 50);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new NewEmploye(m, t_nom, t_prenom, t_sexe, t_salaire, t_fonction, t_adresse, t_mail, t_tel);
+				if(new NewEmploye(m, t_nom, t_prenom, t_sexe, t_salaire, t_fonction, t_adresse, t_mail, t_tel, c_jour, c_mois, t_annee).status == 1) {
+					dispose();
+					JFrame a = new JFrame();
+				    JOptionPane.showMessageDialog(a, "Employé créé et ajouté à la base de données.", "Succès", 1);
+				}
 			}
 		});
 		p.add(b_valider);
@@ -189,5 +194,13 @@ public class Fen5_Gest_NewEmp extends JFrame {
 			}
 		});
 		p.add(b_retour);
+		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setBounds(260, 341, 120, 29);
+		
+		p.add(c_jour);
+		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E9cembre"}));
+		c_mois.setBounds(390, 341, 120, 29);
+		
+		p.add(c_mois);
 	}
 }

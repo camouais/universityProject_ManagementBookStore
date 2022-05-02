@@ -117,6 +117,8 @@ public class Fen3_Ach_NewC extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (new NewClient(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe, c_jour, c_mois, t_annee).status == 1) {
 					dispose();
+					JFrame a = new JFrame();
+				    JOptionPane.showMessageDialog(a, "Client créé et ajouté à la base de données.", "Succès", 1);
 				}
 			}
 		});

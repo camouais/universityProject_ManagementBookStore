@@ -1,79 +1,69 @@
 package view;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import model.*;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Fen5_Gest_StatCompta extends JFrame {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import model.Magasin;
+
+public class Fen5_Gest_StatCompta extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-	
+
 	private JPanel p = new JPanel();
-    private JLabel l_stem = new JLabel("Comptabilités");
-    private JLabel l_valueAg = new JLabel("tv");
-    private JLabel l_valueT = new JLabel("nb");
-    private JLabel l_nbrt = new JLabel("Nombre total de livres : ");
-    private JLabel l_soms = new JLabel("Total de ventes : ");
-    
-    JScrollPane scrollPane = new JScrollPane();
-    JButton b_retour = new JButton("Retour");
-    
+
+	JButton b_recettes = new JButton("RECETTES");
+	JButton b_depenses = new JButton("DEPENSES");
+	JButton b_retour = new JButton("Retour");
+	
+	
 	public Fen5_Gest_StatCompta(Magasin m) {
-		
-		// Fenêtre
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 800);
+		setBounds(100, 100, 798, 465);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 		setContentPane(p);
-	    p.setLayout(null);
-		p.setBackground(new Color(222, 206, 250));
-	    
-	    // JLabel "Statistiques au niveau des livres"
-	    
-	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
-	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
-	    l_stem.setBounds(125, 50, 750, 42);
-	    p.add(l_stem);
-	    
-	    // JLabel "Nombre total de livres"
-
-	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_nbrt.setBounds(472, 591, 341, 42);
-	    p.add(l_nbrt);
-	    
-	    // JLabel "Total de ventes"
-
-	    l_soms.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_soms.setBounds(472, 643, 341, 42);
-	    p.add(l_soms);
-	    
-	    // JLabel : Valeur totale de livres
-	    
-	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueT.setBounds(799, 591, 47, 42);
-	    p.add(l_valueT);
-	    
-	    // JLabel : Valeur totale de ventes
-	    
-	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueAg.setBounds(799, 644, 47, 42);
-	    p.add(l_valueAg);
-	    
-	    // Bouton : Retour
-	   
-	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));
-	    b_retour.addActionListener(new ActionListener() {
+		p.setLayout(null);
+		
+		b_depenses.setBackground(new Color(178, 34, 34));
+		b_depenses.setFont(new Font("Tahoma", Font.BOLD, 35));
+		b_depenses.setBounds(131, 157, 231, 105);
+		b_depenses.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new Fen6_Gest_Depenses(m);
+			}
+		});
+		p.add(b_depenses);
+		
+		b_recettes.setBackground(new Color(135, 206, 235));
+		b_recettes.setFont(new Font("Tahoma", Font.BOLD, 35));
+		b_recettes.setBounds(387, 157, 231, 105);
+		b_recettes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new Fen6_Gest_Depenses(m);
+			}
+		});
+		p.add(b_recettes);
+		
+		b_retour.setBackground(new Color(200, 100, 100));
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		b_retour.setBounds(0, 381, 100, 30);
+		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				new Fen4_Gest_MagStat(m);
 			}
 		});
-	    b_retour.setBounds(71, 634, 222, 57);
-	    b_retour.setBackground(new Color(64,128,0));
-	    p.add(b_retour);
+		p.add(b_retour);
 	}
 }
+

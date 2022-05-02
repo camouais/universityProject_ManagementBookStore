@@ -2,7 +2,6 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Vector;
 
 import javax.swing.*;
 import model.*;
@@ -46,7 +45,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    	temp[1] = ((Livre) (m.listLivre.toArray()[i])).getAuteur();
 	    	temp[2] = ((Livre) (m.listLivre.toArray()[i])).getEditeur();
 	    	temp[3] = ((Livre) (m.listLivre.toArray()[i])).getCategorie();
-	    	temp[4] = ((Livre) (m.listLivre.toArray()[i])).getDateParution();
+	    	temp[4] = ((Livre) (m.listLivre.toArray()[i])).getDateParution().toString();
 	    	temp[5] = String.valueOf(((Livre) (m.listLivre.toArray()[i])).qtSortie());
 	    	donnees2[i] = temp;
 	    }

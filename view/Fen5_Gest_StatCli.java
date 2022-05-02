@@ -2,11 +2,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.text.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

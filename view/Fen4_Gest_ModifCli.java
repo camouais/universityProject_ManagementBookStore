@@ -156,8 +156,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_enreg.setBounds(350, 370, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Modif_InfoClient(m, c,  t_nom,t_prenom,t_adresse,
-            			t_mail, t_tel);
+				new Modif_InfoClient(m, c, t_nom, t_prenom, t_adresse, t_mail, t_tel);
 			}
 		});
 		p.add(b_enreg);

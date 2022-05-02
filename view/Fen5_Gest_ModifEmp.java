@@ -173,8 +173,10 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_enreg.setBounds(350, 410, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Modif_InfoEmploye(m, emp,  t_nom,t_prenom,t_id,t_fonction, t_adresse,
-						t_mail, t_tel);
+				if(new Modif_InfoEmploye(m, emp, t_nom, t_prenom, t_id, t_fonction, t_adresse, t_mail, t_tel).status == 1) {
+	            	JFrame a = new JFrame();
+	    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+				}
 			}
 		});
 		

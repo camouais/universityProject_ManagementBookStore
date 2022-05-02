@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import controller.Modif_InfoClient;
 import controller.Modif_InfoLivre;
 import model.*;
 
@@ -173,7 +172,10 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBounds(350, 400, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock);
+				if(new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock).status == 1) {
+					JFrame a = new JFrame();
+				    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+				}
 			}
 		});
 		p.add(b_enreg);
