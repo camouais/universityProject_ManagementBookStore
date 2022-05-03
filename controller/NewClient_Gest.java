@@ -20,8 +20,6 @@ public class NewClient_Gest {
 	JTextField sexe;
 	
 	public NewClient_Gest(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe, JComboBox jour, JComboBox mois, JTextField annee) {
-		int checksum = 1;
-		LocalDate dateTemp = null;
 		if (nom.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
@@ -41,27 +39,17 @@ public class NewClient_Gest {
 			JFrame a = new JFrame();
 			JOptionPane.showMessageDialog(a, "Aucune année de naissance renseignée. Veuillez en sélectionner une.", "Erreur", 2);
 		} else {
-			if(checksum > 0) {
-				try {
-					if(1910 <= Integer.parseInt(annee.getText()) && Integer.parseInt(annee.getText()) <= 2010) {
-					    dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), mois.getSelectedIndex() + 1, jour.getSelectedIndex() + 1);
-					} else {
-						JFrame a = new JFrame();
-						JOptionPane.showMessageDialog(a, "Veuillez saisir une année comprise entre 1910 et 2010.", "Erreur", 2);
-						checksum = -1;
-					}
-				} catch (Exception e) {
-					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez réessayer.", "Erreur", 2);
-				    checksum = -1;
-				}
-			}
-			if (checksum > 0) {
-		      c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
-		      m.addCli(c);
-		      new Fen3_Gest_Cli(m);
-		      status = 1;
+			try {
+			      int p = Integer.parseInt(annee.getText());
+			      LocalDate dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), Integer.parseInt(String.valueOf(mois.getSelectedIndex() + 1)), Integer.parseInt((String) jour.getSelectedItem()));
+			      c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
+			      m.addCli(c);
+			      new Fen3_Gest_Cli(m);
+			      status = 1;
+			} catch (Exception e) {
+				JFrame a = new JFrame();
+			    JOptionPane.showMessageDialog(a, "Valeur invalide dans Année. Veuillez réessayer.", "Erreur", 2);
 			}
 		}
 	}
-} 
+}

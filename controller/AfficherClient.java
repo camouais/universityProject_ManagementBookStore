@@ -1,6 +1,8 @@
 package controller;
+
+import java.awt.event.*;
+import javax.swing.*;
 import model.*;
-import view.*;
 
 public class AfficherClient {
 	public AfficherClient() {
