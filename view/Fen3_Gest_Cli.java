@@ -59,7 +59,7 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fen�tre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,7 +102,7 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client s�lectionn�)
+        // Liste 2 (Informations du client sélectionné)
         
         model2 = new DefaultListModel<String>();
         
@@ -140,11 +140,11 @@ public class Fen3_Gest_Cli extends JFrame {
                 	
                 	
                 	nom.setText("Nom :");
-                	prenom.setText("Pr�nom :");
+                	prenom.setText("Prénom :");
                 	identifiant.setText("Identifiant :");
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("T�l�phone :");
+                	tel.setText("Téléphone :");
                 	
                 	r_nom.setText(cli.getNom());
                 	r_prenom.setText(cli.getPrenom());
@@ -204,8 +204,6 @@ public class Fen3_Gest_Cli extends JFrame {
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
-						JFrame aa = new JFrame();
-					    JOptionPane.showMessageDialog(aa, "Recherche vide.", "Erreur", 2);
 						for(int i = 0; i < c.getList().length; i++) {
 							model.addElement(c.getList()[i]);
 						}
@@ -277,7 +275,8 @@ public class Fen3_Gest_Cli extends JFrame {
 				new Fen2_Gest(m);
 			}
 		});
-		p.add(b_retour);b_clearSearch.setForeground(new Color(255, 255, 255));
+		p.add(b_retour);
+		b_clearSearch.setForeground(new Color(255, 255, 255));
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
 		b_clearSearch.setBounds(405, 100, 45, 45);
