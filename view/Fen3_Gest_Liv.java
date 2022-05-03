@@ -3,14 +3,9 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.event.*;
 
-import controller.ListDepense;
-import controller.ListLivres;
-import controller.RechercheDepense;
-import controller.RechercheLivre;
+import controller.*;
 import model.*;
 
 public class Fen3_Gest_Liv extends JFrame {
@@ -35,7 +30,7 @@ public class Fen3_Gest_Liv extends JFrame {
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez s�lectionner un livre pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
 	
 	public JLabel titre = new JLabel(" ");
 	public JLabel auteur = new JLabel();
@@ -66,7 +61,6 @@ public class Fen3_Gest_Liv extends JFrame {
 		// Fenêtre
 		
 		p = new JPanel();
-		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(119, 181, 254));
 		p.setLayout(null);
 		setContentPane(p);
@@ -140,9 +134,9 @@ public class Fen3_Gest_Liv extends JFrame {
                 	identifiant.setText("Identifiant : ");
                 	editeur.setText("Editeur : ");
                 	dateParution.setText("Date de parution : ");
-                	resume.setText("R�sum� : ");
+                	resume.setText("Résumé : ");
                 	prix.setText("Prix : ");
-                	categorie.setText("Cat�gorie : ");
+                	categorie.setText("Catégorie : ");
                 	stock.setText("Stock");
                 	
                 	r_titre.setText(liv.getTitre());
@@ -208,8 +202,6 @@ public class Fen3_Gest_Liv extends JFrame {
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
-						JFrame aa = new JFrame();
-					    JOptionPane.showMessageDialog(aa, "Recherche vide.", "Erreur", 2);
 						for(int i = 0; i < l.getList().length; i++) {
 							model.addElement(l.getList()[i]);
 						}
@@ -250,7 +242,7 @@ public class Fen3_Gest_Liv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez s�lectionner un livre.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un livre.", "Erreur", 2);
 				}
 				else {
 				dispose();
