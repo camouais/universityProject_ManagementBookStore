@@ -25,10 +25,6 @@
 
 <h2>VIEW</h2>
 
-<b>Statistiques </b> : 
-
-* Ajouter un système de recherche + filtre (partout sauf compta)
-* prendre en compte les dépenses dans la partie compta
 
 <b>DoAch </b> : 
 
@@ -39,7 +35,7 @@
 
 <b>Gest_Achats </b> : 
 
-* Afficher les articles de l'achat dans la partie à droite
+* Afficher la liste des articles de l'achat dans la partie à droite
 
 <b>Gest_Livre/Client/Employé </b> : 
 
