@@ -8,6 +8,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import controller.ListClient;
+import controller.ListLivres;
+import controller.RechercheClient;
+import controller.RechercheLivre;
 import model.*;
 
 public class Fen3_Gest_Cli extends JFrame {
@@ -23,13 +26,14 @@ public class Fen3_Gest_Cli extends JFrame {
     public static int count = 0;
 	private JTextField t_rech= new JTextField();
 	private JLabel l_main = new JLabel("Clients");
-    
+
+	private DefaultListModel<String> model2;
 	JScrollPane scrollPane = new JScrollPane();
     JScrollPane scrollPane2 = new JScrollPane();
 	JButton b_modifier = new JButton("Modifier");
 	JButton b_ajouter = new JButton("Ajouter");
 	JButton b_retour = new JButton("Retour");
-
+	JButton b_clearSearch = new JButton("X");
 	
 	public JLabel nom = new JLabel(" ");
     public JLabel prenom = new JLabel();
@@ -49,12 +53,13 @@ public class Fen3_Gest_Cli extends JFrame {
     public JLabel r_tel = new JLabel(" ");
 	
 	public JLabel label = new JLabel("Veuillez s\u00E9lectionner un client pour afficher ses informations.");
-    
+
+	private final JComboBox<String> c_filtre = new JComboBox<String>();
 	Client cli;
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fenêtre
+		// Fenï¿½tre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,20 +74,20 @@ public class Fen3_Gest_Cli extends JFrame {
 		
 		// Liste 1 (Liste de clients)
 		
-		ListClient e = new ListClient(m);
+		ListClient c = new ListClient(m, m.listClient);
 		
 		model = new DefaultListModel<String>();
-        for (int i = 0; i < e.getListCli().length; i++) {
-            for (int j = 0; j < e.getListCli().length; j++) {
-                if (Integer.parseInt((e.getListCli()[i]).split(" ")[0]) < Integer.parseInt((e.getListCli()[j]).split(" ")[0])) {
-                    String temp = e.getListCli()[i];
-                    e.getListCli()[i] = e.getListCli()[j];
-                    e.getListCli()[j] = temp;
+        for (int i = 0; i < c.getList().length; i++) {
+            for (int j = 0; j < c.getList().length; j++) {
+                if (Integer.parseInt((c.getList()[i]).split(" ")[0]) < Integer.parseInt((c.getList()[j]).split(" ")[0])) {
+                    String temp = c.getList()[i];
+                    c.getList()[i] = c.getList()[j];
+                    c.getList()[j] = temp;
                 }
             }
         }
-        for (int i = 0; i < e.getListCli().length; i++) {
-            model.addElement(e.getListCli()[i]);
+        for (int i = 0; i < c.getList().length; i++) {
+            model.addElement(c.getList()[i]);
         }
         
         list.setModel(model);
@@ -97,9 +102,9 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sélectionné)
+        // Liste 2 (Informations du client sï¿½lectionnï¿½)
         
-        model = new DefaultListModel<String>();
+        model2 = new DefaultListModel<String>();
         
         
        
@@ -135,11 +140,11 @@ public class Fen3_Gest_Cli extends JFrame {
                 	
                 	
                 	nom.setText("Nom :");
-                	prenom.setText("Prénom :");
+                	prenom.setText("Prï¿½nom :");
                 	identifiant.setText("Identifiant :");
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("Téléphone :");
+                	tel.setText("Tï¿½lï¿½phone :");
                 	
                 	r_nom.setText(cli.getNom());
                 	r_prenom.setText(cli.getPrenom());
@@ -151,6 +156,14 @@ public class Fen3_Gest_Cli extends JFrame {
                 }
             }
         });
+
+		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
+        		{"Nom","Prenom","id client","Adresse","Date Naissance","Age","Sexe","Date compte","TÃ©lÃ©phone","Mail"}));
+        c_filtre.setBounds(480, 100, 200, 48);
+		
+		p.add(c_filtre);
+		
         panel2.add(label);
         panel2.add(nom);
         panel2.add(prenom);
@@ -166,8 +179,8 @@ public class Fen3_Gest_Cli extends JFrame {
         panel2.add(r_adresse);
         panel2.add(r_tel);
         
-        
-        list2.setModel(model);
+
+		list2.setModel(model2);
         
         list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane2.setViewportView(list2);
@@ -182,8 +195,38 @@ public class Fen3_Gest_Cli extends JFrame {
 		// Text Field : Recherche d'un client
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rech.setText("Recherchez un client...");
-		t_rech.setBounds(50, 100, 890, 45);
+		t_rech.setText("Recherchez un client");
+		t_rech.setBounds(50, 100, 345, 45);
+		t_rech.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model.clear();
+				ListClient def = new ListClient(m,new RechercheClient(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
+				String[] a = def.getList();
+				if(a.length == 0) {
+					if(t_rech.getText().equals("")) {
+						JFrame aa = new JFrame();
+					    JOptionPane.showMessageDialog(aa, "Recherche vide.", "Erreur", 2);
+						for(int i = 0; i < c.getList().length; i++) {
+							model.addElement(c.getList()[i]);
+						}
+					}
+				} else {
+					for (int i = 0; i < def.getList().length; i++) {
+						for (int j = 0; j < def.getList().length; j++) {
+							if (Integer.parseInt((def.getList()[i]).split(" ")[0]) < Integer.parseInt((def.getList()[j]).split(" ")[0])) {
+								String temp = def.getList()[i];
+								def.getList()[i] = def.getList()[j];
+								def.getList()[j] = temp;
+							}
+						}
+					}
+					for (int i = 0; i < def.getList().length; i++) {
+						model.addElement(def.getList()[i]);
+					}
+				}
+			}
+		});
+		
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
@@ -234,6 +277,28 @@ public class Fen3_Gest_Cli extends JFrame {
 				new Fen2_Gest(m);
 			}
 		});
-		p.add(b_retour);
+		p.add(b_retour);b_clearSearch.setForeground(new Color(255, 255, 255));
+		b_clearSearch.setBackground(new Color(165, 42, 42));
+		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
+		b_clearSearch.setBounds(405, 100, 45, 45);
+		b_clearSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				t_rech.setText("");
+				model.clear();
+				for (int i = 0; i < c.getList().length; i++) {
+					for (int j = 0; j < c.getList().length; j++) {
+						if (Integer.parseInt((c.getList()[i]).split(" ")[0]) < Integer.parseInt((c.getList()[j]).split(" ")[0])) {
+							String temp = c.getList()[i];
+							c.getList()[i] = c.getList()[j];
+							c.getList()[j] = temp;
+						}
+					}
+				}
+		        for(int i = 0; i < c.getList().length; i++) {
+		        	model.addElement(c.getList()[i]);
+		        }
+			}
+		});
+		p.add(b_clearSearch);
 	}
 }

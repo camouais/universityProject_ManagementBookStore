@@ -47,7 +47,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //définit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82); //dï¿½finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabel & JTextField : Titre
@@ -174,7 +174,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock).status == 1) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+				    JOptionPane.showMessageDialog(a, "Changements enregistrï¿½s.", "Succï¿½s", 1);
 				}
 			}
 		});

@@ -10,7 +10,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
-    String[] entetes1 = {"Titre", "Auteur", "Éditeur", "Catégorie", "Date de parution", "Nombre de ventes"};
+    String[] entetes1 = {"Titre", "Auteur", "ï¿½diteur", "Catï¿½gorie", "Date de parution", "Nombre de ventes"};
     
     private JPanel p = new JPanel();
     private JTable table1; 
@@ -26,7 +26,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
     
 	public Fen5_Gest_StatLiv(Magasin m) {
 		
-		// Fenêtre 
+		// Fenï¿½tre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);

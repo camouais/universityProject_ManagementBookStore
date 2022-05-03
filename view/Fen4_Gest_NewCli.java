@@ -48,7 +48,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 39));
 		p.add(l_main);
 		
-		// Labels : "Nom", "Prénom", "Adresse", "Téléphone", "Sexe", "Mail", "Date de naissance"
+		// Labels : "Nom", "Prï¿½nom", "Adresse", "Tï¿½lï¿½phone", "Sexe", "Mail", "Date de naissance"
 		
 		l_nom.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
 		l_nom.setBounds(115, 119, 147, 37);
@@ -74,7 +74,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_mail.setBounds(650, 237, 147, 37);
 		p.add(l_mail);
 		
-		// Text Fields : Nom, Prénom, Adresse, Téléphone, Mail, Date de naissance
+		// Text Fields : Nom, Prï¿½nom, Adresse, Tï¿½lï¿½phone, Mail, Date de naissance
 		
 		t_nom = new JTextField();
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -118,7 +118,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 				if (new NewClient_Gest(m, t_nom, t_prenom, t_adresse, t_tel, t_mail, c_sexe, c_jour, c_mois, t_annee).status == 1) {
 					dispose();
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Client créé et ajouté à la base de données.", "Succès", 1);
+				    JOptionPane.showMessageDialog(a, "Client crï¿½ï¿½ et ajoutï¿½ ï¿½ la base de donnï¿½es.", "Succï¿½s", 1);
 				}
 			}
 		});

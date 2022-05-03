@@ -33,6 +33,8 @@ public class Fen4_Ach_DoAch extends JFrame {
 	JButton b_enregistrer = new JButton("Enregistrer");
 	JButton b_clearSearch = new JButton("X");
 
+	private final JComboBox<String> c_filtre = new JComboBox<String>();
+	
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
 		// Fenêtre
@@ -47,6 +49,13 @@ public class Fen4_Ach_DoAch extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
+		
+		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
+        		{"Categorie", "Titre", "id livre", "Auteur", "Date", "Editeur"}));
+        c_filtre.setBounds(480, 100, 200, 48);
+		
+		p.add(c_filtre);
 		
 		// Panel 1 (Liste de livres)
 		
@@ -86,9 +95,9 @@ public class Fen4_Ach_DoAch extends JFrame {
         scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel2.setBounds(540, 100, 400, 395);
+		panel2.setBounds(540, 150, 400, 350);
 		panel2.setLayout(null);
-		scrollPane2.setBounds(0, 0, 400, 395);
+		scrollPane2.setBounds(0, 0, 400, 350);
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
@@ -100,14 +109,15 @@ public class Fen4_Ach_DoAch extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				ListLivres def = new ListLivres(m, new RechercheLivre(m, t_rech).getList());
+				ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
-			        	System.out.println("check1");
-				        for(int i = 0; i < a.length; i++) {
-				        	model.addElement(a[i]);
-				        }
+						JFrame aa = new JFrame();
+					    JOptionPane.showMessageDialog(aa, "Recherche vide.", "Erreur", 2);
+						for(int i = 0; i < l.getList().length; i++) {
+							model.addElement(l.getList()[i]);
+						}
 					}
 				} else {
 			        for (int i = 0; i < a.length; i++) {
@@ -170,6 +180,7 @@ public class Fen4_Ach_DoAch extends JFrame {
             	if(list.getSelectedValue()!=null) {
 	                model2.addElement(list.getSelectedValue());
 	                m.decStockLiv(m.rchLivreId(Integer.parseInt((list.getSelectedValue()).split(" ")[0])),1);
+	                
 	                count++;
                 }
             }

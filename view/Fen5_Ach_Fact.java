@@ -73,7 +73,7 @@ public class Fen5_Ach_Fact extends JFrame {
         }
 		pT = Math.round(pT*100f)/100f;
 		
-		t_prix = new JTextField("Prix total = " + String.valueOf(pT) + "€");
+		t_prix = new JTextField("Prix total = " + String.valueOf(pT) + "ï¿½");
 		t_prix.setBackground(new Color(102, 255, 204));
 		t_prix.setBounds(125, 425, 325, 30);
 		t_prix.setEditable(false);
@@ -104,7 +104,7 @@ public class Fen5_Ach_Fact extends JFrame {
 
 		model2 = new DefaultListModel<String>();
 		for(int i = 0; i < cm.listLivres.size(); i++) {
-        	model2.addElement("Prix : " + String.valueOf(((Livre) cm.listLivres.toArray()[i]).getPrix()) + "€");
+        	model2.addElement("Prix : " + String.valueOf(((Livre) cm.listLivres.toArray()[i]).getPrix()) + "ï¿½");
         }
 		JPanel p_prix = new JPanel();
 		p_prix.setBounds(200, 0, 200, 236);
@@ -128,7 +128,7 @@ public class Fen5_Ach_Fact extends JFrame {
 				JFrame a = new JFrame();
 				dispose();
 				new Fen1(m);
-			    JOptionPane.showMessageDialog(a, "Achat enregistré !", "Succès", 1);
+			    JOptionPane.showMessageDialog(a, "Achat enregistrï¿½ !", "Succï¿½s", 1);
 			}
 		});
 		p.add(b_enreg);

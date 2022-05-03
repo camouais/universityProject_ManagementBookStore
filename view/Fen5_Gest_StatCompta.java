@@ -49,7 +49,7 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		b_recettes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new Fen6_Gest_Depenses(m);
+				new Fen6_Gest_Recettes(m);
 			}
 		});
 		p.add(b_recettes);
@@ -66,4 +66,3 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		p.add(b_retour);
 	}
 }
-

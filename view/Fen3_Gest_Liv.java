@@ -7,7 +7,9 @@ import javax.swing.border.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import controller.ListDepense;
 import controller.ListLivres;
+import controller.RechercheDepense;
 import controller.RechercheLivre;
 import model.*;
 
@@ -33,7 +35,7 @@ public class Fen3_Gest_Liv extends JFrame {
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez sï¿½lectionner un livre pour afficher ses informations.");
 	
 	public JLabel titre = new JLabel(" ");
 	public JLabel auteur = new JLabel();
@@ -54,7 +56,8 @@ public class Fen3_Gest_Liv extends JFrame {
 	public JLabel r_prix = new JLabel(" ");
 	public JLabel r_categorie = new JLabel(" ");
 	public JLabel r_stock = new JLabel(" ");
-	
+
+	private final JComboBox<String> c_filtre = new JComboBox<String>();
 	Livre liv;
 	public Fen3_Gest_Liv(Magasin m) {
 		
@@ -137,9 +140,9 @@ public class Fen3_Gest_Liv extends JFrame {
                 	identifiant.setText("Identifiant : ");
                 	editeur.setText("Editeur : ");
                 	dateParution.setText("Date de parution : ");
-                	resume.setText("Résumé : ");
+                	resume.setText("Rï¿½sumï¿½ : ");
                 	prix.setText("Prix : ");
-                	categorie.setText("Catégorie : ");
+                	categorie.setText("Catï¿½gorie : ");
                 	stock.setText("Stock");
                 	
                 	r_titre.setText(liv.getTitre());
@@ -154,7 +157,12 @@ public class Fen3_Gest_Liv extends JFrame {
 				}
 			}
 		});
+		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
+        		{"Categorie", "Titre", "id livre", "Auteur", "Date", "Editeur"}));
+        c_filtre.setBounds(480, 100, 200, 48);
 		
+		p.add(c_filtre);
 		panel2.add(label);
 		panel2.add(titre);
 		panel2.add(auteur);
@@ -196,16 +204,18 @@ public class Fen3_Gest_Liv extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				String[] a = new ListLivres(m, new RechercheLivre(m, t_rech).getList()).getList();
+				ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
+				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
-				        for(int i = 0; i < l.getList().length; i++) {
-				        	model.addElement(l.getList()[i]);
-				        }
+						JFrame aa = new JFrame();
+					    JOptionPane.showMessageDialog(aa, "Recherche vide.", "Erreur", 2);
+						for(int i = 0; i < l.getList().length; i++) {
+							model.addElement(l.getList()[i]);
+						}
 					}
 				} else {
-					ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech).getList());
-			        for (int i = 0; i < def.getList().length; i++) {
+					for (int i = 0; i < def.getList().length; i++) {
 						for (int j = 0; j < def.getList().length; j++) {
 							if (Integer.parseInt((def.getList()[i]).split(" ")[0]) < Integer.parseInt((def.getList()[j]).split(" ")[0])) {
 								String temp = def.getList()[i];
@@ -240,7 +250,7 @@ public class Fen3_Gest_Liv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un livre.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez sï¿½lectionner un livre.", "Erreur", 2);
 				}
 				else {
 				dispose();
