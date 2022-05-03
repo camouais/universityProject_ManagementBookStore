@@ -12,9 +12,9 @@ public class ListCommande {
 		for(int i = 0; i < list.length; i++) {
 			String b = (((Commande)list[i]).getId()+" - Prix Total : "+ 
 						(((Commande)list[i]).getPrixTotal()+" - Client : " + 
-						((Commande)list[i]).getClient().getId() + "  "+ 
-						((Commande)list[i]).getClient().getNom()+ "  "+ 
-						((Commande)list[i]).getClient().getPrenom()));
+						((Commande)list[i]).getClient().getId() + " ("+ 
+						((Commande)list[i]).getClient().getNom()+ " "+ 
+						((Commande)list[i]).getClient().getPrenom() + ")"));
 			formattedList[i] = b;
 		}
 	}
