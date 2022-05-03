@@ -1,28 +1,12 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
 import controller.*;
 import model.*;
-
-
-
 
 public class Fen3_Gest_Com extends JFrame {
 		
@@ -61,17 +45,15 @@ public class Fen3_Gest_Com extends JFrame {
 		public JLabel r_adresse = new JLabel(" ");
 		public JLabel r_prix = new JLabel(" ");
 		
-		public JLabel label = new JLabel("Veuillez sélectionner un achat pour afficher ses informations");
+		public JLabel label = new JLabel("Veuillez sÃ©lectionner un achat pour afficher ses informations");
 
 		Commande com;
-    
 		
 		public Fen3_Gest_Com(Magasin m) {
 			
-			// Fenêtre
+			// FenÃªtre
 			
 			p = new JPanel();
-			p.setBorder(new EmptyBorder(5, 5, 5, 5));
 			p.setBackground(new Color(0, 153, 153));
 			p.setLayout(null);
 			setContentPane(p);
@@ -112,7 +94,7 @@ public class Fen3_Gest_Com extends JFrame {
 	        panel1.add(scrollPane);
 	        p.add(panel1);
 	        
-	        // Liste 2 (Informations de l'achat sélectionné)
+	        // Liste 2 (Informations de l'achat sÃ©lectionnÃ©)
 	        
 	        model = new DefaultListModel<String>();
 	        
@@ -139,7 +121,6 @@ public class Fen3_Gest_Com extends JFrame {
 	        r_livraison.setBounds		(200,120,200,20);
 	        r_adresse.setBounds			(200,140,200,20);
 	        r_prix.setBounds			(200,160,200,20);
-	       
 	        
 	        list.addListSelectionListener(new ListSelectionListener() {
 
@@ -148,12 +129,10 @@ public class Fen3_Gest_Com extends JFrame {
 	                	
 	                	label.setVisible(false);
 	                	
-	             
 	                	com = m.rchCm1(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
 	                	
-	                	
 	                	nom.setText("Nom :");
-	                	prenom.setText("Prénom :");
+	                	prenom.setText("PrÃ©nom :");
 	                	identifiant_com.setText("Identifiant commande :");
 	                	identifiant_cli.setText("Identifiant client:");
 	                	dateC.setText("Date :");
@@ -172,6 +151,7 @@ public class Fen3_Gest_Com extends JFrame {
 	                }
 	            }
 	        });
+	        
 	        panel2.add(label);
 	        panel2.add(nom);
 	        panel2.add(prenom);
