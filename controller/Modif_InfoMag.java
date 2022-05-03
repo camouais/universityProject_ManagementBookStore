@@ -19,10 +19,10 @@ public class Modif_InfoMag {
 		    JOptionPane.showMessageDialog(a, "Champ \"Lien\" vide.", "Erreur", 2);
     	} else if(tel.getText().equals("")) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Champ \"T�l�phone\" vide.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Champ \"Téléphone\" vide.", "Erreur", 2);
     	} else if(annee.getText().equals("")) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Champ \"Ann�e\" vide.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Champ \"Année\" vide.", "Erreur", 2);
     	} 
         m.setNom(nom.getText());
         
