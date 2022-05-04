@@ -28,9 +28,7 @@
 
 <b>DoAch </b> : 
 
-* afficher le prix de chacun des articles ajoutés 
-* si on sélectionne plusieurs fois le même article n'afficher qu'un seul article avec x2 (par exemple) sinon x1
-* afficher le prix total courant
+
 * Permettre de pouvoir afficher les infos d'un livre en double-cliquant sur un élément de la liste de livre 
 
 <b>Gest_Achats </b> : 
