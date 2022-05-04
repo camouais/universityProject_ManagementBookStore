@@ -22,7 +22,7 @@ public class ListCommande {
 		}
 	}
 	
-	public String[] getListCom() {
+	public String[] getList() {
 		return formattedList;
 	}
 }

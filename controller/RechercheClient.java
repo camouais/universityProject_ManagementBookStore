@@ -8,7 +8,7 @@ public class RechercheClient {
 	Set<Client> a;
 
 	String s;
-	
+
 	public RechercheClient(Magasin m, JTextField arg, String f) {
 		a = new HashSet<Client>();
 		if(		f==("Nom")|| 
@@ -19,16 +19,16 @@ public class RechercheClient {
 				f==("Age")||
 				f==("Sexe")||
 				f==("Date compte")||
-				f==("TÃ©lÃ©phone")||
+				f==("Téléphone")||
 				f==("Mail")
 				) {
 		String rechterm = arg.getText();
 		if(rechterm.equals("")) {
 			JFrame frame = new JFrame();
-			JOptionPane.showMessageDialog(frame, "Recherche vide. Veuillez ï¿½crire un terme de recherche.", "Erreur", 2);
+			JOptionPane.showMessageDialog(frame, "Recherche vide. Veuillez écrire un terme de recherche.", "Erreur", 2);
 		} else {
 			for(int i = 0; i < m.listClient.size(); i++) {
-				
+
 			if(f =="Nom") {
 				s = ((Client) m.listClient.toArray()[i]).getNom();
 			}
@@ -53,7 +53,7 @@ public class RechercheClient {
 			else if(f =="Date compte") {
 				s = (((Client) m.listClient.toArray()[i]).getDateCC()).toString();
 			}
-			else if(f =="TÃ©lÃ©phone") {
+			else if(f =="Téléphone") {
 				s = ((((Client) m.listClient.toArray()[i]).getTel()));
 			}
 			else if(f =="Mail") {
@@ -62,14 +62,14 @@ public class RechercheClient {
 				int minlength = Math.min(s.length(), rechterm.length());
 				if(rechterm.toLowerCase().equals(s.substring(0,minlength).toLowerCase())) {
 					a.add((Client) m.listClient.toArray()[i]);
-				
+
 				}
 			}
 		}}
 		else {
 			JFrame frame = new JFrame();
-			JOptionPane.showMessageDialog(frame, "Recherche vide. Veuillez sÃ©lectionner un filtre.", "Erreur", 2);
-		
+			JOptionPane.showMessageDialog(frame, "Recherche vide. Veuillez sélectionner un filtre.", "Erreur", 2);
+
 		}
 	}
 	public Set<Client> getList() {

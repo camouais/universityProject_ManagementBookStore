@@ -34,20 +34,20 @@ public class NewLivre {
 		    JOptionPane.showMessageDialog(a, "Prix vide. Veuillez saisir un prix.", "Erreur", 2);
 		} else if (categorie.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "CatÃ©gorie vide. Veuillez saisir une catÃ©gorie.", "Erreur", 2); // JComboBox?????
+		    JOptionPane.showMessageDialog(a, "Catégorie vide. Veuillez saisir une catégorie.", "Erreur", 2); // JComboBox?????
 		} else if (resume.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "R\u00E9sum\u00E9 vide. Veuillez saisir un r\u00E9sum\u00E9.", "Erreur", 2);
 		} else if (stock.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Stock vide. Veuillez saisir une quantitÃ© en stock.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Stock vide. Veuillez saisir une quantité en stock.", "Erreur", 2);
 		} else {
 			try {
 				p = Float.parseFloat(prix.getText());
 			    System.out.println(p);
 			} catch (NumberFormatException e) {
 				JFrame a = new JFrame();
-			    JOptionPane.showMessageDialog(a, "Valeur invalide dans Prix. Veuillez rÃ©essayer.\n(Pour les valeurs dÃ©cimales, utilisez un point.)", "Erreur", 2);
+			    JOptionPane.showMessageDialog(a, "Valeur invalide dans Prix. Veuillez réessayer.\n(Pour les valeurs décimales, utilisez un point.)", "Erreur", 2);
 			    checksum = -1;
 			}
 			if(checksum > 0) {
@@ -55,7 +55,7 @@ public class NewLivre {
 				    s = Integer.parseInt(stock.getText());
 				} catch (NumberFormatException e) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Valeur invalide dans Stock. Veuillez rÃ©essayer.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Valeur invalide dans Stock. Veuillez réessayer.", "Erreur", 2);
 				    checksum = -1;
 				}
 			}
@@ -65,12 +65,12 @@ public class NewLivre {
 					    d = LocalDate.of(Integer.parseInt(annee.getText()), mois.getSelectedIndex() + 1, jour.getSelectedIndex() + 1);
 					} else {
 						JFrame a = new JFrame();
-						JOptionPane.showMessageDialog(a, "Veuillez saisir une annÃ©e comprise entre 1910 et 2010.", "Erreur", 2);
+						JOptionPane.showMessageDialog(a, "Veuillez saisir une année comprise entre 1910 et 2010.", "Erreur", 2);
 						checksum = -1;
 					}
 				} catch (Exception e) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez rÃ©essayer.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez réessayer.", "Erreur", 2);
 				    checksum = -1;
 				}
 			}
