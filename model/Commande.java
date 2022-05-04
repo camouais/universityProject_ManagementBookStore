@@ -23,8 +23,8 @@ public class Commande  {
 		dateAchat = dA;
 		client = c;
 		listLivres = l;
-		id = totalCom;
 		totalCom++;
+		id = totalCom;
 	}
 	
 	public Commande() {

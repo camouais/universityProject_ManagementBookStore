@@ -37,8 +37,8 @@ public class Livre implements Serializable {
     	this.prix = prix;
     	qtEntree = qtStock;
     	this.qtStock = qtStock;
-    	id = totalLivre;
     	totalLivre++;
+    	id = totalLivre;
     }
     
     public Livre() {

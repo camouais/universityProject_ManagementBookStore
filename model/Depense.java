@@ -17,8 +17,8 @@ public class Depense {
 		cout = p;
 		emp = e;
 		dateDep = d;
-		id = totalDep;
 		totalDep++;
+		id = totalDep;
 	}
 	
 	public Employe getEmp() {

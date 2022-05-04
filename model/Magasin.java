@@ -124,16 +124,16 @@ public class Magasin implements Serializable {
     // Obtenir la valeur de la dépense totale d'un magasin
     
     public float getAllDepenses(Magasin m) {
-    	float dep = 0.F;
-    	if(m.listDep!=null) {
-    		Object[] arrayDep = m.listDep.toArray();
-    		
-    		for(int i = 0; i < arrayDep.length; i++) {
-    			dep += ((Depense) arrayDep[i]).getCout();
-    		}
-    		return dep;
-    	}
-    	return dep;
+        float dep = 0.F;
+        if(m.listDep!=null) {
+            Object[] arrayDep = m.listDep.toArray();
+            
+            for(int i = 0; i < arrayDep.length; i++) {
+                dep += ((Depense) arrayDep[i]).getCout();
+            }
+            return dep;
+        }
+        return dep;
     }
     
     ///////////////////////////////////////////

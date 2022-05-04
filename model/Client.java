@@ -54,15 +54,15 @@ public class Client implements Serializable {
     	totalC = 0;
     }
     
-    // Mï¿½thodes
+    // Méthodes
     
-    // Ajouter / Mettre ï¿½ jour une adresse mail
+    // Ajouter / Mettre à jour une adresse mail
     
     public void updMail(String m) {
     	mail = m;
     }
     
-    // Ajouter / Mettre ï¿½ jour un numï¿½ro de tï¿½lï¿½phone
+    // Ajouter / Mettre à jour un numéro de téléphone
     
     public int getId() {
     	return id;
@@ -140,8 +140,5 @@ public class Client implements Serializable {
     	LocalDate curDate = LocalDate.now();
     	return Period.between(dateNaiss, curDate).getYears();
     }
-    
-    
-    
 } 
     
