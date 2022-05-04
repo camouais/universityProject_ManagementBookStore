@@ -1,25 +1,11 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.*;
 
 import model.*;
 import controller.*;
@@ -62,9 +48,10 @@ public class Fen6_Gest_Depenses extends JFrame {
 	public JLabel r_Pemploye = new JLabel(" ");
 	public JLabel r_Iemploye = new JLabel(" ");
 	public JLabel r_dateDep = new JLabel(" ");
-
-
+	
 	private final JComboBox<String> c_filtre = new JComboBox<String>();
+
+	
 	Depense dep;
 	Employe e;
 	public Fen6_Gest_Depenses(Magasin m) {
@@ -161,10 +148,11 @@ public class Fen6_Gest_Depenses extends JFrame {
                 }
             }
         });
+        
         c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "id dépense", "id employe", "nom employe", "date"}));
         c_filtre.setBounds(480, 100, 200, 48);
-		
+
 		p.add(c_filtre);
         
         panel2.add(label);
@@ -204,7 +192,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				ListDepense def = new ListDepense(m,new RechercheDepense(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
+				ListDepense def = new ListDepense(m,new RechercheDepense(m, t_rech, c_filtre.getSelectedItem().toString()).getList());
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
@@ -260,10 +248,9 @@ public class Fen6_Gest_Depenses extends JFrame {
 		p.add(b_modifier);
 		
 		b_ajouter.addActionListener(new ActionListener() {
-        
             public void actionPerformed(ActionEvent e) {
             	dispose();
-            	new Fen7_Gest_NewDepense(m)   ;       
+            	new Fen7_Gest_NewDepense(m);       
             }
 		});
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));

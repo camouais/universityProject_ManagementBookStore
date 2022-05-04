@@ -2,6 +2,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -13,7 +14,8 @@ public class Fen4_Ach_DoAch extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
     public static int count = 0;
-    
+
+	private float pT = 0.F;
 	private JPanel p = new JPanel();
 	private DefaultListModel<String> model;
 	private DefaultListModel<String> model2;
@@ -23,16 +25,16 @@ public class Fen4_Ach_DoAch extends JFrame {
 	private JList<String> list2 = new JList<String>();
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
+	private JPanel panel3 = new JPanel();
 	private JLabel l_achat = new JLabel("R\u00E9alisation de l'achat");
 	private JTextField t_rech = new JTextField();
-	
+	private Vector<Livre> livresSelect = new Vector<Livre>();
 	JButton b_effacer = new JButton("Effacer");
 	JButton b_tEffacer = new JButton("Tout Effacer");
 	JButton b_ajouter = new JButton("Ajouter");
 	JButton b_retour = new JButton("Retour");
 	JButton b_enregistrer = new JButton("Enregistrer");
 	JButton b_clearSearch = new JButton("X");
-
 	private final JComboBox<String> c_filtre = new JComboBox<String>();
 	
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
@@ -95,12 +97,30 @@ public class Fen4_Ach_DoAch extends JFrame {
         scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel2.setBounds(540, 150, 400, 350);
+		panel2.setBounds(540, 150, 400, 300);
 		panel2.setLayout(null);
 		scrollPane2.setBounds(0, 0, 400, 350);
 		panel2.add(scrollPane2);
 		p.add(panel2);
+		
+		// Panel 3 (Prix total articles)
+        
+		JLabel prix = new JLabel("Prix total :");
 
+		JLabel prixt = new JLabel("0 €");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        panel3.add(prix);
+        prix.setBounds(20,10,100,30);
+        prix.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        
+        panel3.add(prixt);
+        prixt.setBounds(320,10,100,30);
+        prixt.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+        panel3.setBounds(540, 445, 400, 45);
+		panel3.setLayout(null);
+		p.add(panel3);
 		// Textfield - Recherche de livres
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -109,7 +129,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
+				ListLivres def = new ListLivres(m,new RechercheLivre(m, t_rech, c_filtre.getSelectedItem().toString()).getList());
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
@@ -155,9 +175,47 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(list2.getSelectedValue()!=null) {
-					model2.removeElement(list2.getSelectedValue());
+					boolean found = false;
+					boolean last = false;
+					Livre livre = m.rchLivreId(Integer.parseInt(list2.getSelectedValue().split(" ")[0]));
+					for(int i = 0; i < livresSelect.size(); i++) {
+						if(livresSelect.toArray()[i].equals(livre)) {
+							if(!found) {
+								livresSelect.remove(livre);
+								i--;
+								System.out.println("élément retiré");
+								last = true;
+								found = true;
+							} else {
+								last = false;
+							}
+						}
+					}
+					if(last) {
+						model2.removeElement(list2.getSelectedValue());
+					} else {
+						int counter = 0;
+            			if(!livresSelect.contains(livre)) {
+            				counter++;
+            			} else {
+            				for(int i = 0; i < livresSelect.size(); i++) {
+            					if(((Livre) (livresSelect.toArray()[i])).getId() == livre.getId()) {
+            						counter++;
+            					}
+            				}
+            			}
+            			pT=0.F;
+            			for(int i = 0; i < livresSelect.size(); i++) {
+        					pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
+        				}
+            			pT = Math.round(pT*100f)/100f;
+                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)counter + " - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
+                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)(counter + 1) + " - Prix = " + (Math.round(((counter + 1) * livre.getPrix())*100f)/100f) + " €");
+                		prixt.setText(String.valueOf(pT) + " €");
+					}
 				}
 			}
+			
 		});
 		p.add(b_effacer);
 		
@@ -167,7 +225,10 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_tEffacer.setBounds(540, 555, 400, 50);
 		b_tEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pT = 0f;
+				prixt.setText(String.valueOf(pT) + " €");
 				model2.clear();
+				livresSelect.clear();
 				}
 			});
 		p.add(b_tEffacer);
@@ -178,10 +239,29 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	if(list.getSelectedValue()!=null) {
-	                model2.addElement(list.getSelectedValue());
-	                m.decStockLiv(m.rchLivreId(Integer.parseInt((list.getSelectedValue()).split(" ")[0])),1);
-	                
-	                count++;
+            		Livre livre = m.rchLivreId(Integer.parseInt(list.getSelectedValue().split(" ")[0]));
+            		livresSelect.add(livre);
+            		System.out.println("élément ajouté");
+            		if(!model2.contains(livre.getId() + " - " + livre.getTitre())) {
+            			float counter = 0;
+            			if(!livresSelect.contains(livre)) {
+            				counter++;
+            			} else {
+            				for(int i = 0; i < livresSelect.size(); i++) {
+            					if(((Livre) (livresSelect.toArray()[i])).getId() == livre.getId()) {
+            						counter++;
+            					}
+            				}
+            			}
+            			pT=0.F;
+            			for(int i = 0; i < livresSelect.size(); i++) {
+        					pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
+        				}
+            			pT = Math.round(pT*100f)/100f;
+                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)counter + " - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
+                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)(counter - 1) + " - Prix = " + (Math.round(((counter - 1) * livre.getPrix())*100f)/100f) + " €");
+                		prixt.setText(String.valueOf(pT) + " €");
+            		}
                 }
             }
 		});
@@ -203,8 +283,13 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBounds(540, 650, 400, 60);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(new NewCommande(m, c, list2).status >-1 ) {
+				NewCommande nc = new NewCommande(m, c, livresSelect);
+				if(nc.status == 1) {
+					new Fen5_Ach_Fact(m, c, nc.getCommande(), model2);
 					dispose();
+				} else {
+					JFrame err = new JFrame();
+					JOptionPane.showMessageDialog(err, "La liste de livres sélectionnés est vide.\nImpossible de créer une commande.", "Erreur", 2);
 				}
 			}
 		});
@@ -234,10 +319,10 @@ public class Fen4_Ach_DoAch extends JFrame {
 		});
 		p.add(b_clearSearch);
 		
-		JFrame error = new JFrame();
 		int a = m.listLivre.size();
 		if(a == 0) {
-			JOptionPane.showMessageDialog(error, "La liste de livres est vide", "Avertissement", 1);
+			JFrame err = new JFrame();
+			JOptionPane.showMessageDialog(err, "La liste de livres est vide", "Avertissement", 1);
 		}
 	}
 }

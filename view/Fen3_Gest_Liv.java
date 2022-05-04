@@ -30,7 +30,7 @@ public class Fen3_Gest_Liv extends JFrame {
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez sÃ©lectionner un livre pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
 	
 	public JLabel titre = new JLabel(" ");
 	public JLabel auteur = new JLabel();
@@ -58,7 +58,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBackground(new Color(119, 181, 254));
@@ -70,7 +70,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Liste 1 (Liste d'employÃ©s)
+		// Liste 1 (Liste d'employés)
 
         model = new DefaultListModel<String>();
         for (int i = 0; i < l.getList().length; i++) {
@@ -97,7 +97,7 @@ public class Fen3_Gest_Liv extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations de l'employÃ© sÃ©lectionnÃ©)
+        // Liste 2 (Informations de l'employé sélectionné)
         model2 = new DefaultListModel<String>();
        
         label.setBounds(0,0,400,20);
@@ -134,9 +134,9 @@ public class Fen3_Gest_Liv extends JFrame {
                 	identifiant.setText("Identifiant : ");
                 	editeur.setText("Editeur : ");
                 	dateParution.setText("Date de parution : ");
-                	resume.setText("RÃ©sumÃ© : ");
+                	resume.setText("Résumé : ");
                 	prix.setText("Prix : ");
-                	categorie.setText("CatÃ©gorie : ");
+                	categorie.setText("Catégorie : ");
                 	stock.setText("Stock");
                 	
                 	r_titre.setText(liv.getTitre());
@@ -242,7 +242,7 @@ public class Fen3_Gest_Liv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sÃ©lectionner un livre.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un livre.", "Erreur", 2);
 				}
 				else {
 				dispose();

@@ -2,12 +2,17 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
+import java.util.Vector;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import model.*;
 
 public class Fen5_Ach_Fact extends JFrame {
+	
 	private static final long serialVersionUID = 1L;
+	private static final DecimalFormat df = new DecimalFormat("0.00");
 	
 	private JTextField t_client;
 	private JTextField t_prix;
@@ -16,15 +21,12 @@ public class Fen5_Ach_Fact extends JFrame {
 	JLabel l_facture = new JLabel("Facture ");
 	JLabel l_client = new JLabel("Client : ");
 	JLabel l_achats = new JLabel("Achats : ");
-	private DefaultListModel<String> model;
-	private DefaultListModel<String> model2;
 	
 	JButton b_enreg = new JButton("Enregistrer");
 	JButton b_retour = new JButton("Retour");
-	private final JList<String> l_Prix = new JList<String>();
 	private final JList<String> l_Livres = new JList<String>();
 	
-	public Fen5_Ach_Fact(Magasin m, Client c, Commande cm) {
+	public Fen5_Ach_Fact(Magasin m, Client c, Commande cm, DefaultListModel<String> mod) {
 		
 		// FenÃªtre
 		
@@ -71,9 +73,10 @@ public class Fen5_Ach_Fact extends JFrame {
 		for(int i = 0; i < cm.listLivres.size(); i++) {
         	pT += (((Livre) cm.listLivres.toArray()[i]).getPrix());
         }
+		
 		pT = Math.round(pT*100f)/100f;
 		
-		t_prix = new JTextField("Prix total = " + String.valueOf(pT) + "ï¿½");
+		t_prix = new JTextField("Prix total = " + String.valueOf(pT) + "€");
 		t_prix.setBackground(new Color(102, 255, 204));
 		t_prix.setBounds(125, 425, 325, 30);
 		t_prix.setEditable(false);
@@ -86,35 +89,15 @@ public class Fen5_Ach_Fact extends JFrame {
 		
 		// Liste 1 : Livres
 		
-		model = new DefaultListModel<String>();
-        for(int i = 0; i < cm.listLivres.size(); i++) {
-        	model.addElement("Livre " + (i + 1) + " - " + String.valueOf(((Livre) cm.listLivres.toArray()[i]).getTitre()));
-        }
 		JPanel p_livres = new JPanel();
-		p_livres.setBounds(0, 0, 200, 236);
+		p_livres.setBounds(0, 0, 400, 236);
 		p_achats.add(p_livres);
 		p_livres.setLayout(null);
-		l_Livres.setModel(model);
+		l_Livres.setModel(mod);
 		l_Livres.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		l_Livres.setBounds(0, 0, 200, 236);
+		l_Livres.setBounds(0, 0, 400, 236);
 		
 		p_livres.add(l_Livres);
-		
-		// Liste 2 : Prix
-
-		model2 = new DefaultListModel<String>();
-		for(int i = 0; i < cm.listLivres.size(); i++) {
-        	model2.addElement("Prix : " + String.valueOf(((Livre) cm.listLivres.toArray()[i]).getPrix()) + "ï¿½");
-        }
-		JPanel p_prix = new JPanel();
-		p_prix.setBounds(200, 0, 200, 236);
-		p_achats.add(p_prix);
-		p_prix.setLayout(null);
-		l_Prix.setModel(model2);
-		l_Prix.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		l_Prix.setBounds(0, 0, 200, 236);
-		
-		p_prix.add(l_Prix);
 		
 		// Boutons : Enregistrer, Retour
 		
@@ -128,7 +111,7 @@ public class Fen5_Ach_Fact extends JFrame {
 				JFrame a = new JFrame();
 				dispose();
 				new Fen1(m);
-			    JOptionPane.showMessageDialog(a, "Achat enregistrï¿½ !", "Succï¿½s", 1);
+			    JOptionPane.showMessageDialog(a, "Achat enregistré !", "Succès", 1);
 			}
 		});
 		p.add(b_enreg);

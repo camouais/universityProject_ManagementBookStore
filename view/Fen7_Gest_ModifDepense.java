@@ -151,6 +151,7 @@ public class Fen7_Gest_ModifDepense extends JFrame{
 					}
 				});
 				p.add(b_retour);
+				
 				String[] descs = {"Achat nouveau stock", "Location", "Achat matériel", "Autre"};
 				c_description.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				c_description.setModel(new DefaultComboBoxModel<String>(descs));
@@ -158,6 +159,7 @@ public class Fen7_Gest_ModifDepense extends JFrame{
 				c_description.setSelectedItem(d.getDescription());
 				
 				p.add(c_description);
+				
 				JLabel l_date = new JLabel("Date d\u00E9pense :");
 				l_date.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 				l_date.setBounds(30, 301, 230, 30);

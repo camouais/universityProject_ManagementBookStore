@@ -1,31 +1,14 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import controller.*;
 import model.*;
-
-
-
 
 public class Fen3_Gest_Com extends JFrame {
 		
@@ -62,7 +45,7 @@ public class Fen3_Gest_Com extends JFrame {
 		public JLabel r_prix = new JLabel(" ");
 
 		JButton b_clearSearch = new JButton("X");
-		public JLabel label = new JLabel("Veuillez sï¿½lectionner un achat pour afficher ses informations");
+		public JLabel label = new JLabel("Veuillez sélectionner un achat pour afficher ses informations.");
 
 		private final JComboBox<String> c_filtre = new JComboBox<String>();
 		Commande com;
@@ -70,7 +53,7 @@ public class Fen3_Gest_Com extends JFrame {
 		
 		public Fen3_Gest_Com(Magasin m) {
 			
-			// Fenï¿½tre
+			// Fenêtre
 			
 			p = new JPanel();
 			p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -114,7 +97,7 @@ public class Fen3_Gest_Com extends JFrame {
 	        panel1.add(scrollPane);
 	        p.add(panel1);
 	        
-	        // Liste 2 (Informations de l'achat sï¿½lectionnï¿½)
+	        // Liste 2 (Informations de l'achat sélectionné)
 	        
 	        model2 = new DefaultListModel<String>();
 	        
@@ -150,7 +133,7 @@ public class Fen3_Gest_Com extends JFrame {
 	                	
 	                	
 	                	nom.setText("Nom :");
-	                	prenom.setText("Prï¿½nom :");
+	                	prenom.setText("Prénom :");
 	                	identifiant_com.setText("Identifiant commande :");
 	                	identifiant_cli.setText("Identifiant client:");
 	                	dateC.setText("Date :");

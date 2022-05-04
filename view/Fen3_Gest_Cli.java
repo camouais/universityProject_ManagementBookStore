@@ -59,7 +59,7 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,15 +102,11 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sÃ©lectionnÃ©)
+        // Liste 2 (Informations du client sélectionné)
         
         model2 = new DefaultListModel<String>();
         
-        
-       
         label.setBounds(0,0,400,20);
-        
-        
         
         nom.setBounds			(50,20,200,20);
         prenom.setBounds		(50,40,200,20);
@@ -132,19 +128,16 @@ public class Fen3_Gest_Cli extends JFrame {
 
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
-                	
                 	label.setVisible(false);
                 	
-             
                 	cli = m.rchCli(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
                 	
-                	
                 	nom.setText("Nom :");
-                	prenom.setText("PrÃ©nom :");
+                	prenom.setText("Prénom :");
                 	identifiant.setText("Identifiant :");
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("TÃ©lÃ©phone :");
+                	tel.setText("Téléphone :");
                 	
                 	r_nom.setText(cli.getNom());
                 	r_prenom.setText(cli.getPrenom());
@@ -159,7 +152,7 @@ public class Fen3_Gest_Cli extends JFrame {
 
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Nom","Prenom","id client","Adresse","Date Naissance","Age","Sexe","Date compte","TÃ©lÃ©phone","Mail"}));
+        		{"Nom","Prenom","id client","Adresse","Date Naissance","Age","Sexe","Date compte","Téléphone","Mail"}));
         c_filtre.setBounds(480, 100, 200, 48);
 		
 		p.add(c_filtre);

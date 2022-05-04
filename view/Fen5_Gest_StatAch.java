@@ -15,7 +15,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"id","Nom","Prï¿½nom", "Date", "Nombre d'articles", "Prix total"};
+    String[] entetes1 = {"id","Nom","Prénom", "Date", "Nombre d'articles", "Prix total"};
     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
@@ -32,7 +32,7 @@ public class Fen5_Gest_StatAch extends JFrame {
     
 	public Fen5_Gest_StatAch(Magasin m) {
 		
-		// Fenï¿½tre 
+		// Fenêtre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -62,7 +62,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 		
 	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
-	    // Centre les donnï¿½es du tableaux
+	    // Centre les données du tableaux
 	     custom.setHorizontalAlignment(JLabel.CENTER); 
 	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
 	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
