@@ -51,9 +51,11 @@ public class NewClient {
 			if (checksum > 0) {
 		      c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
 		      m.addCli(c);
-		      new Fen4_Ach_DoAch(m,c);
 		      status = 1;
 			}
 		}
+	}
+	public Client getClient() {
+		return c;
 	}
 } 
