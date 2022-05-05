@@ -22,7 +22,7 @@ public class Magasin implements Serializable {
     private String mdp;
     private String tel;
     private String site;
-    private String dateC; 
+    private LocalDate dateC; 
     // [...]
     public Set<Employe> listEmp = new HashSet<>();
     public Set<Client> listClient = new HashSet<>();
@@ -35,9 +35,6 @@ public class Magasin implements Serializable {
     public Magasin(String name, String mdp) {
     	nom = name;
     	this.mdp = mdp;
-    	dateC = new Date(System.currentTimeMillis()).toInstant()
-				.atOffset(ZoneOffset.UTC)
-				.format( DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
     
     // Méthodes
@@ -548,6 +545,38 @@ public class Magasin implements Serializable {
 	
 	public void setPW(String mdp) {
 		this.mdp = mdp;
+	}
+	
+	public String getAdresse() {
+		return adresse;
+	}
+	
+	public void setAdresse(String a) {
+		adresse = a;
+	}
+	
+	public String getSite() {
+		return site;
+	}
+	
+	public void setSite(String s) {
+		site = s;
+	}
+	
+	public String getTel() {
+		return tel;
+	}
+	
+	public void getTel(String t) {
+		tel = t;
+	}
+	
+	public LocalDate getDateC() {
+		return dateC;
+	}
+	
+	public void setDateC(LocalDate d) {
+		dateC = d;
 	}
     
 }

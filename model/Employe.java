@@ -16,27 +16,25 @@ public class Employe implements Serializable {
     private String adresse;
     private String mail;
     private String tel;
-    private LocalDate dateNaiss;
     private int age;
+
+    private LocalDate dateNaiss;
     private String sexe;
     
     // Constructeur
     
-    public Employe(String n, String p, float s, String f, String a, String ml, String t, LocalDate dateN) {
+    public Employe(String n, String p, String l, float s, String f, String a, String ml, String t,  LocalDate dateN) {
     	nom = n; 
     	prenom = p;
+    	sexe = l;
     	salaire = s;
     	fonction = f;
     	adresse = a;
     	mail = ml;
-    	tel = t;
+    	tel = t;	
     	dateNaiss = dateN;
     	totalE++;
     	id = totalE;
-    }
-    
-    public Employe() {
-    	totalE = 0;
     }
     
     // Méthodes
@@ -117,7 +115,6 @@ public class Employe implements Serializable {
     public void setSexe(String a) {
     	sexe = a;
     }
-    
     public LocalDate getDateNaissance() {
     	return dateNaiss;
     }
@@ -125,5 +122,6 @@ public class Employe implements Serializable {
     public void setDateNaissance(LocalDate a) {
     	dateNaiss = a;
     }
+    
     
 }

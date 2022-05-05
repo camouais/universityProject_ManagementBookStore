@@ -54,15 +54,15 @@ public class Client implements Serializable {
     	totalC = 0;
     }
     
-    // Méthodes
+    // Mï¿½thodes
     
-    // Ajouter / Mettre à jour une adresse mail
+    // Ajouter / Mettre ï¿½ jour une adresse mail
     
     public void updMail(String m) {
     	mail = m;
     }
     
-    // Ajouter / Mettre à jour un numéro de téléphone
+    // Ajouter / Mettre ï¿½ jour un numï¿½ro de tï¿½lï¿½phone
     
     public int getId() {
     	return id;
