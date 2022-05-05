@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import model.Magasin;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class Fen5_Gest_StatCompta extends JFrame{
 	
@@ -18,23 +20,25 @@ public class Fen5_Gest_StatCompta extends JFrame{
 
 	private JPanel p = new JPanel();
 
-	JButton b_recettes = new JButton("RECETTES");
-	JButton b_depenses = new JButton("DEPENSES");
+	JButton b_recettes = new JButton("Recettes");
+	JButton b_depenses = new JButton("D\u00E9penses");
 	JButton b_retour = new JButton("Retour");
+	private final JLabel lblNewLabel = new JLabel("Comptabilit\u00E9s");
 	
 	
 	public Fen5_Gest_StatCompta(Magasin m) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 798, 465);
+		setBounds(100, 100, 500, 260);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
+		p.setBackground(Color.LIGHT_GRAY);
 		setContentPane(p);
 		p.setLayout(null);
 		
 		b_depenses.setBackground(new Color(178, 34, 34));
-		b_depenses.setFont(new Font("Tahoma", Font.BOLD, 35));
-		b_depenses.setBounds(131, 157, 231, 105);
+		b_depenses.setFont(new Font("Tahoma", Font.BOLD, 25));
+		b_depenses.setBounds(30, 100, 200, 60);
 		b_depenses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -44,8 +48,8 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		p.add(b_depenses);
 		
 		b_recettes.setBackground(new Color(135, 206, 235));
-		b_recettes.setFont(new Font("Tahoma", Font.BOLD, 35));
-		b_recettes.setBounds(387, 157, 231, 105);
+		b_recettes.setFont(new Font("Tahoma", Font.BOLD, 25));
+		b_recettes.setBounds(254, 100, 200, 60);
 		b_recettes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -55,8 +59,8 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		p.add(b_recettes);
 		
 		b_retour.setBackground(new Color(200, 100, 100));
-		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		b_retour.setBounds(0, 381, 100, 30);
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		b_retour.setBounds(0, 191, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -64,6 +68,10 @@ public class Fen5_Gest_StatCompta extends JFrame{
 			}
 		});
 		p.add(b_retour);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 35));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 10, 484, 70);
+		
+		p.add(lblNewLabel);
 	}
 }
-

@@ -11,10 +11,11 @@ public class Fen3_Gest_Mag extends JFrame {
 
 	private JPanel p = new JPanel();
 	
-	JButton b_stat = new JButton("STATISTIQUES");
-	JButton b_info =  new JButton("INFORMATIONS");
-	JButton b_empl =  new JButton("EMPLOYES");
-	JButton b_retour = new JButton("RETOUR");
+	JButton b_stat = new JButton("Statistiques");
+	JButton b_info =  new JButton("Informations");
+	JButton b_empl =  new JButton("Employ\u00E9s");
+	JButton b_retour = new JButton("Retour");
+	private final JLabel lblNewLabel = new JLabel("Gestion du magasin");
 	
 	public Fen3_Gest_Mag(Magasin m) {
 		
@@ -22,16 +23,16 @@ public class Fen3_Gest_Mag extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 600, 650);
+		setBounds(0, 0, 500, 460);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 		
-		// Boutons : Informations, Statistiques, EmployÃ©s, Retour
+		// Boutons : Informations, Statistiques, Employés, Retour
 		
-		b_info.setFont(new Font("Tahoma", Font.BOLD, 55));
+		b_info.setFont(new Font("Tahoma", Font.BOLD, 35));
 		b_info.setBackground(new Color(200, 50, 200));
-		b_info.setBounds(50, 50, 500, 100);
+		b_info.setBounds(67, 90, 350, 70);
 		b_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -40,9 +41,9 @@ public class Fen3_Gest_Mag extends JFrame {
 		});
 		p.add(b_info);
 		
-		b_stat.setFont(new Font("Tahoma", Font.BOLD, 55));
+		b_stat.setFont(new Font("Tahoma", Font.BOLD, 35));
 		b_stat.setBackground(new Color(50, 200, 200));
-		b_stat.setBounds(50, 350, 500, 100);
+		b_stat.setBounds(67, 290, 350, 70);
 		b_stat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -51,9 +52,9 @@ public class Fen3_Gest_Mag extends JFrame {
 		});
 		p.add(b_stat);
 		
-		b_empl.setFont(new Font("Tahoma", Font.BOLD, 55));
+		b_empl.setFont(new Font("Tahoma", Font.BOLD, 35));
 		b_empl.setBackground(new Color(200, 200, 50));
-		b_empl.setBounds(50, 200, 500, 100);
+		b_empl.setBounds(67, 190, 350, 70);
 		b_empl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -63,8 +64,8 @@ public class Fen3_Gest_Mag extends JFrame {
 		p.add(b_empl);
 		
 		b_retour.setBackground(new Color(200, 100, 100));
-		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(50, 500, 200, 50);
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		b_retour.setBounds(0, 391, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -72,5 +73,10 @@ public class Fen3_Gest_Mag extends JFrame {
 			}
 		});
 		p.add(b_retour);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 35));
+		lblNewLabel.setBounds(0, 0, 484, 80);
+		
+		p.add(lblNewLabel);
 	}
 }

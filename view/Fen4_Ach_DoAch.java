@@ -150,7 +150,6 @@ public class Fen4_Ach_DoAch extends JFrame {
 						}
 					}
 					for (int i = 0; i < a.length; i++) {
-			        	System.out.println("check2 " + a[i]);
 						model.addElement(a[i]);
 					}
 				}
@@ -183,7 +182,6 @@ public class Fen4_Ach_DoAch extends JFrame {
 							if(!found) {
 								livresSelect.remove(livre);
 								i--;
-								System.out.println("élément retiré");
 								last = true;
 								found = true;
 							} else {
@@ -209,10 +207,14 @@ public class Fen4_Ach_DoAch extends JFrame {
         					pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
         				}
             			pT = Math.round(pT*100f)/100f;
-                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)counter + " - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
-                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)(counter + 1) + " - Prix = " + (Math.round(((counter + 1) * livre.getPrix())*100f)/100f) + " €");
+                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() +  "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
+                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter + 1) + ") - Prix = " + (Math.round(((counter + 1) * livre.getPrix())*100f)/100f) + " €");
                 		prixt.setText(String.valueOf(pT) + " €");
 					}
+				}
+				else {
+					JFrame a = new JFrame();
+				    JOptionPane.showMessageDialog(a, "Si vous souhiatez supprimer un article, veuillez sélectionner un livre de la liste à droite.", "Erreur", 2);
 				}
 			}
 			
@@ -241,7 +243,6 @@ public class Fen4_Ach_DoAch extends JFrame {
             	if(list.getSelectedValue()!=null) {
             		Livre livre = m.rchLivreId(Integer.parseInt(list.getSelectedValue().split(" ")[0]));
             		livresSelect.add(livre);
-            		System.out.println("élément ajouté");
             		if(!model2.contains(livre.getId() + " - " + livre.getTitre())) {
             			float counter = 0;
             			if(!livresSelect.contains(livre)) {
@@ -258,11 +259,14 @@ public class Fen4_Ach_DoAch extends JFrame {
         					pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
         				}
             			pT = Math.round(pT*100f)/100f;
-                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)counter + " - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
-                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" x" + (int)(counter - 1) + " - Prix = " + (Math.round(((counter - 1) * livre.getPrix())*100f)/100f) + " €");
+                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
+                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter - 1) + ") - Prix = " + (Math.round(((counter - 1) * livre.getPrix())*100f)/100f) + " €");
                 		prixt.setText(String.valueOf(pT) + " €");
             		}
-                }
+                }else {
+				JFrame a = new JFrame();
+			    JOptionPane.showMessageDialog(a, "Si vous souhiatez ajouter un article, veuillez sélectionner un livre de la liste à gauche.", "Erreur", 2);
+			}
             }
 		});
 		p.add(b_ajouter);

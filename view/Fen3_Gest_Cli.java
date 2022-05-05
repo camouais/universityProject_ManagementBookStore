@@ -59,7 +59,7 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fenêtre
+		// Fenï¿½tre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -102,7 +102,7 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sélectionné)
+        // Liste 2 (Informations du client sï¿½lectionnï¿½)
         
         model2 = new DefaultListModel<String>();
         
@@ -133,11 +133,11 @@ public class Fen3_Gest_Cli extends JFrame {
                 	cli = m.rchCli(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
                 	
                 	nom.setText("Nom :");
-                	prenom.setText("Prénom :");
+                	prenom.setText("Prï¿½nom :");
                 	identifiant.setText("Identifiant :");
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("Téléphone :");
+                	tel.setText("Tï¿½lï¿½phone :");
                 	
                 	r_nom.setText(cli.getNom());
                 	r_prenom.setText(cli.getPrenom());
@@ -152,7 +152,7 @@ public class Fen3_Gest_Cli extends JFrame {
 
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Nom","Prenom","id client","Adresse","Date Naissance","Age","Sexe","Date compte","Téléphone","Mail"}));
+        		{"Nom","Prenom","id client","Adresse","Date Naissance","Age","Sexe","Date compte","Tï¿½lï¿½phone","Mail"}));
         c_filtre.setBounds(480, 100, 200, 48);
 		
 		p.add(c_filtre);

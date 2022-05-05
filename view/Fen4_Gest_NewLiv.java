@@ -2,11 +2,11 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.swing.*;
 
+import controller.NewDepense;
 import controller.NewLivre;
 import model.*;
 
@@ -25,22 +25,29 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	private JTextField t_langueVO;
 	private JTextField t_stock;
 
+	private JTextField t_idEmploye;
+	private JTextField t_nomEmploye;
 
+	private JTextField t_preEmploye;
+	
+	LocalDate currentdate = LocalDate.now();
+	String v = String.valueOf(currentdate.toString());
+	String strArray[] = v.split("-");
+	
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
-	JComboBox c_jour = new JComboBox();
-	JComboBox c_mois = new JComboBox();
+	JComboBox<String> c_jour = new JComboBox();
+	JComboBox<String> c_mois = new JComboBox();
 	
 	private JTextField t_annee;
 	private JTextField t_pStock;
-	
 	public Fen4_Gest_NewLiv(Magasin m) {
 		contentPane.setBackground(new Color(200, 200, 200));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 864, 800);
+		setBounds(100, 100, 864, 930);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -106,9 +113,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_prix.setBounds(35, 372, 319, 31);
 		contentPane.add(t_prix);
 		
-		// JLabel & JTextfield "Résumé"
+		// JLabel & JTextfield "Rï¿½sumï¿½"
 		
-		JLabel l_resume = new JLabel("Résumé : ");
+		JLabel l_resume = new JLabel("Rï¿½sumï¿½ : ");
 		l_resume.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_resume.setBounds(35, 410, 190, 31);
 		contentPane.add(l_resume);
@@ -119,9 +126,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_resume.setBounds(35, 440, 774, 139);
 		contentPane.add(t_resume);
 		
-		// JLabel & JTextfield "Catégorie"
+		// JLabel & JTextfield "Catï¿½gorie"
 		
-		JLabel l_categorie = new JLabel("Catégorie : ");
+		JLabel l_categorie = new JLabel("Catï¿½gorie : ");
 		l_categorie.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_categorie.setBounds(490, 128, 190, 31);
 		contentPane.add(l_categorie);
@@ -165,12 +172,51 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		l_dateP.setBounds(490, 340, 319, 31);
 		contentPane.add(l_dateP);
 		
+		// JLabel & JTextfield "Langue originale"
+		
+		JLabel l_idEmploye = new JLabel("Identifiant employÃ©");
+		l_idEmploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
+		l_idEmploye.setBounds(35, 667, 319, 31);
+		contentPane.add(l_idEmploye);
+				
+		t_idEmploye = new JTextField();
+		t_idEmploye.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		t_idEmploye.setColumns(10);
+		t_idEmploye.setBounds(35, 700, 319, 31);
+		contentPane.add(t_idEmploye);
+				
+		// JLabel & JTextfield "Langue originale"
+		
+		JLabel l_nomEmploye = new JLabel("Nom employÃ©");
+		l_nomEmploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
+		l_nomEmploye.setBounds(490, 667, 319, 31);
+		contentPane.add(l_nomEmploye);
+				
+		t_nomEmploye = new JTextField();
+		t_nomEmploye.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		t_nomEmploye.setColumns(10);
+		t_nomEmploye.setBounds(490, 700, 319, 31);
+		contentPane.add(t_nomEmploye);
+		
+		// JLabel & JTextfield "Langue originale"
+		
+		JLabel l_preEmploye = new JLabel("PrÃ©nom employÃ©");
+		l_preEmploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
+		l_preEmploye.setBounds(490, 740, 319, 31);
+		contentPane.add(l_preEmploye);
+						
+		t_preEmploye = new JTextField();
+		t_preEmploye.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		t_preEmploye.setColumns(10);
+		t_preEmploye.setBounds(490, 777, 319, 31);
+		contentPane.add(t_preEmploye);
+				
 		// Bouton retour 
 		
 		JButton b_retour = new JButton("Retour");
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(30, 675, 207, 64);
+		b_retour.setBounds(30, 820, 207, 64);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -185,19 +231,35 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		b_enregistrer.setBackground(new Color(255, 215, 0));
 		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_enregistrer.setBackground(new Color(30, 144, 255));
-		b_enregistrer.setBounds(574, 675, 235, 64);
+		b_enregistrer.setBounds(574, 820, 235, 64);
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(new NewLivre(m, t_titre, t_auteur, t_editeur, c_jour, c_mois, t_annee, t_prix, t_categorie, t_resume, t_stock).status == 1) {
+
+				 {System.out.println(currentdate);}
+				 {System.out.println(strArray[1]);}
+				if(new NewLivre(m, t_titre, t_auteur, t_editeur, c_jour, c_mois, t_annee, t_prix, t_categorie, t_resume, t_stock).status == 1  ) {
+				if(
+	new NewDepense(m, t_idEmploye, t_nomEmploye , t_preEmploye, t_pStock, "Achat nouveau stock", currentdate.getDayOfMonth(), strArray[1],currentdate.getYear()).status==1) {
+				  	
+				
+					new Fen3_Gest_Liv(m);
+						
 					dispose();
+					}}
+				else {
+					JFrame a = new JFrame();
+					JOptionPane.showMessageDialog(a, "Veuillez remplir tous les champs.", "Erreur", 2);
+					
 				}
-			}
+				
+				}
+			
 		});
 		contentPane.add(b_enregistrer);
 		
 		JLabel l_prix_1 = new JLabel("Stock initial :");
 		l_prix_1.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
-		l_prix_1.setBounds(35, 590, 190, 31);
+		l_prix_1.setBounds(35, 597, 190, 31);
 		contentPane.add(l_prix_1);
 		
 		t_stock = new JTextField("0");
@@ -226,23 +288,23 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		l_mois.setBounds(600, 372, 80, 31);
 		contentPane.add(l_mois);
 		
-		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		c_jour.setBounds(490, 407, 80, 22);
 		contentPane.add(c_jour);
 		
-		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\\u00E8vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E8cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\\u00E8vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E8cembre"}));
 		c_mois.setBounds(600, 407, 80, 22);
 		contentPane.add(c_mois);
 		
 		JLabel l_pStock = new JLabel("Prix du stock :");
 		l_pStock.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
-		l_pStock.setBounds(380, 590, 190, 31);
+		l_pStock.setBounds(490, 597, 190, 31);
 		contentPane.add(l_pStock);
 		
 		t_pStock = new JTextField();
 		t_pStock.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_pStock.setColumns(10);
-		t_pStock.setBounds(380, 630, 319, 31);
+		t_pStock.setBounds(490, 630, 319, 31);
 		contentPane.add(t_pStock);
 	}
 }

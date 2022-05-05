@@ -10,11 +10,12 @@ public class Fen2_Ach extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JPanel p = new JPanel();
-	private JLabel l_main = new JLabel("Nouveau client ?");
 	
 	JButton b_oui = new JButton("Oui");
 	JButton b_non = new JButton("Non");
-	JButton b_retour = new JButton("RETOUR");
+	JButton b_retour = new JButton("Retour");
+	private final JLabel l_main = new JLabel("Cr\u00E9ation d'un achat");
+	private final JLabel l_newcli = new JLabel("Nouveau client?");
 
 	public Fen2_Ach(Magasin m) {
 		
@@ -28,20 +29,12 @@ public class Fen2_Ach extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 	    setVisible(true);
-	    
-		// JLabel "Nouveau client ?"
-		
-		l_main.setVerticalAlignment(SwingConstants.BOTTOM);
-		l_main.setHorizontalAlignment(SwingConstants.CENTER);
-		l_main.setFont(new Font("Calibri", Font.PLAIN, 60));
-		l_main.setBounds(0, 11, 484, 80);
-		p.add(l_main);
 		
 		// Boutons : Oui, Non, Retour
 		
 		b_oui.setBackground(new Color(100, 255, 100));
-		b_oui.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_oui.setBounds(50, 100, 150, 56);
+		b_oui.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_oui.setBounds(50, 140, 150, 60);
 		b_oui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -51,8 +44,8 @@ public class Fen2_Ach extends JFrame {
 		p.add(b_oui);
 		
 		b_non.setBackground(new Color(255, 100, 100));
-		b_non.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_non.setBounds(284, 100, 150, 56);
+		b_non.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_non.setBounds(284, 140, 150, 60);
 		b_non.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -61,9 +54,9 @@ public class Fen2_Ach extends JFrame {
 		});
 		p.add(b_non);
 		
-		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		b_retour.setBackground(new Color(200, 100, 100));
-		b_retour.setBounds(165, 180, 150, 50);
+		b_retour.setBounds(0, 231, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -71,5 +64,15 @@ public class Fen2_Ach extends JFrame {
 			}
 		});
 		p.add(b_retour);
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Tahoma", Font.BOLD, 35));
+		l_main.setBounds(0, 0, 484, 70);
+		
+		p.add(l_main);
+		l_newcli.setHorizontalAlignment(SwingConstants.CENTER);
+		l_newcli.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		l_newcli.setBounds(50, 81, 384, 30);
+		
+		p.add(l_newcli);
 	}
 }

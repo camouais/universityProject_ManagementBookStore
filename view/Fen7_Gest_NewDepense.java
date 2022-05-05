@@ -43,10 +43,10 @@ private static final long serialVersionUID = 1L;
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
-	JComboBox c_jour = new JComboBox();
-	JComboBox c_mois = new JComboBox();
 	
 	private final JComboBox<String> c_description = new JComboBox<String>();
+	private final JComboBox<String> c_jour = new JComboBox<String>();
+	private final JComboBox<String> c_mois = new JComboBox<String>();
 	private JTextField t_annee;
 	
 	public Fen7_Gest_NewDepense(Magasin m) {
@@ -123,8 +123,11 @@ private static final long serialVersionUID = 1L;
 		b_valider.setBounds(450, 440, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (new NewDepense(m, t_Iemploye, t_Nemploye, t_Pemploye, c_description , t_cout, c_jour, c_mois, t_annee).status ==1) {
+				if (new NewDepense(m, t_Iemploye, t_Nemploye, t_Pemploye,   t_cout,(String) c_description.getSelectedItem() , 
+						(int)((c_jour).getSelectedIndex()),  (String) ((c_mois).getSelectedItem()), Integer.parseInt((t_annee).getText())).status ==1) {
 					dispose();
+
+				    new Fen6_Gest_Depenses(m);
 				} 
 			}
 		});

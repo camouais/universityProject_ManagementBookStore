@@ -16,7 +16,6 @@ public class Fen4_Gest_MagInfo extends JFrame {
 	private JPasswordField t_mdp;
 	private JTextField t_site;
 	private JTextField t_tel;
-	private JTextField t_datec;
 	private JTextField t_annee;
 	
 	JComboBox c_jour = new JComboBox();
@@ -33,25 +32,16 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : Informations du Magasin, Nom, Adresse
-		
-		JLabel l = new JLabel("Informations du magasin");
-		l.setHorizontalAlignment(SwingConstants.CENTER);
-		l.setFont(new Font("Tahoma", Font.BOLD, 40));
-		l.setBounds(0, 0, 550, 82);
-		p.add(l);
+		JLabel l_main = new JLabel("Informations du magasin");
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
+		l_main.setBounds(0, 0, 550, 82);
+		p.add(l_main);
 		
 		JLabel l_nom = new JLabel("Nom :");
 		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_nom.setBounds(20, 100, 150, 30);
 		p.add(l_nom);
-		
-		JLabel l_adresse = new JLabel("Adresse :");
-		l_adresse.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_adresse.setBounds(20, 140, 150, 30);
-		p.add(l_adresse);
-		
-		// Text Field : Nom, Adresse
 		
 		t_nom.setBounds(200, 100, 330, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -59,47 +49,25 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		t_nom.setText(m.getNom());
 		p.add(t_nom);
 		
+		JLabel l_adresse = new JLabel("Adresse :");
+		l_adresse.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_adresse.setBounds(20, 180, 150, 30);
+		p.add(l_adresse);
+		
 		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setColumns(10);
-		t_adresse.setBounds(200, 140, 330, 30);
+		t_adresse.setBounds(200, 180, 330, 30);
 		p.add(t_adresse);
-		
-		// Boutons : Retour, Enregistrer
-		
-		JButton b_retour = new JButton("RETOUR");
-		b_retour.setBackground(new Color(255, 215, 0));
-		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_retour.setBounds(50, 400, 150, 50);
-		b_retour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new Fen3_Gest_Mag(m);
-			}
-		});
-		p.add(b_retour);
-		
-		JButton b_enreg = new JButton("ENREGISTRER");
-		b_enreg.setBackground(new Color(0, 128, 0));
-		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_enreg.setBounds(300, 400, 200, 50);
-		b_enreg.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
-            	JFrame a = new JFrame();
-    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
-            }
-        });
-		p.add(b_enreg);
 		
 		JLabel l_mdp = new JLabel("Mot de passe :");
 		l_mdp.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_mdp.setBounds(20, 180, 150, 30);
+		l_mdp.setBounds(20, 140, 150, 30);
 		p.add(l_mdp);
 		
-		t_mdp = new JPasswordField();
+		t_mdp = new JPasswordField(m.getPW());
 		t_mdp.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_mdp.setColumns(10);
-		t_mdp.setBounds(200, 180, 330, 30);
+		t_mdp.setBounds(200, 140, 330, 30);
 		p.add(t_mdp);
 		
 		JLabel l_site = new JLabel("Lien site web :");
@@ -129,12 +97,6 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		l_datec.setBounds(20, 300, 150, 30);
 		p.add(l_datec);
 		
-		t_datec.setEditable(false);
-		t_datec.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_datec.setColumns(10);
-		t_datec.setBounds(200, 300, 330, 30);
-		p.add(t_datec);
-		
 		JLabel l_jour = new JLabel("Jour :");
 		l_jour.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_jour.setBounds(200, 300, 100, 30);
@@ -163,5 +125,32 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
 		c_mois.setBounds(310, 341, 100, 30);
 		p.add(c_mois);
+		
+		JButton b_retour = new JButton("RETOUR");
+		b_retour.setBackground(new Color(255, 215, 0));
+		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_retour.setBounds(50, 400, 150, 50);
+		b_retour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new Fen3_Gest_Mag(m);
+			}
+		});
+		p.add(b_retour);
+		
+		JButton b_enreg = new JButton("ENREGISTRER");
+		b_enreg.setBackground(new Color(0, 128, 0));
+		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_enreg.setBounds(300, 400, 200, 50);
+		b_enreg.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
+            	JFrame a = new JFrame();
+    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+            }
+        });
+		p.add(b_enreg);
+		
+		
 	}
 }

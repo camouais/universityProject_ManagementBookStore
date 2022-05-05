@@ -21,7 +21,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	private JList<String> list2 = new JList<String>();
 	public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Employés");
+	private JLabel l_main = new JLabel("Employï¿½s");
     
 	JScrollPane scrollPane = new JScrollPane();
 	JScrollPane scrollPane2 = new JScrollPane();
@@ -30,7 +30,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez sélectionner un employé pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez sï¿½lectionner un employï¿½ pour afficher ses informations.");
 	
 	public JLabel nom = new JLabel(" ");
 	public JLabel prenom = new JLabel();
@@ -55,7 +55,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// Fenêtre
+		// Fenï¿½tre
 		
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
@@ -67,7 +67,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employés)
+		// Panel 1 (Liste d'employï¿½s)
 		
 		ListEmploye le = new ListEmploye(m, m.listEmp);
 		
@@ -97,7 +97,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel1.add(scrollPane);
 		p.add(panel1);
 		
-		// Panel 2 (Informations de l'employé sélectionné)
+		// Panel 2 (Informations de l'employï¿½ sï¿½lectionnï¿½)
         model2 = new DefaultListModel<String>();
 		
 		label.setBounds(0,0,400,20);
@@ -136,14 +136,14 @@ public class Fen4_Gest_MagEmp extends JFrame {
                 	tel.setText(emp.getTel());
                 	
                 	nom.setText("Nom :");
-                	prenom.setText("Prénom :");
+                	prenom.setText("Prï¿½nom :");
                 	identifiant.setText("Identifiant :");
                 	fonction.setText("Fonction :");
                 	salaire.setText("Salaire : ");
                 	
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("Téléphone :");
+                	tel.setText("Tï¿½lï¿½phone :");
                 	
                 	r_nom.setText(emp.getNom());
                 	r_prenom.setText(emp.getPrenom());
@@ -159,7 +159,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Nom", "Prenom", "id employe", "Adresse", "Date Naissance", "Age", "Sexe", "Fonction", "Téléphone", "Mail"}));
+        		{"Nom", "Prenom", "id employe", "Adresse", "Date Naissance", "Age", "Sexe", "Fonction", "Tï¿½lï¿½phone", "Mail"}));
         c_filtre.setBounds(480, 100, 200, 48);
 		
 		p.add(c_filtre);
@@ -195,7 +195,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'un employé
+		// Textfield - Recherche d'un employï¿½
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un livre");
@@ -231,7 +231,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Employés"
+		// JLabel "Employï¿½s"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Arial", Font.BOLD, 50));
@@ -247,7 +247,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sélectionner un employé.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez sï¿½lectionner un employï¿½.", "Erreur", 2);
 				} else {
 				dispose();
 				new Fen5_Gest_ModifEmp(m, emp);
