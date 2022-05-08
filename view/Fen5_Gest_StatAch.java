@@ -15,7 +15,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"id","Nom","Pr�nom", "Date", "Nombre d'articles", "Prix total"};
+    String[] entetes1 = {"Nom","Pr�nom", "Date", "Nombre d'articles", "Prix total"};
     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
@@ -44,16 +44,15 @@ public class Fen5_Gest_StatAch extends JFrame {
 		p.setBackground(new Color(221, 150, 221));
 		
 		// Tableau
-	    String[][] donnees2 = new String[m.listClient.size()][6];
+	    String[][] donnees2 = new String[m.listClient.size()][5];
 	   
 	    for(int i = 0; i < m.listCom.size(); i++) {
-	    	String[] temp = new String[6];
-	    	temp[0] = String.valueOf((((Commande) (m.listCom.toArray()[i])).getId()));
-	    	temp[1] = (((Commande) (m.listCom.toArray()[i])).getClient()).getNom();
-	    	temp[2] = (((Commande) (m.listCom.toArray()[i])).getClient()).getPrenom();
-	    	temp[3] = ((Commande) (m.listCom.toArray()[i])).getDateAchat().toString();
-	    	temp[4] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getAchat(((Commande) (m.listCom.toArray()[i])).getClient()).size());
-	    	temp[5] = ((Commande) (m.listCom.toArray()[i])).getPrixTotal();
+	    	String[] temp = new String[5];
+	    	temp[0] = (((Commande) (m.listCom.toArray()[i])).getClient()).getNom();
+	    	temp[1] = (((Commande) (m.listCom.toArray()[i])).getClient()).getPrenom();
+	    	temp[2] = ((Commande) (m.listCom.toArray()[i])).getDateAchat().toString();
+	    	temp[3] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getAchat(((Commande) (m.listCom.toArray()[i])).getClient()).size());
+	    	temp[4] = ((Commande) (m.listCom.toArray()[i])).getPrixTotal();
 	    	
 	    	donnees2[i] = temp;
 	    }
