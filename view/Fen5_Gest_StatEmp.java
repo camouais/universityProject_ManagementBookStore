@@ -73,7 +73,7 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
 	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
-	    l_stem.setBounds(125, 50, 750, 42);
+	    l_stem.setBounds(107, 50, 800, 42);
 	    p.add(l_stem);
 	    
 	    // JLabel "Nombre total d'employ�s"
