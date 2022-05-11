@@ -2,16 +2,15 @@ package model;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Commande  {
+public class Commande implements Serializable {
 	
 	// Attributs
 	
-	public static int totalCom;
-	
+	private static final long serialVersionUID = 1L;
+	private static int totalCom;
 	private int id;
 	private LocalDate dateAchat;
 	private Client client;

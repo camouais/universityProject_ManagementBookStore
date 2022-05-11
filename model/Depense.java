@@ -4,8 +4,7 @@ import java.time.*;
 
 public class Depense {
 	
-	public static int totalDep;
-	
+	private static int totalDep;
 	private float cout;
 	private LocalDate dateDep;
 	private Employe emp;

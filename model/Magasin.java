@@ -1,29 +1,20 @@
 package model;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Magasin implements Serializable {
 	
 	// Attributs
-	
-    private String nom;
+	private static final long serialVersionUID = 1L;
+	private String nom;
     private String adresse;
     private String mdp;
     private String tel;
     private String site;
     private LocalDate dateC; 
-    // [...]
     public Set<Employe> listEmp = new HashSet<>();
     public Set<Client> listClient = new HashSet<>();
     public Set<Commande> listCom = new HashSet<>();
@@ -76,7 +67,8 @@ public class Magasin implements Serializable {
     //-----------------DEPENSES-----------------//
     //////////////////////////////////////////////
     
-    // Ajout d'une nouvelle
+    // Ajout d'une nouvelle dépense
+    
     public int addDepense(Depense d) {
     	if(!listDep.contains(d)) {
     		listDep.add(d);
@@ -94,7 +86,7 @@ public class Magasin implements Serializable {
     }
     
    
-    // Recherche d'une dÃ©pense par son id 
+    // Recherche d'une dépense par son id 
     
     public Depense rchDep(int id) {
     	Depense[] t = new Depense[listDep.size()];
@@ -106,7 +98,7 @@ public class Magasin implements Serializable {
 		return null;
     }
     
-    // Recherche d'une dÃ©pense par sa description
+    // Recherche d'une dépense par sa description
     
     public Depense getDepDesc(String d) {
     	Depense[] t = new Depense[listDep.size()];
@@ -118,7 +110,7 @@ public class Magasin implements Serializable {
 		return null;
     }
     
-    // Obtenir la valeur de la dÃ©pense totale d'un magasin
+    // Obtenir la valeur de la dépense totale d'un magasin
     
     public float getAllDepenses(Magasin m) {
         float dep = 0.F;
@@ -156,9 +148,6 @@ public class Magasin implements Serializable {
     	}
     	return -1;
     }
-    
-    
-   
     
     // Obtenir le stock total des livres
     
@@ -221,24 +210,21 @@ public class Magasin implements Serializable {
     // Recherche d'un livre par son titre
     public Livre rchLivre(String titre) {
 		Livre[] t = new Livre[listLivre.size()];
-		System.out.println("Recherche du livre ayant le titre " + titre + " dans la BDD");
 		for (int i = 0; i < listLivre.size(); i++) {
-			System.out.println("Comparaison avec l'ï¿½lï¿½ment " + i + " ayant le titre : " + listLivre.toArray(t)[i].getTitre());
 			if(listLivre.toArray(t)[i].getTitre().equals(titre)) {
 				return (Livre) listLivre.toArray()[i];
 			}
 		}
-		System.out.println("Fin de recherche");
 		return null;
     }
 	
     // Decrementer le stock d'un livre
     public int decStockLiv(Livre l, int n) {
-		if(listLivre.contains(l)) {
-			l.setStock(n-1);
-			return 0;
-		}
-		return -1;
+    	if(listLivre.contains(l)) {
+    		l.decStock(1);
+    		return 0;
+    	}
+    	return -1;
     }
     
     
@@ -246,7 +232,7 @@ public class Magasin implements Serializable {
     //-----------------CLIENTS-----------------//
     /////////////////////////////////////////////
 	
-    // Recherche d'un client par son nom et prÃ©nom
+    // Recherche d'un client par son nom et prénom
 	
     public Client rchCli_npmail(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
@@ -384,15 +370,15 @@ public class Magasin implements Serializable {
     }
     
     
-    // Liste des clients possÃ©dant la mÃªme date de crÃ©ation de compte
+    // Liste des clients possédant la même date de création de compte
     
-    public Client listDatCompCli(Date d) {
-    	
-    	Set<Client> s = new HashSet<>();
-    	Client[] tab = new Client[listClient.size()];
+    public Client listDatCompCli(LocalDate d) {
+        
+        Set<Client> s = new HashSet<>();
+        Client[] tab = new Client[listClient.size()];
         for (int i = 0; i < listClient.size(); i++) {
-        	if(listClient.toArray(tab)[i].getDateCC()== d) {
-            	s.add(listClient.toArray(tab)[i]);
+            if(listClient.toArray(tab)[i].getDateCC() == d) {
+                s.add(listClient.toArray(tab)[i]);
             }
         }
         return (Client) s;

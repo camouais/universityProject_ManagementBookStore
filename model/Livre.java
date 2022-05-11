@@ -1,30 +1,24 @@
 package model;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
-import javax.swing.JLabel;
-
 public class Livre implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	// Attributs
-    public static int totalLivre;
-	
-    public Set<Commande> listCom;
+    private static int totalLivre;
+    private int id;
     private String titre;
     private String auteur;
     private String editeur;
     private LocalDate dateParution;
-    private String resume;
-    public float prix;
-    public int id;
     private int qtStock;
     private int qtEntree;
-    public String categorie;
-    public Set<String> l_format;
-    public Set<String> l_trad;
+    private String categorie;
+    private float prix;
+    public Set<Commande> listCom;
 
     // Constructeur
     
@@ -36,7 +30,7 @@ public class Livre implements Serializable {
     	this.categorie = categorie;
     	this.prix = prix;
     	qtEntree = qtStock;
-    	this.qtStock = qtStock;
+    	this.qtStock = qtEntree;
     	totalLivre++;
     	id = totalLivre;
     }
@@ -86,14 +80,6 @@ public class Livre implements Serializable {
     	dateParution = t;
     }
     
-    public String getResume() {
-    	return resume;
-    }
-    
-    public void setResume(String t) {
-    	resume = t;
-    }
-    
     public float getPrix() {
     	return prix;
     }
@@ -124,6 +110,10 @@ public class Livre implements Serializable {
 		}
 		qtStock = s;
 	}
+    
+    public void decStock(int s) {
+    	qtStock -= s;
+    }
     
     public int qtSortie() {
     	return qtEntree - qtStock;

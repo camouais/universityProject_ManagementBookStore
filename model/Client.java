@@ -7,18 +7,18 @@ import java.util.*;
 
 public class Client implements Serializable {
 	
-    // Attributs
-
-    public static int totalC;
+	private static final long serialVersionUID = 1L;
+	
+	// Attributs
+	private static int totalC;
     private int id;
     private String nom;
     private String prenom;
     private String mail;
     private String tel;
-    private Date dateCreationCompte;
+    private LocalDate dateCreationCompte;
     private LocalDate dateNaiss;
     private String adresse;
-    private int age;
     private String sexe;
     public Vector<Commande> listCom = new Vector<Commande>();
     
@@ -30,21 +30,8 @@ public class Client implements Serializable {
     	sexe = s;
     	mail = am;
     	tel = t;
-    	dateCreationCompte = new Date(System.currentTimeMillis());
+    	dateCreationCompte = LocalDate.now();
     	dateNaiss = dn;
-    	adresse = ad;
-    	totalC++;
-    	id = totalC;
-    }
-    
-
-    public Client(String n, String p, String ad, String t, String am, String s) {
-    	nom = n;
-    	prenom = p;
-    	sexe = s;
-    	mail = am;
-    	tel = t;
-    	dateCreationCompte = new Date(System.currentTimeMillis());
     	adresse = ad;
     	totalC++;
     	id = totalC;
@@ -54,15 +41,7 @@ public class Client implements Serializable {
     	totalC = 0;
     }
     
-    // Mï¿½thodes
-    
-    // Ajouter / Mettre ï¿½ jour une adresse mail
-    
-    public void updMail(String m) {
-    	mail = m;
-    }
-    
-    // Ajouter / Mettre ï¿½ jour un numï¿½ro de tï¿½lï¿½phone
+    // Méthodes
     
     public int getId() {
     	return id;
@@ -109,11 +88,8 @@ public class Client implements Serializable {
     }
     
     public int getAge() {
-    	return age;
-    }
-    
-    public void setAge(int a) {
-    	age = a;
+    	LocalDate curDate = LocalDate.now();
+    	return Period.between(dateNaiss, curDate).getYears();
     }
     
     public String getSexe() {
@@ -124,7 +100,7 @@ public class Client implements Serializable {
     	sexe = a;
     }
     
-    public Date getDateCC() {
+    public LocalDate getDateCC() {
     	return dateCreationCompte;
     }
     
@@ -134,11 +110,6 @@ public class Client implements Serializable {
     
     public void setDateNaissance(LocalDate a) {
     	dateNaiss = a;
-    }
-    
-    public int age() {
-    	LocalDate curDate = LocalDate.now();
-    	return Period.between(dateNaiss, curDate).getYears();
     }
 } 
     

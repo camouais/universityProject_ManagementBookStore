@@ -2,12 +2,12 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.*;
 
 public class Employe implements Serializable {
 	
-    // Attributs
-	public static int totalE;
+	private static final long serialVersionUID = 1L;
+	// Attributs
+	private static int totalE;
     private int id; 
 	private String nom;
     private String prenom;
