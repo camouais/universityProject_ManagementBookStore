@@ -18,8 +18,8 @@ public class Fen4_Gest_MagInfo extends JFrame {
 	private JTextField t_tel;
 	private JTextField t_annee;
 	
-	JComboBox c_jour = new JComboBox();
-	JComboBox c_mois = new JComboBox();
+	JComboBox<String> c_jour = new JComboBox<String>();
+	JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen4_Gest_MagInfo(Magasin m) {
 		
@@ -118,11 +118,11 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		t_annee.setBounds(420, 341, 100, 30);
 		p.add(t_annee);
 		
-		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		c_jour.setBounds(200, 341, 100, 30);
 		p.add(c_jour);
 		
-		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
 		c_mois.setBounds(310, 341, 100, 30);
 		p.add(c_mois);
 		

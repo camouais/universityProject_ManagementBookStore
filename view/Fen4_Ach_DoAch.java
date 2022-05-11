@@ -3,6 +3,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.util.regex.Pattern;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -53,9 +54,14 @@ public class Fen4_Ach_DoAch extends JFrame {
 		setVisible(true);
 		
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Categorie", "Titre", "id livre", "Auteur", "Date", "Editeur"}));
-        c_filtre.setBounds(480, 100, 200, 48);
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Cat\u00E9gorie", 
+        		"Titre", 
+        		"ID livre", 
+        		"Auteur", 
+        		"Date", 
+        		"Editeur"}));
+        c_filtre.setBounds(540, 100, 400, 45);
 		
 		p.add(c_filtre);
 		
@@ -99,7 +105,7 @@ public class Fen4_Ach_DoAch extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel2.setBounds(540, 150, 400, 300);
 		panel2.setLayout(null);
-		scrollPane2.setBounds(0, 0, 400, 350);
+		scrollPane2.setBounds(0, 0, 400, 300);
 		panel2.add(scrollPane2);
 		p.add(panel2);
 		
@@ -107,7 +113,7 @@ public class Fen4_Ach_DoAch extends JFrame {
         
 		JLabel prix = new JLabel("Prix total :");
 
-		JLabel prixt = new JLabel("0 €");
+		JLabel prixt = new JLabel("0 \u20AC");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         panel3.add(prix);
@@ -118,7 +124,7 @@ public class Fen4_Ach_DoAch extends JFrame {
         prixt.setBounds(320,10,100,30);
         prixt.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-        panel3.setBounds(540, 445, 400, 45);
+        panel3.setBounds(540, 450, 400, 45);
 		panel3.setLayout(null);
 		p.add(panel3);
 		// Textfield - Recherche de livres
@@ -202,19 +208,19 @@ public class Fen4_Ach_DoAch extends JFrame {
             					}
             				}
             			}
-            			pT=0.F;
-            			for(int i = 0; i < livresSelect.size(); i++) {
-        					pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
-        				}
-            			pT = Math.round(pT*100f)/100f;
-                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() +  "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
-                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter + 1) + ") - Prix = " + (Math.round(((counter + 1) * livre.getPrix())*100f)/100f) + " €");
-                		prixt.setText(String.valueOf(pT) + " €");
+                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() +  "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " \u20AC");
+                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter + 1) + ") - Prix = " + (Math.round(((counter + 1) * livre.getPrix())*100f)/100f) + " \u20AC");
 					}
+            		pT=0.F;
+            		for(int i = 0; i < livresSelect.size(); i++) {
+        				pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
+        			}
+            		pT = Math.round(pT*100f)/100f;
+					prixt.setText(String.valueOf(pT) + " \u20AC");
 				}
 				else {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Si vous souhiatez supprimer un article, veuillez sélectionner un livre de la liste à droite.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Si vous souhiatez supprimer un article, veuillez s\u00E9lectionner un livre de la liste \u00E0 droite.", "Erreur", 2);
 				}
 			}
 			
@@ -228,7 +234,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_tEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pT = 0f;
-				prixt.setText(String.valueOf(pT) + " €");
+				prixt.setText(String.valueOf(pT) + " \u20AC");
 				model2.clear();
 				livresSelect.clear();
 				}
@@ -241,32 +247,47 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	if(list.getSelectedValue()!=null) {
+            		int ctrl = 0;
             		Livre livre = m.rchLivreId(Integer.parseInt(list.getSelectedValue().split(" ")[0]));
-            		livresSelect.add(livre);
-            		if(!model2.contains(livre.getId() + " - " + livre.getTitre())) {
-            			float counter = 0;
-            			if(!livresSelect.contains(livre)) {
-            				counter++;
-            			} else {
-            				for(int i = 0; i < livresSelect.size(); i++) {
-            					if(((Livre) (livresSelect.toArray()[i])).getId() == livre.getId()) {
-            						counter++;
-            					}
-            				}
-            			}
-            			pT=0.F;
-            			for(int i = 0; i < livresSelect.size(); i++) {
-        					pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
-        				}
-            			pT = Math.round(pT*100f)/100f;
-                		model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " €");
-                		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter - 1) + ") - Prix = " + (Math.round(((counter - 1) * livre.getPrix())*100f)/100f) + " €");
-                		prixt.setText(String.valueOf(pT) + " €");
+            		if(livre.getStock()<=0){
+            			JFrame a = new JFrame();
+					    JOptionPane.showMessageDialog(a, "Pas assez de livres en stock pour cet ajout.", "Erreur", 2);
+					    ctrl++;
             		}
-                }else {
-				JFrame a = new JFrame();
-			    JOptionPane.showMessageDialog(a, "Si vous souhiatez ajouter un article, veuillez sélectionner un livre de la liste à gauche.", "Erreur", 2);
-			}
+            		for(int i = 0; i < model2.size(); i++) {
+            			if(livre.getId() == Integer.parseInt(((String)(model2.toArray()[i])).split(" ")[0])) {
+	            			if(livre.getStock() <= Integer.parseInt(((String) model2.toArray()[i]).split(Pattern.quote(")"))[0].split(Pattern.quote("("))[1].split("x")[1])) {
+								JFrame a = new JFrame();
+							    JOptionPane.showMessageDialog(a, "Pas assez de livres en stock pour cet ajout.", "Erreur", 2);
+							    ctrl++;
+	            			}
+            			}
+            		}
+            		if(ctrl == 0) {
+	            		livresSelect.add(livre);
+	            		float counter = 0;
+	            		if(!livresSelect.contains(livre)) {
+	            			counter++;
+	            		} else {
+	            			for(int i = 0; i < livresSelect.size(); i++) {
+	            				if(((Livre) (livresSelect.toArray()[i])).getId() == livre.getId()) {
+	            					counter++;
+	            				}
+	            			}
+	            		}
+	            		pT=0.F;
+	            		for(int i = 0; i < livresSelect.size(); i++) {
+	        				pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
+	        			}
+	            		pT = Math.round(pT*100f)/100f;
+	                	model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " \u20AC");
+	                	model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter - 1) + ") - Prix = " + (Math.round(((counter - 1) * livre.getPrix())*100f)/100f) + " \u20AC");
+	                	prixt.setText(String.valueOf(pT) + " \u20AC");
+	            	}
+            	} else {
+	                JFrame a = new JFrame();
+					JOptionPane.showMessageDialog(a, "Si vous souhiatez ajouter un article, veuillez s\u00E9lectionner un livre de la liste de gauche.", "Erreur", 2);
+            	}
             }
 		});
 		p.add(b_ajouter);
@@ -293,7 +314,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 					dispose();
 				} else {
 					JFrame err = new JFrame();
-					JOptionPane.showMessageDialog(err, "La liste de livres sélectionnés est vide.\nImpossible de créer une commande.", "Erreur", 2);
+					JOptionPane.showMessageDialog(err, "La liste de livres s\u00E9lectionn\u00E9s est vide.\nImpossible de cr\u00E9er une commande.", "Erreur", 2);
 				}
 			}
 		});

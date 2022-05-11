@@ -24,14 +24,14 @@ public class Fen6_Gest_Depenses extends JFrame {
 	private JPanel panel2 = new JPanel();
 	public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Gestion des dépenses");
+	private JLabel l_main = new JLabel("Gestion des d\u00E9penses");
 	
 	JButton b_modifier = new JButton("Modifier");
 	JButton b_ajouter = new JButton("Ajouter");
 	JButton b_retour = new JButton("RETOUR");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez s�lectionner une dépense pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez s\u00E9lectionner une d\u00E9pense pour afficher ses informations.");
 	
 	public JLabel identifiant = new JLabel(" ");
 	public JLabel description = new JLabel(" ");
@@ -133,10 +133,10 @@ public class Fen6_Gest_Depenses extends JFrame {
                 	identifiant.setText("Identifiant :");
                 	description.setText("Description :");
                 	cout.setText("Cout :");
-                	Nemploye.setText("Nom de l'employé :");
-                	Pemploye.setText("Nom de l'employé :");
-                	Iemploye.setText("Identifiant de l'employé :");
-                	dateDep.setText("Date de la dépense :");
+                	Nemploye.setText("Nom de l'employ\u00E9 :");
+                	Pemploye.setText("Nom de l'employ\u00E9 :");
+                	Iemploye.setText("Identifiant de l'employ\u00E9 :");
+                	dateDep.setText("Date de la d\u00E9pense :");
                 	
                 	r_identifiant.setText(String.valueOf(dep.getId()));
                 	r_description.setText(dep.getDescription());
@@ -150,7 +150,7 @@ public class Fen6_Gest_Depenses extends JFrame {
         });
         
         c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "id dépense", "id employe", "nom employe", "date"}));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "id d\u00E9pense", "id employ\u00E9", "nom employe", "date"}));
         c_filtre.setBounds(480, 100, 200, 48);
 
 		p.add(c_filtre);
@@ -185,7 +185,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'une dépense	
+		// Textfield - Recherche d'une d�pense	
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez une dépense");
 		t_rech.setBounds(50, 100, 345, 45);
@@ -238,7 +238,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue() == null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez s\u00E9lectionner une dépense.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez s\u00E9lectionner une d\u00E9pense.", "Erreur", 2);
 				} else {
 					dispose();
 					new Fen7_Gest_ModifDepense(m, dep);

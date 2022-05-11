@@ -1,20 +1,9 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.Color;
-import javax.swing.border.BevelBorder;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
 
 import model.Magasin;
 
@@ -22,7 +11,7 @@ public class Fen6_Gest_Recettes extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel l_compta = new JLabel("Comptabilit\u00E9");
+	private JLabel l_compta = new JLabel("Comptabilit\u00E9s");
 	private JLabel l_totalVentes = new JLabel("Prix total des ventes");
 	private JLabel l_valeur_totalVentes = new JLabel("Error");
 	private JLabel l_totalDepenses = new JLabel("Prix total des d\u00E9penses");
@@ -47,13 +36,13 @@ public class Fen6_Gest_Recettes extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 900, 600);
+		setBounds(0, 0, 900, 450);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 		
 		panel1.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 128, 128), null, null, null));
-		panel1.setBounds(62, 126, 226, 116);
+		panel1.setBounds(62, 100, 226, 116);
 		p.add(panel1);
 		panel1.setLayout(null);
 		
@@ -70,7 +59,7 @@ public class Fen6_Gest_Recettes extends JFrame {
 		panel1.add(l_valeur_totalVentes);
 		
 		panel2.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 128, 128), null, null, null));
-		panel2.setBounds(331, 126, 226, 116);
+		panel2.setBounds(331, 100, 226, 116);
 		p.add(panel2);
 		panel2.setLayout(null);
 		
@@ -86,7 +75,7 @@ public class Fen6_Gest_Recettes extends JFrame {
 		panel2.add(l_valeur_totalDepenses);
 		
 		panel3.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 128, 128), null, null, null));
-		panel3.setBounds(593, 126, 226, 116);
+		panel3.setBounds(593, 100, 226, 116);
 		p.add(panel3);
 		panel3.setLayout(null);
 		
@@ -102,7 +91,7 @@ public class Fen6_Gest_Recettes extends JFrame {
 		panel3.add(l_valeur_sommeSalaires);
 		
 		panel4.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(192, 192, 192), null, null, null));
-		panel4.setBounds(145, 301, 587, 116);
+		panel4.setBounds(145, 250, 587, 116);
 		p.add(panel4);
 		panel4.setLayout(null);
 		
@@ -118,13 +107,13 @@ public class Fen6_Gest_Recettes extends JFrame {
 		panel4.add(l_valeur_recette);
 		
 		l_compta.setHorizontalAlignment(SwingConstants.CENTER);
-		l_compta.setFont(new Font("Tahoma", Font.PLAIN, 47));
-		l_compta.setBounds(130, 39, 613, 58);
+		l_compta.setFont(new Font("Tahoma", Font.BOLD, 40));
+		l_compta.setBounds(0, 20, 884, 58);
 		p.add(l_compta);
 		
-		b_retour.setBackground(Color.ORANGE);
-		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 34));
-		b_retour.setBounds(707, 451, 167, 49);
+		b_retour.setBackground(new Color(200, 100, 100));
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		b_retour.setBounds(0, 381, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

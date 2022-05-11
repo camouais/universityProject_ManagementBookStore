@@ -45,15 +45,14 @@ public class Fen3_Gest_Com extends JFrame {
 		public JLabel r_prix = new JLabel(" ");
 
 		JButton b_clearSearch = new JButton("X");
-		public JLabel label = new JLabel("Veuillez sï¿½lectionner un achat pour afficher ses informations.");
+		public JLabel label = new JLabel("Veuillez s\u00E9lectionner une commande pour afficher ses informations.");
 
 		private final JComboBox<String> c_filtre = new JComboBox<String>();
 		Commande com;
-    
 		
 		public Fen3_Gest_Com(Magasin m) {
 			
-			// Fenï¿½tre
+			// Fenêtre
 			
 			p = new JPanel();
 			p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -85,8 +84,6 @@ public class Fen3_Gest_Com extends JFrame {
 	        }
 	        
 	        list.setModel(model);
-	        
-	        
 	        list.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	        scrollPane.setViewportView(list);
 	        list.setLayoutOrientation(JList.VERTICAL);
@@ -97,15 +94,11 @@ public class Fen3_Gest_Com extends JFrame {
 	        panel1.add(scrollPane);
 	        p.add(panel1);
 	        
-	        // Liste 2 (Informations de l'achat sï¿½lectionnï¿½)
+	        // Liste 2 (Informations de l'achat sélectionné)
 	        
 	        model2 = new DefaultListModel<String>();
 	        
-	        
-	        
 	        label.setBounds(0,0,400,20);
-	        
-	        
 	        
 	        identifiant_com.setBounds	(50,20,200,20);
 	        identifiant_cli.setBounds 	(50,40,200,20);
@@ -125,35 +118,36 @@ public class Fen3_Gest_Com extends JFrame {
 
 	            public void valueChanged(ListSelectionEvent arg0) {
 	                if (!arg0.getValueIsAdjusting()) {
-	                	
 	                	label.setVisible(false);
-	                	
-	             
-	                	com = m.rchCm1(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
-	                	
-	                	
-	                	nom.setText("Nom :");
-	                	prenom.setText("Prï¿½nom :");
-	                	identifiant_com.setText("Identifiant commande :");
-	                	identifiant_cli.setText("Identifiant client:");
-	                	dateC.setText("Date :");
-	                	prix.setText("Prix total : ");
-	                	
-	                	r_nom.setText(com.getClient().getNom());
-	                	r_prenom.setText((com.getClient()).getPrenom());
-	                	r_identifiant_com.setText(String.valueOf(com.getId()));
-	                	r_dateC.setText(com.getDateAchat().toString());
-	                	r_identifiant_cli.setText(String.valueOf((com.getClient()).getId()));	
-	                	r_prix.setText(com.getPrixTotal());
-	                	
+	                	if(list.getSelectedValue() != null) {
+		                	com = m.rchCm1(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
+		                	
+		                	nom.setText("Nom :");
+		                	prenom.setText("Pr\u00E9nom :");
+		                	identifiant_com.setText("Identifiant Commande :");
+		                	identifiant_cli.setText("Identifiant Client :");
+		                	dateC.setText("Date :");
+		                	prix.setText("Prix total :");
+		                	
+		                	r_nom.setText(com.getClient().getNom());
+		                	r_prenom.setText((com.getClient()).getPrenom());
+		                	r_identifiant_com.setText(String.valueOf(com.getId()));
+		                	r_dateC.setText(com.getDateAchat().toString());
+		                	r_identifiant_cli.setText(String.valueOf((com.getClient()).getId()));	
+		                	r_prix.setText(com.getPrixTotal());
+	                	}
 	                }
 	            }
 	        });
 	        
 	        c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-	        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-	        		{"id achat", "Nom client", "Prenom client", "id client", "Date"}));
-	        c_filtre.setBounds(480, 100, 200, 48);
+	        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+	        		"ID Achat", 
+	        		"ID Client", 
+	        		"Nom Client", 
+	        		"Pr\u00E9nom Client", 
+	        		"Date"}));
+	        c_filtre.setBounds(540, 100, 400, 48);
 			p.add(c_filtre);
 			
 			

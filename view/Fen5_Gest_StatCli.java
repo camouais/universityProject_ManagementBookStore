@@ -2,7 +2,6 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -15,7 +14,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"Nom", "Pr�nom", "Age", "Sexe", "Date de cr�ation", "Nombre d'achats", "D�penses totales", "Panier moyen"};
+    String[] entetes1 = {"Nom", "Pr\u00E9nom", "Age", "Sexe", "Date de cr\u00E9ation", "Nombre d'achats", "D\u00E9penses totales", "Panier moyen"};
     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();
@@ -44,8 +43,6 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    // Tableau
 	    
 	    
-	    
-	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 	    String[][] donnees2 = new String[m.listClient.size()][8];
 	    
 	    for(int i = 0; i < m.listClient.size(); i++) {
@@ -54,7 +51,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    	temp[1] = ((Client) (m.listClient.toArray()[i])).getPrenom();
 	    	temp[2] = String.valueOf(((Client) (m.listClient.toArray()[i])).getAge());
 	    	temp[3] = ((Client) (m.listClient.toArray()[i])).getSexe();
-	    	temp[4] = formatter.format(((Client) (m.listClient.toArray()[i])).getDateCC());
+	    	temp[4] = (((Client) (m.listClient.toArray()[i])).getDateCC()).toString();
 	    	temp[5] = String.valueOf((m.listComCli(((Client) (m.listClient.toArray()[i])))).size());
 	    	temp[6] = String.valueOf((m.getPrixTotalComCli(((Client) (m.listClient.toArray()[i])))));
 	    	temp[7] =  (m.panierMoy(((((Client) (m.listClient.toArray()[i]))))));;
@@ -62,13 +59,9 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    	donnees2[i] = temp;
 	    }
 	    
-	    
-	    
-	    
-	    
 	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
-	    // Centre les donn�es du tableaux
+	    // Centre les données du tableaux
 	     custom.setHorizontalAlignment(JLabel.CENTER); 
 	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
 	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
@@ -91,7 +84,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    l_nbrt.setBounds(472, 591, 341, 42);
 	    p.add(l_nbrt);
 	    
-	    // JLabel "�ge moyen"
+	    // JLabel "Âge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
@@ -104,7 +97,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    l_valueT.setBounds(799, 591, 47, 42);
 	    p.add(l_valueT);
 	    
-	    // JLabel : Valeur de l'�ge moyen
+	    // JLabel : Valeur de l'âge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);

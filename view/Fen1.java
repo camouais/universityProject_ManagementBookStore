@@ -23,7 +23,7 @@ public class Fen1 extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 500, 230);
+		setBounds(0, 0, 500, 250);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -60,7 +60,7 @@ public class Fen1 extends JFrame {
 		
 		b_deco.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		b_deco.setBackground(new Color(200, 100, 100));
-		b_deco.setBounds(0, 161, 150, 30);
+		b_deco.setBounds(0, 181, 150, 30);
 		b_deco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

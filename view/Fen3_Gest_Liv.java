@@ -27,17 +27,16 @@ public class Fen3_Gest_Liv extends JFrame {
 	
 	JButton b_modifier = new JButton("Modifier");
 	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("RETOUR");
+	JButton b_retour = new JButton("Retour");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez sï¿½lectionner un livre pour afficher ses informations.");
+	public JLabel label = new JLabel("Veuillez s\u00E9lectionner un livre pour afficher ses informations.");
 	
 	public JLabel titre = new JLabel(" ");
 	public JLabel auteur = new JLabel();
 	public JLabel identifiant = new JLabel(" ");
 	public JLabel editeur = new JLabel(" ");
 	public JLabel dateParution  = new JLabel(" ");
-	public JLabel resume = new JLabel(" ");
 	public JLabel prix = new JLabel(" ");
 	public JLabel categorie = new JLabel(" ");
 	public JLabel stock = new JLabel(" ");
@@ -47,7 +46,6 @@ public class Fen3_Gest_Liv extends JFrame {
 	public JLabel r_identifiant = new JLabel(" ");
 	public JLabel r_editeur = new JLabel(" ");
 	public JLabel r_dateParution  = new JLabel(" ");
-	public JLabel r_resume = new JLabel(" ");
 	public JLabel r_prix = new JLabel(" ");
 	public JLabel r_categorie = new JLabel(" ");
 	public JLabel r_stock = new JLabel(" ");
@@ -58,7 +56,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// Fenï¿½tre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBackground(new Color(119, 181, 254));
@@ -70,7 +68,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Liste 1 (Liste d'employï¿½s)
+		// Liste 1 (Liste de livres)
 
         model = new DefaultListModel<String>();
         for (int i = 0; i < l.getList().length; i++) {
@@ -97,64 +95,87 @@ public class Fen3_Gest_Liv extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations de l'employï¿½ sï¿½lectionnï¿½)
+        // Liste 2 (Informations du livre sélectionné)
+        
         model2 = new DefaultListModel<String>();
+        label.setHorizontalAlignment(SwingConstants.CENTER);
        
         label.setBounds(0,0,400,20);
 		
-        titre.setBounds			(50,20,200,20);
-        auteur.setBounds		(50,40,200,20);
-		identifiant.setBounds	(50,60,200,20);
-		editeur.setBounds		(50,80,200,20);
-		dateParution.setBounds	(50,100,200,20);
-		resume.setBounds		(50,120,200,20);
-		prix.setBounds			(50,140,200,20);
-		categorie.setBounds		(50,160,200,20);
-		stock.setBounds			(50,180,200,20);
+        titre.setBounds			(25,20,200,25);
+        auteur.setBounds		(25,55,200,25);
+		identifiant.setBounds	(25,90,200,25);
+		editeur.setBounds		(25,125,200,25);
+		dateParution.setBounds	(25,160,200,25);
+		prix.setBounds			(25,195,200,25);
+		categorie.setBounds		(25,230,200,25);
+		stock.setBounds			(25,265,200,25);
 		
-		r_titre.setBounds		(200,20,200,20);
-		r_auteur.setBounds		(200,40,200,20);
-		r_identifiant.setBounds	(200,60,200,20);
-		r_editeur.setBounds		(200,80,200,20);
-		r_dateParution.setBounds(200,100,200,20);
-		r_resume.setBounds		(200,120,200,20);
-		r_prix.setBounds		(200,140,200,20);
-		r_categorie.setBounds	(200,160,200,20);
-		r_stock.setBounds		(200,180,200,20);
+		r_titre.setBounds		(150,20,225,25);
+		r_auteur.setBounds		(150,55,225,25);
+		r_identifiant.setBounds	(150,90,225,25);
+		r_editeur.setBounds		(150,125,225,25);
+		r_dateParution.setBounds(200,160,200,25);
+		r_prix.setBounds		(150,195,225,25);
+		r_categorie.setBounds	(150,230,225,25);
+		r_stock.setBounds		(150,265,225,25);
+		
+		Font f = new Font("Tahoma", Font.PLAIN, 20);
+		titre.setFont(f);
+		auteur.setFont(f);
+		identifiant.setFont(f);
+		editeur.setFont(f);
+		dateParution.setFont(f);
+		prix.setFont(f);
+		categorie.setFont(f);
+		stock.setFont(f);
+		
+		r_titre.setFont(f);
+		r_auteur.setFont(f);
+		r_identifiant.setFont(f);
+		r_editeur.setFont(f);
+		r_dateParution.setFont(f);
+		r_prix.setFont(f);
+		r_categorie.setFont(f);
+		r_stock.setFont(f);
 		
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
-					
 					label.setVisible(false);
-					liv = m.rchLivreId(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
-					
-					titre.setText("Titre : ");
-					auteur.setText("Auteur : ");
-                	identifiant.setText("Identifiant : ");
-                	editeur.setText("Editeur : ");
-                	dateParution.setText("Date de parution : ");
-                	resume.setText("Rï¿½sumï¿½ : ");
-                	prix.setText("Prix : ");
-                	categorie.setText("Catï¿½gorie : ");
-                	stock.setText("Stock");
-                	
-                	r_titre.setText(liv.getTitre());
-                	r_auteur.setText(liv.getAuteur());
-                	r_identifiant.setText(String.valueOf(liv.getId()));
-                	r_editeur.setText(liv.getEditeur());
-                	r_dateParution.setText(liv.getDateParution().toString());
-                	r_resume.setText(liv.getResume());
-                	r_prix.setText(String.valueOf(liv.getPrix()));
-                	r_categorie.setText(liv.getCategorie());
-                	r_stock.setText(String.valueOf(liv.getStock()));
+					if (list.getSelectedValue() != null) {
+						liv = m.rchLivreId(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
+						
+						titre.setText("Titre : ");
+						auteur.setText("Auteur : ");
+	                	identifiant.setText("Identifiant : ");
+	                	editeur.setText("\u00C9diteur : ");
+	                	dateParution.setText("Date de parution : ");
+	                	prix.setText("Prix : ");
+	                	categorie.setText("Cat\u00E9gorie : ");
+	                	stock.setText("Stock");
+	                	
+	                	r_titre.setText(liv.getTitre());
+	                	r_auteur.setText(liv.getAuteur());
+	                	r_identifiant.setText(String.valueOf(liv.getId()));
+	                	r_editeur.setText(liv.getEditeur());
+	                	r_dateParution.setText(liv.getDateParution().toString());
+	                	r_prix.setText(String.valueOf(liv.getPrix()));
+	                	r_categorie.setText(liv.getCategorie());
+	                	r_stock.setText(String.valueOf(liv.getStock()));
+					}
 				}
 			}
 		});
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Categorie", "Titre", "id livre", "Auteur", "Date", "Editeur"}));
-        c_filtre.setBounds(480, 100, 200, 48);
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Cat\u00E9gorie", 
+        		"Titre", 
+        		"ID Livre", 
+        		"Auteur", 
+        		"Date de parution", 
+        		"\u00C9diteur"}));
+        c_filtre.setBounds(540, 100, 400, 48);
 		
 		p.add(c_filtre);
 		panel2.add(label);
@@ -163,7 +184,6 @@ public class Fen3_Gest_Liv extends JFrame {
 		panel2.add(identifiant);
 		panel2.add(editeur);
 		panel2.add(dateParution);
-		panel2.add(resume);
 		panel2.add(prix);
 		panel2.add(categorie);
 		panel2.add(stock);
@@ -173,7 +193,6 @@ public class Fen3_Gest_Liv extends JFrame {
 		panel2.add(r_identifiant);
 		panel2.add(r_editeur);
 		panel2.add(r_dateParution);
-		panel2.add(r_resume);
 		panel2.add(r_prix);
 		panel2.add(r_categorie);
 		panel2.add(r_stock);
@@ -242,7 +261,7 @@ public class Fen3_Gest_Liv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sï¿½lectionner un livre.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez s\u00E9lectionner un livre.", "Erreur", 2);
 				}
 				else {
 				dispose();

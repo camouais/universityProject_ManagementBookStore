@@ -21,16 +21,16 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	private JList<String> list2 = new JList<String>();
 	public static int count = 0;
 	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Employï¿½s");
+	private JLabel l_main = new JLabel("Employ\u00E9s");
     
 	JScrollPane scrollPane = new JScrollPane();
 	JScrollPane scrollPane2 = new JScrollPane();
 	JButton b_modifier = new JButton("Modifier");
 	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("RETOUR");
+	JButton b_retour = new JButton("Retour");
 	JButton b_clearSearch = new JButton("X");
 	
-	public JLabel label = new JLabel("Veuillez sï¿½lectionner un employï¿½ pour afficher ses informations.");
+	public JLabel lblVeuillezSlectionnerUn = new JLabel("Veuillez s\u00E9lectionner un employ\u00E9 pour afficher ses informations.");
 	
 	public JLabel nom = new JLabel(" ");
 	public JLabel prenom = new JLabel();
@@ -55,7 +55,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// Fenï¿½tre
+		// Fenêtre
 		
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
@@ -67,7 +67,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employï¿½s)
+		// Panel 1 (Liste d'employés)
 		
 		ListEmploye le = new ListEmploye(m, m.listEmp);
 		
@@ -97,10 +97,10 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel1.add(scrollPane);
 		p.add(panel1);
 		
-		// Panel 2 (Informations de l'employï¿½ sï¿½lectionnï¿½)
+		// Panel 2 (Informations de l'employé sélectionné)
         model2 = new DefaultListModel<String>();
 		
-		label.setBounds(0,0,400,20);
+		lblVeuillezSlectionnerUn.setBounds(0,0,400,20);
 		
 		nom.setBounds			(50,20,200,20);
 		prenom.setBounds		(50,40,200,20);
@@ -124,7 +124,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
 					
-					label.setVisible(false);
+					lblVeuillezSlectionnerUn.setVisible(false);
 					emp = m.rchEmp(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
 					
                 	nom.setText(emp.getNom());
@@ -136,14 +136,14 @@ public class Fen4_Gest_MagEmp extends JFrame {
                 	tel.setText(emp.getTel());
                 	
                 	nom.setText("Nom :");
-                	prenom.setText("Prï¿½nom :");
+                	prenom.setText("Pr\u00E9nom :");
                 	identifiant.setText("Identifiant :");
                 	fonction.setText("Fonction :");
                 	salaire.setText("Salaire : ");
                 	
                 	mail.setText("Mail :");
                 	adresse.setText("Adresse :");
-                	tel.setText("Tï¿½lï¿½phone :");
+                	tel.setText("T\u00E9l\u00E9phone :");
                 	
                 	r_nom.setText(emp.getNom());
                 	r_prenom.setText(emp.getPrenom());
@@ -158,13 +158,22 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		});
 
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Nom", "Prenom", "id employe", "Adresse", "Date Naissance", "Age", "Sexe", "Fonction", "Tï¿½lï¿½phone", "Mail"}));
-        c_filtre.setBounds(480, 100, 200, 48);
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Nom", 
+        		"Pr\u00E9nom", 
+        		"Identifiant", 
+        		"Adresse", 
+        		"Date de naissance", 
+        		"\u00C2ge", 
+        		"Sexe", 
+        		"Fonction", 
+        		"T\u00E9l\u00E9phone", 
+        		"Mail"}));
+        c_filtre.setBounds(540, 100, 400, 48);
 		
 		p.add(c_filtre);
 		
-		panel2.add(label);
+		panel2.add(lblVeuillezSlectionnerUn);
 		panel2.add(nom);
 		panel2.add(prenom);
 		panel2.add(identifiant);
@@ -247,7 +256,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue()==null) {
 					JFrame f = new JFrame();
-					JOptionPane.showMessageDialog(f, "Veuillez sï¿½lectionner un employï¿½.", "Erreur", 2);
+					JOptionPane.showMessageDialog(f, "Veuillez s\u00E9lectionner un employ\u00E9.", "Erreur", 2);
 				} else {
 				dispose();
 				new Fen5_Gest_ModifEmp(m, emp);

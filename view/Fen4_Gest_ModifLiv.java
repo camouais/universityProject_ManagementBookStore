@@ -26,7 +26,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	private JLabel l_categorie = new JLabel("Cat\u00E9gorie : ");
 	private JLabel l_prix = new JLabel("Prix : ");
 	
-	JButton b_retour = new JButton("RETOUR");
+	JButton b_retour = new JButton("Retour");
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_enreg = new JButton("ENREGISTRER");
 	private final JLabel l_stock = new JLabel("Stock :");
@@ -38,7 +38,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 575, 500);
+		setBounds(100, 100, 600, 530);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -47,17 +47,17 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //d�finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 584, 82); //d�finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		// JLabel & JTextField : Titre
 		
 		l_titre.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_titre.setBounds(20, 100, 150, 30);
+		l_titre.setBounds(20, 140, 150, 30);
 		p.add(l_titre);
 		
 		t_titre = new JTextField();
-		t_titre.setBounds(150, 100, 380, 30);
+		t_titre.setBounds(150, 140, 414, 30);
 		t_titre.setText(l.getTitre());
 		t_titre.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		p.add(t_titre);
@@ -66,27 +66,28 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		// JLabel & JTextField : Auteur
 		
 		l_auteur.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_auteur.setBounds(20, 140, 150, 30);
+		l_auteur.setBounds(20, 180, 150, 30);
 		p.add(l_auteur);
 		
 		t_auteur = new JTextField();
 		t_auteur.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_auteur.setColumns(10);
 		t_auteur.setText(l.getAuteur());
-		t_auteur.setBounds(150, 140, 380, 30);
+		t_auteur.setBounds(150, 180, 414, 30);
 		p.add(t_auteur);
 		
 		// JLabel & JTextField : Identifiant
 		
 		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_id.setBounds(20, 180, 150, 30);
+		l_id.setBounds(20, 100, 150, 30);
 		p.add(l_id);
 		
 		t_id = new JTextField();
+		t_id.setEditable(false);
 		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_id.setColumns(10);
 		t_id.setText(String.valueOf(l.getId()));
-		t_id.setBounds(150, 180, 380, 30);
+		t_id.setBounds(150, 100, 414, 30);
 		p.add(t_id);
 		
 		// JLabel & JTextField : Editeur
@@ -99,7 +100,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_editeur.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_editeur.setColumns(10);
 		t_editeur.setText(l.getEditeur());
-		t_editeur.setBounds(150, 220, 380, 30);
+		t_editeur.setBounds(150, 220, 414, 30);
 		p.add(t_editeur);
 		
 		// JLabel & JTextfield : Categorie
@@ -112,7 +113,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_categorie.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_categorie.setColumns(10);
 		t_categorie.setText(l.getCategorie());
-		t_categorie.setBounds(150, 260, 380, 30);
+		t_categorie.setBounds(150, 260, 414, 30);
 		p.add(t_categorie);
 		
 		// JLabel & JTextfield : Prix
@@ -125,7 +126,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_prix.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_prix.setColumns(10);
 		t_prix.setText(String.valueOf(l.getPrix()));
-		t_prix.setBounds(150, 300, 380, 30);
+		t_prix.setBounds(150, 300, 414, 30);
 		p.add(t_prix);
 		
 		// JLabel & JTextField : Stock
@@ -137,15 +138,15 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		t_stock.setText(String.valueOf(l.getStock()));
 		t_stock.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_stock.setColumns(10);
-		t_stock.setBounds(150, 341, 380, 30);
+		t_stock.setBounds(150, 341, 414, 30);
 		
 		p.add(t_stock);
 		
 		// Boutons : Retour, Effacer, Enregistrer
 		
-		b_retour.setBackground(new Color(255, 215, 0));
-		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_retour.setBounds(10, 400, 150, 50);
+		b_retour.setBackground(new Color(200, 100, 100));
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		b_retour.setBounds(0, 461, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -157,7 +158,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_effacer.setForeground(Color.WHITE);
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_effacer.setBounds(180, 400, 150, 50);
+		b_effacer.setBounds(60, 400, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				m.supLivre(l);
@@ -169,12 +170,12 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_enreg.setBounds(350, 400, 200, 50);
+		b_enreg.setBounds(324, 400, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock).status == 1) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Changements enregistr�s.", "Succ�s", 1);
+				    JOptionPane.showMessageDialog(a, "Changements enregistr\u00E9s.", "Succ\u00E8s", 1);
 				}
 			}
 		});

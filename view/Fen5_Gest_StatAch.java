@@ -15,7 +15,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 
 	Object[][] donnees1;
     
-    String[] entetes1 = {"Nom","Pr�nom", "Date", "Nombre d'articles", "Prix total"};
+    String[] entetes1 = {"Nom","Pr\u00E9nom", "Date", "Nombre d'articles", "Prix total"};
     DefaultTableCellRenderer custom = new DefaultTableCellRenderer(); 
     
     private JPanel p = new JPanel();

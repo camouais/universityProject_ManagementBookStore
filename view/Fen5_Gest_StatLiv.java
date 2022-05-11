@@ -12,7 +12,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
-    String[] entetes1 = {"Titre", "Auteur", "Ã‰diteur", "CatÃ©gorie", "Date de parution","QuantitÃ© initiale", "Nombre de ventes", "QuantitÃ© en Stock" };
+    String[] entetes1 = {"Titre", "Auteur", "Éditeur", "Catégorie", "Date de parution", "Quantit\u00E9 initiale", "Nombre de ventes", "Quantit\u00E9 en Stock"};
 
     private JPanel p = new JPanel();
     private JTable table1; 
@@ -34,9 +34,8 @@ public class Fen5_Gest_StatLiv extends JFrame {
     
     
 	public Fen5_Gest_StatLiv(Magasin m) {
-		
-		
-	// FenÃªtre 
+	
+	// Fenêtre 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -64,7 +63,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    }
 	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
-	    // Centre les donnÃ©es du tableaux
+	    // Centre les données du tableaux
 	     custom.setHorizontalAlignment(JLabel.CENTER); 
 	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
 	    	table1.getColumnModel().getColumn(i).setCellRenderer(custom); 
@@ -103,7 +102,6 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    r_l_nbri.setBounds(799, 570, 47, 42);
 	    r_l_nbri.setText(String.valueOf(m.getAllInitStock(m)));
 	    p.add(r_l_nbri);
-
 
 	    // JLabel : Valeur totale nombre de livres
 

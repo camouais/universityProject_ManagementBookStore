@@ -8,9 +8,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import controller.ListClient;
-import controller.ListLivres;
 import controller.RechercheClient;
-import controller.RechercheLivre;
 import model.*;
 
 public class Fen3_Gest_Cli extends JFrame {
@@ -59,7 +57,7 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fenï¿½tre
+		// Fenêtre
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -91,7 +89,6 @@ public class Fen3_Gest_Cli extends JFrame {
         }
         
         list.setModel(model);
-        
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
         scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
@@ -102,59 +99,64 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sï¿½lectionnï¿½)
+        // Liste 2 (Informations du client sélectionné)
         
         model2 = new DefaultListModel<String>();
         
         label.setBounds(0,0,400,20);
         
-        nom.setBounds			(50,20,200,20);
-        prenom.setBounds		(50,40,200,20);
-        identifiant.setBounds	(50,60,200,20);
-        mail.setBounds			(50,80,200,20);
-        adresse.setBounds		(50,100,200,20);
-        tel.setBounds			(50,120,200,20);
-         
+        nom.setBounds			(25,20,200,25);
+        prenom.setBounds		(25,55,200,25);
+        identifiant.setBounds	(25,90,200,25);
+        mail.setBounds			(25,125,200,25);
+        adresse.setBounds		(25,160,200,25);
+        tel.setBounds			(25,195,200,25);
         
-        r_nom.setBounds			(200,20,200,20);
-        r_prenom.setBounds		(200,40,200,20);
-        r_identifiant.setBounds	(200,60,200,20);
-        r_mail.setBounds		(200,80,200,20);
-        r_adresse.setBounds		(200,100,200,20);
-        r_tel.setBounds			(200,120,200,20);
-        
+        r_nom.setBounds			(200,20,200,25);
+        r_prenom.setBounds		(200,55,200,25);
+        r_identifiant.setBounds	(200,90,200,25);
+        r_mail.setBounds		(200,125,200,25);
+        r_adresse.setBounds		(200,160,200,25);
+        r_tel.setBounds			(200,195,200,25);
         
         list.addListSelectionListener(new ListSelectionListener() {
 
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
                 	label.setVisible(false);
-                	
-                	cli = m.rchCli(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
-                	
-                	nom.setText("Nom :");
-                	prenom.setText("Prï¿½nom :");
-                	identifiant.setText("Identifiant :");
-                	mail.setText("Mail :");
-                	adresse.setText("Adresse :");
-                	tel.setText("Tï¿½lï¿½phone :");
-                	
-                	r_nom.setText(cli.getNom());
-                	r_prenom.setText(cli.getPrenom());
-                	r_identifiant.setText(String.valueOf(cli.getId()));
-                	r_mail.setText(cli.getMail());
-                	r_adresse.setText(cli.getAdresse());
-                	r_tel.setText(cli.getTel());
-                	
+                	if (list.getSelectedValue() != null) {
+	                	cli = m.rchCli(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
+	                	nom.setText("Nom :");
+	                	prenom.setText("Pr\u00E9nom :");
+	                	identifiant.setText("Identifiant :");
+	                	mail.setText("Mail :");
+	                	adresse.setText("Adresse :");
+	                	tel.setText("T\u00E9l\u00E9phone :");
+	                	
+	                	r_nom.setText(cli.getNom());
+	                	r_prenom.setText(cli.getPrenom());
+	                	r_identifiant.setText(String.valueOf(cli.getId()));
+	                	r_mail.setText(cli.getMail());
+	                	r_adresse.setText(cli.getAdresse());
+	                	r_tel.setText(cli.getTel());
+                	}
                 }
             }
         });
 
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] 
-        		{"Nom","Prenom","id client","Adresse","Date Naissance","Age","Sexe","Date compte","Tï¿½lï¿½phone","Mail"}));
-        c_filtre.setBounds(480, 100, 200, 48);
-		
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Nom", 
+        		"Pr\u00E9nom", 
+        		"ID Client", 
+        		"Adresse", 
+        		"Date de naissance", 
+        		"\u00C2ge", 
+        		"Sexe", 
+        		"Date de cr\u00E9ation du compte", 
+        		"T\u00E9l\u00E9phone", 
+        		"Mail"}));
+        c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
 		
         panel2.add(label);

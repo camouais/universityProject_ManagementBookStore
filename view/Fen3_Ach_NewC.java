@@ -18,7 +18,7 @@ public class Fen3_Ach_NewC extends JFrame {
 	private JLabel l_tel = new JLabel("T\u00E9l\u00E9phone :");
 	private JLabel l_sexe = new JLabel("Sexe :");
 	private JLabel l_mail = new JLabel("Mail :");
-	private JLabel l_dateN = new JLabel("Date de naissance :");
+	private JLabel l_daten = new JLabel("Date de naissance :");
 	private JTextField t_nom;
 	private JTextField t_prenom;
 	private JTextField t_adresse;
@@ -27,8 +27,8 @@ public class Fen3_Ach_NewC extends JFrame {
 	JButton b_valider = new JButton("Valider");
 	JButton b_retour = new JButton("Retour");
 	private final JComboBox<String> c_sexe = new JComboBox<String>();
-	private final JComboBox c_jour = new JComboBox();
-	private final JComboBox c_mois = new JComboBox();
+	private final JComboBox<String> c_jour = new JComboBox<String>();
+	private final JComboBox<String> c_mois = new JComboBox<String>();
 	private JTextField t_annee;
 	
 	public Fen3_Ach_NewC(Magasin m) {
@@ -110,7 +110,7 @@ public class Fen3_Ach_NewC extends JFrame {
 					dispose();
 					new Fen4_Ach_DoAch(m, nc.getClient());
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Client cr�� et ajout� � la base de donn�es.", "Succ�s", 1);
+				    JOptionPane.showMessageDialog(a, "Client cr\u00E9\u00E9 et ajout\u00E9 \u00E0 la base de donn\u00E9es.", "Succ\u00E8s", 1);
 				}
 			}
 		});
@@ -134,15 +134,21 @@ public class Fen3_Ach_NewC extends JFrame {
 		
 		p.add(c_sexe);
 		
-		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		c_jour.setBounds(270, 425, 100, 30);
 		p.add(c_jour);
 		
-		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
 		c_mois.setBounds(380, 425, 100, 30);
 		p.add(c_mois);
 		
 		t_annee = new JTextField();
+		t_annee.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) { 
+		        if (t_annee.getText().length() >= 4)
+		            e.consume(); 
+		    }  
+		});
 		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_annee.setBounds(490, 425, 100, 30);
 		p.add(t_annee);
@@ -162,7 +168,6 @@ public class Fen3_Ach_NewC extends JFrame {
 		l_annee.setBounds(490, 395, 100, 30);
 		p.add(l_annee);
 		
-		JLabel l_daten = new JLabel("Date de naissance : ");
 		l_daten.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 25));
 		l_daten.setBounds(30, 400, 250, 40);
 		p.add(l_daten);

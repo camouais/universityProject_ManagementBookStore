@@ -33,7 +33,7 @@ public class Fen2_Ach extends JFrame {
 		// Boutons : Oui, Non, Retour
 		
 		b_oui.setBackground(new Color(100, 255, 100));
-		b_oui.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_oui.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_oui.setBounds(50, 140, 150, 60);
 		b_oui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -44,7 +44,7 @@ public class Fen2_Ach extends JFrame {
 		p.add(b_oui);
 		
 		b_non.setBackground(new Color(255, 100, 100));
-		b_non.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		b_non.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_non.setBounds(284, 140, 150, 60);
 		b_non.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

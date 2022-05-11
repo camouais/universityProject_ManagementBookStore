@@ -18,7 +18,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 	private JLabel l_tel = new JLabel("T\u00E9l\u00E9phone :");
 	private JLabel l_sexe = new JLabel("Sexe :");
 	private JLabel l_mail = new JLabel("Mail :");
-	private JLabel l_dateN = new JLabel("Date de naissance :");
+	private JLabel l_daten = new JLabel("Date de naissance :");
 	private JTextField t_nom;
 	private JTextField t_prenom;
 	private JTextField t_adresse;
@@ -29,8 +29,8 @@ public class Fen4_Gest_NewCli extends JFrame {
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
 	private final JComboBox<String> c_sexe = new JComboBox<String>();
-	private final JComboBox c_jour = new JComboBox();
-	private final JComboBox c_mois = new JComboBox();
+	private final JComboBox<String> c_jour = new JComboBox<String>();
+	private final JComboBox<String> c_mois = new JComboBox<String>();
 	private JTextField t_annee;
 	
 	public Fen4_Gest_NewCli(Magasin m) {
@@ -144,11 +144,11 @@ public class Fen4_Gest_NewCli extends JFrame {
 		
 		p.add(c_sexe);
 		
-		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		c_jour.setBounds(650, 420, 100, 30);
 		p.add(c_jour);
 		
-		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
 		c_mois.setBounds(800, 420, 100, 30);
 		p.add(c_mois);
 		
@@ -172,9 +172,8 @@ public class Fen4_Gest_NewCli extends JFrame {
 		l_annee.setBounds(950, 390, 147, 30);
 		p.add(l_annee);
 		
-		JLabel l_mail_1 = new JLabel("Date de naissance : ");
-		l_mail_1.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
-		l_mail_1.setBounds(653, 338, 386, 37);
-		p.add(l_mail_1);
+		l_daten.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 34));
+		l_daten.setBounds(653, 338, 386, 37);
+		p.add(l_daten);
 	}
 }

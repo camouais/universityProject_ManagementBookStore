@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import controller.*;
-
 public class Fen0 extends JFrame {
 	
 	private static final long serialVersionUID = 1L;

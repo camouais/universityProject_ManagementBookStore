@@ -1,18 +1,10 @@
 package view;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import model.Magasin;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import model.*;
 
 public class Fen5_Gest_StatCompta extends JFrame{
 	

@@ -36,8 +36,8 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	JButton b_effacer = new JButton("EFFACER");
 	JButton b_valider = new JButton("VALIDER");
 	JButton b_retour = new JButton("RETOUR");
-	private final JComboBox c_jour = new JComboBox();
-	private final JComboBox c_mois = new JComboBox();
+	private final JComboBox<String> c_jour = new JComboBox<String>();
+	private final JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen5_Gest_NewEmp(Magasin m) {
 
@@ -194,11 +194,11 @@ public class Fen5_Gest_NewEmp extends JFrame {
 			}
 		});
 		p.add(b_retour);
-		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		c_jour.setBounds(260, 341, 120, 29);
 		
 		p.add(c_jour);
-		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E9cembre"}));
 		c_mois.setBounds(390, 341, 120, 29);
 		
 		p.add(c_mois);

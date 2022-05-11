@@ -2,8 +2,6 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.DecimalFormat;
-import java.util.Vector;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -12,7 +10,6 @@ import model.*;
 public class Fen5_Ach_Fact extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	private static final DecimalFormat df = new DecimalFormat("0.00");
 	
 	private JTextField t_client;
 	private JTextField t_prix;
@@ -32,7 +29,7 @@ public class Fen5_Ach_Fact extends JFrame {
 		
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
-		p.setBackground(new Color(150, 200, 150));
+		p.setBackground(SystemColor.inactiveCaption);
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,16 +51,18 @@ public class Fen5_Ach_Fact extends JFrame {
 		
 		JLabel l_prix = new JLabel("Prix : ");
 		l_prix.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		l_prix.setBounds(25, 425, 100, 30);
+		l_prix.setBounds(25, 425, 100, 40);
 		p.add(l_prix);
+		l_achats.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		l_achats.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		l_achats.setBounds(25, 140, 100, 30);
+		l_achats.setFont(new Font("Tahoma", Font.BOLD, 25));
+		l_achats.setBounds(0, 139, 484, 40);
 		p.add(l_achats);
 		
 		// Text Fields : Client, Prix
 		
 		t_client = new JTextField(c.getNom() + " " + c.getPrenom() + " (" + c.getMail() + ")");
+		t_client.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_client.setBounds(125, 100, 325, 30);
 		t_client.setEditable(false);
 		p.add(t_client);
@@ -76,9 +75,11 @@ public class Fen5_Ach_Fact extends JFrame {
 		
 		pT = Math.round(pT*100f)/100f;
 		
-		t_prix = new JTextField("Prix total = " + String.valueOf(pT) + "�");
-		t_prix.setBackground(new Color(102, 255, 204));
-		t_prix.setBounds(125, 425, 325, 30);
+		t_prix = new JTextField("Prix total = " + String.valueOf(pT) + " \u20AC");
+		t_prix.setHorizontalAlignment(SwingConstants.RIGHT);
+		t_prix.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		t_prix.setBackground(SystemColor.activeCaption);
+		t_prix.setBounds(100, 425, 350, 40);
 		t_prix.setEditable(false);
 		p.add(t_prix);
 		t_prix.setColumns(10);
@@ -101,24 +102,27 @@ public class Fen5_Ach_Fact extends JFrame {
 		
 		// Boutons : Enregistrer, Retour
 		
-		b_enreg.setBackground(new Color(255, 255, 0));
+		b_enreg.setBackground(new Color(100, 200, 100));
 		b_enreg.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		b_enreg.setBounds(300, 475, 160, 41);
+		b_enreg.setBounds(162, 480, 160, 41);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				for(int i = 0; i < cm.listLivres.size(); i++) {
+					m.decStockLiv((((Livre) cm.listLivres.toArray()[i])),1);
+				}
 				m.listCom.add(cm);
 				c.listCom.add(cm);
 				JFrame a = new JFrame();
 				dispose();
 				new Fen1(m);
-			    JOptionPane.showMessageDialog(a, "Achat enregistr� !", "Succ�s", 1);
+			    JOptionPane.showMessageDialog(a, "Achat enregistr\u00E9 !", "Succ\u00E8s", 1);
 			}
 		});
 		p.add(b_enreg);
 		
-		b_retour.setBackground(new Color(255, 182, 193));
-		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		b_retour.setBounds(25, 475, 160, 41);
+		b_retour.setBackground(new Color(200, 100, 100));
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		b_retour.setBounds(0, 511, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

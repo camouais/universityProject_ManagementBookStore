@@ -5,21 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.*;
 
 import model.*;
 import controller.*;
@@ -123,12 +109,10 @@ private static final long serialVersionUID = 1L;
 		b_valider.setBounds(450, 440, 207, 64);
 		b_valider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (new NewDepense(m, t_Iemploye, t_Nemploye, t_Pemploye,   t_cout,(String) c_description.getSelectedItem() , 
-						(int)((c_jour).getSelectedIndex()),  (String) ((c_mois).getSelectedItem()), Integer.parseInt((t_annee).getText())).status ==1) {
+				if(new NewDepense(m, t_Iemploye, t_Nemploye, t_Pemploye,   t_cout,(String) c_description.getSelectedItem(), c_jour, c_mois, t_annee).status == 1) {
 					dispose();
-
 				    new Fen6_Gest_Depenses(m);
-				} 
+				}
 			}
 		});
 		p.add(b_valider);
@@ -171,11 +155,11 @@ private static final long serialVersionUID = 1L;
 		l_annee.setBounds(530, 301, 120, 30);
 		p.add(l_annee);
 		
-		c_jour.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		c_jour.setBounds(270, 342, 120, 30);
 		p.add(c_jour);
 		
-		c_mois.setModel(new DefaultComboBoxModel(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
 		c_mois.setBounds(400, 342, 120, 30);
 		p.add(c_mois);
 		
