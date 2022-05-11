@@ -2,8 +2,7 @@ package controller;
 
 import javax.swing.*;
 
-import java.time.LocalDate;
-import java.util.*;
+import java.time.*;
 import model.*;
 import view.*;
 
@@ -13,7 +12,7 @@ public class NewEmploye {
 	Employe e;
 	public int status = 0;
 
-	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe, JTextField salaire, JTextField fonction, JTextField adresse, JTextField mail, JTextField tel, JComboBox jour, JComboBox mois, JTextField annee) {
+	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe, JTextField salaire, JTextField fonction, JTextField adresse, JTextField mail, JTextField tel, JComboBox<String> jour, JComboBox<String> mois, JTextField annee) {
 		float tempSalaire = 0;
 		int checksum = 1;
 		LocalDate dateTemp = null;

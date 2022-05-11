@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.Set;
-
 import model.*;
 
 public class ListFacture {

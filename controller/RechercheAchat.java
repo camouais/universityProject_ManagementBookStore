@@ -13,10 +13,10 @@ public class RechercheAchat {
 		a = new HashSet<Commande>();
 		
 		if(		
-				f.equals("id achat")||
-				f==("Nom client")|| 
-				f==("Prenom client") || 
-				f.equals("id client") || 
+				f.equals("ID Achat")||
+				f==("Nom Client")|| 
+				f==("Pr\u00E9nom Client") || 
+				f.equals("ID client") || 
 				f==("Date")
 				) {
 		String rechterm = arg.getText();
@@ -26,23 +26,22 @@ public class RechercheAchat {
 		} else {
 			for(int i = 0; i < m.listCom.size(); i++) {
 				
-			if(f =="Nom client") {
+			if(f =="Nom Client") {
 				s = ((Commande) m.listCom.toArray()[i]).getClient().getNom();
 			}
-			else if(f =="Prenom client") {
+			else if(f =="Pr\u00E9nom Client") {
 				s = (((Commande) m.listCom.toArray()[i]).getClient().getPrenom());
 			}
-			else if(f =="id client") {
+			else if(f =="ID Client") {
 				s = String.valueOf(((Commande) m.listCom.toArray()[i]).getClient().getId());
 			}
-			else if(f =="id achat") {
+			else if(f =="ID Achat") {
 				s = String.valueOf(((Commande) m.listCom.toArray()[i]).getId());
 			}
 		
 			else if(f =="Date") {
 				s = (((Commande) m.listCom.toArray()[i]).getDateAchat()).toString();
-			}	
-			
+			}
 			
 			int minlength = Math.min(s.length(), rechterm.length());
 				if(rechterm.toLowerCase().equals(s.substring(0,minlength).toLowerCase())) {

@@ -4,7 +4,7 @@ import javax.swing.*;
 import model.Magasin;
 
 public class Modif_InfoMag {
-    public Modif_InfoMag(Magasin m, JTextField nom, JTextField adresse, JPasswordField mdp, JTextField lien, JTextField tel, JComboBox jour, JComboBox mois, JTextField annee) {
+    public Modif_InfoMag(Magasin m, JTextField nom, JTextField adresse, JPasswordField mdp, JTextField lien, JTextField tel, JComboBox<String> jour, JComboBox<String> mois, JTextField annee) {
     	if(nom.getText().equals("")) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Champ \"Nom\" vide.", "Erreur", 2);

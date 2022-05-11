@@ -1,17 +1,15 @@
 package controller;
 
 import java.time.*;
-
 import javax.swing.*;
 import model.*;
-import view.*;
 
 public class NewClient {
 	
 	Client c;
 	public int status;
 	
-	public NewClient(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe, JComboBox jour, JComboBox mois, JTextField annee) {
+	public NewClient(Magasin m, JTextField nom, JTextField prenom, JTextField adresse, JTextField tel, JTextField mail, JComboBox<String> sexe, JComboBox<String> jour, JComboBox<String> mois, JTextField annee) {
 		int checksum = 1;
 		LocalDate dateTemp = null;
 		if (nom.getText().isEmpty()) {

@@ -4,7 +4,6 @@ import java.time.*;
 import java.util.*;
 import javax.swing.*;
 import model.*;
-import view.*;
 
 public class NewMagasin {
 	

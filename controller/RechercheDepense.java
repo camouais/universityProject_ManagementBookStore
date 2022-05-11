@@ -19,7 +19,7 @@ public class RechercheDepense {
 			String rechterm = arg.getText();
 			if(rechterm.equals("")) {
 				JFrame frame = new JFrame();
-				JOptionPane.showMessageDialog(frame, "Recherche vide. Veuillez écrire un terme de recherche.", "Erreur", 2);
+				JOptionPane.showMessageDialog(frame, "Recherche vide. Veuillez \u00E9crire un terme de recherche.", "Erreur", 2);
 			} else {
 				for(int i = 0; i < m.listDep.size(); i++) {
 					if(c =="Description") {
@@ -43,9 +43,6 @@ public class RechercheDepense {
 					}
 				}
 			}
-		} else {
-			JFrame frame = new JFrame();
-			JOptionPane.showMessageDialog(frame, "Aucun filtre sélectionné. Veuillez sélectionner un filtre.", "Erreur", 2);
 		}
 	}
 	
