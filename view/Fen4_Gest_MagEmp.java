@@ -55,8 +55,8 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// Fen�tre
-		
+		// Fenêtre
+		setTitle("Gestion des employés");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
 		p.setLayout(null);
@@ -67,7 +67,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employ�s)
+		// Panel 1 (Liste d'employés)
 		
 		ListEmploye le = new ListEmploye(m, m.listEmp);
 		
@@ -97,7 +97,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel1.add(scrollPane);
 		p.add(panel1);
 		
-		// Panel 2 (Informations de l'employ� s�lectionn�)
+		// Panel 2 (Informations de l'employé sélectionné)
         model2 = new DefaultListModel<String>();
 		
 		lblVeuillezSlectionnerUn.setBounds(0,0,400,20);
@@ -204,7 +204,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'un employ�
+		// Textfield - Recherche d'un employï¿½
 		
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un livre");
@@ -240,7 +240,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Employ�s"
+		// JLabel "Employï¿½s"
 		
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Arial", Font.BOLD, 50));
