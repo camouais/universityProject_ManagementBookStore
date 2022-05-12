@@ -37,7 +37,7 @@ public class Fen7_Gest_ModifDepense extends JFrame{
 		private final JComboBox<String> c_description = new JComboBox<String>();
 		public Fen7_Gest_ModifDepense(Magasin m, Depense d) {	
 		
-			
+			setTitle("Modification de la dépense sélectionnée");
 			p.setBackground(new Color(200, 200, 200));
 				p.setLayout(null);
 				setContentPane(p);
