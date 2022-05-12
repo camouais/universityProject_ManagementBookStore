@@ -14,7 +14,6 @@ import model.*;
 public class Fen3_Gest_Cli extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-
 	private JPanel p = new JPanel();
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
@@ -57,8 +56,8 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fenêtre
-		
+		// FenÃªtre
+		setTitle("Gestion des clients");
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(150, 131, 236));
@@ -99,7 +98,7 @@ public class Fen3_Gest_Cli extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client sélectionné)
+        // Liste 2 (Informations du client sÃ©lectionnÃ©)
         
         model2 = new DefaultListModel<String>();
         
