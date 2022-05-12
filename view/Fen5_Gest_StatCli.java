@@ -30,7 +30,7 @@ public class Fen5_Gest_StatCli extends JFrame {
     JScrollPane scrollPane = new JScrollPane();
     
 	public Fen5_Gest_StatCli(Magasin m) {
-		
+		setTitle("Statistiques des clients");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
 		setLocationRelativeTo(null);
