@@ -18,7 +18,7 @@ public class Fen0_NewMag extends JFrame {
 	JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen0_NewMag() {
-		setTitre("Enregistrement du nouveau magasin");
+		setTitle("Enregistrement du nouveau magasin");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
