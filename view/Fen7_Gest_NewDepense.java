@@ -36,7 +36,7 @@ private static final long serialVersionUID = 1L;
 	private JTextField t_annee;
 	
 	public Fen7_Gest_NewDepense(Magasin m) {
-
+		setTitle("Ajout nouvelle dépense");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
