@@ -31,7 +31,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 	JButton b_enreg = new JButton("ENREGISTRER");
 
 	public Fen4_Gest_ModifCli(Magasin m, Client c) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
-		
+		setTitle("Modification du client sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
