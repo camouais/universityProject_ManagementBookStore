@@ -33,8 +33,8 @@ public class Fen5_Gest_StatEmp extends JFrame {
     
 	public Fen5_Gest_StatEmp(Magasin m) {
 		
-		// Fenêtre 
-		
+		// FenÃªtre 
+		setTitle("Statistiques des employÃ©s");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
 		setLocationRelativeTo(null);
@@ -60,7 +60,7 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    table1 = new JTable(donnees2, entetes1);
 	    table1.setAutoCreateRowSorter(true);
 	    
-	    // Centre les données du tableau
+	    // Centre les donnÃ©es du tableau
 	    
 	     custom.setHorizontalAlignment(JLabel.CENTER); 
 	    for (int i=0 ; i < table1.getColumnCount() ; i++) { 
@@ -71,20 +71,20 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    scrollPane_1.setBounds(100, 150, 800, 400);
 	    p.add(scrollPane_1);
 	    
-	    // JLabel "Statistiques au niveau des employés"
+	    // JLabel "Statistiques au niveau des employÃ©s"
 	    
 	    l_stem.setHorizontalAlignment(SwingConstants.CENTER);
 	    l_stem.setFont(new Font("Tahoma", Font.BOLD, 40));
 	    l_stem.setBounds(107, 50, 800, 42);
 	    p.add(l_stem);
 	    
-	    // JLabel "Nombre total d'employés"
+	    // JLabel "Nombre total d'employÃ©s"
 
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_nbrt.setBounds(472, 591, 341, 42);
 	    p.add(l_nbrt);
 	    
-	    // JLabel "Âge moyen"
+	    // JLabel "Ã‚ge moyen"
 
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_agm.setBounds(472, 643, 341, 42);
@@ -96,14 +96,14 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    l_soms.setBounds(472, 696, 341, 42);
 	    p.add(l_soms);
 	    
-	    // JLabel : Valeur totale d'employés
+	    // JLabel : Valeur totale d'employÃ©s
 	    
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueT.setBounds(799, 591, 47, 42);
 	    l_valueT.setText(String.valueOf((m.listEmp).size()));
 	    p.add(l_valueT);
 	    
-	    // JLabel : Valeur de l'âge moyen
+	    // JLabel : Valeur de l'Ã¢ge moyen
 	    
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueAg.setBounds(799, 644, 47, 42);
