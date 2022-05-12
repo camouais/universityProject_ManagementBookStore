@@ -34,7 +34,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 	private JTextField t_annee;
 	
 	public Fen4_Gest_NewCli(Magasin m) {
-		
+		setTitle("Ajout d'un nouveau Client");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
