@@ -56,8 +56,8 @@ public class Fen6_Gest_Depenses extends JFrame {
 	Employe e;
 	public Fen6_Gest_Depenses(Magasin m) {
 
-		// Fen�tre
-		
+		// Fenï¿½tre
+		setTitle("Gestion des dépenses");
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(100, 131, 236));
@@ -99,7 +99,7 @@ public class Fen6_Gest_Depenses extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du client s�lectionn�)
+        // Liste 2 (Informations du client sï¿½lectionnï¿½)
         
         model2 = new DefaultListModel<String>();
         
@@ -185,9 +185,9 @@ public class Fen6_Gest_Depenses extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'une d�pense	
+		// Textfield - Recherche d'une dépense	
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rech.setText("Recherchez une dépense");
+		t_rech.setText("Recherchez une dÃ©pense");
 		t_rech.setBounds(50, 100, 345, 45);
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
