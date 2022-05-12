@@ -20,7 +20,7 @@ public class Fen2_Ach extends JFrame {
 	public Fen2_Ach(Magasin m) {
 		
 		// Fenêtre
-		
+		setTitle("Création ou Enregistrement d'un nouveau client");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
