@@ -42,6 +42,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	private JTextField t_annee;
 	private JTextField t_pStock;
 	public Fen4_Gest_NewLiv(Magasin m) {
+		setTitle("Ajout d'un nouveau livre");
 		contentPane.setBackground(new Color(200, 200, 200));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
