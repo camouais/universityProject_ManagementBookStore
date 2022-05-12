@@ -26,7 +26,7 @@ public class Fen5_Ach_Fact extends JFrame {
 	public Fen5_Ach_Fact(Magasin m, Client c, Commande cm, DefaultListModel<String> mod) {
 		
 		// Fenêtre
-		
+		setTitle("Résumé de l'achat");
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(SystemColor.inactiveCaption);
