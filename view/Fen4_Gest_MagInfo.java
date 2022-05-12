@@ -22,7 +22,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 	JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen4_Gest_MagInfo(Magasin m) {
-		
+		setTitle("Informations du magasin");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -146,7 +146,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
             	JFrame a = new JFrame();
-    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+    		    JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
             }
         });
 		p.add(b_enreg);
