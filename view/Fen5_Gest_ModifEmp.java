@@ -33,7 +33,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	JButton b_enreg = new JButton("ENREGISTRER");
 
 	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) { 
-		
+		setTitle("Modification de l'employé sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
