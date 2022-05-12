@@ -32,7 +32,7 @@ public class Fen3_Ach_NewC extends JFrame {
 	private JTextField t_annee;
 	
 	public Fen3_Ach_NewC(Magasin m) {
-		
+		setTitle("Enregistrement nouveau client");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
