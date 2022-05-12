@@ -23,7 +23,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 	JButton b_retour = new JButton("Retour");
 
 	public Fen3_Ach_ExistC(Magasin m) {
-		
+		setTitle("Identification client");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
