@@ -33,7 +33,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 	public Fen5_Gest_StatAch(Magasin m) {
 		
 		// Fen�tre 
-		
+		setTitle("Statistiques des achats");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
 		setLocationRelativeTo(null);
