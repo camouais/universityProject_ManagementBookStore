@@ -52,8 +52,8 @@ public class Fen3_Gest_Com extends JFrame {
 		
 		public Fen3_Gest_Com(Magasin m) {
 			
-			// Fenêtre
-			
+			// FenÃªtre
+			setTitle("Gestion des achats");
 			p = new JPanel();
 			p.setBorder(new EmptyBorder(5, 5, 5, 5));
 			p.setBackground(new Color(0, 153, 153));
@@ -94,7 +94,7 @@ public class Fen3_Gest_Com extends JFrame {
 	        panel1.add(scrollPane);
 	        p.add(panel1);
 	        
-	        // Liste 2 (Informations de l'achat sélectionné)
+	        // Liste 2 (Informations de l'achat sÃ©lectionnÃ©)
 	        
 	        model2 = new DefaultListModel<String>();
 	        
