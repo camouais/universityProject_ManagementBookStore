@@ -33,7 +33,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	private final JTextField t_stock = new JTextField();
 
 	public Fen4_Gest_ModifLiv(Magasin m, Livre l) {
-		
+		setTitle("Modification du livre sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
