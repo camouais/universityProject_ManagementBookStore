@@ -40,7 +40,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	private final JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen5_Gest_NewEmp(Magasin m) {
-
+		setTitle("Ajout nouvel employé");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
