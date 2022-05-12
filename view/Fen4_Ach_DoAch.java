@@ -41,7 +41,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
 		// Fenêtre
-		
+		setTitle("Réaliser un achat");
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(200, 200, 200));
