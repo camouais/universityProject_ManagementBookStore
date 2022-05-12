@@ -13,7 +13,7 @@ public class Fen0 extends JFrame {
 	private JPasswordField t_mdp;
 	
 	public Fen0() {
-
+		setTitle("Login");
 		p.setBackground(Color.LIGHT_GRAY);
 		p.setLayout(null);
 		setContentPane(p);
