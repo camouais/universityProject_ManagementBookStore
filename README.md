@@ -9,7 +9,6 @@
 
 <h2>CONTROLLER</h2>
 
-* modifier l'affichage du téléphone |FRA|+33|nombre de taille 9|
 * afficher un message d'erreur lorsque l'on souhaite supprimer un achat/employé/client/livre "Etes-vous sûre de vouloir supprimer cet ...?"
 
 <h2>VIEW</h2>
