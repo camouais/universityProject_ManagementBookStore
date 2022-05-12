@@ -56,8 +56,8 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// Fenêtre
-		
+		// FenÃªtre
+		setTitle("Gestion des achats");
 		p = new JPanel();
 		p.setBackground(new Color(119, 181, 254));
 		p.setLayout(null);
@@ -95,7 +95,7 @@ public class Fen3_Gest_Liv extends JFrame {
         panel1.add(scrollPane);
         p.add(panel1);
         
-        // Liste 2 (Informations du livre sélectionné)
+        // Liste 2 (Informations du livre sÃ©lectionnÃ©)
         
         model2 = new DefaultListModel<String>();
         label.setHorizontalAlignment(SwingConstants.CENTER);
