@@ -30,6 +30,7 @@ public class Fen6_Gest_Recettes extends JFrame {
 	private JPanel p ;
 	
 	public Fen6_Gest_Recettes(Magasin m) {
+		setTitle("Estimation recette totale du magasin")
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(100, 131, 236));
