@@ -21,7 +21,7 @@ public class Fen2_Gest extends JFrame {
 	public Fen2_Gest(Magasin m) {
 		
 		// Fen�tre
-		
+		setTitle("Menu");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
