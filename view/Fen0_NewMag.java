@@ -18,7 +18,7 @@ public class Fen0_NewMag extends JFrame {
 	JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen0_NewMag() {
-		
+		setTitre("Enregistrement du nouveau magasin");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -30,7 +30,7 @@ public class Fen0_NewMag extends JFrame {
 		
 		// Labels : Informations du Magasin, Nom, Adresse
 		
-		JLabel l_main = new JLabel("Création du magasin");
+		JLabel l_main = new JLabel("CrÃ©ation du magasin");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
 		l_main.setBounds(0, 0, 584, 82);
@@ -83,7 +83,7 @@ public class Fen0_NewMag extends JFrame {
 					dispose();
 					new Fen1(nm.getMagasin());
 	            	JFrame a = new JFrame();
-	    		    JOptionPane.showMessageDialog(a, "Magasin créé.", "Succès", 1);
+	    		    JOptionPane.showMessageDialog(a, "Magasin crÃ©Ã©.", "SuccÃ¨s", 1);
 				}
             }
         });
