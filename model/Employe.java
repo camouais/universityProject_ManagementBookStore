@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Employe implements Serializable {
 	
@@ -16,7 +17,6 @@ public class Employe implements Serializable {
     private String adresse;
     private String mail;
     private String tel;
-    private int age;
 
     private LocalDate dateNaiss;
     private String sexe;
@@ -101,11 +101,8 @@ public class Employe implements Serializable {
     }
     
     public int getAge() {
-    	return age;
-    }
-    
-    public void setAge(int a) {
-    	age = a;
+    	LocalDate curDate = LocalDate.now();
+    	return Period.between(dateNaiss, curDate).getYears();
     }
     
     public String getSexe() {
