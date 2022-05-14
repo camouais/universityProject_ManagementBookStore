@@ -8,17 +8,13 @@ import controller.*;
 public class Fen0_NewMag extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	
-	private JPanel p = new JPanel();
-	private JTextField t_nom = new JTextField();
-	private JTextField t_adr = new JTextField();
-	private JPasswordField t_mdp;
-	
-	JComboBox<String> c_jour = new JComboBox<String>();
-	JComboBox<String> c_mois = new JComboBox<String>();
 
 	public Fen0_NewMag() {
-		setTitle("Enregistrement du nouveau magasin");
+		
+		// Fenêtre
+		
+		JPanel p = new JPanel();
+		setTitle("Enregistrement d'un nouveau magasin");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -28,9 +24,9 @@ public class Fen0_NewMag extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Labels : Informations du Magasin, Nom, Adresse
+		// Labels
 		
-		JLabel l_main = new JLabel("CrÃ©ation du magasin");
+		JLabel l_main = new JLabel("Création du magasin");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
 		l_main.setBounds(0, 0, 584, 82);
@@ -46,19 +42,37 @@ public class Fen0_NewMag extends JFrame {
 		l_adresse.setBounds(20, 180, 170, 30);
 		p.add(l_adresse);
 		
-		// Text Field : Nom, Adresse
+		JLabel l_mdp = new JLabel("Mot de passe* :");
+		l_mdp.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_mdp.setBounds(20, 140, 170, 30);
+		p.add(l_mdp);
 		
+		JLabel l_champs = new JLabel("* : Champs obligatoires");
+		l_champs.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		l_champs.setBounds(20, 221, 200, 30);
+		p.add(l_champs);
+		
+		// TextFields
+		
+		JTextField t_nom = new JTextField();
 		t_nom.setBounds(200, 100, 350, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_nom.setColumns(10);
 		p.add(t_nom);
 		
+		JTextField t_adr = new JTextField();
 		t_adr.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adr.setColumns(10);
 		t_adr.setBounds(200, 180, 350, 30);
 		p.add(t_adr);
 		
-		// Boutons : Retour, Enregistrer
+		JPasswordField t_mdp = new JPasswordField();
+		t_mdp.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_mdp.setColumns(10);
+		t_mdp.setBounds(200, 140, 350, 30);
+		p.add(t_mdp);
+		
+		// Boutons
 		
 		JButton b_retour = new JButton("Retour");
 		b_retour.setBackground(new Color(200, 100, 100));
@@ -83,26 +97,10 @@ public class Fen0_NewMag extends JFrame {
 					dispose();
 					new Fen1(nm.getMagasin());
 	            	JFrame a = new JFrame();
-	    		    JOptionPane.showMessageDialog(a, "Magasin crÃ©Ã©.", "SuccÃ¨s", 1);
+	    		    JOptionPane.showMessageDialog(a, "Magasin créé.", "Succès", 1);
 				}
             }
         });
 		p.add(b_valid);
-		
-		JLabel l_mdp = new JLabel("Mot de passe* :");
-		l_mdp.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_mdp.setBounds(20, 140, 170, 30);
-		p.add(l_mdp);
-		
-		t_mdp = new JPasswordField();
-		t_mdp.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_mdp.setColumns(10);
-		t_mdp.setBounds(200, 140, 350, 30);
-		p.add(t_mdp);
-		
-		JLabel l_champs = new JLabel("* : Champs obligatoires");
-		l_champs.setFont(new Font("Tahoma", Font.ITALIC, 15));
-		l_champs.setBounds(20, 221, 200, 30);
-		p.add(l_champs);
 	}
 }

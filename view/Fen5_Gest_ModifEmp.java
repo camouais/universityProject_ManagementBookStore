@@ -2,6 +2,9 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 import javax.swing.*;
 
 import controller.*;
@@ -11,29 +14,12 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel p = new JPanel();
-	private JTextField t_nom;
-	private JTextField t_prenom;
-	private JTextField t_id;
-	private JTextField t_fonction;
-	private JTextField t_adresse;
-	private JTextField t_mail;
-	private JTextField t_tel;
-	private JLabel l_rens = new JLabel("Renseignements de l'employï¿½");
-	private JLabel l_nom = new JLabel("Nom :");
-	private JLabel l_prenom = new JLabel("Prï¿½nom :");
-	private JLabel l_id = new JLabel("Identifiant :");
-	private JLabel l_fonc = new JLabel("Fonction : ");
-	private JLabel l_adresse = new JLabel("Adresse : ");
-	private JLabel l_mail = new JLabel("Mail : ");
-	private JLabel l_tel = new JLabel("Tï¿½lï¿½phone : ");
-	
-	JButton b_retour = new JButton("RETOUR");
-	JButton b_effacer = new JButton("EFFACER");
-	JButton b_enreg = new JButton("ENREGISTRER");
-
 	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) { 
-		setTitle("Modification de l'employÃ© sÃ©lectionnÃ©");
+		
+		// Fenêtre
+		
+		JPanel p = new JPanel();
+		setTitle("Modification de l'employé sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -43,19 +29,52 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// JLabel : Renseignements du client
+		// Labels
 		
+		JLabel l_rens = new JLabel("Renseignements de l'employ\u00E9");
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 550, 82); //dï¿½finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 550, 82);
 		p.add(l_rens);
 
-		// JLabel & JTextfield nom
-		
+		JLabel l_nom = new JLabel("Nom : ");
 		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_nom.setBounds(20, 100, 150, 30);
 		p.add(l_nom);
 		
+		JLabel l_prenom = new JLabel("Pr\u00E9nom : ");
+		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_prenom.setBounds(20, 140, 150, 30);
+		p.add(l_prenom);
+		
+		JLabel l_id = new JLabel("Identifiant : ");
+		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_id.setBounds(20, 180, 150, 30);
+		p.add(l_id);
+		
+		JLabel l_fonc = new JLabel("Fonction : ");
+		l_fonc.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_fonc.setBounds(20, 221, 150, 30);
+		p.add(l_fonc);
+		
+		JLabel l_adresse = new JLabel("Adresse : ");
+		l_adresse.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_adresse.setBounds(20, 262, 150, 30);
+		p.add(l_adresse);
+		
+		JLabel l_mail = new JLabel("Mail : ");
+		l_mail.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_mail.setBounds(20, 303, 150, 30);
+		p.add(l_mail);
+		
+		JLabel l_tel = new JLabel("T\u00E9l\u00E9phone : ");
+		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		l_tel.setBounds(20, 344, 150, 30);
+		p.add(l_tel);
+		
+		// TextFields
+		
+		JTextField t_nom;
 		t_nom = new JTextField();
 		t_nom.setBounds(150, 100, 380, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -63,12 +82,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		p.add(t_nom);
 		t_nom.setColumns(10);
 		
-		// JLabel & JTextfield prï¿½nom
-		
-		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_prenom.setBounds(20, 140, 150, 30);
-		p.add(l_prenom);
-		
+		JTextField t_prenom;
 		t_prenom = new JTextField();
 		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_prenom.setColumns(10);
@@ -76,12 +90,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_prenom.setBounds(150, 141, 380, 30);
 		p.add(t_prenom);
 		
-		// JLabel & JTextfield Identifiant
-		
-		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_id.setBounds(20, 180, 150, 30);
-		p.add(l_id);
-		
+		JTextField t_id;
 		t_id = new JTextField();
 		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_id.setColumns(10);
@@ -89,12 +98,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_id.setBounds(150, 180, 380, 30);
 		p.add(t_id);
 		
-		// JLabel & JTextfield Fonction
-		
-		l_fonc.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_fonc.setBounds(20, 221, 150, 30);
-		p.add(l_fonc);
-		
+		JTextField t_fonction;
 		t_fonction = new JTextField();
 		t_fonction.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_fonction.setColumns(10);
@@ -102,12 +106,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_fonction.setBounds(150, 221, 380, 30);
 		p.add(t_fonction);
 		
-		// JLabel & JTextfield Adresse
-		
-		l_adresse.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_adresse.setBounds(20, 262, 150, 30);
-		p.add(l_adresse);
-		
+		JTextField t_adresse;
 		t_adresse = new JTextField();
 		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setColumns(10);
@@ -115,12 +114,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_adresse.setBounds(150, 262, 380, 30);
 		p.add(t_adresse);
 		
-		// JLabel & JTextfield Mail
-		
-		l_mail.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_mail.setBounds(20, 303, 150, 30);
-		p.add(l_mail);
-		
+		JTextField t_mail;
 		t_mail = new JTextField();
 		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_mail.setColumns(10);
@@ -128,12 +122,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		t_mail.setBounds(150, 303, 380, 30);
 		p.add(t_mail);
 		
-		// JLabel & JTextfield Tï¿½lï¿½phone
-		
-		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_tel.setBounds(20, 344, 150, 30);
-		p.add(l_tel);
-		
+		JTextField t_tel;
 		t_tel = new JTextField();
 		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_tel.setColumns(10);
@@ -143,6 +132,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		// Boutons : Retour, Effacer, Enregistrer
 		
+		JButton b_retour = new JButton("Retour");
 		b_retour.setBackground(new Color(255, 215, 0));
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_retour.setBounds(10, 410, 150, 50);
@@ -154,6 +144,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		});
 		p.add(b_retour);
 		
+		JButton b_effacer = new JButton("EFFACER");
 		b_effacer.setForeground(Color.WHITE);
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -161,6 +152,15 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				m.supEmp(emp);
+				try {
+					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+					ObjectOutputStream out = new ObjectOutputStream(fout);
+					out.writeObject(m);    
+					out.flush();
+					out.close();
+				} catch(Exception ex) {
+					System.out.println(e);
+				}
 				dispose();
 				new Fen4_Gest_MagEmp(m);
 			}
@@ -168,6 +168,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		});
 		p.add(b_effacer);
 		
+		JButton b_enreg = new JButton("ENREGISTRER");
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_enreg.setBounds(350, 410, 200, 50);
@@ -179,7 +180,6 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 				}
 			}
 		});
-		
 		p.add(b_enreg);
 	}
 }

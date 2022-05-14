@@ -13,36 +13,16 @@ import controller.*;
 public class Fen4_Ach_DoAch extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	
-    public static int count = 0;
-
 	private float pT = 0.F;
-	private JPanel p = new JPanel();
-	private DefaultListModel<String> model;
-	private DefaultListModel<String> model2;
-	private JScrollPane scrollPane = new JScrollPane();
-	private JScrollPane scrollPane2 = new JScrollPane();
-	private JList<String> list = new JList<String>();
-	private JList<String> list2 = new JList<String>();
-	private JPanel panel1 = new JPanel();
-	private JPanel panel2 = new JPanel();
-	private JPanel panel3 = new JPanel();
-	private JLabel l_achat = new JLabel("R\u00E9alisation de l'achat");
-	private JTextField t_rech = new JTextField();
-	private Vector<Livre> livresSelect = new Vector<Livre>();
-	JButton b_effacer = new JButton("Effacer");
-	JButton b_tEffacer = new JButton("Tout Effacer");
-	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("Retour");
-	JButton b_enregistrer = new JButton("Enregistrer");
-	JButton b_clearSearch = new JButton("X");
-	private final JComboBox<String> c_filtre = new JComboBox<String>();
-	
+
 	public Fen4_Ach_DoAch(Magasin m, Client c) {
 		
-		// FenÃªtre
-		setTitle("RÃ©aliser un achat");
-		p = new JPanel();
+		Vector<Livre> livresSelect = new Vector<Livre>();
+		
+		// Fenêtre
+		
+		JPanel p = new JPanel();
+		setTitle("Réalisation d'un achat");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -53,6 +33,17 @@ public class Fen4_Ach_DoAch extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
+		// Label
+		
+		JLabel l_achat = new JLabel("R\u00E9alisation de l'achat");
+		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
+		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
+		l_achat.setBounds(10, 11, 964, 57);
+		p.add(l_achat);
+		
+		// ComboBox - Filtre
+		
+		JComboBox<String> c_filtre = new JComboBox<String>();
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
         		"Cat\u00E9gorie", 
@@ -67,9 +58,14 @@ public class Fen4_Ach_DoAch extends JFrame {
 		
 		// Panel 1 (Liste de livres)
 		
+		JPanel panel1 = new JPanel();
+        panel1.setBounds(50, 150, 400, 400);
+        panel1.setLayout(null);
+        p.add(panel1);
+		
 		ListLivres l = new ListLivres(m,m.listLivre);
 		
-        model = new DefaultListModel<String>();
+		DefaultListModel<String> model = new DefaultListModel<String>();
         for (int i = 0; i < l.getList().length; i++) {
 			for (int j = 0; j < l.getList().length; j++) {
 				if (Integer.parseInt((l.getList()[i]).split(" ")[0]) < Integer.parseInt((l.getList()[j]).split(" ")[0])) {
@@ -82,53 +78,58 @@ public class Fen4_Ach_DoAch extends JFrame {
         for(int i = 0; i < l.getList().length; i++) {
         	model.addElement(l.getList()[i]);
         }
+        
+        
+		JList<String> list = new JList<String>();
         list.setModel(model);
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
         
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel1.setBounds(50, 150, 400, 400);
-        panel1.setLayout(null);
+		JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setViewportView(list);
         scrollPane.setBounds(0, 0, 400, 400);
         panel1.add(scrollPane);
-        p.add(panel1);
         
         // Panel 2 (Liste d'articles)
         
-        model2 = new DefaultListModel<String>();
-        list2.setModel(model2);
-        
-		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane2.setViewportView(list2);
-        list2.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 150, 400, 300);
 		panel2.setLayout(null);
+		p.add(panel2);
+		
+		DefaultListModel<String> model2 = new DefaultListModel<String>();
+		
+		JList<String> list2 = new JList<String>();
+        list2.setModel(model2);
+		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        list2.setLayoutOrientation(JList.VERTICAL);
+		
+		JScrollPane scrollPane2 = new JScrollPane();
+        scrollPane2.setViewportView(list2);
 		scrollPane2.setBounds(0, 0, 400, 300);
 		panel2.add(scrollPane2);
-		p.add(panel2);
 		
 		// Panel 3 (Prix total articles)
         
-		JLabel prix = new JLabel("Prix total :");
-
-		JLabel prixt = new JLabel("0 \u20AC");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        panel3.add(prix);
-        prix.setBounds(20,10,100,30);
-        prix.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        
-        panel3.add(prixt);
-        prixt.setBounds(320,10,100,30);
-        prixt.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		
+		JPanel panel3 = new JPanel();
         panel3.setBounds(540, 450, 400, 45);
 		panel3.setLayout(null);
+		
+		JLabel prix = new JLabel("Prix total : ");
+        prix.setBounds(20,10,100,30);
+        prix.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel3.add(prix);
+        
+		JLabel prixt = new JLabel("0 \u20AC");
+        prixt.setBounds(320,10,100,30);
+        prixt.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel3.add(prixt);
+        
 		p.add(panel3);
+		
 		// Textfield - Recherche de livres
 		
+		JTextField t_rech = new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un livre");
 		t_rech.setBounds(50, 100, 345, 45);
@@ -164,15 +165,9 @@ public class Fen4_Ach_DoAch extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel Rï¿½alisation de l'achat
-		
-		l_achat.setHorizontalAlignment(SwingConstants.CENTER);
-		l_achat.setFont(new Font("Tahoma", Font.BOLD, 36));
-		l_achat.setBounds(10, 11, 964, 57);
-		p.add(l_achat);
-		
 		// Boutons : Effacer, Tout Effacer, Ajouter, Retour, Enregistrer
 		
+		JButton b_effacer = new JButton("Effacer");
 		b_effacer.setBackground(new Color(58, 2, 13));
 		b_effacer.setForeground(Color.WHITE);
 		b_effacer.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -211,9 +206,9 @@ public class Fen4_Ach_DoAch extends JFrame {
                 		model2.addElement(livre.getId() + " - \"" + livre.getTitre() +  "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " \u20AC");
                 		model2.removeElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)(counter + 1) + ") - Prix = " + (Math.round(((counter + 1) * livre.getPrix())*100f)/100f) + " \u20AC");
 					}
-            		pT=0.F;
+            		pT = 0.F;
             		for(int i = 0; i < livresSelect.size(); i++) {
-        				pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
+        				pT += (((Livre) livresSelect.toArray()[i]).getPrix());
         			}
             		pT = Math.round(pT*100f)/100f;
 					prixt.setText(String.valueOf(pT) + " \u20AC");
@@ -227,6 +222,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		});
 		p.add(b_effacer);
 		
+		JButton b_tEffacer = new JButton("Tout Effacer");
 		b_tEffacer.setBackground(new Color(0, 0, 0));
 		b_tEffacer.setForeground(Color.WHITE);
 		b_tEffacer.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -241,6 +237,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 			});
 		p.add(b_tEffacer);
 		
+		JButton b_ajouter = new JButton("Ajouter");
 		b_ajouter.setBackground(new Color(150, 255, 150));
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 555, 400, 50);
@@ -275,9 +272,9 @@ public class Fen4_Ach_DoAch extends JFrame {
 	            				}
 	            			}
 	            		}
-	            		pT=0.F;
+	            		pT = 0.F;
 	            		for(int i = 0; i < livresSelect.size(); i++) {
-	        				pT +=(((Livre) livresSelect.toArray()[i]).getPrix());
+	        				pT += (((Livre) livresSelect.toArray()[i]).getPrix());
 	        			}
 	            		pT = Math.round(pT*100f)/100f;
 	                	model2.addElement(livre.getId() + " - \"" + livre.getTitre() + "\" (x" + (int)counter + ") - Prix = " + (Math.round((counter * livre.getPrix())*100f)/100f) + " \u20AC");
@@ -292,6 +289,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		});
 		p.add(b_ajouter);
 		
+		JButton b_retour = new JButton("Retour");
         b_retour.setBackground(new Color(255, 255, 0));
         b_retour.setFont(new Font("Tahoma", Font.PLAIN, 30));
         b_retour.setBounds(50, 650, 400, 60);
@@ -303,6 +301,7 @@ public class Fen4_Ach_DoAch extends JFrame {
         });
         p.add(b_retour);
         
+		JButton b_enregistrer = new JButton("Enregistrer");
 		b_enregistrer.setBackground(new Color(1, 215, 88));
 		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_enregistrer.setBounds(540, 650, 400, 60);
@@ -320,6 +319,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		});
 		p.add(b_enregistrer);
 		
+		JButton b_clearSearch = new JButton("X");
 		b_clearSearch.setForeground(new Color(255, 255, 255));
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));

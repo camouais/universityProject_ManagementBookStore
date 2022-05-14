@@ -3,16 +3,17 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import controller.*;
 
 public class Fen0 extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel p = new JPanel();
-	private JTextField t_mag;
-	private JPasswordField t_mdp;
-	
 	public Fen0() {
+		
+		// Fenêtre
+		
+		JPanel p = new JPanel();
 		setTitle("Login");
 		p.setBackground(Color.LIGHT_GRAY);
 		p.setLayout(null);
@@ -22,6 +23,8 @@ public class Fen0 extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
+		
+		// Labels
 		
 		JLabel l_main = new JLabel("Logiciel de gestion de vente\r\n");
 		l_main.setDisplayedMnemonic('L');
@@ -42,27 +45,35 @@ public class Fen0 extends JFrame {
 		l_mdp.setBounds(25, 150, 434, 25);
 		p.add(l_mdp);
 		
-		JButton b_valider = new JButton("Valider");
-		b_valider.setFont(new Font("Arial", Font.BOLD, 25));
-		b_valider.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		b_valider.setBackground(new Color(128, 255, 128));
-		b_valider.setBounds(160, 280, 150, 50);
-		p.add(b_valider);
+		// TextFields
 		
-		t_mdp = new JPasswordField();
+		JTextField t_nom = new JTextField();
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		t_nom.setBounds(35, 110, 414, 30);
+		p.add(t_nom);
+		
+		JPasswordField t_mdp = new JPasswordField();
 		t_mdp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_mdp.setColumns(10);
 		t_mdp.setBounds(35, 180, 414, 30);
 		p.add(t_mdp);
 		
-		t_mag = new JTextField();
-		t_mag.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		t_mag.setBounds(35, 110, 414, 30);
-		p.add(t_mag);
-		t_mag.setColumns(10);
+		// Boutons
+		
+		JButton b_valider = new JButton("Valider");
+		b_valider.setFont(new Font("Arial", Font.BOLD, 25));
+		b_valider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RechercheMagasin rm = new RechercheMagasin(t_nom.getText(), String.valueOf(t_mdp.getPassword()));    
+                if(rm.status==1) {
+                    dispose();
+                    new Fen1(rm.getMagasin());
+                }
+			}
+		});
+		b_valider.setBackground(new Color(128, 255, 128));
+		b_valider.setBounds(160, 280, 150, 50);
+		p.add(b_valider);
 		
 		JButton b_nmag = new JButton("Nouveau magasin ?");
 		b_nmag.setBackground(SystemColor.info);
@@ -76,18 +87,5 @@ public class Fen0 extends JFrame {
 			}
 		});
 		p.add(b_nmag);
-	}
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Fen0 frame = new Fen0();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 }

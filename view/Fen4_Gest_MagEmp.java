@@ -10,53 +10,16 @@ import model.*;
 
 public class Fen4_Gest_MagEmp extends JFrame {
 	
-	private static final long serialVersionUID = 1L;
-	
-	private JPanel p = new JPanel();
-	private JPanel panel1 = new JPanel();
-	private JPanel panel2 = new JPanel();
-	private DefaultListModel<String> model;
-	private DefaultListModel<String> model2;
-	private JList<String> list = new JList<String>();
-	private JList<String> list2 = new JList<String>();
-	public static int count = 0;
-	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Employ\u00E9s");
-    
-	JScrollPane scrollPane = new JScrollPane();
-	JScrollPane scrollPane2 = new JScrollPane();
-	JButton b_modifier = new JButton("Modifier");
-	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("Retour");
-	JButton b_clearSearch = new JButton("X");
-	
-	public JLabel lblVeuillezSlectionnerUn = new JLabel("Veuillez s\u00E9lectionner un employ\u00E9 pour afficher ses informations.");
-	
-	public JLabel nom = new JLabel(" ");
-	public JLabel prenom = new JLabel();
-	public JLabel identifiant = new JLabel(" ");
-	public JLabel fonction = new JLabel(" ");
-	public JLabel salaire  = new JLabel(" ");
-	public JLabel mail = new JLabel(" ");
-	public JLabel adresse = new JLabel(" ");
-	public JLabel tel = new JLabel(" ");
-	
-	public JLabel r_nom = new JLabel(" ");
-	public JLabel r_prenom = new JLabel();
-	public JLabel r_identifiant = new JLabel(" ");
-	public JLabel r_fonction = new JLabel(" ");
-	public JLabel r_salaire  = new JLabel(" ");
-	public JLabel r_mail = new JLabel(" ");
-	public JLabel r_adresse = new JLabel(" ");
-	public JLabel r_tel = new JLabel(" ");
-
-	private final JComboBox<String> c_filtre = new JComboBox<String>();
+	static final long serialVersionUID = 1L;
 	Employe emp;
 	
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// Fenêtre
-		setTitle("Gestion des employés");
+		// Fen�tre
+		
+		JPanel p = new JPanel();
+		
+		setTitle("Gestion des employ�s");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
 		p.setLayout(null);
@@ -67,11 +30,43 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Panel 1 (Liste d'employés)
+		// Label
+		
+		JLabel l_main = new JLabel("Employ\u00E9s");
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Arial", Font.BOLD, 50));
+		l_main.setBounds(10, 15, 964, 57);
+		p.add(l_main);
+		
+		// ComboBox - Filtre
+		
+		JComboBox<String> c_filtre = new JComboBox<String>();
+		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Nom", 
+        		"Pr\u00E9nom", 
+        		"id", 
+        		"Adresse", 
+        		"Date de naissance", 
+        		"\u00C2ge", 
+        		"Sexe", 
+        		"Fonction", 
+        		"T\u00E9l\u00E9phone", 
+        		"Mail"}));
+        c_filtre.setBounds(540, 100, 400, 48);
+		p.add(c_filtre);
+		
+		// Panel 1 (Liste d'employ�s)
+
+		JPanel panel1 = new JPanel();
+		panel1.setBounds(50, 175, 400, 440);
+		panel1.setLayout(null);
+		p.add(panel1);
 		
 		ListEmploye le = new ListEmploye(m, m.listEmp);
 		
-		model = new DefaultListModel<String>();
+		DefaultListModel<String> model = new DefaultListModel<String>();
+		
 		for (int i = 0; i < le.getList().length; i++) {
 			for (int j = 0; j < le.getList().length; j++) {
 				if (Integer.parseInt((le.getList()[i]).split(" ")[0]) < Integer.parseInt((le.getList()[j]).split(" ")[0])) {
@@ -85,51 +80,96 @@ public class Fen4_Gest_MagEmp extends JFrame {
 			model.addElement(le.getList()[i]);
         }
 		
+		JList<String> list = new JList<String>();
+		list.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		list.setLayoutOrientation(JList.VERTICAL);
 		list.setModel(model);
 		
-		list.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportView(list);
-		list.setLayoutOrientation(JList.VERTICAL);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel1.setBounds(50, 175, 400, 440);
-		panel1.setLayout(null);
 		scrollPane.setBounds(0, 0, 400, 440);
 		panel1.add(scrollPane);
-		p.add(panel1);
 		
-		// Panel 2 (Informations de l'employé sélectionné)
-        model2 = new DefaultListModel<String>();
+		// Panel 2 (Informations de l'employ� s�lectionn�)
 		
-		lblVeuillezSlectionnerUn.setBounds(0,0,400,20);
+		JPanel panel2 = new JPanel();
+		panel2.setBounds(540, 175, 400, 345);
+		panel2.setLayout(null);
+		p.add(panel2);
 		
-		nom.setBounds			(50,20,200,20);
-		prenom.setBounds		(50,40,200,20);
-		identifiant.setBounds	(50,60,200,20);
-		fonction.setBounds		(50,80,200,20);
-		salaire.setBounds		(50,100,200,20);
-		mail.setBounds			(50,120,200,20);
-		adresse.setBounds		(50,140,200,20);
-		tel.setBounds			(50,160,200,20);
+		DefaultListModel<String> model2 = new DefaultListModel<String>();
 		
-		r_nom.setBounds			(200,20,200,20);
-		r_prenom.setBounds		(200,40,200,20);
-		r_identifiant.setBounds	(200,60,200,20);
-		r_fonction.setBounds	(200,80,200,20);
-		r_salaire.setBounds		(200,100,200,20);
-		r_mail.setBounds		(200,120,200,20);
-		r_adresse.setBounds		(200,140,200,20);
-		r_tel.setBounds			(200,160,200,20);
+		JLabel label = new JLabel("Veuillez s\u00E9lectionner un employ\u00E9 pour afficher ses informations.");
+		label.setBounds(0,0,400,20);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+		panel2.add(label);
+        
+        JLabel nom = new JLabel(" ");
+    	JLabel prenom = new JLabel();
+    	JLabel id = new JLabel(" ");
+    	JLabel fonction = new JLabel(" ");
+    	JLabel salaire  = new JLabel(" ");
+    	JLabel mail = new JLabel(" ");
+    	JLabel adresse = new JLabel(" ");
+    	JLabel tel = new JLabel(" ");
+    	
+    	JLabel r_nom = new JLabel(" ");
+    	JLabel r_prenom = new JLabel();
+    	JLabel r_id = new JLabel(" ");
+    	JLabel r_fonction = new JLabel(" ");
+    	JLabel r_salaire  = new JLabel(" ");
+    	JLabel r_mail = new JLabel(" ");
+    	JLabel r_adresse = new JLabel(" ");
+    	JLabel r_tel = new JLabel(" ");
+    	
+		nom.setBounds			(20,20,200,25);
+		prenom.setBounds		(20,55,200,25);
+		id.setBounds			(20,90,200,25);
+		fonction.setBounds		(20,125,200,25);
+		salaire.setBounds		(20,160,200,25);
+		mail.setBounds			(20,195,200,25);
+		adresse.setBounds		(20,230,200,25);
+		tel.setBounds			(20,265,200,25);
+		
+		r_nom.setBounds			(150,20,250,25);
+		r_prenom.setBounds		(150,55,250,25);
+		r_id.setBounds			(150,90,250,25);
+		r_fonction.setBounds	(150,125,250,25);
+		r_salaire.setBounds		(150,160,250,25);
+		r_mail.setBounds		(150,195,250,25);
+		r_adresse.setBounds		(150,230,250,25);
+		r_tel.setBounds			(150,265,250,25);
+		
+		Font f = new Font("Tahoma", Font.PLAIN, 20);
+		
+		nom.setFont(f);
+		prenom.setFont(f);
+		id.setFont(f);
+		fonction.setFont(f);
+		salaire.setFont(f);
+		mail.setFont(f);
+		adresse.setFont(f);
+		tel.setFont(f);
+		
+		r_nom.setFont(f);
+		r_prenom.setFont(f);
+		r_id.setFont(f);
+		r_fonction.setFont(f);
+		r_salaire.setFont(f);
+		r_mail.setFont(f);
+		r_adresse.setFont(f);
+		r_tel.setFont(f);
 		
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
 				if (!arg0.getValueIsAdjusting()) {
 					
-					lblVeuillezSlectionnerUn.setVisible(false);
+					label.setVisible(false);
 					emp = m.rchEmp(Integer.parseInt((list.getSelectedValue().toString()).split(" ")[0]));
 					
                 	nom.setText(emp.getNom());
                 	prenom.setText(emp.getPrenom());
-                	identifiant.setText(String.valueOf(emp.getId()));
+                	id.setText(String.valueOf(emp.getId()));
                 	fonction.setText(emp.getFonction());
                 	salaire.setText(String.valueOf(emp.getSalaire()));
                 	adresse.setText(emp.getAdresse());
@@ -137,7 +177,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
                 	
                 	nom.setText("Nom :");
                 	prenom.setText("Pr\u00E9nom :");
-                	identifiant.setText("Identifiant :");
+                	id.setText("id :");
                 	fonction.setText("Fonction :");
                 	salaire.setText("Salaire : ");
                 	
@@ -147,7 +187,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
                 	
                 	r_nom.setText(emp.getNom());
                 	r_prenom.setText(emp.getPrenom());
-                	r_identifiant.setText(String.valueOf(emp.getId()));
+                	r_id.setText(String.valueOf(emp.getId()));
                 	r_fonction.setText(emp.getFonction());
                 	r_mail.setText(emp.getMail());
                 	r_salaire.setText(String.valueOf(emp.getSalaire()));
@@ -156,27 +196,10 @@ public class Fen4_Gest_MagEmp extends JFrame {
 				}
 			}
 		});
-
-		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
-        		"Nom", 
-        		"Pr\u00E9nom", 
-        		"Identifiant", 
-        		"Adresse", 
-        		"Date de naissance", 
-        		"\u00C2ge", 
-        		"Sexe", 
-        		"Fonction", 
-        		"T\u00E9l\u00E9phone", 
-        		"Mail"}));
-        c_filtre.setBounds(540, 100, 400, 48);
 		
-		p.add(c_filtre);
-		
-		panel2.add(lblVeuillezSlectionnerUn);
 		panel2.add(nom);
 		panel2.add(prenom);
-		panel2.add(identifiant);
+		panel2.add(id);
 		panel2.add(fonction);
 		panel2.add(salaire);
 		panel2.add(mail);
@@ -185,27 +208,26 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		
 		panel2.add(r_nom);
 		panel2.add(r_prenom);
-		panel2.add(r_identifiant);
+		panel2.add(r_id);
 		panel2.add(r_fonction);
 		panel2.add(r_salaire);
 		panel2.add(r_mail);
 		panel2.add(r_adresse);
 		panel2.add(r_tel);
-
-		list2.setModel(model2);
 		
+		JList<String> list2 = new JList<String>();
+		list2.setModel(model2);
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		scrollPane2.setViewportView(list2);
 		list2.setLayoutOrientation(JList.VERTICAL);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel2.setBounds(540, 175, 400, 345);
-		panel2.setLayout(null);
+		
+		JScrollPane scrollPane2 = new JScrollPane();
+		scrollPane2.setViewportView(list2);
 		scrollPane2.setBounds(0, 0, 400, 345);
 		panel2.add(scrollPane2);
-		p.add(panel2);
 
-		// Textfield - Recherche d'un employï¿½
+		// Textfield - Recherche d'un employ�
 		
+		JTextField t_rech= new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un livre");
 		t_rech.setBounds(50, 100, 345, 45);
@@ -240,15 +262,9 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Employï¿½s"
-		
-		l_main.setHorizontalAlignment(SwingConstants.CENTER);
-		l_main.setFont(new Font("Arial", Font.BOLD, 50));
-		l_main.setBounds(10, 15, 964, 57);
-		p.add(l_main);
-		
 		// Boutons : Modifier, Ajouter, Retour
 		
+		JButton b_modifier = new JButton("Modifier");
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
@@ -265,6 +281,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		});
 		p.add(b_modifier);
 		
+		JButton b_ajouter = new JButton("Ajouter");
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 650, 400, 60);
 		b_ajouter.setBackground(new Color(100, 200, 120));
@@ -276,6 +293,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		});
 		p.add(b_ajouter);
 		
+		JButton b_retour = new JButton("Retour");
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
@@ -287,6 +305,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		});
 		p.add(b_retour);
 
+		JButton b_clearSearch = new JButton("X");
 		b_clearSearch.setForeground(new Color(255, 255, 255));
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));

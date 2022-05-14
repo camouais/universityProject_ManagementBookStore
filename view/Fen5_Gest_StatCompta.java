@@ -9,17 +9,11 @@ import model.*;
 public class Fen5_Gest_StatCompta extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-
-	private JPanel p = new JPanel();
-
-	JButton b_recettes = new JButton("Recettes");
-	JButton b_depenses = new JButton("D\u00E9penses");
-	JButton b_retour = new JButton("Retour");
-	private final JLabel lblNewLabel = new JLabel("Comptabilit\u00E9s");
-	
 	
 	public Fen5_Gest_StatCompta(Magasin m) {
-		setTitle("Menu comptabilitÃ©");
+	
+		JPanel p = new JPanel();
+		setTitle("Comptabilités");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 260);
 		setLocationRelativeTo(null);
@@ -29,6 +23,17 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		setContentPane(p);
 		p.setLayout(null);
 		
+		// Label
+		
+		JLabel l_main = new JLabel("Comptabilit\u00E9s");
+		l_main.setFont(new Font("Tahoma", Font.BOLD, 35));
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setBounds(0, 10, 484, 70);
+		p.add(l_main);
+		
+		// Boutons
+		
+		JButton b_depenses = new JButton("D\u00E9penses");
 		b_depenses.setBackground(new Color(178, 34, 34));
 		b_depenses.setFont(new Font("Tahoma", Font.BOLD, 25));
 		b_depenses.setBounds(30, 100, 200, 60);
@@ -40,6 +45,7 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		});
 		p.add(b_depenses);
 		
+		JButton b_recettes = new JButton("Recettes");
 		b_recettes.setBackground(new Color(135, 206, 235));
 		b_recettes.setFont(new Font("Tahoma", Font.BOLD, 25));
 		b_recettes.setBounds(254, 100, 200, 60);
@@ -51,6 +57,7 @@ public class Fen5_Gest_StatCompta extends JFrame{
 		});
 		p.add(b_recettes);
 		
+		JButton b_retour = new JButton("Retour");
 		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		b_retour.setBounds(0, 191, 100, 30);
@@ -61,10 +68,5 @@ public class Fen5_Gest_StatCompta extends JFrame{
 			}
 		});
 		p.add(b_retour);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 35));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(0, 10, 484, 70);
-		
-		p.add(lblNewLabel);
 	}
 }

@@ -9,55 +9,18 @@ import controller.*;
 import model.*;
 
 public class Fen3_Gest_Liv extends JFrame {
-	
-	private static final long serialVersionUID = 1L;
-	
-	private JPanel p = new JPanel();
-	private DefaultListModel<String> model;
-	private DefaultListModel<String> model2;
-	private JScrollPane scrollPane = new JScrollPane();
-	private JScrollPane scrollPane2 = new JScrollPane();
-	private JList<String> list = new JList<String>();
-	private JList<String> list2 = new JList<String>();
-	private JPanel panel1 = new JPanel();
-	private JPanel panel2 = new JPanel();
-	public static int count = 0;
-	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Gestion des livres");
-	
-	JButton b_modifier = new JButton("Modifier");
-	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("Retour");
-	JButton b_clearSearch = new JButton("X");
-	
-	public JLabel label = new JLabel("Veuillez s\u00E9lectionner un livre pour afficher ses informations.");
-	
-	public JLabel titre = new JLabel(" ");
-	public JLabel auteur = new JLabel();
-	public JLabel identifiant = new JLabel(" ");
-	public JLabel editeur = new JLabel(" ");
-	public JLabel dateParution  = new JLabel(" ");
-	public JLabel prix = new JLabel(" ");
-	public JLabel categorie = new JLabel(" ");
-	public JLabel stock = new JLabel(" ");
-	
-	public JLabel r_titre = new JLabel(" ");
-	public JLabel r_auteur = new JLabel();
-	public JLabel r_identifiant = new JLabel(" ");
-	public JLabel r_editeur = new JLabel(" ");
-	public JLabel r_dateParution  = new JLabel(" ");
-	public JLabel r_prix = new JLabel(" ");
-	public JLabel r_categorie = new JLabel(" ");
-	public JLabel r_stock = new JLabel(" ");
 
-	private final JComboBox<String> c_filtre = new JComboBox<String>();
+	private static final long serialVersionUID = 1L;
 	Livre liv;
+	
 	public Fen3_Gest_Liv(Magasin m) {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// FenÃªtre
-		setTitle("Gestion des achats");
+		// Fenêtre
+		
+		JPanel p = new JPanel();
+		setTitle("Gestion des livres");
 		p = new JPanel();
 		p.setBackground(new Color(119, 181, 254));
 		p.setLayout(null);
@@ -68,9 +31,37 @@ public class Fen3_Gest_Liv extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
+		// JLabel "Livres"
+		
+		JLabel l_main = new JLabel("Gestion des livres");
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Arial", Font.BOLD, 50));
+		l_main.setBounds(10, 15, 964, 57);
+		p.add(l_main);
+		
+		// ComboBox - Filtre
+		
+		JComboBox<String> c_filtre = new JComboBox<String>();
+		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Cat\u00E9gorie", 
+        		"Titre", 
+        		"ID Livre", 
+        		"Auteur", 
+        		"Date de parution", 
+        		"\u00C9diteur"}));
+        c_filtre.setBounds(540, 100, 400, 48);
+		p.add(c_filtre);
+		
 		// Liste 1 (Liste de livres)
 
-        model = new DefaultListModel<String>();
+		JPanel panel1 = new JPanel();
+        panel1.setBounds(50, 175, 400, 440);
+        panel1.setLayout(null);
+        p.add(panel1);
+		
+		DefaultListModel<String> model = new DefaultListModel<String>();
+		
         for (int i = 0; i < l.getList().length; i++) {
 			for (int j = 0; j < l.getList().length; j++) {
 				if (Integer.parseInt((l.getList()[i]).split(" ")[0]) < Integer.parseInt((l.getList()[j]).split(" ")[0])) {
@@ -83,24 +74,49 @@ public class Fen3_Gest_Liv extends JFrame {
         for(int i = 0; i < l.getList().length; i++) {
         	model.addElement(l.getList()[i]);
         }
+        
+		JList<String> list = new JList<String>();
         list.setModel(model);
-		
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel1.setBounds(50, 175, 400, 440);
-        panel1.setLayout(null);
+        
+        
+		JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setViewportView(list);
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
-        p.add(panel1);
         
-        // Liste 2 (Informations du livre sÃ©lectionnÃ©)
+        // Liste 2 (Informations du livre sélectionné)
         
-        model2 = new DefaultListModel<String>();
-        label.setHorizontalAlignment(SwingConstants.CENTER);
+        JPanel panel2 = new JPanel();
+		panel2.setBounds(540, 175, 400, 345);
+		panel2.setLayout(null);
+		p.add(panel2);
+		
+		DefaultListModel<String> model2 = new DefaultListModel<String>();
        
+		JLabel label = new JLabel("Veuillez s\u00E9lectionner un livre pour afficher ses informations.");
         label.setBounds(0,0,400,20);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+		panel2.add(label);
+		
+		JLabel titre = new JLabel(" ");
+		JLabel auteur = new JLabel();
+		JLabel identifiant = new JLabel(" ");
+		JLabel editeur = new JLabel(" ");
+		JLabel dateParution  = new JLabel(" ");
+		JLabel prix = new JLabel(" ");
+		JLabel categorie = new JLabel(" ");
+		JLabel stock = new JLabel(" ");
+		
+		JLabel r_titre = new JLabel(" ");
+		JLabel r_auteur = new JLabel();
+		JLabel r_identifiant = new JLabel(" ");
+		JLabel r_editeur = new JLabel(" ");
+		JLabel r_dateParution  = new JLabel(" ");
+		JLabel r_prix = new JLabel(" ");
+		JLabel r_categorie = new JLabel(" ");
+		JLabel r_stock = new JLabel(" ");
 		
         titre.setBounds			(25,20,200,25);
         auteur.setBounds		(25,55,200,25);
@@ -160,25 +176,14 @@ public class Fen3_Gest_Liv extends JFrame {
 	                	r_identifiant.setText(String.valueOf(liv.getId()));
 	                	r_editeur.setText(liv.getEditeur());
 	                	r_dateParution.setText(liv.getDateParution().toString());
-	                	r_prix.setText(String.valueOf(liv.getPrix()));
+	                	r_prix.setText(String.valueOf(liv.getPrix()) + " \u20AC");
 	                	r_categorie.setText(liv.getCategorie());
 	                	r_stock.setText(String.valueOf(liv.getStock()));
 					}
 				}
 			}
 		});
-		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
-        		"Cat\u00E9gorie", 
-        		"Titre", 
-        		"ID Livre", 
-        		"Auteur", 
-        		"Date de parution", 
-        		"\u00C9diteur"}));
-        c_filtre.setBounds(540, 100, 400, 48);
 		
-		p.add(c_filtre);
-		panel2.add(label);
 		panel2.add(titre);
 		panel2.add(auteur);
 		panel2.add(identifiant);
@@ -197,20 +202,19 @@ public class Fen3_Gest_Liv extends JFrame {
 		panel2.add(r_categorie);
 		panel2.add(r_stock);
 		
+		JList<String> list2 = new JList<String>();
 		list2.setModel(model2);
-        
 		list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel2.setBounds(540, 175, 400, 345);
-		panel2.setLayout(null);
+        
+		JScrollPane scrollPane2 = new JScrollPane();
+        scrollPane2.setViewportView(list2);
 		scrollPane2.setBounds(0, 0, 400, 345);
 		panel2.add(scrollPane2);
-		p.add(panel2);
 
 		// Textfield - Recherche d'un livre
 		
+		JTextField t_rech = new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un livre");
 		t_rech.setBounds(50, 100, 345, 45);
@@ -245,15 +249,9 @@ public class Fen3_Gest_Liv extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Livres"
-		
-		l_main.setHorizontalAlignment(SwingConstants.CENTER);
-		l_main.setFont(new Font("Arial", Font.BOLD, 50));
-		l_main.setBounds(10, 15, 964, 57);
-		p.add(l_main);
-		
 		// Boutons : Modifier, Ajouter, Retour
 		
+		JButton b_modifier = new JButton("Modifier");
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
@@ -271,6 +269,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		});
 		p.add(b_modifier);
 		
+		JButton b_ajouter = new JButton("Ajouter");
 		b_ajouter.setIcon(null);
 		b_ajouter.addActionListener(new ActionListener() {
 			@Override
@@ -284,6 +283,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		p.add(b_ajouter);
         
+		JButton b_retour = new JButton("Retour");
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -294,8 +294,8 @@ public class Fen3_Gest_Liv extends JFrame {
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
 		p.add(b_retour);
-		
 
+		JButton b_clearSearch = new JButton("X");
 		b_clearSearch.setForeground(new Color(255, 255, 255));
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));

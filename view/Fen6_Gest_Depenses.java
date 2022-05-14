@@ -11,53 +11,17 @@ import model.*;
 import controller.*;
 
 public class Fen6_Gest_Depenses extends JFrame {
+
 	private static final long serialVersionUID = 1L;
-	
-	private JPanel p = new JPanel();
-	private DefaultListModel<String> model;
-	private DefaultListModel<String> model2;
-	private JScrollPane scrollPane = new JScrollPane();
-	private JScrollPane scrollPane2 = new JScrollPane();
-	private JList<String> list = new JList<String>();
-	private JList<String> list2 = new JList<String>();
-	private JPanel panel1 = new JPanel();
-	private JPanel panel2 = new JPanel();
-	public static int count = 0;
-	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Gestion des d\u00E9penses");
-	
-	JButton b_modifier = new JButton("Modifier");
-	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("RETOUR");
-	JButton b_clearSearch = new JButton("X");
-	
-	public JLabel label = new JLabel("Veuillez s\u00E9lectionner une d\u00E9pense pour afficher ses informations.");
-	
-	public JLabel identifiant = new JLabel(" ");
-	public JLabel description = new JLabel(" ");
-	public JLabel cout = new JLabel();
-	public JLabel Nemploye = new JLabel(" ");
-	public JLabel Pemploye = new JLabel(" ");
-	public JLabel Iemploye = new JLabel();
-	public JLabel dateDep = new JLabel(" ");
-	
-	public JLabel r_identifiant = new JLabel(" ");
-	public JLabel r_description = new JLabel(" ");
-	public JLabel r_cout = new JLabel(" ");
-	public JLabel r_Nemploye = new JLabel(" ");
-	public JLabel r_Pemploye = new JLabel(" ");
-	public JLabel r_Iemploye = new JLabel(" ");
-	public JLabel r_dateDep = new JLabel(" ");
-	
-	private final JComboBox<String> c_filtre = new JComboBox<String>();
-
-	
-	Depense dep;
-	Employe e;
+	public Depense dep;
+		
 	public Fen6_Gest_Depenses(Magasin m) {
-
-		// Fenï¿½tre
-		setTitle("Gestion des dépenses");
+		
+		
+		// Fen�tre
+		
+		JPanel p = new JPanel();
+		setTitle("Gestion des d�penses");
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(100, 131, 236));
@@ -69,10 +33,15 @@ public class Fen6_Gest_Depenses extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
-		// Liste 1 (Liste de clients)
+		// Liste 1 (Liste des d�penses)
 		
+		JPanel panel1 = new JPanel();
+        panel1.setBounds(50, 175, 400, 440);
+        panel1.setLayout(null);
+        p.add(panel1);
 		ListDepense d = new ListDepense(m, m.listDep);
 		
+		DefaultListModel<String> model;
 		model = new DefaultListModel<String>();
         for (int i = 0; i < d.getList().length; i++) {
             for (int j = 0; j < d.getList().length; j++) {
@@ -87,24 +56,41 @@ public class Fen6_Gest_Depenses extends JFrame {
             model.addElement(d.getList()[i]);
         }
         
+		JList<String> list = new JList<String>();
         list.setModel(model);
-        
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel1.setBounds(50, 175, 400, 440);
-        panel1.setLayout(null);
+        
+		JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setViewportView(list);
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
-        p.add(panel1);
         
-        // Liste 2 (Informations du client sï¿½lectionnï¿½)
+        // Liste 2 (Informations de la d�pense s�lectionn�e)
         
+		JPanel panel2 = new JPanel();
+		DefaultListModel<String> model2;
         model2 = new DefaultListModel<String>();
         
+		JLabel label = new JLabel("Veuillez s\u00E9lectionner une d\u00E9pense pour afficher ses informations.");
         label.setBounds(0,0,400,20);
         
+        JLabel identifiant = new JLabel(" ");
+		JLabel description = new JLabel(" ");
+		JLabel cout = new JLabel();
+		JLabel Nemploye = new JLabel(" ");
+		JLabel Pemploye = new JLabel(" ");
+		JLabel Iemploye = new JLabel();
+		JLabel dateDep = new JLabel(" ");
+		JLabel r_identifiant = new JLabel(" ");
+		JLabel r_description = new JLabel(" ");
+		JLabel r_cout = new JLabel(" ");
+		JLabel r_Nemploye = new JLabel(" ");
+		JLabel r_Pemploye = new JLabel(" ");
+		JLabel r_Iemploye = new JLabel(" ");
+		JLabel r_dateDep = new JLabel(" ");
+		
         identifiant.setBounds		(50,20,200,20);
         description.setBounds		(50,40,200,20);
         cout.setBounds				(50,60,200,20);
@@ -122,7 +108,6 @@ public class Fen6_Gest_Depenses extends JFrame {
         r_dateDep.setBounds			(200,140,200,20);
         
         list.addListSelectionListener(new ListSelectionListener() {
-
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
                 	
@@ -149,9 +134,10 @@ public class Fen6_Gest_Depenses extends JFrame {
             }
         });
         
+		JComboBox<String> c_filtre = new JComboBox<String>();
         c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "id d\u00E9pense", "id employ\u00E9", "nom employe", "date"}));
-        c_filtre.setBounds(480, 100, 200, 48);
+        c_filtre.setBounds(540, 100, 400, 48);
 
 		p.add(c_filtre);
         
@@ -172,12 +158,13 @@ public class Fen6_Gest_Depenses extends JFrame {
         panel2.add(r_Iemploye);
         panel2.add(r_dateDep);
         
-        
+		JList<String> list2 = new JList<String>();
         list2.setModel(model2);
-        
         list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
+        
+		JScrollPane scrollPane2 = new JScrollPane();
+        scrollPane2.setViewportView(list2);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel2.setBounds(540, 175, 400, 345);
 		panel2.setLayout(null);
@@ -185,9 +172,11 @@ public class Fen6_Gest_Depenses extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'une dépense	
+		// Textfield - Recherche d'une d�pense
+		
+		JTextField t_rech = new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_rech.setText("Recherchez une dÃ©pense");
+		t_rech.setText("Recherchez une d\u00E9pense...");
 		t_rech.setBounds(50, 100, 345, 45);
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -222,8 +211,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Clients"
-		
+		JLabel l_main = new JLabel("Gestion des d\u00E9penses");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Arial", Font.BOLD, 50));
 		l_main.setBounds(10, 15, 964, 57);
@@ -231,6 +219,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		
 		// Boutons : Modifier, Ajouter, Retour
 		
+		JButton b_modifier = new JButton("Modifier");
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
@@ -247,6 +236,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		});
 		p.add(b_modifier);
 		
+		JButton b_ajouter = new JButton("Ajouter");
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	dispose();
@@ -257,8 +247,8 @@ public class Fen6_Gest_Depenses extends JFrame {
 		b_ajouter.setBounds(50, 650, 400, 60);
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		p.add(b_ajouter);
-        
 		
+		JButton b_retour = new JButton("RETOUR");
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
@@ -269,6 +259,8 @@ public class Fen6_Gest_Depenses extends JFrame {
 			}
 		});
 		p.add(b_retour);
+		
+		JButton b_clearSearch = new JButton("X");
 		b_clearSearch.setForeground(new Color(255, 255, 255));
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));

@@ -14,49 +14,13 @@ import model.*;
 public class Fen3_Gest_Cli extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel p = new JPanel();
-	private JPanel panel1 = new JPanel();
-	private JPanel panel2 = new JPanel();
-    private DefaultListModel<String> model;
-    private JList<String> list = new JList<String>();
-    private JList<String> list2 = new JList<String>();
-    public static int count = 0;
-	private JTextField t_rech= new JTextField();
-	private JLabel l_main = new JLabel("Clients");
-
-	private DefaultListModel<String> model2;
-	JScrollPane scrollPane = new JScrollPane();
-    JScrollPane scrollPane2 = new JScrollPane();
-	JButton b_modifier = new JButton("Modifier");
-	JButton b_ajouter = new JButton("Ajouter");
-	JButton b_retour = new JButton("Retour");
-	JButton b_clearSearch = new JButton("X");
-	
-	public JLabel nom = new JLabel(" ");
-    public JLabel prenom = new JLabel();
-    public JLabel identifiant = new JLabel(" ");
-    public JLabel mail = new JLabel(" ");
-    public JLabel dateC = new JLabel(" ");
-    public JLabel adresse = new JLabel(" ");
-    public JLabel tel = new JLabel(" ");
-    
-    
-    public JLabel r_nom = new JLabel(" ");
-    public JLabel r_prenom = new JLabel();
-    public JLabel r_identifiant = new JLabel(" ");
-    public JLabel r_dateC = new JLabel(" ");
-    public JLabel r_mail = new JLabel(" ");
-    public JLabel r_adresse = new JLabel(" ");
-    public JLabel r_tel = new JLabel(" ");
-	
-	public JLabel label = new JLabel("Veuillez s\u00E9lectionner un client pour afficher ses informations.");
-
-	private final JComboBox<String> c_filtre = new JComboBox<String>();
-	Client cli;
+	private Client cli;
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
+		
+		JPanel p = new JPanel();
 		setTitle("Gestion des clients");
 		p = new JPanel();
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,11 +33,41 @@ public class Fen3_Gest_Cli extends JFrame {
 		setResizable(false);
 		setVisible(true);
 		
+		// Label
+		
+		JLabel l_main = new JLabel("Clients");
+		l_main.setHorizontalAlignment(SwingConstants.CENTER);
+		l_main.setFont(new Font("Arial", Font.BOLD, 50));
+		l_main.setBounds(10, 15, 964, 57);
+		p.add(l_main);
+		
+		// ComboBox - Filtre
+		
+		JComboBox<String> c_filtre = new JComboBox<String>();
+		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
+        		"Nom", 
+        		"Pr\u00E9nom", 
+        		"ID Client", 
+        		"Adresse", 
+        		"Date de naissance", 
+        		"\u00C2ge", 
+        		"Sexe", 
+        		"Date de cr\u00E9ation du compte", 
+        		"T\u00E9l\u00E9phone", 
+        		"Mail"}));
+        c_filtre.setBounds(540, 100, 400, 48);
+		p.add(c_filtre);
+		
 		// Liste 1 (Liste de clients)
 		
+		JPanel panel1 = new JPanel();
+        panel1.setBounds(50, 175, 400, 440);
+        panel1.setLayout(null);
+        p.add(panel1);
+        
 		ListClient c = new ListClient(m, m.listClient);
-		
-		model = new DefaultListModel<String>();
+    	DefaultListModel<String> model = new DefaultListModel<String>();
         for (int i = 0; i < c.getList().length; i++) {
             for (int j = 0; j < c.getList().length; j++) {
                 if (Integer.parseInt((c.getList()[i]).split(" ")[0]) < Integer.parseInt((c.getList()[j]).split(" ")[0])) {
@@ -87,23 +81,44 @@ public class Fen3_Gest_Cli extends JFrame {
             model.addElement(c.getList()[i]);
         }
         
+    	JList<String> list = new JList<String>();
         list.setModel(model);
         list.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane.setViewportView(list);
         list.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel1.setBounds(50, 175, 400, 440);
-        panel1.setLayout(null);
+        
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView(list);
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
-        p.add(panel1);
         
-        // Liste 2 (Informations du client sÃ©lectionnÃ©)
+        // Liste 2 (Informations du client sélectionné)
         
-        model2 = new DefaultListModel<String>();
+		JPanel panel2 = new JPanel();
+		panel2.setBounds(540, 175, 400, 345);
+		panel2.setLayout(null);
+		p.add(panel2);
+		
+		DefaultListModel<String> model2 = new DefaultListModel<String>();
         
+		JLabel label = new JLabel("Veuillez s\u00E9lectionner un client pour afficher ses informations.");
         label.setBounds(0,0,400,20);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel2.add(label);
         
+        JLabel nom = new JLabel(" ");
+	    JLabel prenom = new JLabel();
+	    JLabel identifiant = new JLabel(" ");
+	    JLabel mail = new JLabel(" ");
+	    JLabel adresse = new JLabel(" ");
+	    JLabel tel = new JLabel(" ");
+	    
+	    JLabel r_nom = new JLabel(" ");
+	    JLabel r_prenom = new JLabel();
+	    JLabel r_identifiant = new JLabel(" ");
+	    JLabel r_mail = new JLabel(" ");
+	    JLabel r_adresse = new JLabel(" ");
+	    JLabel r_tel = new JLabel(" ");
+	    
         nom.setBounds			(25,20,200,25);
         prenom.setBounds		(25,55,200,25);
         identifiant.setBounds	(25,90,200,25);
@@ -111,15 +126,29 @@ public class Fen3_Gest_Cli extends JFrame {
         adresse.setBounds		(25,160,200,25);
         tel.setBounds			(25,195,200,25);
         
-        r_nom.setBounds			(200,20,200,25);
-        r_prenom.setBounds		(200,55,200,25);
-        r_identifiant.setBounds	(200,90,200,25);
-        r_mail.setBounds		(200,125,200,25);
-        r_adresse.setBounds		(200,160,200,25);
-        r_tel.setBounds			(200,195,200,25);
+        r_nom.setBounds			(150,20,250,25);
+        r_prenom.setBounds		(150,55,250,25);
+        r_identifiant.setBounds	(150,90,250,25);
+        r_mail.setBounds		(150,125,250,25);
+        r_adresse.setBounds		(150,160,250,25);
+        r_tel.setBounds			(150,195,250,25);
+        
+        Font f = new Font("Tahoma", Font.PLAIN, 20);
+        nom.setFont(f);
+        prenom.setFont(f);
+        identifiant.setFont(f);
+        mail.setFont(f);
+        adresse.setFont(f);
+        tel.setFont(f);
+        
+        r_nom.setFont(f);
+        r_prenom.setFont(f);
+        r_identifiant.setFont(f);
+        r_mail.setFont(f);
+        r_adresse.setFont(f);
+        r_tel.setFont(f);
         
         list.addListSelectionListener(new ListSelectionListener() {
-
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
                 	label.setVisible(false);
@@ -142,23 +171,7 @@ public class Fen3_Gest_Cli extends JFrame {
                 }
             }
         });
-
-		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
-        		"Nom", 
-        		"Pr\u00E9nom", 
-        		"ID Client", 
-        		"Adresse", 
-        		"Date de naissance", 
-        		"\u00C2ge", 
-        		"Sexe", 
-        		"Date de cr\u00E9ation du compte", 
-        		"T\u00E9l\u00E9phone", 
-        		"Mail"}));
-        c_filtre.setBounds(540, 100, 400, 48);
-		p.add(c_filtre);
 		
-        panel2.add(label);
         panel2.add(nom);
         panel2.add(prenom);
         panel2.add(identifiant);
@@ -173,21 +186,19 @@ public class Fen3_Gest_Cli extends JFrame {
         panel2.add(r_adresse);
         panel2.add(r_tel);
         
-
+    	JList<String> list2 = new JList<String>();
 		list2.setModel(model2);
-        
         list2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        scrollPane2.setViewportView(list2);
         list2.setLayoutOrientation(JList.VERTICAL);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel2.setBounds(540, 175, 400, 345);
-		panel2.setLayout(null);
+        
+   	 	JScrollPane scrollPane2 = new JScrollPane();
 		scrollPane2.setBounds(0, 0, 400, 345);
+        scrollPane2.setViewportView(list2);
 		panel2.add(scrollPane2);
-		p.add(panel2);
 
 		// Text Field : Recherche d'un client
 		
+		JTextField t_rech= new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_rech.setText("Recherchez un client");
 		t_rech.setBounds(50, 100, 345, 45);
@@ -222,15 +233,9 @@ public class Fen3_Gest_Cli extends JFrame {
 		p.add(t_rech);
 		t_rech.setColumns(10);
 		
-		// JLabel "Clients"
-		
-		l_main.setHorizontalAlignment(SwingConstants.CENTER);
-		l_main.setFont(new Font("Arial", Font.BOLD, 50));
-		l_main.setBounds(10, 15, 964, 57);
-		p.add(l_main);
-		
 		// Boutons : Modifier, Ajouter, Retour
 		
+		JButton b_modifier = new JButton("Modifier");
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
@@ -247,6 +252,7 @@ public class Fen3_Gest_Cli extends JFrame {
 		});
 		p.add(b_modifier);
 		
+		JButton b_ajouter = new JButton("Ajouter");
 		b_ajouter.addActionListener(new ActionListener() {
         
             public void actionPerformed(ActionEvent e) {
@@ -258,8 +264,8 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_ajouter.setBounds(50, 650, 400, 60);
 		b_ajouter.setBackground(new Color(100, 200, 120));
 		p.add(b_ajouter);
-        
 		
+		JButton b_retour = new JButton("Retour");
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_retour.setBounds(540, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
@@ -270,6 +276,8 @@ public class Fen3_Gest_Cli extends JFrame {
 			}
 		});
 		p.add(b_retour);
+		
+		JButton b_clearSearch = new JButton("X");
 		b_clearSearch.setForeground(new Color(255, 255, 255));
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
