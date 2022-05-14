@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.time.*;
 import javax.swing.*;
 import model.*;
@@ -49,6 +51,15 @@ public class NewClient {
 			if (checksum > 0) {
 		      c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
 		      m.addCli(c);
+				try {
+					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+					ObjectOutputStream out = new ObjectOutputStream(fout);
+					out.writeObject(m);    
+					out.flush();
+					out.close();
+				} catch(Exception e) {
+					System.out.println(e);
+				}
 		      status = 1;
 			}
 		}

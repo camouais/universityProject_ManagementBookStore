@@ -116,9 +116,9 @@ public class NewMagasin {
 				}
 			}
 			FileOutputStream fout = new FileOutputStream(maindir + "/" + dirname + "/" + filename);
-			ObjectOutputStream out = new ObjectOutputStream(fout);    
+			ObjectOutputStream out = new ObjectOutputStream(fout);
 			out.writeObject(m);    
-			out.flush();  
+			out.flush();
 			out.close();
 		} catch (Exception e) {
 			System.out.println(e);

@@ -2,6 +2,8 @@ package controller;
 
 import javax.swing.*;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.time.*;
 import model.*;
 
@@ -67,6 +69,15 @@ public class NewEmploye {
 			if(checksum > 0) {
 				e = new Employe(nom.getText(), prenom.getText(), sexe.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText(), dateTemp);
 				m.addEmp(e);
+				try {
+					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+					ObjectOutputStream out = new ObjectOutputStream(fout);
+					out.writeObject(m);    
+					out.flush();
+					out.close();
+				} catch(Exception e) {
+					System.out.println(e);
+				}
 				status = 1;
 			}
 		}

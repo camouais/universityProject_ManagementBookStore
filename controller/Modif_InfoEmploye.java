@@ -1,5 +1,8 @@
 package controller;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 import javax.swing.*;
 import model.*;
 
@@ -47,6 +50,15 @@ public class Modif_InfoEmploye {
 				e.setMail(mail.getText());
 				e.setSalaire(Float.parseFloat(salaire.getText()));
 				e.setFonction(fonction.getText());
+				try {
+					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+					ObjectOutputStream out = new ObjectOutputStream(fout);
+					out.writeObject(m);    
+					out.flush();
+					out.close();
+				} catch(Exception ex) {
+					System.out.println(e);
+				}
 				status = 1;
 			}
 		}

@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 import javax.swing.*;
@@ -73,6 +75,15 @@ public class NewLivre {
 			if(checksum > 0) {
 				l = new Livre(titre.getText(), auteur.getText(), editeur.getText(), d, categorie.getText(), p, s);
 				m.addLivre(l);
+				try {
+					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+					ObjectOutputStream out = new ObjectOutputStream(fout);
+					out.writeObject(m);    
+					out.flush();
+					out.close();
+				} catch(Exception e) {
+					System.out.println(e);
+				}
 				status = 1;
 			}
 		}
