@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.*;
 import java.time.*;
 import java.util.*;
 import javax.swing.*;
@@ -11,7 +12,10 @@ public class NewMagasin {
 	Magasin m;
 	
 	public NewMagasin(JTextField n, JPasswordField mdp, JTextField adr) {
-    	
+		File maindir = new File("src/data");
+		String dirname;
+		String filename;
+	
 		Employe e_0 = new Employe("Alfred", "Jo", "Homme", 4521.F, "Caissier", "5 Rue des Sangliers", "Alfred.Jo@gmail.com", "06352192" ,LocalDate.of(1995, 07, 18));
 		Employe e_1 = new Employe("Tulipe", "William", "Homme", 1234.F, "Responsable", "23 Rue des Sangliers", "Tulipe.William@gmail.com", "09318995", LocalDate.of(1995, 07, 18));
 		Employe e_2 = new Employe("Armand", "Sarah", "Femme", 2687.F, "Caissier", "6 Rue des Sangliers", "Armand.Sarah@gmail.com", "06357196", LocalDate.of(1995, 07, 18));
@@ -59,43 +63,66 @@ public class NewMagasin {
    		} else if(new String(mdp.getPassword()).isEmpty()) {
    			JFrame a = new JFrame();
    			JOptionPane.showMessageDialog(a, "Mot de passe vide. Veuillez saisir un mot de passe.", "Erreur", 2);
-   		} else {
-   			m = new Magasin(n.getText(), new String(mdp.getPassword()));
-   			if(!adr.getText().isEmpty()) {
-   				m.setAdresse(adr.getText());
-   			}
-   			
-   			m.addEmp(e_0);
-   			m.addEmp(e_1);
-   			m.addEmp(e_2);
-   			m.addEmp(e_3);
-   			m.addEmp(e_4);
-   			m.addEmp(e_5);
-   			
-   			m.addLivre(liv1);
-   			m.addLivre(liv2);
-   			m.addLivre(liv3);
-   			m.addLivre(liv4);
-   			m.addLivre(liv5);
-   			
-   			m.addCli(cl1);
-   			m.addCli(cl2);
-   			m.addCli(cl3);
-   			m.addCli(cl4);
-   			m.addCli(cl5);
-   			
-   			m.addCom(com1);
-   			m.addCom(com2);
-   			m.addCom(com3);
-   			m.addCom(com4);
-   			m.addCom(com5);
-
-   			m.addDepense(d1);
-   			m.addDepense(d2);
-   			m.addDepense(d3);
-   			
-   			status = 1;
+		} else {
+			m = new Magasin(n.getText(), new String(mdp.getPassword()));
+			if(!adr.getText().isEmpty()) {
+				m.setAdresse(adr.getText());
+			}
+			
+			m.addEmp(e_0);
+			m.addEmp(e_1);
+			m.addEmp(e_2);
+			m.addEmp(e_3);
+			m.addEmp(e_4);
+			m.addEmp(e_5);
+			
+			m.addLivre(liv1);
+			m.addLivre(liv2);
+			m.addLivre(liv3);
+			m.addLivre(liv4);
+			m.addLivre(liv5);
+			
+			m.addCli(cl1);
+			m.addCli(cl2);
+			m.addCli(cl3);
+			m.addCli(cl4);
+			m.addCli(cl5);
+			
+			m.addCom(com1);
+			m.addCom(com2);
+			m.addCom(com3);
+			m.addCom(com4);
+			m.addCom(com5);
+			
+			m.addDepense(d1);
+			m.addDepense(d2);
+			m.addDepense(d3);
+			
+			status = 1;
    		}
+		// Serialization
+		try {
+			dirname = "m_" + n.getText();
+			filename = "data.txt";
+			if(!maindir.exists()) {
+				maindir.mkdir();
+			}
+			File newDir = new File(maindir, dirname);
+			File TextFile = new File(newDir, filename);
+			if (!newDir.exists()){
+				newDir.mkdirs();
+				if (!TextFile.exists()) {
+					TextFile.createNewFile();
+				}
+			}
+			FileOutputStream fout = new FileOutputStream(maindir + "/" + dirname + "/" + filename);
+			ObjectOutputStream out = new ObjectOutputStream(fout);    
+			out.writeObject(m);    
+			out.flush();  
+			out.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public Magasin getMagasin() {

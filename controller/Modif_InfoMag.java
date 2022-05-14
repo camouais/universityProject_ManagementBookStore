@@ -4,6 +4,8 @@ import javax.swing.*;
 import model.Magasin;
 
 public class Modif_InfoMag {
+	
+	public int status = 0;
     public Modif_InfoMag(Magasin m, JTextField nom, JTextField adresse, JPasswordField mdp, JTextField lien, JTextField tel, JComboBox<String> jour, JComboBox<String> mois, JTextField annee) {
     	if(nom.getText().equals("")) {
 			JFrame a = new JFrame();
@@ -23,8 +25,7 @@ public class Modif_InfoMag {
     	} else if(annee.getText().equals("")) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Champ \"Ann�e\" vide.", "Erreur", 2);
-    	} 
-        m.setNom(nom.getText());
-        
+    	}
+    	
     }
 }

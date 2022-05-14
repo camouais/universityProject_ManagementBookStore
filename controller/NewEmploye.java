@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import java.time.*;
 import model.*;
-import view.*;
 
 public class NewEmploye {
 
@@ -68,7 +67,6 @@ public class NewEmploye {
 			if(checksum > 0) {
 				e = new Employe(nom.getText(), prenom.getText(), sexe.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText(), dateTemp);
 				m.addEmp(e);
-				new Fen4_Gest_MagEmp(m);
 				status = 1;
 			}
 		}
