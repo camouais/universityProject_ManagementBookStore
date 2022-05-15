@@ -233,8 +233,10 @@ public class Fen4_Gest_NewLiv extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if(new NewDepense(m, t_idEmploye, t_nomEmploye , t_preEmploye, t_pStock, "Achat nouveau stock").status == 1) {
 					if(new NewLivre(m, t_titre, t_auteur, t_editeur, c_jour, c_mois, t_annee, t_prix, t_categorie, t_stock).status == 1) {
-					new Fen3_Gest_Liv(m);
-					dispose();
+						new Fen3_Gest_Liv(m);
+						dispose();
+						JFrame a = new JFrame();
+					    JOptionPane.showMessageDialog(a, "Livre cr\u00E9\u00E9 et ajout\u00E9 \u00E0 la base de donn\u00E9es.", "Succ\u00E8s", 1);
 					}
 				}
 			}

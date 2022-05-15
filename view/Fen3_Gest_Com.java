@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.event.*;
 
 import controller.*;
 import model.*;
@@ -90,7 +89,7 @@ public class Fen3_Gest_Com extends JFrame {
         // Liste 2 (Informations de l'achat sélectionné)
        	
        	JPanel panel2 = new JPanel();
-		panel2.setBounds(540, 175, 400, 345);
+		panel2.setBounds(540, 175, 400, 440);
 		panel2.setLayout(null);
 		p.add(panel2);
         
@@ -190,7 +189,7 @@ public class Fen3_Gest_Com extends JFrame {
         list2.setLayoutOrientation(JList.VERTICAL);
 		
  	   	JScrollPane scrollPane2 = new JScrollPane();
-		scrollPane2.setBounds(0, 0, 400, 345);
+		scrollPane2.setBounds(0, 0, 400, 440);
         scrollPane2.setViewportView(list2);
 		panel2.add(scrollPane2);
 		

@@ -39,7 +39,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 
 		JLabel l_nom = new JLabel("Nom : ");
 		l_nom.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_nom.setBounds(20, 100, 150, 30);
+		l_nom.setBounds(20, 180, 150, 30);
 		p.add(l_nom);
 		
 		JLabel l_prenom = new JLabel("Pr\u00E9nom : ");
@@ -49,7 +49,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		JLabel l_id = new JLabel("Identifiant : ");
 		l_id.setFont(new Font("Tahoma", Font.BOLD, 20));
-		l_id.setBounds(20, 180, 150, 30);
+		l_id.setBounds(20, 100, 150, 30);
 		p.add(l_id);
 		
 		JLabel l_fonc = new JLabel("Fonction : ");
@@ -76,7 +76,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		JTextField t_nom;
 		t_nom = new JTextField();
-		t_nom.setBounds(150, 100, 380, 30);
+		t_nom.setBounds(150, 180, 380, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_nom.setText(emp.getNom());
 		p.add(t_nom);
@@ -92,10 +92,11 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		JTextField t_id;
 		t_id = new JTextField();
+		t_id.setEditable(false);
 		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_id.setColumns(10);
 		t_id.setText(String.valueOf(emp.getId()));
-		t_id.setBounds(150, 180, 380, 30);
+		t_id.setBounds(150, 100, 380, 30);
 		p.add(t_id);
 		
 		JTextField t_fonction;
@@ -133,9 +134,9 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		// Boutons : Retour, Effacer, Enregistrer
 		
 		JButton b_retour = new JButton("Retour");
-		b_retour.setBackground(new Color(255, 215, 0));
-		b_retour.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_retour.setBounds(10, 410, 150, 50);
+		b_retour.setBackground(new Color(200, 100, 100));
+		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		b_retour.setBounds(0, 456, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Fen4_Gest_MagEmp(m);
@@ -148,30 +149,36 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_effacer.setForeground(Color.WHITE);
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_effacer.setBounds(180, 410, 150, 50);
+		b_effacer.setBounds(50, 400, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				m.supEmp(emp);
-				try {
-					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
-					ObjectOutputStream out = new ObjectOutputStream(fout);
-					out.writeObject(m);    
-					out.flush();
-					out.close();
-				} catch(Exception ex) {
-					System.out.println(e);
-				}
-				dispose();
-				new Fen4_Gest_MagEmp(m);
+				JFrame a = new JFrame();
+				String[] options = {"Oui", "Non"};
+				int f = JOptionPane.showOptionDialog(a, "\u00CAtes-vous s\u00FBr de vouloir supprimer cet employé ?", "Suppression d'un employé", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+    		    if(f == JOptionPane.YES_OPTION) {
+    				m.supEmp(emp);
+    				try {
+    					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+    					ObjectOutputStream out = new ObjectOutputStream(fout);
+    					out.writeObject(m);    
+    					out.flush();
+    					out.close();
+    					fout.flush();
+    					fout.close();
+    				} catch(Exception ex) {
+    					System.out.println(e);
+    				}
+    				dispose();
+    				new Fen4_Gest_MagEmp(m);
+    		    }
 			}
-			
 		});
 		p.add(b_effacer);
 		
 		JButton b_enreg = new JButton("ENREGISTRER");
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_enreg.setBounds(350, 410, 200, 50);
+		b_enreg.setBounds(319, 400, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoEmploye(m, emp, t_nom, t_prenom, t_id, t_fonction, t_adresse, t_mail, t_tel).status == 1) {

@@ -20,7 +20,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		p.setLayout(null);
 		setContentPane(p);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 575, 500);
+		setBounds(100, 100, 575, 510);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -115,27 +115,27 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		JTextField t_annee = new JTextField();
 		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_annee.setColumns(10);
-		t_annee.setBounds(420, 341, 100, 30);
+		t_annee.setBounds(420, 330, 100, 30);
 		p.add(t_annee);
 		
 		// ComboBoxes
 		
 		JComboBox<String> c_jour = new JComboBox<String>();
 		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		c_jour.setBounds(200, 341, 100, 30);
+		c_jour.setBounds(200, 330, 100, 30);
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
 		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
-		c_mois.setBounds(310, 341, 100, 30);
+		c_mois.setBounds(310, 330, 100, 30);
 		p.add(c_mois);
 		
 		// Boutons
 		
 		JButton b_retour = new JButton("Retour");
-		b_retour.setBackground(new Color(255, 215, 0));
+		b_retour.setBackground(new Color(200, 100, 100));
 		b_retour.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		b_retour.setBounds(0, 431, 100, 30);
+		b_retour.setBounds(0, 441, 100, 30);
 		b_retour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -147,7 +147,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		JButton b_enreg = new JButton("ENREGISTRER");
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
-		b_enreg.setBounds(180, 390, 200, 50);
+		b_enreg.setBounds(309, 380, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
@@ -157,6 +157,24 @@ public class Fen4_Gest_MagInfo extends JFrame {
         });
 		p.add(b_enreg);
 		
-		
+		JButton b_suppr = new JButton("SUPPRIMER");
+		b_suppr.setFont(new Font("Tahoma", Font.BOLD, 20));
+		b_suppr.setBackground(new Color(178, 34, 34));
+		b_suppr.setBounds(60, 380, 200, 50);
+		b_suppr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+            	JFrame a = new JFrame();
+            	String[] options = {"Oui", "Non"};
+				int f = JOptionPane.showOptionDialog(a, "\u00CAtes-vous s\u00FBr de vouloir supprimer le magasin ?", "Suppression du magasin", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+    		    if(f == JOptionPane.YES_OPTION) {
+    		    	DeleteMagasin b = new DeleteMagasin(m);
+    		    	if(b.status == 1) {
+    		    		new Fen0();
+    		    		dispose();
+    		    	}
+    		    }
+			}
+		});
+		p.add(b_suppr);
 	}
 }

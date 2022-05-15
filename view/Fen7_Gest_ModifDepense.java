@@ -144,18 +144,25 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		b_effacer.setBounds(100, 400, 200, 60);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				m.supDepense(d);
-				try {
-					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
-					ObjectOutputStream out = new ObjectOutputStream(fout);
-					out.writeObject(m);    
-					out.flush();
-					out.close();
-				} catch(Exception ex) {
-					System.out.println(e);
-				}
-				dispose();
-				new Fen6_Gest_Depenses(m);
+				JFrame a = new JFrame();
+				String[] options = {"Oui", "Non"};
+				int f = JOptionPane.showOptionDialog(a, "\u00CAtes-vous s\u00FBr de vouloir supprimer cette d\u00E9pense ?", "Suppression d'une d\u00E9pense", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+    		    if(f == JOptionPane.YES_OPTION) {
+    				m.supDepense(d);
+    				try {
+    					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+    					ObjectOutputStream out = new ObjectOutputStream(fout);
+    					out.writeObject(m);    
+    					out.flush();
+    					out.close();
+    					fout.flush();
+    					fout.close();
+    				} catch(Exception ex) {
+    					System.out.println(e);
+    				}
+    				dispose();
+    				new Fen6_Gest_Depenses(m);
+    		    }
 			}
 		});
 		p.add(b_effacer);

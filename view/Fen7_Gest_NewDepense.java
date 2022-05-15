@@ -144,6 +144,8 @@ private static final long serialVersionUID = 1L;
 				if(new NewDepense(m, t_Iemploye, t_Nemploye, t_Pemploye, t_cout, (String) c_description.getSelectedItem(), c_jour, c_mois, t_annee).status == 1) {
 					dispose();
 				    new Fen6_Gest_Depenses(m);
+					JFrame a = new JFrame();
+				    JOptionPane.showMessageDialog(a, "D\u00E9pense cr\u00E9\u00E9e et ajout\u00E9e \u00E0 la base de donn\u00E9es.", "Succ\u00E8s", 1);
 				}
 			}
 		});

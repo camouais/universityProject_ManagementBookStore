@@ -131,18 +131,25 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_effacer.setBounds(50, 353, 150, 50);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				m.supCli(c);
-				try {
-					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
-					ObjectOutputStream out = new ObjectOutputStream(fout);
-					out.writeObject(m);    
-					out.flush();
-					out.close();
-				} catch(Exception ex) {
-					System.out.println(e);
-				}
-				dispose();
-				new Fen3_Gest_Cli(m);
+				JFrame a = new JFrame();
+				String[] options = {"Oui", "Non"};
+				int f = JOptionPane.showOptionDialog(a, "\u00CAtes-vous s\u00FBr de vouloir supprimer ce client ?", "Suppression d'un client", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+    		    if(f == JOptionPane.YES_OPTION) {
+    		    	m.supCli(c);
+    				try {
+    					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
+    					ObjectOutputStream out = new ObjectOutputStream(fout);
+    					out.writeObject(m);    
+    					out.flush();
+    					out.close();
+    					fout.flush();
+    					fout.close();
+    				} catch(Exception ex) {
+    					System.out.println(e);
+    				}
+    				dispose();
+    				new Fen3_Gest_Cli(m);
+    		    }
 			}
 		});
 		p.add(b_effacer);

@@ -127,6 +127,15 @@ public class Fen4_Ach_DoAch extends JFrame {
         
 		p.add(panel3);
 		
+		list.addMouseListener(new MouseAdapter() { 
+			public void mouseClicked(MouseEvent evt) { 
+				if (evt.getClickCount() == 2) { 
+					Livre livre = m.rchLivreId(Integer.parseInt(( list.getSelectedValue()).split(" ")[0]));
+					new Fen5_Ach_LivInfo(m, livre, c);	
+				} 
+			} 
+		});
+				
 		// Textfield - Recherche de livres
 		
 		JTextField t_rech = new JTextField();
