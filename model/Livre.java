@@ -8,7 +8,6 @@ public class Livre implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	// Attributs
-    private static int totalLivre;
     private int id;
     private String titre;
     private String auteur;
@@ -22,7 +21,7 @@ public class Livre implements Serializable {
 
     // Constructeur
     
-    public Livre(String titre, String auteur, String editeur, LocalDate dateParution, String categorie, float prix, int qtStock) {
+    public Livre(int id, String titre, String auteur, String editeur, LocalDate dateParution, String categorie, float prix, int qtStock) {
     	this.titre = titre;
     	this.auteur = auteur;
     	this.editeur = editeur;
@@ -31,12 +30,7 @@ public class Livre implements Serializable {
     	this.prix = prix;
     	qtEntree = qtStock;
     	this.qtStock = qtEntree;
-    	totalLivre++;
-    	id = totalLivre;
-    }
-    
-    public Livre() {
-    	totalLivre = 0;
+    	this.id = id;
     }
     
     // M�thodes

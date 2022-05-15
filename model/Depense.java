@@ -6,20 +6,18 @@ import java.time.*;
 public class Depense implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private static int totalDep;
 	private float cout;
 	private LocalDate dateDep;
 	private Employe emp;
 	private String description;
 	private int id;
 	
-	public Depense(Employe e, String c, float p, LocalDate d) {
+	public Depense(int id, Employe e, String c, float p, LocalDate d) {
 		description =c;
 		cout = p;
 		emp = e;
 		dateDep = d;
-		totalDep++;
-		id = totalDep;
+		this.id = id;
 	}
 	
 	public Employe getEmp() {

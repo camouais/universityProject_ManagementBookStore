@@ -10,7 +10,6 @@ public class Commande implements Serializable {
 	// Attributs
 	
 	private static final long serialVersionUID = 1L;
-	private static int totalCom;
 	private int id;
 	private LocalDate dateAchat;
 	private Client client;
@@ -18,18 +17,12 @@ public class Commande implements Serializable {
 	
 	// Constructeur
 	
-	public Commande(LocalDate dA, Client c, Vector<Livre> l) {
+	public Commande(int id, LocalDate dA, Client c, Vector<Livre> l) {
 		dateAchat = dA;
 		client = c;
 		listLivres = l;
-		totalCom++;
-		id = totalCom;
+		this.id = id;
 	}
-	
-	public Commande() {
-		totalCom = 0;
-	}
-	
 	
 	public void addLivre(Livre l) {
 		listLivres.add(l);

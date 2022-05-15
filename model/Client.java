@@ -9,8 +9,7 @@ public class Client implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	// Attributs
-	private static int totalC;
+	// Attributs=
     private int id;
     private String nom;
     private String prenom;
@@ -24,7 +23,7 @@ public class Client implements Serializable {
     
     // Constructeur
 
-    public Client(String n, String p, String ad, String t, String am, String s, LocalDate dn) {
+    public Client(int id, String n, String p, String ad, String t, String am, String s, LocalDate dn) {
     	nom = n;
     	prenom = p;
     	sexe = s;
@@ -33,12 +32,7 @@ public class Client implements Serializable {
     	dateCreationCompte = LocalDate.now();
     	dateNaiss = dn;
     	adresse = ad;
-    	totalC++;
-    	id = totalC;
-    }
-    
-    public Client() {
-    	totalC = 0;
+    	this.id = id;
     }
     
     // Méthodes

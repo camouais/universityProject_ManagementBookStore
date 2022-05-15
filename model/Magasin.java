@@ -20,6 +20,11 @@ public class Magasin implements Serializable {
     public Set<Commande> listCom = new HashSet<>();
     public Set<Livre> listLivre = new HashSet<>();
     public Set<Depense> listDep = new HashSet<>();
+    private int totalEmp = 0;
+    private int totalCli = 0;
+    private int totalCom = 0;
+    private int totalLiv = 0;
+    private int totalDep = 0;
     
     // Constructeur
     
@@ -28,7 +33,7 @@ public class Magasin implements Serializable {
     	this.mdp = mdp;
     }
     
-    // MÃ©thodes
+    // Méthodes
     
     //////////////////////////////////////////////
     //-----------------COMMANDES----------------//
@@ -57,6 +62,7 @@ public class Magasin implements Serializable {
     
     public int addCom(Commande c) {
     	if(!listCom.contains(c)) {
+        	totalCom++;
     		listCom.add(c);
     		return 0;
     	} 
@@ -71,6 +77,7 @@ public class Magasin implements Serializable {
     
     public int addDepense(Depense d) {
     	if(!listDep.contains(d)) {
+        	totalDep++;
     		listDep.add(d);
     		return 0;
     	}
@@ -133,6 +140,7 @@ public class Magasin implements Serializable {
     
     public int addLivre(Livre c) {
     	if(!listLivre.contains(c)) {
+        	totalLiv++;
     		listLivre.add(c);
     		return 0;
     	}
@@ -277,6 +285,7 @@ public class Magasin implements Serializable {
     
     public int addCli(Client c) {
     	if(!listClient.contains(c)) {
+        	totalCli++;
     		listClient.add(c);
     		return 0;
     	} 
@@ -387,13 +396,14 @@ public class Magasin implements Serializable {
    
     
     //////////////////////////////////////////////
-    //-----------------EMPLOYï¿½S-----------------//
+    //-----------------EMPLOYÉS-----------------//
     //////////////////////////////////////////////
     
     // Ajout d'un employÃ©
     
     public int addEmp(Employe e) {
     	if(!listEmp.contains(e)) {
+        	totalEmp++;
     		listEmp.add(e);
     		return 0;
     	} else {
@@ -457,7 +467,6 @@ public class Magasin implements Serializable {
     public String getEmpMoyAge(Magasin m) {
     	if(m.listEmp!=null) {
     		DecimalFormat df = new DecimalFormat("##.#");
-    	
     		Object[] arrayEmp = m.listEmp.toArray();
     		float age = 0.F;
     		for(int i = 0; i < arrayEmp.length; i++) {
@@ -565,4 +574,23 @@ public class Magasin implements Serializable {
 		dateC = d;
 	}
     
+	public int getTEmp() {
+		return totalEmp;
+	}
+	
+	public int getTCom() {
+		return totalCom;
+	}
+	
+	public int getTCli() {
+		return totalCli;
+	}
+	
+	public int getTLiv() {
+		return totalLiv;
+	}
+	
+	public int getTDep() {
+		return totalDep;
+	}
 }
