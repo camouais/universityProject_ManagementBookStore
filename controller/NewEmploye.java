@@ -13,7 +13,7 @@ public class NewEmploye {
 	Employe e;
 	public int status = 0;
 
-	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JTextField sexe, JTextField salaire, JTextField fonction, JTextField adresse, JTextField mail, JTextField tel, JComboBox<String> jour, JComboBox<String> mois, JTextField annee) {
+	public NewEmploye(Magasin m, JTextField nom, JTextField prenom, JComboBox<String> sexe, JTextField salaire, JTextField fonction, JTextField adresse, JTextField mail, JTextField tel, JComboBox<String> jour, JComboBox<String> mois, JTextField annee) {
 		float tempSalaire = 0;
 		int checksum = 1;
 		LocalDate dateTemp = null;
@@ -67,7 +67,7 @@ public class NewEmploye {
 				}
 			}
 			if(checksum > 0) {
-				e = new Employe(nom.getText(), prenom.getText(), sexe.getText(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText(), dateTemp);
+				e = new Employe(m.getTEmp() + 1, nom.getText(), prenom.getText(), (String) sexe.getSelectedItem(), tempSalaire, fonction.getText(), adresse.getText(), mail.getText(), tel.getText(), dateTemp);
 				m.addEmp(e);
 				try {
 					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
@@ -75,6 +75,8 @@ public class NewEmploye {
 					out.writeObject(m);    
 					out.flush();
 					out.close();
+					fout.flush();
+					fout.close();
 				} catch(Exception e) {
 					System.out.println(e);
 				}

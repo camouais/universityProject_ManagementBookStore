@@ -13,13 +13,15 @@ public class NewCommande {
 	
 	public NewCommande(Magasin m, Client cli, Vector<Livre> livres) {
 		if(!livres.isEmpty()) {
-			c = new Commande(LocalDate.now(), cli, livres);
+			c = new Commande(m.getTCom() + 1, LocalDate.now(), cli, livres);
 			try {
 				FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
 				ObjectOutputStream out = new ObjectOutputStream(fout);
 				out.writeObject(m);    
 				out.flush();
 				out.close();
+				fout.flush();
+				fout.close();
 			} catch(Exception e) {
 				System.out.println(e);
 			}

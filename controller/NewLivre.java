@@ -73,7 +73,7 @@ public class NewLivre {
 				}
 			}
 			if(checksum > 0) {
-				l = new Livre(titre.getText(), auteur.getText(), editeur.getText(), d, categorie.getText(), p, s);
+				l = new Livre(m.getTLiv() + 1, titre.getText(), auteur.getText(), editeur.getText(), d, categorie.getText(), p, s);
 				m.addLivre(l);
 				try {
 					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
@@ -81,6 +81,8 @@ public class NewLivre {
 					out.writeObject(m);    
 					out.flush();
 					out.close();
+					fout.flush();
+					fout.close();
 				} catch(Exception e) {
 					System.out.println(e);
 				}

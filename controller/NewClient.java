@@ -49,7 +49,7 @@ public class NewClient {
 				}
 			}
 			if (checksum > 0) {
-		      c = new Client(nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
+		      c = new Client(m.getTCli() + 1, nom.getText(), prenom.getText(), adresse.getText(), tel.getText(), mail.getText(), (String) sexe.getSelectedItem(), dateTemp);
 		      m.addCli(c);
 				try {
 					FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
@@ -57,6 +57,8 @@ public class NewClient {
 					out.writeObject(m);    
 					out.flush();
 					out.close();
+					fout.flush();
+					fout.close();
 				} catch(Exception e) {
 					System.out.println(e);
 				}

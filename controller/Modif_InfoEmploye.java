@@ -56,6 +56,8 @@ public class Modif_InfoEmploye {
 					out.writeObject(m);    
 					out.flush();
 					out.close();
+					fout.flush();
+					fout.close();
 				} catch(Exception ex) {
 					System.out.println(e);
 				}

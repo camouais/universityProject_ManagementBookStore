@@ -35,6 +35,8 @@ public class Modif_InfoMag {
 			out.writeObject(m);    
 			out.flush();
 			out.close();
+			fout.flush();
+			fout.close();
 		} catch(Exception e) {
 			System.out.println(e);
 		}

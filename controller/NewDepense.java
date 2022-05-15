@@ -65,7 +65,7 @@ public class NewDepense {
 				}
 			}
 	        if(checksum > 0) {
-	        	dep = new Depense(m.rchEmp(Integer.parseInt(i.getText())), desc, p, d);
+	        	dep = new Depense(m.getTDep() + 1, m.rchEmp(Integer.parseInt(i.getText())), desc, p, d);
 			    m.addDepense(dep);
 			    status = 1;
 		    }
@@ -118,7 +118,7 @@ public class NewDepense {
 			        }
 		        }
 		        if(checksum > 0) {
-		        	dep = new Depense(m.rchEmp(Integer.parseInt(i.getText())), desc, p, LocalDate.now());
+		        	dep = new Depense(m.getTDep() + 1, m.rchEmp(Integer.parseInt(i.getText())), desc, p, LocalDate.now());
 				    m.addDepense(dep);
 					try {
 						FileOutputStream fout = new FileOutputStream("src/data/m_" + m.getNom() + "/data.txt");
@@ -126,6 +126,8 @@ public class NewDepense {
 						out.writeObject(m);    
 						out.flush();
 						out.close();
+						fout.flush();
+						fout.close();
 					} catch(Exception e) {
 						System.out.println(e);
 					}
