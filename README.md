@@ -4,8 +4,6 @@
 <h2>GLOBAL</h2>
 
 * Ajout d'une icône
-* Permettre un enregistrement des données à travers les sessions
-* Modification du nom / MDP d'un magasin
 
 <h2>CONTROLLER</h2>
 
@@ -13,8 +11,7 @@
 
 <h2>VIEW</h2>
 
-
-<b>DoAch </b> : 
+<b>DoAch</b> : 
 
 * Permettre de pouvoir afficher les infos d'un livre en double-cliquant sur un élément de la liste de livre 
 
