@@ -1,13 +1,1 @@
-
-<h1>À FAIRE</h1>
-
-<h2>GLOBAL</h2>
-
-* Ajout d'une icône
-* Débug (contrôler que vraiment tout fonctionne)
-
-<h2>VIEW</h2>
-
-<b>Gest_Achats</b> : 
-
-* Afficher la liste des articles de l'achat dans la partie à droite
+Projet terminé le 17/05/2022
