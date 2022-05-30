@@ -12,10 +12,13 @@ public class Fen5_Gest_NewEmp extends JFrame {
 	
 	public Fen5_Gest_NewEmp(Magasin m) {
 		
-		// Fen�tre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
-		setTitle("Cr�ation d'un nouvel employ�");
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Création d'un nouvel employé");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -27,10 +30,10 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		
 		// Labels
 		
-		JLabel l_rens = new JLabel("Ajout d'un nouvel employ\u00E9");
+		JLabel l_rens = new JLabel("Ajout d'un nouvel employé");
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
-		l_rens.setBounds(0, 0, 584, 82); //d�finit la taille et la position (x, y, largeur, hauteur)
+		l_rens.setBounds(0, 0, 584, 82); //dï¿½finit la taille et la position (x, y, largeur, hauteur)
 		p.add(l_rens);
 		
 		JLabel l_nom = new JLabel("Nom :");
@@ -38,7 +41,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		l_nom.setBounds(20, 100, 150, 30);
 		p.add(l_nom);
 		
-		JLabel l_prenom = new JLabel("Pr\u00E9nom :");
+		JLabel l_prenom = new JLabel("Prénom :");
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
 		p.add(l_prenom);
@@ -48,7 +51,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		l_adresse.setBounds(20, 180, 150, 30);
 		p.add(l_adresse);
 		
-		JLabel l_tel = new JLabel("T\u00E9l\u00E9phone : ");
+		JLabel l_tel = new JLabel("Téléphone : ");
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_tel.setBounds(20, 220, 150, 30);
 		p.add(l_tel);
@@ -136,7 +139,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setBounds(340, 341, 100, 29);
 		p.add(c_mois);
 
@@ -158,7 +161,7 @@ public class Fen5_Gest_NewEmp extends JFrame {
 					dispose();
 					new Fen4_Gest_MagEmp(m);
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Employ\u00E9 cr\u00E9\u00E9 et ajout\u00E9 \u00E0 la base de donn\u00E9es.", "Succ\u00E8s", 1);
+				    JOptionPane.showMessageDialog(a, "Employé créé et ajouté à la base de données.", "Succès", 1);
 				}
 			}
 		});

@@ -14,11 +14,15 @@ public class Fen4_Gest_ModifCli extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
-	public Fen4_Gest_ModifCli(Magasin m, Client c) { // Rajouter une variable de type Employe dans le constructeur lorsqu'on aura fait le controller
+	public Fen4_Gest_ModifCli(Magasin m, Client c) {
 		
-		// Fen�tre
+		// Fenêtre
+		
 		JPanel p = new JPanel();
-		setTitle("Modification du client s�lectionn�");
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Modification du client sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -68,45 +72,34 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		
 		// TextFields
 		
-		JTextField t_id = new JTextField();
+		JTextField t_id = new JTextField(String.valueOf(c.getId()));
 		t_id.setEditable(false);
-		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_id.setColumns(10);
-		t_id.setText(String.valueOf(c.getId()));
+		t_id.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_id.setBounds(150, 100, 380, 30);
 		p.add(t_id);
 		
-		JTextField t_nom = new JTextField();
+		JTextField t_nom = new JTextField(c.getNom());
 		t_nom.setBounds(150, 180, 380, 30);
-		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_nom.setText(c.getNom());
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		p.add(t_nom);
-		t_nom.setColumns(10);
 		
 		JTextField t_prenom = new JTextField();
-		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));t_prenom.setText(c.getPrenom());
-		t_prenom.setColumns(10);
+		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 20));t_prenom.setText(c.getPrenom());
 		t_prenom.setBounds(150, 140, 380, 30);
 		p.add(t_prenom);
 		
-		JTextField t_adresse = new JTextField();
-		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_adresse.setColumns(10);
-		t_adresse.setText(c.getAdresse());
+		JTextField t_adresse = new JTextField(c.getAdresse());
+		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_adresse.setBounds(150, 220, 380, 30);
 		p.add(t_adresse);
 		
-		JTextField t_mail = new JTextField();
-		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_mail.setColumns(10);
-		t_mail.setText(c.getMail());
+		JTextField t_mail = new JTextField(c.getMail());
+		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_mail.setBounds(150, 260, 380, 30);
 		p.add(t_mail);
 		
-		JTextField t_tel = new JTextField();
-		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_tel.setColumns(10);
-		t_tel.setText(c.getTel());
+		JTextField t_tel = new JTextField(c.getTel());
+		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_tel.setBounds(150, 300, 380, 30);
 		p.add(t_tel);
 		
@@ -129,6 +122,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_effacer.setBounds(50, 353, 150, 50);
+		b_effacer.setToolTipText("Efface le client de la base de données");
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
@@ -158,9 +152,14 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_enreg.setBounds(309, 353, 200, 50);
+		b_enreg.setToolTipText("Enregistre les modifications");
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Modif_InfoClient(m, c, t_nom, t_prenom, t_adresse, t_mail, t_tel);
+				Modif_InfoClient mic = new Modif_InfoClient(m, c, t_nom, t_prenom, t_adresse, t_mail, t_tel);
+				if(mic.status == 1) {
+					JFrame a = new JFrame();
+				    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+				}
 			}
 		});
 		p.add(b_enreg);

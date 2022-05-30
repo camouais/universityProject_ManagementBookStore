@@ -11,9 +11,14 @@ public class Fen5_Gest_StatCompta extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	public Fen5_Gest_StatCompta(Magasin m) {
-	
+		
+		// Fenêtre
+		
 		JPanel p = new JPanel();
-		setTitle("Comptabilit�s");
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Comptabilités");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 260);
 		setLocationRelativeTo(null);

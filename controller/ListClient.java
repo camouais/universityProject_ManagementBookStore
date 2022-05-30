@@ -9,7 +9,7 @@ public class ListClient {
 	Object[] list;
 	String[] formattedList;
 
-	public ListClient(Magasin m, Set<Client> c ) {
+	public ListClient(Magasin m, Set<Client> c) {
 		if(c!=null) 
 		{
 			list = c.toArray();

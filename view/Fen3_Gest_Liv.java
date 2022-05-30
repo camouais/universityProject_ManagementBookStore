@@ -17,8 +17,11 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// Fen�tre
-		
+		// Fenêtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Gestion des livres");
 		p = new JPanel();
@@ -44,12 +47,12 @@ public class Fen3_Gest_Liv extends JFrame {
 		JComboBox<String> c_filtre = new JComboBox<String>();
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
-        		"Cat\u00E9gorie", 
+        		"Catégorie", 
         		"Titre", 
         		"ID Livre", 
         		"Auteur", 
         		"Date de parution", 
-        		"\u00C9diteur"}));
+        		"Éditeur"}));
         c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
 		
@@ -86,7 +89,7 @@ public class Fen3_Gest_Liv extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations du livre s�lectionn�)
+        // Liste 2 (Informations du livre sélectionné)
         
         JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 175, 400, 345);
@@ -95,7 +98,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		DefaultListModel<String> model2 = new DefaultListModel<String>();
        
-		JLabel label = new JLabel("Veuillez s\u00E9lectionner un livre pour afficher ses informations.");
+		JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
         label.setBounds(0,0,400,20);
         label.setHorizontalAlignment(SwingConstants.CENTER);
 		panel2.add(label);
@@ -165,10 +168,10 @@ public class Fen3_Gest_Liv extends JFrame {
 						titre.setText("Titre : ");
 						auteur.setText("Auteur : ");
 	                	identifiant.setText("Identifiant : ");
-	                	editeur.setText("\u00C9diteur : ");
+	                	editeur.setText("Éditeur : ");
 	                	dateParution.setText("Date de parution : ");
 	                	prix.setText("Prix : ");
-	                	categorie.setText("Cat\u00E9gorie : ");
+	                	categorie.setText("Catégorie : ");
 	                	stock.setText("Stock");
 	                	
 	                	r_titre.setText(liv.getTitre());
@@ -300,6 +303,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
 		b_clearSearch.setBounds(405, 100, 45, 45);
+		b_clearSearch.setToolTipText("Efface la recherche");
 		b_clearSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				t_rech.setText("");

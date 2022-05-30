@@ -11,8 +11,11 @@ public class Fen2_Ach extends JFrame {
 
 	public Fen2_Ach(Magasin m) {
 		
-		// Fenêtre
-		
+		// FenÃªtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();	
 		setTitle("Achat");
 		p.setBackground(new Color(200, 200, 200));

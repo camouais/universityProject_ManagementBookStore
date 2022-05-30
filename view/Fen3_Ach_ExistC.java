@@ -12,6 +12,11 @@ public class Fen3_Ach_ExistC extends JFrame {
 
 	public Fen3_Ach_ExistC(Magasin m) {
 		
+		// Fenêtre
+		
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Identification du client");
 		p.setBackground(new Color(200, 200, 200));
@@ -50,18 +55,18 @@ public class Fen3_Ach_ExistC extends JFrame {
 		
 		JTextField t_nom = new JTextField();
 		t_nom.setBounds(184, 100, 370, 30);
-		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		p.add(t_nom);
 		t_nom.setColumns(10);
 
 		JTextField t_prenom = new JTextField();
-		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_prenom.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_prenom.setColumns(10);
 		t_prenom.setBounds(184, 141, 370, 30);
 		p.add(t_prenom);
 		
 		JTextField t_mail = new JTextField();
-		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_mail.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_mail.setColumns(10);
 		t_mail.setBounds(184, 180, 370, 30);
 		p.add(t_mail);

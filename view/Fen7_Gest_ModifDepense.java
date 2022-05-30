@@ -16,10 +16,13 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 	
 	public Fen7_Gest_ModifDepense(Magasin m, Depense d) {
 		
-		// Fen�tre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
-		setTitle("Modification de la d�pense s�lectionn�e");
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Modification de la dépense sélectionnée");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -31,7 +34,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		
 		// Labels
 		
-		JLabel l_main = new JLabel("Modification de la d\u00E9pense ");
+		JLabel l_main = new JLabel("Modification de la dépense");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 34));
 		l_main.setBounds(0, 0, 684, 82);
@@ -42,27 +45,27 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		l_description.setBounds(30, 100, 200, 30);
 		p.add(l_description);
 		
-		JLabel l_Iemploye = new JLabel("ID employ\u00E9 :");
+		JLabel l_Iemploye = new JLabel("ID employé :");
 		l_Iemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Iemploye.setBounds(30, 260, 230, 30);
 		p.add(l_Iemploye);
 		
-		JLabel l_Pemploye = new JLabel("Pr\u00E9nom employ\u00E9 :");
+		JLabel l_Pemploye = new JLabel("Prénom employé :");
 		l_Pemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Pemploye.setBounds(30, 220, 250, 30);
 		p.add(l_Pemploye);
 		
-		JLabel l_Nemploye = new JLabel("Nom employ\u00E9 :");
+		JLabel l_Nemploye = new JLabel("Nom employé :");
 		l_Nemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Nemploye.setBounds(30, 180, 200, 30);
 		p.add(l_Nemploye);
 		
-		JLabel l_cout = new JLabel("Co\u00FBt :");
+		JLabel l_cout = new JLabel("Coût :");
 		l_cout.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_cout.setBounds(30, 140, 200, 30);
 		p.add(l_cout);
 		
-		JLabel l_date = new JLabel("Date d\u00E9pense :");
+		JLabel l_date = new JLabel("Date dépense :");
 		l_date.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_date.setBounds(30, 301, 230, 30);
 		p.add(l_date);
@@ -77,40 +80,35 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		l_mois.setBounds(400, 301, 120, 30);
 		p.add(l_mois);
 		
-		JLabel l_annee = new JLabel("Ann\u00E9e :");
+		JLabel l_annee = new JLabel("Année :");
 		l_annee.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_annee.setBounds(530, 301, 120, 30);
 		p.add(l_annee);
 		
 		// TextFields
 		
-		JTextField t_cout = new JTextField();
-		t_cout.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_cout.setText(String.valueOf(d.getCout()));
+		JTextField t_cout = new JTextField(String.valueOf(d.getCout()));
+		t_cout.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_cout.setBounds(270, 140, 380, 30);
 		p.add(t_cout);
 		
-		JTextField t_Nemploye = new JTextField();
-		t_Nemploye.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		JTextField t_Nemploye = new JTextField(d.getEmp().getNom());
+		t_Nemploye.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_Nemploye.setBounds(270, 180, 380, 30);
-		t_Nemploye.setText(d.getEmp().getNom());
 		p.add(t_Nemploye);
 		
-		JTextField t_Pemploye = new JTextField();
-		t_Pemploye.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		JTextField t_Pemploye = new JTextField(d.getEmp().getPrenom());
+		t_Pemploye.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_Pemploye.setBounds(270, 220, 380, 30);
-		t_Pemploye.setText(d.getEmp().getPrenom());
 		p.add(t_Pemploye);
 		
-		JTextField t_Iemploye = new JTextField();
-		t_Iemploye.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		JTextField t_Iemploye = new JTextField(String.valueOf(d.getEmp().getId()));
+		t_Iemploye.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_Iemploye.setBounds(270, 260, 380, 30);
-		t_Iemploye.setText(String.valueOf(d.getEmp().getId()));
 		p.add(t_Iemploye);
 		
-		JTextField t_annee = new JTextField();
-		t_annee.setText(String.valueOf(d.getDate().getYear()));
-		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		JTextField t_annee = new JTextField(String.valueOf(d.getDate().getYear()));
+		t_annee.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_annee.setBounds(530, 342, 120, 30);
 		p.add(t_annee);
 		
@@ -123,7 +121,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setSelectedIndex(d.getDate().getMonthValue() - 1);
 		c_mois.setBounds(400, 342, 120, 30);
 		p.add(c_mois);
@@ -138,15 +136,15 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		// Boutons : Effacer, Valider, Retour
 		
 		JButton b_effacer = new JButton("Effacer");
-		b_effacer.setForeground(Color.BLACK);
-		b_effacer.setBackground(Color.LIGHT_GRAY);
+		b_effacer.setForeground(Color.WHITE);
+		b_effacer.setBackground(Color.BLACK);
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 25));
 		b_effacer.setBounds(100, 400, 200, 60);
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
 				String[] options = {"Oui", "Non"};
-				int f = JOptionPane.showOptionDialog(a, "\u00CAtes-vous s\u00FBr de vouloir supprimer cette d\u00E9pense ?", "Suppression d'une d\u00E9pense", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				int f = JOptionPane.showOptionDialog(a, "Êtes-vous sûr de vouloir supprimer cette dépense ?", "Suppression d'une dépense", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
     		    if(f == JOptionPane.YES_OPTION) {
     				m.supDepense(d);
     				try {
@@ -172,11 +170,12 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		b_enreg.setForeground(Color.BLACK);
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 25));
 		b_enreg.setBounds(384, 400, 200, 60);
+		b_enreg.setToolTipText("Enregistre les modifications");
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoDepense(m, d, t_Iemploye, t_Nemploye, t_Pemploye, c_description, t_cout, c_jour, c_mois, t_annee).status == 1) {
 					JFrame a = new JFrame();
-		            JOptionPane.showMessageDialog(a, "Changements enregistr\u00E9s.", "Succ\u00E8s", 1);
+		            JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
 				}
 			}
 		});

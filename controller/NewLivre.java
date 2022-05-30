@@ -26,26 +26,25 @@ public class NewLivre {
 		    JOptionPane.showMessageDialog(a, "Auteur vide. Veuillez saisir un auteur.", "Erreur", 2);
 		} else if (editeur.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "\u00C9diteur vide. Veuillez saisir un \u00C9diteur.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "\u00C9diteur vide. Veuillez saisir un éditeur.", "Erreur", 2);
 		} else if (annee.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Ann\u00E9e vide. Veuillez saisir une ann\u00E9e.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Ann\u00E9e vide. Veuillez saisir une année.", "Erreur", 2);
 		} else if (prix.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Prix vide. Veuillez saisir un prix.", "Erreur", 2);
 		} else if (categorie.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Cat�gorie vide. Veuillez saisir une cat\u00E9gorie.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Catégorie vide. Veuillez saisir une catégorie.", "Erreur", 2);
 		} else if (stock.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Stock vide. Veuillez saisir une quantit\u00E9 en stock.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Stock vide. Veuillez saisir une quantité en stock.", "Erreur", 2);
 		} else {
 			try {
 				p = Float.parseFloat(prix.getText());
-			    System.out.println(p);
 			} catch (NumberFormatException e) {
 				JFrame a = new JFrame();
-			    JOptionPane.showMessageDialog(a, "Valeur invalide dans Prix. Veuillez r\u00E9essayer.\n(Pour les valeurs d\u00E9cimales, utilisez un point.)", "Erreur", 2);
+			    JOptionPane.showMessageDialog(a, "Valeur invalide dans Prix. Veuillez réessayer.\n(Pour les valeurs décimales, utilisez un point.)", "Erreur", 2);
 			    checksum = -1;
 			}
 			if(checksum > 0) {
@@ -53,7 +52,7 @@ public class NewLivre {
 				    s = Integer.parseInt(stock.getText());
 				} catch (NumberFormatException e) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Valeur invalide dans Stock. Veuillez r\u00E9essayer.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Valeur invalide dans Stock. Veuillez réessayer.", "Erreur", 2);
 				    checksum = -1;
 				}
 			}
@@ -63,12 +62,12 @@ public class NewLivre {
 					    d = LocalDate.of(Integer.parseInt(annee.getText()), mois.getSelectedIndex() + 1, jour.getSelectedIndex() + 1);
 					} else {
 						JFrame a = new JFrame();
-						JOptionPane.showMessageDialog(a, "L'ann�e saisie n'est pas valide. Veuillez r\u00E9essayer.", "Erreur", 2);
+						JOptionPane.showMessageDialog(a, "L'année saisie n'est pas valide. Veuillez réessayer.", "Erreur", 2);
 						checksum = -1;
 					}
 				} catch (Exception e) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez r\u00E9essayer.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez réessayer.", "Erreur", 2);
 				    checksum = -1;
 				}
 			}

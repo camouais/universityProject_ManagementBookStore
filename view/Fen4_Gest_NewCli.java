@@ -13,7 +13,11 @@ public class Fen4_Gest_NewCli extends JFrame {
 	public Fen4_Gest_NewCli(Magasin m) {
 		
 		// Fenêtre
+		
 		JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Enregistrement d'un nouveau client");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -140,7 +144,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\u00E9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\u00FBt", "Septembre", "Octobre", "Novembre", "D\u00E9cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setBounds(380, 425, 100, 30);
 		p.add(c_mois);
 				

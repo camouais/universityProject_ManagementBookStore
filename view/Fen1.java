@@ -9,12 +9,13 @@ public class Fen1 extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
-	
-	
 	public Fen1(Magasin m) {
 		
-		// Fenêtre
-		
+		// FenÃªtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Menu principal");
 		p.setBackground(new Color(200, 200, 200));

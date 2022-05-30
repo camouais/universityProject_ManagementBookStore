@@ -14,9 +14,12 @@ public class Fen5_Gest_StatLiv extends JFrame {
     
 	public Fen5_Gest_StatLiv(Magasin m) {
 		
-		// Fenêtre 
+		// FenÃªtre 
 		
     	JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Statistiques des livres");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -29,7 +32,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    
 		// Tableau
 		
-    	String[] entetes1 = {"Titre", "Auteur", "Éditeur", "Catégorie", "Date de parution", "Quantit\u00E9 initiale", "Nombre de ventes", "Quantit\u00E9 en Stock"};
+    	String[] entetes1 = {"Titre", "Auteur", "Ã‰diteur", "CatÃ©gorie", "Date de parution", "Quantit\u00E9 initiale", "Nombre de ventes", "Quantit\u00E9 en Stock"};
 	    String[][] donnees = new String[m.listLivre.size()][8];
 	    for(int i = 0; i < m.listLivre.size(); i++) {
 	    	String[] temp = new String[8];
@@ -67,35 +70,32 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    
 	    JLabel l_nbri = new JLabel("Nombre de livres initial : ");
 	    l_nbri.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_nbri.setBounds(472, 570, 341, 42);
+	    l_nbri.setBounds(400, 570, 300, 50);
 	    p.add(l_nbri);
 
 	    JLabel l_nbrt = new JLabel("Nombre total de livres : ");
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_nbrt.setBounds(472, 610, 341, 42);
+	    l_nbrt.setBounds(400, 610, 300, 50);
 	    p.add(l_nbrt);
 	    
 	    JLabel l_tven = new JLabel("Nombre de ventes : ");
 	    l_tven.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_tven.setBounds(472, 650, 341, 42);
+	    l_tven.setBounds(400, 650, 300, 50);
 	    p.add(l_tven);
 	    
-	    JLabel r_l_nbri = new JLabel(" ");
+	    JLabel r_l_nbri = new JLabel(String.valueOf(m.getAllInitStock(m)));
 	    r_l_nbri.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    r_l_nbri.setBounds(799, 570, 47, 42);
-	    r_l_nbri.setText(String.valueOf(m.getAllInitStock(m)));
+	    r_l_nbri.setBounds(700, 570, 200, 50);
 	    p.add(r_l_nbri);
 	    
-	    JLabel r_l_nbrt = new JLabel(" ");
+	    JLabel r_l_nbrt = new JLabel(String.valueOf(m.getAllStock(m)));
 	    r_l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    r_l_nbrt.setBounds(799, 610, 47, 42);
-	    r_l_nbrt.setText(String.valueOf(m.getAllStock(m)));
+	    r_l_nbrt.setBounds(700, 610, 200, 50);
 	    p.add(r_l_nbrt);
 	    
-	    JLabel r_l_valueT = new JLabel(" ");
+	    JLabel r_l_valueT = new JLabel(String.valueOf(m.getAllVentes(m)));
 	    r_l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    r_l_valueT.setText(String.valueOf(m.getAllVentes(m)));
-	    r_l_valueT.setBounds(799, 650, 47, 42);
+	    r_l_valueT.setBounds(700, 650, 200, 50);
 	    p.add(r_l_valueT);
 	    
 	    // Bouton "Retour"

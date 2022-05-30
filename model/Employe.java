@@ -7,9 +7,6 @@ import java.time.Period;
 public class Employe implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	// Attributs
-	
     private int id; 
 	private String nom;
     private String prenom;
@@ -18,7 +15,6 @@ public class Employe implements Serializable {
     private String adresse;
     private String mail;
     private String tel;
-
     private LocalDate dateNaiss;
     private String sexe;
     
@@ -35,9 +31,9 @@ public class Employe implements Serializable {
     	tel = t;	
     	dateNaiss = dateN;
     	this.id = id;
-    }
+    } 
     
-    // MÃ©thodes
+    // Méthodes
     
     public int getId() {
     	return id;

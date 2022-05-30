@@ -12,9 +12,12 @@ public class Fen4_Gest_MagStat extends JFrame {
 	
 	public Fen4_Gest_MagStat(Magasin m) {
 		
-		// Fen�tre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Menu des statistiques");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -32,7 +35,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		l_main.setBounds(0, 10, 484, 66);
 		p.add(l_main);
 		
-		// Boutons : Livres, Clients, Achats, Employ�s
+		// Boutons : Livres, Clients, Achats, Employés
 		
 		JButton b_livres = new JButton("Livres");
 		b_livres.setBackground(new Color(180, 112, 147));
@@ -70,7 +73,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		});
 		p.add(b_achats);
 		
-		JButton b_emp = new JButton("Employ\u00E9s");
+		JButton b_emp = new JButton("Employés");
 		b_emp.setBackground(new Color(0, 222, 100));
 		b_emp.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_emp.setBounds(254, 185, 200, 75);
@@ -82,7 +85,7 @@ public class Fen4_Gest_MagStat extends JFrame {
 		});
 		p.add(b_emp);
 		
-		JButton b_compta = new JButton("Comptabilit\u00E9s");
+		JButton b_compta = new JButton("Comptabilités");
 		b_compta.setBackground(new Color(222, 206, 250));
 		b_compta.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_compta.setBounds(92, 285, 300, 75);

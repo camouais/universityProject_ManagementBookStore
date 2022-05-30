@@ -8,13 +8,14 @@ import model.*;
 public class Fen2_Gest extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-
-	
 	
 	public Fen2_Gest(Magasin m) {
 		
-		// Fenêtre
-		
+		// FenÃªtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Menu de gestion");
 		p.setBackground(new Color(200, 200, 200));

@@ -18,8 +18,11 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// Fen�tre
-		
+		// Fenêtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Gestion des clients");
 		p = new JPanel();
@@ -47,14 +50,14 @@ public class Fen3_Gest_Cli extends JFrame {
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
         		"Nom", 
-        		"Pr\u00E9nom", 
+        		"Prénom", 
         		"ID Client", 
         		"Adresse", 
         		"Date de naissance", 
-        		"\u00C2ge", 
+        		"Âge", 
         		"Sexe", 
-        		"Date de cr\u00E9ation du compte", 
-        		"T\u00E9l\u00E9phone", 
+        		"Date de création du compte", 
+        		"Téléphone", 
         		"Mail"}));
         c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
@@ -91,7 +94,7 @@ public class Fen3_Gest_Cli extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations du client s�lectionn�)
+        // Liste 2 (Informations du client sélectionné)
         
 		JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 175, 400, 345);
@@ -282,6 +285,7 @@ public class Fen3_Gest_Cli extends JFrame {
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
 		b_clearSearch.setBounds(405, 100, 45, 45);
+		b_clearSearch.setToolTipText("Efface la recherche");
 		b_clearSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				t_rech.setText("");

@@ -19,9 +19,13 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	
 	public Fen4_Gest_NewLiv(Magasin m) {
 		
-		// Fen�tre
+		// Fenêtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
-		setTitle("Cr�ation d'un nouveau livre");
+		setTitle("Création d'un nouveau livre");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -36,7 +40,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		JLabel l_rens = new JLabel("Renseignements du nouveau livre");
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 35));
-		l_rens.setBounds(0, 0, 784, 75);
+		l_rens.setBounds(0, 0, 784, 89);
 		p.add(l_rens);
 		
 		JLabel l_titre = new JLabel("Titre :");
@@ -64,14 +68,9 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		l_categorie.setBounds(430, 100, 190, 31);
 		p.add(l_categorie);
 		
-		JLabel l_format = new JLabel("Format : ");
-		l_format.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
-		l_format.setBounds(430, 180, 190, 31);
-		p.add(l_format);
-		
 		JLabel l_langueVO = new JLabel("Langue originale :");
 		l_langueVO.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
-		l_langueVO.setBounds(430, 260, 319, 31);
+		l_langueVO.setBounds(430, 180, 319, 31);
 		p.add(l_langueVO);
 		
 		JLabel l_idEmploye = new JLabel("Identifiant employ\u00E9");
@@ -96,17 +95,17 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		
 		JLabel l_jour = new JLabel("Jour");
 		l_jour.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 20));
-		l_jour.setBounds(430, 375, 80, 31);
+		l_jour.setBounds(430, 295, 80, 31);
 		p.add(l_jour);
 		
 		JLabel l_mois = new JLabel("Mois");
 		l_mois.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 20));
-		l_mois.setBounds(530, 375, 80, 31);
+		l_mois.setBounds(530, 295, 80, 31);
 		p.add(l_mois);
 		
 		JLabel l_annee = new JLabel("Ann\u00E9e");
 		l_annee.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 20));
-		l_annee.setBounds(630, 375, 80, 31);
+		l_annee.setBounds(630, 295, 80, 31);
 		p.add(l_annee);
 		
 		JLabel l_pStock = new JLabel("Prix du stock :");
@@ -116,7 +115,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		
 		JLabel l_dateP = new JLabel("Date de parution : ");
 		l_dateP.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
-		l_dateP.setBounds(430, 340, 319, 31);
+		l_dateP.setBounds(430, 260, 319, 31);
 		p.add(l_dateP);
 		
 		// TextFields
@@ -151,16 +150,10 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		t_categorie.setBounds(430, 140, 319, 31);
 		p.add(t_categorie);
 		
-		JTextField t_format = new JTextField();
-		t_format.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		t_format.setColumns(10);
-		t_format.setBounds(430, 220, 319, 31);
-		p.add(t_format);
-		
 		JTextField t_langueVO = new JTextField();
 		t_langueVO.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		t_langueVO.setColumns(10);
-		t_langueVO.setBounds(430, 300, 319, 31);
+		t_langueVO.setBounds(430, 220, 319, 31);
 		p.add(t_langueVO);
 		
 		JTextField t_pStock = new JTextField();
@@ -196,19 +189,19 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		
 		JTextField t_annee = new JTextField();
 		t_annee.setColumns(10);
-		t_annee.setBounds(630, 410, 80, 22);
+		t_annee.setBounds(630, 330, 80, 22);
 		p.add(t_annee);
 		
 		// ComboBoxes
 		
 		JComboBox<String> c_jour = new JComboBox<String>();
 		c_jour.setModel(new DefaultComboBoxModel<String>(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		c_jour.setBounds(430, 410, 80, 22);
+		c_jour.setBounds(430, 330, 80, 22);
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "F\\u00E8vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Ao\\u00FAt", "Septembre", "Octobre", "Novembre", "D\\u00E8cembre"}));
-		c_mois.setBounds(530, 410, 80, 22);
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
+		c_mois.setBounds(530, 330, 80, 22);
 		p.add(c_mois);
 		
 		// Boutons
@@ -242,5 +235,12 @@ public class Fen4_Gest_NewLiv extends JFrame{
 			}
 		});
 		p.add(b_enregistrer);
+		
+		// Séparation
+		
+		JPanel sep = new JPanel();
+		sep.setBackground(Color.BLACK);
+		sep.setBounds(35, 540, 714, 4);
+		p.add(sep);
 	}
 }

@@ -13,10 +13,13 @@ public class Fen5_Gest_StatEmp extends JFrame {
     
 	public Fen5_Gest_StatEmp(Magasin m) {
 		
-		// Fenêtre 
+		// FenÃªtre 
 		
     	JPanel p = new JPanel();
-		setTitle("Statistiques des emplpoyés");
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Statistiques des emplpoyÃ©s");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
 		setLocationRelativeTo(null);
@@ -64,32 +67,32 @@ public class Fen5_Gest_StatEmp extends JFrame {
 	    
 	    JLabel l_nbrt = new JLabel("Nombre total d'employ\u00E9s : ");
 	    l_nbrt.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_nbrt.setBounds(472, 591, 341, 42);
+	    l_nbrt.setBounds(472, 590, 341, 42);
 	    p.add(l_nbrt);
 	    
 	    JLabel l_agm = new JLabel("Age moyen : ");
 	    l_agm.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_agm.setBounds(472, 643, 341, 42);
+	    l_agm.setBounds(472, 630, 341, 42);
 	    p.add(l_agm);
 	    
 	    JLabel l_soms = new JLabel("Somme des salaires : ");
 	    l_soms.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_soms.setBounds(472, 696, 341, 42);
+	    l_soms.setBounds(472, 670, 341, 42);
 	    p.add(l_soms);
 	    
 	    JLabel l_valueT = new JLabel(String.valueOf((m.listEmp).size()));
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueT.setBounds(799, 591, 47, 42);
+	    l_valueT.setBounds(799, 590, 100, 42);
 	    p.add(l_valueT);
 	    
 	    JLabel l_valueAg = new JLabel(String.valueOf((m.getEmpMoyAge(m))));
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueAg.setBounds(799, 644, 47, 42);
+	    l_valueAg.setBounds(799, 630, 100, 42);
 	    p.add(l_valueAg);
 	    
 	    JLabel l_valueS = new JLabel(String.valueOf(m.getSomSalaire(m)));
 	    l_valueS.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueS.setBounds(799, 696, 100, 42);
+	    l_valueS.setBounds(799, 670, 100, 42);
 	    p.add(l_valueS);
 	    
 	    // Bouton "Retour"

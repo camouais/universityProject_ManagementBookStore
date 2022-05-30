@@ -16,10 +16,13 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	
 	public Fen4_Gest_ModifLiv(Magasin m, Livre l) {
 		
-		// Fen�tre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
-		setTitle("Modification du livre s�lectionn�");
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Modification du livre sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -74,59 +77,39 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		
 		// TextFields
 		
-		JTextField t_id;
-		t_id = new JTextField();
+		JTextField t_id = new JTextField(String.valueOf(l.getId()));
 		t_id.setEditable(false);
-		t_id.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_id.setColumns(10);
-		t_id.setText(String.valueOf(l.getId()));
+		t_id.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_id.setBounds(150, 100, 414, 30);
 		p.add(t_id);
 		
-		JTextField t_titre;
-		t_titre = new JTextField();
+		JTextField t_titre = new JTextField(l.getTitre());
 		t_titre.setBounds(150, 140, 414, 30);
-		t_titre.setText(l.getTitre());
-		t_titre.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		t_titre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		p.add(t_titre);
-		t_titre.setColumns(10);
 		
-		JTextField t_auteur;
-		t_auteur = new JTextField();
-		t_auteur.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_auteur.setColumns(10);
-		t_auteur.setText(l.getAuteur());
+		JTextField t_auteur = new JTextField(l.getAuteur());
+		t_auteur.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_auteur.setBounds(150, 180, 414, 30);
 		p.add(t_auteur);
 		
-		JTextField t_editeur;
-		t_editeur = new JTextField();
-		t_editeur.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_editeur.setColumns(10);
-		t_editeur.setText(l.getEditeur());
+		JTextField t_editeur = new JTextField(l.getEditeur());
+		t_editeur.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_editeur.setBounds(150, 220, 414, 30);
 		p.add(t_editeur);
 		
-		JTextField t_categorie;
-		t_categorie = new JTextField();
-		t_categorie.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_categorie.setColumns(10);
-		t_categorie.setText(l.getCategorie());
+		JTextField t_categorie = new JTextField(l.getCategorie());
+		t_categorie.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_categorie.setBounds(150, 260, 414, 30);
 		p.add(t_categorie);
 		
-		JTextField t_prix;
-		t_prix = new JTextField();
-		t_prix.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_prix.setColumns(10);
-		t_prix.setText(String.valueOf(l.getPrix()));
+		JTextField t_prix = new JTextField(String.valueOf(l.getPrix()));
+		t_prix.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_prix.setBounds(150, 300, 414, 30);
 		p.add(t_prix);
 		
-		JTextField t_stock = new JTextField();
-		t_stock.setText(String.valueOf(l.getStock()));
-		t_stock.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		t_stock.setColumns(10);
+		JTextField t_stock = new JTextField(String.valueOf(l.getStock()));
+		t_stock.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		t_stock.setBounds(150, 341, 414, 30);
 		p.add(t_stock);
 		
@@ -149,11 +132,12 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_effacer.setBounds(60, 400, 150, 50);
+		b_effacer.setToolTipText("Efface le livre de la base de données");
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
 				String[] options = {"Oui", "Non"};
-				int f = JOptionPane.showOptionDialog(a, "\u00CAtes-vous s\u00FBr de vouloir supprimer ce livre ?", "Suppression d'un livre", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				int f = JOptionPane.showOptionDialog(a, "Êtes-vous sûr de vouloir supprimer ce livre ?", "Suppression d'un livre", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
     		    if(f == JOptionPane.YES_OPTION) {
     				m.supLivre(l);
     				try {
@@ -178,11 +162,12 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_enreg.setBackground(new Color(0, 128, 0));
 		b_enreg.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_enreg.setBounds(324, 400, 200, 50);
+		b_enreg.setToolTipText("Enregistre les modifications");
 		b_enreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock).status == 1) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Changements enregistr\u00E9s.", "Succ\u00E8s", 1);
+				    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
 				}
 			}
 		});

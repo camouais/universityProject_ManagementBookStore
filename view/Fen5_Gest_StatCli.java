@@ -17,6 +17,9 @@ public class Fen5_Gest_StatCli extends JFrame {
 		// Fenêtre
 		
     	JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Statistiques des clients");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -41,7 +44,7 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    	temp[4] = (((Client) (m.listClient.toArray()[i])).getDateCC()).toString();
 	    	temp[5] = String.valueOf((m.listComCli(((Client) (m.listClient.toArray()[i])))).size());
 	    	temp[6] = String.valueOf((m.getPrixTotalComCli(((Client) (m.listClient.toArray()[i])))));
-	    	temp[7] =  (m.panierMoy(((((Client) (m.listClient.toArray()[i]))))));;
+	    	temp[7] = (m.panierMoy(((((Client) (m.listClient.toArray()[i]))))));;
 	    	
 	    	donnees[i] = temp;
 	    }
@@ -82,12 +85,12 @@ public class Fen5_Gest_StatCli extends JFrame {
 	    JLabel l_valueT = new JLabel(String.valueOf((m.listClient).size()));
 	    l_valueT.setFont(new Font("Tahoma", Font.PLAIN, 25));
 	    l_valueT.setText(String.valueOf((m.listClient).size()));
-	    l_valueT.setBounds(799, 591, 47, 42);
+	    l_valueT.setBounds(799, 591, 100, 42);
 	    p.add(l_valueT);
 	    
 	    JLabel l_valueAg = new JLabel(m.getMoyAge(m));
 	    l_valueAg.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	    l_valueAg.setBounds(799, 644, 47, 42);
+	    l_valueAg.setBounds(799, 644, 100, 42);
 	    l_valueAg.setText(m.getMoyAge(m));
 	    p.add(l_valueAg);
 	    

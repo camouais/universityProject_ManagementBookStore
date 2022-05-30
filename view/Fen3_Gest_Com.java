@@ -18,8 +18,11 @@ public class Fen3_Gest_Com extends JFrame {
 		
 		ListCommande c = new ListCommande(m, m.listCom);
 		
-		// Fenêtre
-		
+		// FenÃªtre
+
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Gestion des achats");
 		p = new JPanel();
@@ -86,10 +89,10 @@ public class Fen3_Gest_Com extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations de l'achat sélectionné)
+        // Liste 2 (Informations de l'achat sÃ©lectionnÃ©)
        	
        	JPanel panel2 = new JPanel();
-		panel2.setBounds(540, 175, 400, 440);
+		panel2.setBounds(540, 175, 400, 535);
 		panel2.setLayout(null);
 		p.add(panel2);
         
@@ -106,6 +109,7 @@ public class Fen3_Gest_Com extends JFrame {
 		JLabel id_cli = new JLabel(" ");
 		JLabel dateC = new JLabel(" ");
 		JLabel prix = new JLabel(" ");
+		JLabel articles = new JLabel(" ");
 
 		JLabel r_nom = new JLabel(" ");
 		JLabel r_prenom = new JLabel();
@@ -113,6 +117,9 @@ public class Fen3_Gest_Com extends JFrame {
 		JLabel r_id_cli = new JLabel(" ");
 		JLabel r_dateC = new JLabel(" ");
 		JLabel r_prix = new JLabel(" ");
+		JLabel r_articles = new JLabel(" ");
+		r_articles.setVerticalAlignment(SwingConstants.TOP);
+		r_articles.setHorizontalAlignment(SwingConstants.LEFT);
 
         id_com.setBounds	(20,20,200,20);
         id_cli.setBounds 	(20,55,200,20);
@@ -120,6 +127,8 @@ public class Fen3_Gest_Com extends JFrame {
         prenom.setBounds	(20,125,200,20);
         dateC.setBounds		(20,160,200,20);
         prix.setBounds		(20,195,200,20);
+        articles.setBounds	(20,230,200,20);
+        r_articles.setBounds(20,265,400,400);
         
         r_id_com.setBounds	(200,20,200,20);
         r_id_cli.setBounds	(200,55,200,20);
@@ -136,6 +145,7 @@ public class Fen3_Gest_Com extends JFrame {
         prenom.setFont(f);
         dateC.setFont(f);
         prix.setFont(f);
+        articles.setFont(f);
         
         r_id_com.setFont(f);
         r_id_cli.setFont(f);
@@ -143,6 +153,8 @@ public class Fen3_Gest_Com extends JFrame {
         r_prenom.setFont(f);
         r_dateC.setFont(f);
         r_prix.setFont(f);
+        r_articles.setFont(f);
+        r_articles.setFont(new Font("Tahoma", Font.PLAIN, 15));
         
         list.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent arg0) {
@@ -157,13 +169,21 @@ public class Fen3_Gest_Com extends JFrame {
 	                	id_cli.setText("ID Client :");
 	                	dateC.setText("Date :");
 	                	prix.setText("Prix total :");
+	                	articles.setText("Liste d'articles :");
 	                	
 	                	r_nom.setText(com.getClient().getNom());
 	                	r_prenom.setText((com.getClient()).getPrenom());
 	                	r_id_com.setText(String.valueOf(com.getId()));
 	                	r_dateC.setText(com.getDateAchat().toString());
 	                	r_id_cli.setText(String.valueOf((com.getClient()).getId()));	
-	                	r_prix.setText(com.getPrixTotal());
+	                	r_prix.setText(com.getPrixTotal() + " â‚¬");	
+	                	String temp = "<html>";
+	                	ListLivres ll = new ListLivres(m, com.getLivres());
+	                	for(int i = 0; i < com.listLivres.size(); i++) {
+	                		temp = temp.concat(ll.getList()[i] + "<br/>");
+	                	}
+	                	temp = temp.concat("</html>");
+	                	r_articles.setText(temp);
                 	}
                 }
             }
@@ -175,6 +195,7 @@ public class Fen3_Gest_Com extends JFrame {
         panel2.add(id_cli);
         panel2.add(dateC);
         panel2.add(prix);
+        panel2.add(articles);
         
         panel2.add(r_nom);
         panel2.add(r_prenom);
@@ -182,6 +203,7 @@ public class Fen3_Gest_Com extends JFrame {
         panel2.add(r_id_cli);
         panel2.add(r_dateC);
         panel2.add(r_prix);
+        panel2.add(r_articles);
         
     	JList<String> list2 = new JList<String>();
         list2.setModel(model2);
@@ -189,7 +211,7 @@ public class Fen3_Gest_Com extends JFrame {
         list2.setLayoutOrientation(JList.VERTICAL);
 		
  	   	JScrollPane scrollPane2 = new JScrollPane();
-		scrollPane2.setBounds(0, 0, 400, 440);
+		scrollPane2.setBounds(0, 0, 400, 535);
         scrollPane2.setViewportView(list2);
 		panel2.add(scrollPane2);
 		
@@ -202,7 +224,7 @@ public class Fen3_Gest_Com extends JFrame {
 		t_rech.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				model.clear();
-				ListCommande def = new ListCommande(m,new RechercheAchat(m, t_rech, c_filtre.getSelectedItem().toString() ).getList());
+				ListCommande def = new ListCommande(m,new RechercheAchat(m, t_rech, c_filtre.getSelectedItem().toString()).getList());
 				String[] a = def.getList();
 				if(a.length == 0) {
 					if(t_rech.getText().equals("")) {
@@ -240,7 +262,7 @@ public class Fen3_Gest_Com extends JFrame {
 			}
 		});
 		b_retour.setFont(new Font("Tahoma", Font.BOLD, 30));
-		b_retour.setBounds(540, 650, 400, 60);
+		b_retour.setBounds(50, 650, 400, 60);
 		b_retour.setBackground(new Color(200, 100, 100));
 		p.add(b_retour);
 		
@@ -249,6 +271,7 @@ public class Fen3_Gest_Com extends JFrame {
 		b_clearSearch.setBackground(new Color(165, 42, 42));
 		b_clearSearch.setFont(new Font("Tahoma", Font.BOLD, 16));
 		b_clearSearch.setBounds(405, 100, 45, 45);
+		b_clearSearch.setToolTipText("Efface la recherche");
 		b_clearSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				t_rech.setText("");

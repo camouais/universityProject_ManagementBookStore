@@ -11,6 +11,11 @@ public class Fen3_Gest_Mag extends JFrame {
 	
 	public Fen3_Gest_Mag(Magasin m) {
 		
+		// Fenêtre
+		
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Menu de gestion du magasin");
 		p.setBackground(new Color(200, 200, 200));
@@ -30,7 +35,7 @@ public class Fen3_Gest_Mag extends JFrame {
 		lblNewLabel.setBounds(0, 0, 484, 80);
 		p.add(lblNewLabel);
 		
-		// Boutons : Informations, Statistiques, Employ�s, Retour
+		// Boutons : Informations, Statistiques, Employés, Retour
 		
 		JButton b_info =  new JButton("Informations");
 		b_info.setFont(new Font("Tahoma", Font.BOLD, 35));

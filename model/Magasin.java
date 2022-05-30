@@ -33,13 +33,13 @@ public class Magasin implements Serializable {
     	this.mdp = mdp;
     }
     
-    // M�thodes
+    // Méthodes
     
     //////////////////////////////////////////////
     //-----------------COMMANDES----------------//
     //////////////////////////////////////////////
     
-    // Lister les commandes enregistrées 
+    // Lister les commandes enregistrÃ©es 
     
     public Set<Commande> listCommandes(){
     	return listCom;
@@ -73,7 +73,7 @@ public class Magasin implements Serializable {
     //-----------------DEPENSES-----------------//
     //////////////////////////////////////////////
     
-    // Ajout d'une nouvelle d�pense
+    // Ajout d'une nouvelle dépense
     
     public int addDepense(Depense d) {
     	if(!listDep.contains(d)) {
@@ -93,7 +93,7 @@ public class Magasin implements Serializable {
     }
     
    
-    // Recherche d'une d�pense par son id 
+    // Recherche d'une dépense par son id 
     
     public Depense rchDep(int id) {
     	Depense[] t = new Depense[listDep.size()];
@@ -105,19 +105,9 @@ public class Magasin implements Serializable {
 		return null;
     }
     
-    // Recherche d'une d�pense par sa description
+  
     
-    public Depense getDepDesc(String d) {
-    	Depense[] t = new Depense[listDep.size()];
-		for (int i = 0; i < listDep.size(); i++) {
-			if(listDep.toArray(t)[i].getDescription()==d) {
-				return (Depense) listDep.toArray()[i];
-			}
-		}
-		return null;
-    }
-    
-    // Obtenir la valeur de la d�pense totale d'un magasin
+    // Obtenir la valeur de la dépense totale d'un magasin
     
     public float getAllDepenses(Magasin m) {
         float dep = 0.F;
@@ -215,17 +205,7 @@ public class Magasin implements Serializable {
     }
     
     
-    // Recherche d'un livre par son titre
-    public Livre rchLivre(String titre) {
-		Livre[] t = new Livre[listLivre.size()];
-		for (int i = 0; i < listLivre.size(); i++) {
-			if(listLivre.toArray(t)[i].getTitre().equals(titre)) {
-				return (Livre) listLivre.toArray()[i];
-			}
-		}
-		return null;
-    }
-	
+  
     // Decrementer le stock d'un livre
     public int decStockLiv(Livre l, int n) {
     	if(listLivre.contains(l)) {
@@ -240,7 +220,7 @@ public class Magasin implements Serializable {
     //-----------------CLIENTS-----------------//
     /////////////////////////////////////////////
 	
-    // Recherche d'un client par son nom et pr�nom
+    // Recherche d'un client par son nom et prénom
 	
     public Client rchCli_npmail(String n, String p, String mail) {
         Client[] t = new Client[listClient.size()];
@@ -273,7 +253,7 @@ public class Magasin implements Serializable {
     		Object[] arrayClient = m.listClient.toArray();
     		float age = 0.F;
     		for(int i = 0; i < arrayClient.length; i++) {
-    			age =+ ((Client) arrayClient[i]).getAge();
+    			age += ((Client) arrayClient[i]).getAge();
     		}
     		age = (age)/(arrayClient.length);
     		return df.format(age);
@@ -301,19 +281,6 @@ public class Magasin implements Serializable {
     	} else {
     		return -1;
     	}
-    }
-    
-    // Recherche d'un client par son nom
-    
-    public Client rchCliNom(String n) {
-    	Set<Client> sNom = new HashSet<>();
-    	Client[] tab = new Client[listClient.size()];
-        for (int i = 0; i < listClient.size(); i++) {
-        	if(listClient.toArray(tab)[i].getNom() == n) {
-        		sNom.add(listClient.toArray(tab)[i]);
-            }
-        }
-        return (Client) sNom;
     }
     
     // Calul du panier moyen d'un client 
@@ -379,27 +346,13 @@ public class Magasin implements Serializable {
     }
     
     
-    // Liste des clients poss�dant la m�me date de cr�ation de compte
     
-    public Client listDatCompCli(LocalDate d) {
-        
-        Set<Client> s = new HashSet<>();
-        Client[] tab = new Client[listClient.size()];
-        for (int i = 0; i < listClient.size(); i++) {
-            if(listClient.toArray(tab)[i].getDateCC() == d) {
-                s.add(listClient.toArray(tab)[i]);
-            }
-        }
-        return (Client) s;
-    }
-    
-   
     
     //////////////////////////////////////////////
-    //-----------------EMPLOY�S-----------------//
+    //-----------------EMPLOYÉS-----------------//
     //////////////////////////////////////////////
     
-    // Ajout d'un employé
+    // Ajout d'un employÃ©
     
     public int addEmp(Employe e) {
     	if(!listEmp.contains(e)) {
@@ -411,7 +364,7 @@ public class Magasin implements Serializable {
     	}
     }
     
-    // Suppression d'un employé
+    // Suppression d'un employÃ©
     
     public int supEmp(Employe e) {
     	if(listEmp.contains(e)) {
@@ -422,7 +375,7 @@ public class Magasin implements Serializable {
     	}
     }
 	
-    // Recherche d'un employé par son ID
+    // Recherche d'un employÃ© par son ID
     
     public Employe rchEmp(int id) {
     	Employe[] t = new Employe[listEmp.size()];
@@ -435,7 +388,7 @@ public class Magasin implements Serializable {
         
     }
     
-    // Recherche d'un employé par son id, nom et prénom
+    // Recherche d'un employÃ© par son id, nom et prÃ©nom
     
     public Employe rchEmpINP(int id,String n, String p) {
     	Employe[] tab = new Employe[listEmp.size()];
@@ -449,20 +402,8 @@ public class Magasin implements Serializable {
     
    
     
-    // Liste de tous les employés ayant le même poste
-    
-    public Set<Employe> listEmpPos(String f) {
-    	Set<Employe> samePoste = new HashSet<>();
-    	Employe[] tab = new Employe[listEmp.size()];
-        for (int i = 0; i < listEmp.size(); i++) {
-        	if(listEmp.toArray(tab)[i].getFonction() == f) {
-        		samePoste.add(listEmp.toArray(tab)[i]);
-            }
-        }
-        return samePoste;
-    }
-    
-    //Calcul age moyen des employés d'un magasin
+   
+    //Calcul age moyen des employÃ©s d'un magasin
     
     public String getEmpMoyAge(Magasin m) {
     	if(m.listEmp!=null) {
@@ -478,7 +419,7 @@ public class Magasin implements Serializable {
     	return null;
     }
     
-    //	Somme des salaires des employés d'un magasin
+    //	Somme des salaires des employÃ©s d'un magasin
     
     public float getSomSalaire(Magasin m) {
     	if(m.listEmp!=null) {
@@ -495,35 +436,13 @@ public class Magasin implements Serializable {
     }
     
     
-    // Liste de tous les employés ayant le même salaire
-    
-    public Set<Employe> listEmpSalaire(float s) {
-    	Set<Employe> sameSalai = new HashSet<>();
-    	Employe[] tab = new Employe[listEmp.size()];
-        for (int i = 0; i < listEmp.size(); i++) {
-        	if(listEmp.toArray(tab)[i].getSalaire() == s) {
-        		sameSalai.add(listEmp.toArray(tab)[i]);
-            }
-        }
-        return sameSalai;
-    }
+  
     
 	/////////////////////////////////////////////
 	//-----------------MAGASIN-----------------//
 	/////////////////////////////////////////////
 	
-	// Modification de l'adresse du magasin
-	
-	public int updateAdr(String adr) {
-		if(adr != adresse) {
-			adresse=adr; 
-			return 0;
-		}
-		else {
-			return-1;
-		}
-	}
-	
+
 	// Modification du nom du magasin
 	
 	public String getNom() {
@@ -562,7 +481,7 @@ public class Magasin implements Serializable {
 		return tel;
 	}
 	
-	public void getTel(String t) {
+	public void setTel(String t) {
 		tel = t;
 	}
 	

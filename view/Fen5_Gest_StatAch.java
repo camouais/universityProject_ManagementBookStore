@@ -17,6 +17,9 @@ public class Fen5_Gest_StatAch extends JFrame {
 		// Fenêtre 
 		
 		JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Statistiques des achats");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
@@ -28,15 +31,16 @@ public class Fen5_Gest_StatAch extends JFrame {
 		p.setBackground(new Color(221, 150, 221));
 		
 		// Tableau
+		
 	    String[][] donnees = new String[m.listClient.size()][5];
-	    String[] entetes1 = {"Nom","Pr\u00E9nom", "Date", "Nombre d'articles", "Prix total"};
+	    String[] entetes1 = {"Nom", "Prénom", "Date", "Nombre d'articles", "Prix total"};
 	   
 	    for(int i = 0; i < m.listCom.size(); i++) {
 	    	String[] temp = new String[5];
 	    	temp[0] = (((Commande) (m.listCom.toArray()[i])).getClient()).getNom();
 	    	temp[1] = (((Commande) (m.listCom.toArray()[i])).getClient()).getPrenom();
 	    	temp[2] = ((Commande) (m.listCom.toArray()[i])).getDateAchat().toString();
-	    	temp[3] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getAchat(((Commande) (m.listCom.toArray()[i])).getClient()).size());
+	    	temp[3] = String.valueOf(((Commande) (m.listCom.toArray()[i])).getLivres().size());
 	    	temp[4] = ((Commande) (m.listCom.toArray()[i])).getPrixTotal();
 	    	
 	    	donnees[i] = temp;
@@ -84,7 +88,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 	    r_l_valueAg.setBounds(800, 580, 100, 42);
 	    p.add(r_l_valueAg);
 	    
-	    // Bouton Retour
+	    // Bouton
 	    
     	JButton b_retour = new JButton("Retour");
 	    b_retour.setFont(new Font("Tahoma", Font.PLAIN, 33));

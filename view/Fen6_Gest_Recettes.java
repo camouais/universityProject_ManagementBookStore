@@ -12,9 +12,14 @@ public class Fen6_Gest_Recettes extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	public Fen6_Gest_Recettes(Magasin m) {
-	
-		setTitle("Aper\u00E7u des recettes");
+		
+		// Fenêtre
+		
 		JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
+		setTitle("Aper\u00E7u des recettes");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(100, 131, 236));
 		p.setLayout(null);
@@ -102,7 +107,7 @@ public class Fen6_Gest_Recettes extends JFrame {
 		l_valeur_recette.setText(String.valueOf((m.getAllVentes(m))-((m.getAllDepenses(m))+(m.getSomSalaire(m)))) + " \u20AC");
 		panel4.add(l_valeur_recette);
 		
-		JLabel l_compta = new JLabel("Comptabilit\u00E9s");
+		JLabel l_compta = new JLabel("Comptabilités");
 		l_compta.setHorizontalAlignment(SwingConstants.CENTER);
 		l_compta.setFont(new Font("Tahoma", Font.BOLD, 40));
 		l_compta.setBounds(0, 20, 884, 58);
@@ -120,5 +125,4 @@ public class Fen6_Gest_Recettes extends JFrame {
 		});
 		p.add(b_retour);
 	}
-	
 }

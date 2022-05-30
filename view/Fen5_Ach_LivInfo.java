@@ -12,9 +12,12 @@ public class Fen5_Ach_LivInfo extends JFrame {
 
 	public Fen5_Ach_LivInfo(Magasin m, Livre l, Client c) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Information du livre s\u00E9lectionn\u00E9");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);

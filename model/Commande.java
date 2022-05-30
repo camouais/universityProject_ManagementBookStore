@@ -24,11 +24,9 @@ public class Commande implements Serializable {
 		this.id = id;
 	}
 	
-	public void addLivre(Livre l) {
-		listLivres.add(l);
-	}
 	
-	public Vector<Livre> getAchat(Client c){
+	
+	public Vector<Livre> getLivres(){
 		return listLivres;
 	}
 	
@@ -61,15 +59,9 @@ public class Commande implements Serializable {
     	return dateAchat;
     }
     
-    public void setNom(LocalDate a) {
-    	dateAchat = a;
-    }
     
     public Client getClient() {
     	return client;
     }
     
-    public void setClient(Client a) {
-    	client = a;
-    }
 }

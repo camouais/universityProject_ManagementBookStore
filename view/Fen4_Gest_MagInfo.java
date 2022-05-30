@@ -12,9 +12,12 @@ public class Fen4_Gest_MagInfo extends JFrame {
 
 	public Fen4_Gest_MagInfo(Magasin m) {
 		
-		// Fenêtre
+		// FenÃªtre
 		
 		JPanel p = new JPanel();
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		setTitle("Informations du magasin");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -80,14 +83,13 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		
 		// TextFields & PasswordFields
 		
-		JTextField t_nom = new JTextField();
+		JTextField t_nom = new JTextField(m.getNom());
 		t_nom.setBounds(200, 100, 330, 30);
 		t_nom.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_nom.setColumns(10);
-		t_nom.setText(m.getNom());
 		p.add(t_nom);
 		
-		JTextField t_adresse = new JTextField();
+		JTextField t_adresse = new JTextField(m.getAdresse());
 		t_adresse.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_adresse.setColumns(10);
 		t_adresse.setBounds(200, 180, 330, 30);
@@ -99,14 +101,14 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		t_mdp.setBounds(200, 140, 330, 30);
 		p.add(t_mdp);
 		
-		JTextField t_site = new JTextField();
+		JTextField t_site = new JTextField(m.getSite());
 		t_site.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_site.setColumns(10);
 		t_site.setBounds(200, 220, 330, 30);
 		p.add(t_site);
 		
 		JTextField t_tel;
-		t_tel = new JTextField();
+		t_tel = new JTextField(m.getTel());
 		t_tel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		t_tel.setColumns(10);
 		t_tel.setBounds(200, 260, 330, 30);
@@ -150,9 +152,11 @@ public class Fen4_Gest_MagInfo extends JFrame {
 		b_enreg.setBounds(309, 380, 200, 50);
 		b_enreg.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
-            	JFrame a = new JFrame();
-    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
+            	Modif_InfoMag mim = new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
+            	if(mim.status == 1) {
+                	JFrame a = new JFrame();
+        		    JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
+            	}
             }
         });
 		p.add(b_enreg);

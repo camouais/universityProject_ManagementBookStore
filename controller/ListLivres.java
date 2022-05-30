@@ -17,6 +17,20 @@ public class ListLivres {
 				formattedList[i] = b;
 			}
 		}
+		else {
+			System.out.println("a");
+		}
+	}
+	
+	public ListLivres(Magasin m, Vector<Livre> livres) {
+		if(livres != null) {
+			list = livres.toArray();
+			formattedList = new String[list.length];
+			for(int i = 0; i < list.length; i++) {
+				String b = (((Livre) list[i]).getId() + " - \"" + ((Livre) list[i]).getTitre() + "\" - " + ((Livre) list[i]).getAuteur());
+				formattedList[i] = b;
+			}
+		}
 	}
 	
 	public String[] getList() {

@@ -2,12 +2,10 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.*;
 
 public class Livre implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	// Attributs
     private int id;
     private String titre;
     private String auteur;
@@ -17,7 +15,6 @@ public class Livre implements Serializable {
     private int qtEntree;
     private String categorie;
     private float prix;
-    public Set<Commande> listCom;
 
     // Constructeur
     
@@ -112,5 +109,4 @@ public class Livre implements Serializable {
     public int qtSortie() {
     	return qtEntree - qtStock;
     }
-    
 }

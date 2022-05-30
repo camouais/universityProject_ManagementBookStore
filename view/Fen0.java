@@ -11,8 +11,11 @@ public class Fen0 extends JFrame {
 	
 	public Fen0() {
 		
-		// Fenêtre
+		// FenÃªtre
 		
+		Toolkit tk = Toolkit.getDefaultToolkit();  
+        Image img = tk.getImage("src/resources/logo.png");
+		setIconImage(img);
 		JPanel p = new JPanel();
 		setTitle("Login");
 		p.setBackground(Color.LIGHT_GRAY);
@@ -60,9 +63,9 @@ public class Fen0 extends JFrame {
 		
 		// Boutons
 		
-		JButton b_valider = new JButton("Valider");
-		b_valider.setFont(new Font("Arial", Font.BOLD, 25));
-		b_valider.addActionListener(new ActionListener() {
+		JButton b_connex = new JButton("Connexion");
+		b_connex.setFont(new Font("Arial", Font.BOLD, 25));
+		b_connex.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RechercheMagasin rm = new RechercheMagasin(t_nom.getText(), String.valueOf(t_mdp.getPassword()));    
                 if(rm.status==1) {
@@ -71,9 +74,9 @@ public class Fen0 extends JFrame {
                 }
 			}
 		});
-		b_valider.setBackground(new Color(128, 255, 128));
-		b_valider.setBounds(160, 280, 150, 50);
-		p.add(b_valider);
+		b_connex.setBackground(new Color(128, 255, 128));
+		b_connex.setBounds(142, 285, 200, 50);
+		p.add(b_connex);
 		
 		JButton b_nmag = new JButton("Nouveau magasin ?");
 		b_nmag.setBackground(SystemColor.info);
