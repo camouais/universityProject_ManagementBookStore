@@ -4,8 +4,9 @@ Contributors :
   @spipanor
   @CamilleBert
 
-Language : 
-  Java
+Language : Java
+
+Software language : french 
 
 During our 2nd year of computer science degree, we made a java software allowing management of a bookstore.
 
