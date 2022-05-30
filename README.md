@@ -16,3 +16,12 @@ This software includes these features :
 - making a purchase
 - visualization of the statistics of customers, books, employees, sales
 - estimate total revenue
+
+
+PS : if you want to test the sowftware with an existing store, please use :
+<br>
+Name : Gibert
+</br>
+<br>
+Password : admin
+</br>
