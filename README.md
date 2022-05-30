@@ -14,5 +14,5 @@ This software include these features :
 - identify / create a store 
 - create / modify / delete customers, books, employees, expenses
 - making a purchase
-- visualization of the statistics of customers, books, books, employees, sales
-- estimatetotal revenue
+- visualization of the statistics of customers, books, employees, sales
+- estimate total revenue
