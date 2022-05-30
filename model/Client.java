@@ -35,7 +35,7 @@ public class Client implements Serializable {
     	this.id = id;
     }
     
-    // Mï¿½thodes
+    // Méthodes
     
     public int getId() {
     	return id;

@@ -11,7 +11,7 @@ public class Fen0_NewMag extends JFrame {
 
 	public Fen0_NewMag() {
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
@@ -29,7 +29,7 @@ public class Fen0_NewMag extends JFrame {
 		
 		// Labels
 		
-		JLabel l_main = new JLabel("CrÃ©ation du magasin");
+		JLabel l_main = new JLabel("Création du magasin");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 40));
 		l_main.setBounds(0, 0, 584, 82);
@@ -100,7 +100,7 @@ public class Fen0_NewMag extends JFrame {
 					dispose();
 					new Fen1(nm.getMagasin());
 	            	JFrame a = new JFrame();
-	    		    JOptionPane.showMessageDialog(a, "Magasin crÃ©Ã©.", "SuccÃ¨s", 1);
+	    		    JOptionPane.showMessageDialog(a, "Magasin créé.", "Succès", 1);
 				}
             }
         });

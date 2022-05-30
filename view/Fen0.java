@@ -11,7 +11,7 @@ public class Fen0 extends JFrame {
 	
 	public Fen0() {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");

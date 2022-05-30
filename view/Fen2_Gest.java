@@ -11,7 +11,7 @@ public class Fen2_Gest extends JFrame {
 	
 	public Fen2_Gest(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");

@@ -12,7 +12,7 @@ public class Fen3_Ach_ExistC extends JFrame {
 
 	public Fen3_Ach_ExistC(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");

@@ -19,13 +19,13 @@ public class Fen4_Ach_DoAch extends JFrame {
 		
 		Vector<Livre> livresSelect = new Vector<Livre>();
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
 		JPanel p = new JPanel();
-		setTitle("RÃ©alisation d'un achat");
+		setTitle("Réalisation d'un achat");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
@@ -184,7 +184,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_effacer.setForeground(Color.WHITE);
 		b_effacer.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_effacer.setBounds(540, 500, 400, 50);
-		b_effacer.setToolTipText("Efface l'Ã©lÃ©ment sÃ©lectionnÃ©");
+		b_effacer.setToolTipText("Efface l'élément sélectionné");
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(list2.getSelectedValue()!=null) {
@@ -228,7 +228,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 				}
 				else {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Si vous souhiatez supprimer un article, veuillez sÃ©lectionner un livre de la liste Ã  droite.", "Information", 1);
+				    JOptionPane.showMessageDialog(a, "Si vous souhiatez supprimer un article, veuillez sélectionner un livre de la liste à droite.", "Information", 1);
 				}
 			}
 			
@@ -255,7 +255,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_ajouter.setBackground(new Color(150, 255, 150));
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 555, 400, 50);
-		b_ajouter.setToolTipText("Ajoute l'Ã©lÃ©ment sÃ©lectionnÃ© Ã  la liste d'achats");
+		b_ajouter.setToolTipText("Ajoute l'élément sélectionné à la liste d'achats");
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	if(list.getSelectedValue()!=null) {
@@ -320,7 +320,7 @@ public class Fen4_Ach_DoAch extends JFrame {
 		b_enregistrer.setBackground(new Color(1, 215, 88));
 		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 30));
 		b_enregistrer.setBounds(540, 650, 400, 60);
-		b_enregistrer.setToolTipText("Passe Ã  l'Ã©cran de la facture");
+		b_enregistrer.setToolTipText("Passe à l'écran de la facture");
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NewCommande nc = new NewCommande(m, c, livresSelect);

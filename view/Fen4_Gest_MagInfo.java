@@ -12,7 +12,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
 
 	public Fen4_Gest_MagInfo(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
@@ -155,7 +155,7 @@ public class Fen4_Gest_MagInfo extends JFrame {
             	Modif_InfoMag mim = new Modif_InfoMag(m,t_nom, t_adresse, t_mdp, t_site, t_tel, c_jour, c_mois, t_annee);
             	if(mim.status == 1) {
                 	JFrame a = new JFrame();
-        		    JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
+        		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
             	}
             }
         });

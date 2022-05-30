@@ -17,12 +17,12 @@ private static final long serialVersionUID = 1L;
 	
 	public Fen7_Gest_NewDepense(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("CrÃ©ation d'une nouvelle dÃ©pense");
+		setTitle("Création d'une nouvelle dépense");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -34,7 +34,7 @@ private static final long serialVersionUID = 1L;
 		
 		// Labels
 		
-		JLabel l_main = new JLabel("Ajout d'une nouvelle dÃ©pense ");
+		JLabel l_main = new JLabel("Ajout d'une nouvelle dépense ");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 34));
 		l_main.setBounds(0, 0, 700, 82);
@@ -45,27 +45,27 @@ private static final long serialVersionUID = 1L;
 		l_description.setBounds(30, 100, 200, 30);
 		p.add(l_description);
 		
-		 JLabel l_cout = new JLabel("CoÃ»t :");
+		 JLabel l_cout = new JLabel("Coût :");
 		l_cout.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_cout.setBounds(30, 140, 200, 30);
 		p.add(l_cout);
 		
-		JLabel l_Nemploye = new JLabel("Nom employÃ© :");
+		JLabel l_Nemploye = new JLabel("Nom employé :");
 		l_Nemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Nemploye.setBounds(30, 180, 200, 30);
 		p.add(l_Nemploye);
 		
-		JLabel l_Pemploye = new JLabel("PrÃ©nom employÃ© :");
+		JLabel l_Pemploye = new JLabel("Prénom employé :");
 		l_Pemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Pemploye.setBounds(30, 220, 250, 30);
 		p.add(l_Pemploye);
 		
-		JLabel l_Iemploye = new JLabel("Id employÃ© :");
+		JLabel l_Iemploye = new JLabel("Id employé :");
 		l_Iemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Iemploye.setBounds(30, 260, 230, 30);
 		p.add(l_Iemploye);
 		
-		JLabel l_date = new JLabel("Date dÃ©pense :");
+		JLabel l_date = new JLabel("Date dépense :");
 		l_date.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_date.setBounds(30, 301, 230, 30);
 		p.add(l_date);
@@ -80,7 +80,7 @@ private static final long serialVersionUID = 1L;
 		l_mois.setBounds(400, 301, 120, 30);
 		p.add(l_mois);
 		
-		JLabel l_annee = new JLabel("AnnÃ©e :");
+		JLabel l_annee = new JLabel("Année :");
 		l_annee.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 25));
 		l_annee.setBounds(530, 301, 120, 30);
 		p.add(l_annee);
@@ -116,7 +116,7 @@ private static final long serialVersionUID = 1L;
 		
 		JComboBox<String> c_description = new JComboBox<String>();
 		c_description.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		c_description.setModel(new DefaultComboBoxModel<String>(new String[] {"Achat nouveau stock", "Location", "Achat matÃ©riel", "Autre"}));
+		c_description.setModel(new DefaultComboBoxModel<String>(new String[] {"Achat nouveau stock", "Location", "Achat matériel", "Autre"}));
 		c_description.setBounds(270, 100, 380, 30);
 		p.add(c_description);
 		
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 1L;
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "FÃ©vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "AoÃ»t", "Septembre", "Octobre", "Novembre", "DÃ©cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setBounds(400, 340, 120, 30);
 		p.add(c_mois);
 		
@@ -144,14 +144,14 @@ private static final long serialVersionUID = 1L;
 		b_enregistrer.setForeground(Color.BLACK);
 		b_enregistrer.setFont(new Font("Tahoma", Font.BOLD, 25));
 		b_enregistrer.setBounds(217, 397, 250, 60);
-		b_enregistrer.setToolTipText("Ajoute la dÃ©pense Ã  la base de donnÃ©es");
+		b_enregistrer.setToolTipText("Ajoute la dépense à la base de données");
 		b_enregistrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(new NewDepense(m, t_Iemploye, t_Nemploye, t_Pemploye, t_cout, (String) c_description.getSelectedItem(), c_jour, c_mois, t_annee).status == 1) {
 					dispose();
 				    new Fen6_Gest_Depenses(m);
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "DÃ©pense crÃ©Ã©e et ajoutÃ©e Ã  la base de donnÃ©es.", "SuccÃ¨s", 1);
+				    JOptionPane.showMessageDialog(a, "Dépense créée et ajoutée à la base de données.", "Succès", 1);
 				}
 			}
 		});

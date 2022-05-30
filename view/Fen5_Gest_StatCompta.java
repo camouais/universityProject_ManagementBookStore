@@ -12,13 +12,13 @@ public class Fen5_Gest_StatCompta extends JFrame{
 	
 	public Fen5_Gest_StatCompta(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("ComptabilitÃ©s");
+		setTitle("Comptabilités");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 260);
 		setLocationRelativeTo(null);

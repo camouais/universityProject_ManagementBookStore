@@ -13,13 +13,13 @@ public class Fen5_Gest_StatEmp extends JFrame {
     
 	public Fen5_Gest_StatEmp(Magasin m) {
 		
-		// FenÃªtre 
+		// Fenêtre 
 		
     	JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Statistiques des emplpoyÃ©s");
+		setTitle("Statistiques des emplpoyés");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 800);
 		setLocationRelativeTo(null);

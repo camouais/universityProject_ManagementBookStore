@@ -12,7 +12,7 @@ public class Fen3_Ach_NewC extends JFrame {
 	
 	public Fen3_Ach_NewC(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
@@ -144,7 +144,7 @@ public class Fen3_Ach_NewC extends JFrame {
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "FÃ©vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "AoÃ»t", "Septembre", "Octobre", "Novembre", "DÃ©cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setBounds(380, 425, 100, 30);
 		p.add(c_mois);
 		
@@ -161,7 +161,7 @@ public class Fen3_Ach_NewC extends JFrame {
 					dispose();
 					new Fen4_Ach_DoAch(m, nc.getClient());
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Client crÃ©Ã© et ajoutÃ© Ã  la base de donnÃ©es.", "SuccÃ¨s", 1);
+				    JOptionPane.showMessageDialog(a, "Client créé et ajouté à la base de données.", "Succès", 1);
 				}
 			}
 		});

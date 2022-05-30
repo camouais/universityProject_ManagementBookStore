@@ -16,13 +16,13 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 	
 	public Fen5_Gest_ModifEmp(Magasin m, Employe emp) { 
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Modification de l'employÃ© sÃ©lectionnÃ©");
+		setTitle("Modification de l'employé sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -34,7 +34,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		
 		// Labels
 		
-		JLabel l_rens = new JLabel("Renseignements de l'employÃ©");
+		JLabel l_rens = new JLabel("Renseignements de l'employé");
 		l_rens.setHorizontalAlignment(SwingConstants.CENTER);
 		l_rens.setFont(new Font("Tahoma", Font.BOLD, 34));
 		l_rens.setBounds(0, 0, 550, 82);
@@ -45,7 +45,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		l_nom.setBounds(20, 180, 150, 30);
 		p.add(l_nom);
 		
-		JLabel l_prenom = new JLabel("PrÃ©nom : ");
+		JLabel l_prenom = new JLabel("Prénom : ");
 		l_prenom.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_prenom.setBounds(20, 140, 150, 30);
 		p.add(l_prenom);
@@ -70,7 +70,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		l_mail.setBounds(20, 303, 150, 30);
 		p.add(l_mail);
 		
-		JLabel l_tel = new JLabel("TÃ©lÃ©phone : ");
+		JLabel l_tel = new JLabel("Téléphone : ");
 		l_tel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		l_tel.setBounds(20, 344, 150, 30);
 		p.add(l_tel);
@@ -132,12 +132,12 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_effacer.setBounds(50, 400, 150, 50);
-		b_effacer.setToolTipText("Efface l'employÃ© de la base de donnÃ©es");
+		b_effacer.setToolTipText("Efface l'employé de la base de données");
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
 				String[] options = {"Oui", "Non"};
-				int f = JOptionPane.showOptionDialog(a, "ÃŠtes-vous sÃ»r de vouloir supprimer cet employÃ© ?", "Suppression d'un employÃ©", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				int f = JOptionPane.showOptionDialog(a, "Êtes-vous sûr de vouloir supprimer cet employé ?", "Suppression d'un employé", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
     		    if(f == JOptionPane.YES_OPTION) {
     				m.supEmp(emp);
     				try {
@@ -167,7 +167,7 @@ public class Fen5_Gest_ModifEmp extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoEmploye(m, emp, t_nom, t_prenom, t_id, t_fonction, t_adresse, t_mail, t_tel).status == 1) {
 	            	JFrame a = new JFrame();
-	    		    JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
+	    		    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
 				}
 			}
 		});

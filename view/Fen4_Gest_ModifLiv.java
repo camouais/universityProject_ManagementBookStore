@@ -16,13 +16,13 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 	
 	public Fen4_Gest_ModifLiv(Magasin m, Livre l) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Modification du livre sÃ©lectionnÃ©");
+		setTitle("Modification du livre sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -132,12 +132,12 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_effacer.setBounds(60, 400, 150, 50);
-		b_effacer.setToolTipText("Efface le livre de la base de donnÃ©es");
+		b_effacer.setToolTipText("Efface le livre de la base de données");
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
 				String[] options = {"Oui", "Non"};
-				int f = JOptionPane.showOptionDialog(a, "ÃŠtes-vous sÃ»r de vouloir supprimer ce livre ?", "Suppression d'un livre", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				int f = JOptionPane.showOptionDialog(a, "Êtes-vous sûr de vouloir supprimer ce livre ?", "Suppression d'un livre", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
     		    if(f == JOptionPane.YES_OPTION) {
     				m.supLivre(l);
     				try {
@@ -167,7 +167,7 @@ public class Fen4_Gest_ModifLiv extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoLivre(m, l, t_titre, t_auteur, t_editeur, t_prix, t_categorie, t_stock).status == 1) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
+				    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
 				}
 			}
 		});

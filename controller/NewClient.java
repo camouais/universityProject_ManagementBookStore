@@ -19,19 +19,19 @@ public class NewClient {
 		    JOptionPane.showMessageDialog(a, "Nom vide. Veuillez saisir un nom.", "Erreur", 2);
 		} else if (prenom.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "PrÃ©nom vide. Veuillez saisir un prÃ©nom.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Prénom vide. Veuillez saisir un prénom.", "Erreur", 2);
 		} else if (adresse.getText().isEmpty()) {
 			JFrame a = new JFrame();
 		    JOptionPane.showMessageDialog(a, "Adresse vide. Veuillez saisir une adresse.", "Erreur", 2);
 		} else if (tel.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Aucun numÃ©ro de tÃ©lÃ©phone renseignÃ©. Veuillez en renseigner un.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Aucun numéro de téléphone renseigné. Veuillez en renseigner un.", "Erreur", 2);
 		} else if (mail.getText().isEmpty()) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseignÃ©e. Veuillez en renseigner une.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Aucune adresse mail renseignée. Veuillez en renseigner une.", "Erreur", 2);
 		} else if (annee.getText().isEmpty()) {
 			JFrame a = new JFrame();
-			JOptionPane.showMessageDialog(a, "Aucune annÃ©e de naissance renseignÃ©e. Veuillez en sÃ©lectionner une.", "Erreur", 2);
+			JOptionPane.showMessageDialog(a, "Aucune année de naissance renseignée. Veuillez en sélectionner une.", "Erreur", 2);
 		} else {
 			if(checksum > 0) {
 				try {
@@ -39,12 +39,12 @@ public class NewClient {
 					    dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), mois.getSelectedIndex() + 1, jour.getSelectedIndex() + 1);
 					} else {
 						JFrame a = new JFrame();
-						JOptionPane.showMessageDialog(a, "Veuillez saisir une annÃ©e comprise entre 1910 et 2010.", "Erreur", 2);
+						JOptionPane.showMessageDialog(a, "Veuillez saisir une année comprise entre 1910 et 2010.", "Erreur", 2);
 						checksum = -1;
 					}
 				} catch (Exception e) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez rÃ©essayer.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez réessayer.", "Erreur", 2);
 				    checksum = -1;
 				}
 			}

@@ -39,11 +39,11 @@ public class Modif_InfoMag {
 		    checksum--;
     	} else if(tel.getText().equals("")) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Champ \"TÃ©lÃ©phone\" vide.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Champ \"Téléphone\" vide.", "Erreur", 2);
 		    checksum--;
     	} else if(annee.getText().equals("")) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "Champ \"AnnÃ©e\" vide.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "Champ \"Année\" vide.", "Erreur", 2);
 		    checksum--;
     	}
     	if(checksum > 0) {
@@ -52,12 +52,12 @@ public class Modif_InfoMag {
 				    dateTemp = LocalDate.of(Integer.parseInt(annee.getText()), mois.getSelectedIndex() + 1, jour.getSelectedIndex() + 1);
 				} else {
 					JFrame a = new JFrame();
-					JOptionPane.showMessageDialog(a, "Veuillez saisir une annÃ©e comprise entre 1800 et " + LocalDate.now().getYear(), "Erreur", 2);
+					JOptionPane.showMessageDialog(a, "Veuillez saisir une année comprise entre 1800 et " + LocalDate.now().getYear(), "Erreur", 2);
 					checksum = -1;
 				}
 			} catch (Exception e) {
 				JFrame a = new JFrame();
-			    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez rÃ©essayer.", "Erreur", 2);
+			    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez réessayer.", "Erreur", 2);
 			    checksum = -1;
 			}
 		}

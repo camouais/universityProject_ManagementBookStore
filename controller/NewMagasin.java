@@ -54,7 +54,7 @@ public class NewMagasin {
 					}
 				} else {
 		   			JFrame a = new JFrame();
-		   			JOptionPane.showMessageDialog(a, "Ce nom de magasin existe dÃ©jÃ . Merci d'en choisir un autre.", "Erreur", 2);
+		   			JOptionPane.showMessageDialog(a, "Ce nom de magasin existe déjà. Merci d'en choisir un autre.", "Erreur", 2);
 					checksum--;
 				}
 				if(checksum > 0) {

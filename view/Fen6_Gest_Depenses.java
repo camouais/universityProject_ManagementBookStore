@@ -17,13 +17,13 @@ public class Fen6_Gest_Depenses extends JFrame {
 		
 	public Fen6_Gest_Depenses(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Gestion des dÃ©penses");
+		setTitle("Gestion des dépenses");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(100, 131, 236));
 		p.setLayout(null);
@@ -46,11 +46,11 @@ public class Fen6_Gest_Depenses extends JFrame {
         
 		JComboBox<String> c_filtre = new JComboBox<String>();
         c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "ID DÃ©pense", "ID EmployÃ©", "Nom EmployÃ©", "Date"}));
+        c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {"Description", "ID Dépense", "ID Employé", "Nom Employé", "Date"}));
         c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
 		
-		// Liste 1 (Liste des dÃ©penses)
+		// Liste 1 (Liste des dépenses)
 		
 		JPanel panel1 = new JPanel();
         panel1.setBounds(50, 175, 400, 440);
@@ -84,7 +84,7 @@ public class Fen6_Gest_Depenses extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations de la dÃ©pense sÃ©lectionnÃ©e)
+        // Liste 2 (Informations de la dépense sélectionnée)
         
 		JPanel panel2 = new JPanel();
 		DefaultListModel<String> model2;
@@ -180,7 +180,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		panel2.add(scrollPane2);
 		p.add(panel2);
 
-		// Textfield - Recherche d'une dÃ©pense
+		// Textfield - Recherche d'une dépense
 		
 		JTextField t_rech = new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -225,7 +225,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		b_modifier.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_modifier.setBounds(540, 555, 400, 60);
 		b_modifier.setBackground(new Color(200, 200, 100));
-		b_modifier.setToolTipText("Modifie la dÃ©pense sÃ©lectionnÃ©e");
+		b_modifier.setToolTipText("Modifie la dépense sélectionnée");
 		b_modifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(list.getSelectedValue() == null) {
@@ -243,7 +243,7 @@ public class Fen6_Gest_Depenses extends JFrame {
 		b_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		b_ajouter.setBounds(50, 650, 400, 60);
 		b_ajouter.setBackground(new Color(100, 200, 120));
-		b_ajouter.setToolTipText("Ajoute une dÃ©pense");
+		b_ajouter.setToolTipText("Ajoute une dépense");
 		b_ajouter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	dispose();

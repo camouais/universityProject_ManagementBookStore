@@ -16,13 +16,13 @@ public class Fen4_Gest_ModifCli extends JFrame {
 
 	public Fen4_Gest_ModifCli(Magasin m, Client c) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Modification du client sÃ©lectionnÃ©");
+		setTitle("Modification du client sélectionné");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -122,7 +122,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 		b_effacer.setBackground(new Color(0, 0, 0));
 		b_effacer.setFont(new Font("Tahoma", Font.BOLD, 20));
 		b_effacer.setBounds(50, 353, 150, 50);
-		b_effacer.setToolTipText("Efface le client de la base de donnÃ©es");
+		b_effacer.setToolTipText("Efface le client de la base de données");
 		b_effacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
@@ -158,7 +158,7 @@ public class Fen4_Gest_ModifCli extends JFrame {
 				Modif_InfoClient mic = new Modif_InfoClient(m, c, t_nom, t_prenom, t_adresse, t_mail, t_tel);
 				if(mic.status == 1) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
+				    JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
 				}
 			}
 		});

@@ -14,7 +14,7 @@ public class Fen5_Gest_StatAch extends JFrame {
     
 	public Fen5_Gest_StatAch(Magasin m) {
 		
-		// FenÃªtre 
+		// Fenêtre 
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
@@ -33,7 +33,7 @@ public class Fen5_Gest_StatAch extends JFrame {
 		// Tableau
 		
 	    String[][] donnees = new String[m.listClient.size()][5];
-	    String[] entetes1 = {"Nom", "PrÃ©nom", "Date", "Nombre d'articles", "Prix total"};
+	    String[] entetes1 = {"Nom", "Prénom", "Date", "Nombre d'articles", "Prix total"};
 	   
 	    for(int i = 0; i < m.listCom.size(); i++) {
 	    	String[] temp = new String[5];

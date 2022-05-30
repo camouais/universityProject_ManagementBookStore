@@ -16,13 +16,13 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 	
 	public Fen7_Gest_ModifDepense(Magasin m, Depense d) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Modification de la dÃ©pense sÃ©lectionnÃ©e");
+		setTitle("Modification de la dépense sélectionnée");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -34,7 +34,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		
 		// Labels
 		
-		JLabel l_main = new JLabel("Modification de la dÃ©pense");
+		JLabel l_main = new JLabel("Modification de la dépense");
 		l_main.setHorizontalAlignment(SwingConstants.CENTER);
 		l_main.setFont(new Font("Tahoma", Font.BOLD, 34));
 		l_main.setBounds(0, 0, 684, 82);
@@ -45,27 +45,27 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		l_description.setBounds(30, 100, 200, 30);
 		p.add(l_description);
 		
-		JLabel l_Iemploye = new JLabel("ID employÃ© :");
+		JLabel l_Iemploye = new JLabel("ID employé :");
 		l_Iemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Iemploye.setBounds(30, 260, 230, 30);
 		p.add(l_Iemploye);
 		
-		JLabel l_Pemploye = new JLabel("PrÃ©nom employÃ© :");
+		JLabel l_Pemploye = new JLabel("Prénom employé :");
 		l_Pemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Pemploye.setBounds(30, 220, 250, 30);
 		p.add(l_Pemploye);
 		
-		JLabel l_Nemploye = new JLabel("Nom employÃ© :");
+		JLabel l_Nemploye = new JLabel("Nom employé :");
 		l_Nemploye.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_Nemploye.setBounds(30, 180, 200, 30);
 		p.add(l_Nemploye);
 		
-		JLabel l_cout = new JLabel("CoÃ»t :");
+		JLabel l_cout = new JLabel("Coût :");
 		l_cout.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_cout.setBounds(30, 140, 200, 30);
 		p.add(l_cout);
 		
-		JLabel l_date = new JLabel("Date dÃ©pense :");
+		JLabel l_date = new JLabel("Date dépense :");
 		l_date.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_date.setBounds(30, 301, 230, 30);
 		p.add(l_date);
@@ -80,7 +80,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		l_mois.setBounds(400, 301, 120, 30);
 		p.add(l_mois);
 		
-		JLabel l_annee = new JLabel("AnnÃ©e :");
+		JLabel l_annee = new JLabel("Année :");
 		l_annee.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 30));
 		l_annee.setBounds(530, 301, 120, 30);
 		p.add(l_annee);
@@ -121,7 +121,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "FÃ©vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "AoÃ»t", "Septembre", "Octobre", "Novembre", "DÃ©cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setSelectedIndex(d.getDate().getMonthValue() - 1);
 		c_mois.setBounds(400, 342, 120, 30);
 		p.add(c_mois);
@@ -144,7 +144,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new JFrame();
 				String[] options = {"Oui", "Non"};
-				int f = JOptionPane.showOptionDialog(a, "ÃŠtes-vous sÃ»r de vouloir supprimer cette dÃ©pense ?", "Suppression d'une dÃ©pense", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				int f = JOptionPane.showOptionDialog(a, "Êtes-vous sûr de vouloir supprimer cette dépense ?", "Suppression d'une dépense", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
     		    if(f == JOptionPane.YES_OPTION) {
     				m.supDepense(d);
     				try {
@@ -175,7 +175,7 @@ public class Fen7_Gest_ModifDepense extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(new Modif_InfoDepense(m, d, t_Iemploye, t_Nemploye, t_Pemploye, c_description, t_cout, c_jour, c_mois, t_annee).status == 1) {
 					JFrame a = new JFrame();
-		            JOptionPane.showMessageDialog(a, "Changements enregistrÃ©s.", "SuccÃ¨s", 1);
+		            JOptionPane.showMessageDialog(a, "Changements enregistrés.", "Succès", 1);
 				}
 			}
 		});

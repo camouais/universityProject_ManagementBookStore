@@ -33,7 +33,7 @@ public class Employe implements Serializable {
     	this.id = id;
     } 
     
-    // Méthodes
+    // MÃ©thodes
     
     public int getId() {
     	return id;

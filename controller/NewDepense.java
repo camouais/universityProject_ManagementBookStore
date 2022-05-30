@@ -45,7 +45,7 @@ public class NewDepense {
 	        if(checksum > 0) {
 		        if(emp == null) {
 		            JFrame b = new JFrame();
-		            JOptionPane.showMessageDialog( b, "L'employï¿½ n'existe pas dans la liste des employ\u00E9s.", "Erreur", 2);
+		            JOptionPane.showMessageDialog( b, "L'employ� n'existe pas dans la liste des employ\u00E9s.", "Erreur", 2);
 		            checksum--;
 		        }
 	        }
@@ -55,12 +55,12 @@ public class NewDepense {
 					    d = LocalDate.of(Integer.parseInt(annee.getText()), mois.getSelectedIndex() + 1, jour.getSelectedIndex() + 1);
 					} else {
 						JFrame a = new JFrame();
-						JOptionPane.showMessageDialog(a, "Veuillez saisir une année comprise entre 1910 et 2010.", "Erreur", 2);
+						JOptionPane.showMessageDialog(a, "Veuillez saisir une ann�e comprise entre 1910 et 2010.", "Erreur", 2);
 						checksum = -1;
 					}
 				} catch (Exception e) {
 					JFrame a = new JFrame();
-				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez réessayer.", "Erreur", 2);
+				    JOptionPane.showMessageDialog(a, "Date invalide. Veuillez r�essayer.", "Erreur", 2);
 				    checksum = -1;
 				}
 			}
@@ -80,7 +80,7 @@ public class NewDepense {
         	tempid = Integer.parseInt(i.getText());
         } catch(Exception e) {
 			JFrame a = new JFrame();
-		    JOptionPane.showMessageDialog(a, "ID Employé invalide.", "Erreur", 2);
+		    JOptionPane.showMessageDialog(a, "ID Employ� invalide.", "Erreur", 2);
         	checksum--;
         }
         if(checksum > 0) {

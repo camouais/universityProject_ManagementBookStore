@@ -12,7 +12,7 @@ public class Fen5_Ach_LivInfo extends JFrame {
 
 	public Fen5_Ach_LivInfo(Magasin m, Livre l, Client c) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  

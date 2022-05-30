@@ -15,13 +15,13 @@ public class Fen4_Gest_MagEmp extends JFrame {
 	
 	public Fen4_Gest_MagEmp(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("Gestion des employÃ©s");
+		setTitle("Gestion des employés");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(new Color(233, 150, 122));
 		p.setLayout(null);
@@ -58,7 +58,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
         c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
 		
-		// Panel 1 (Liste d'employÃ©s)
+		// Panel 1 (Liste d'employés)
 
 		JPanel panel1 = new JPanel();
 		panel1.setBounds(50, 175, 400, 440);
@@ -92,7 +92,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		scrollPane.setBounds(0, 0, 400, 440);
 		panel1.add(scrollPane);
 		
-		// Panel 2 (Informations de l'employÃ© sÃ©lectionnÃ©)
+		// Panel 2 (Informations de l'employé sélectionné)
 		
 		JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 175, 400, 345);
@@ -227,7 +227,7 @@ public class Fen4_Gest_MagEmp extends JFrame {
 		scrollPane2.setBounds(0, 0, 400, 345);
 		panel2.add(scrollPane2);
 
-		// Textfield - Recherche d'un employÃ¯Â¿Â½
+		// Textfield - Recherche d'un employï¿½
 		
 		JTextField t_rech= new JTextField();
 		t_rech.setFont(new Font("Tahoma", Font.PLAIN, 25));

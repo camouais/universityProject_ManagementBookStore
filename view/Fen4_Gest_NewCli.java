@@ -12,7 +12,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 	
 	public Fen4_Gest_NewCli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
@@ -144,7 +144,7 @@ public class Fen4_Gest_NewCli extends JFrame {
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "FÃ©vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "AoÃ»t", "Septembre", "Octobre", "Novembre", "DÃ©cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setBounds(380, 425, 100, 30);
 		p.add(c_mois);
 				

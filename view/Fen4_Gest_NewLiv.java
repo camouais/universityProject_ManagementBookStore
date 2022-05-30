@@ -19,13 +19,13 @@ public class Fen4_Gest_NewLiv extends JFrame{
 	
 	public Fen4_Gest_NewLiv(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
 		JPanel p = new JPanel();
-		setTitle("CrÃ©ation d'un nouveau livre");
+		setTitle("Création d'un nouveau livre");
 		p.setBackground(new Color(200, 200, 200));
 		p.setLayout(null);
 		setContentPane(p);
@@ -200,7 +200,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		p.add(c_jour);
 		
 		JComboBox<String> c_mois = new JComboBox<String>();
-		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "FÃ©vrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "AoÃ»t", "Septembre", "Octobre", "Novembre", "DÃ©cembre"}));
+		c_mois.setModel(new DefaultComboBoxModel<String>(new String[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"}));
 		c_mois.setBounds(530, 330, 80, 22);
 		p.add(c_mois);
 		
@@ -236,7 +236,7 @@ public class Fen4_Gest_NewLiv extends JFrame{
 		});
 		p.add(b_enregistrer);
 		
-		// SÃ©paration
+		// Séparation
 		
 		JPanel sep = new JPanel();
 		sep.setBackground(Color.BLACK);

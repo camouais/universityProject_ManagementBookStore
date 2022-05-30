@@ -11,7 +11,7 @@ public class Fen1 extends JFrame {
 	
 	public Fen1(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");

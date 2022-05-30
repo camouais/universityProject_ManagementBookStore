@@ -18,7 +18,7 @@ public class Fen3_Gest_Com extends JFrame {
 		
 		ListCommande c = new ListCommande(m, m.listCom);
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
@@ -89,7 +89,7 @@ public class Fen3_Gest_Com extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations de l'achat sÃ©lectionnÃ©)
+        // Liste 2 (Informations de l'achat sélectionné)
        	
        	JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 175, 400, 535);
@@ -176,7 +176,7 @@ public class Fen3_Gest_Com extends JFrame {
 	                	r_id_com.setText(String.valueOf(com.getId()));
 	                	r_dateC.setText(com.getDateAchat().toString());
 	                	r_id_cli.setText(String.valueOf((com.getClient()).getId()));	
-	                	r_prix.setText(com.getPrixTotal() + " â‚¬");	
+	                	r_prix.setText(com.getPrixTotal() + " €");	
 	                	String temp = "<html>";
 	                	ListLivres ll = new ListLivres(m, com.getLivres());
 	                	for(int i = 0; i < com.listLivres.size(); i++) {

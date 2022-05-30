@@ -18,7 +18,7 @@ public class Fen3_Gest_Cli extends JFrame {
 	
 	public Fen3_Gest_Cli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
@@ -50,14 +50,14 @@ public class Fen3_Gest_Cli extends JFrame {
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
         		"Nom", 
-        		"PrÃ©nom", 
+        		"Prénom", 
         		"ID Client", 
         		"Adresse", 
         		"Date de naissance", 
-        		"Ã‚ge", 
+        		"Âge", 
         		"Sexe", 
-        		"Date de crÃ©ation du compte", 
-        		"TÃ©lÃ©phone", 
+        		"Date de création du compte", 
+        		"Téléphone", 
         		"Mail"}));
         c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
@@ -94,7 +94,7 @@ public class Fen3_Gest_Cli extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations du client sÃ©lectionnÃ©)
+        // Liste 2 (Informations du client sélectionné)
         
 		JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 175, 400, 345);

@@ -14,7 +14,7 @@ public class Fen5_Gest_StatCli extends JFrame {
     
 	public Fen5_Gest_StatCli(Magasin m) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
     	JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  

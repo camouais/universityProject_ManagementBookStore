@@ -11,9 +11,9 @@ public class RechercheDepense {
 	public RechercheDepense(Magasin m, JTextField arg, String c) {
 		a = new HashSet<Depense>();
 		if( c.equals("Description")|| 
-			c.equals("ID Dépense") || 
+			c.equals("ID D�pense") || 
 			c.equals("ID Employe") || 
-			c.equals("Nom Employé")|| 
+			c.equals("Nom Employ�")|| 
 			c.equals("Date")) 
 		{
 			String rechterm = arg.getText();
@@ -25,7 +25,7 @@ public class RechercheDepense {
 					if(c =="Description") {
 						desc = ((Depense) m.listDep.toArray()[i]).getDescription();
 					} 
-					else if(c =="id dÃ©pense") {
+					else if(c =="id dépense") {
 						desc = String.valueOf(((Depense) m.listDep.toArray()[i]).getId());
 					} 
 					else if(c =="id employe") {

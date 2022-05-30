@@ -17,7 +17,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		ListLivres l = new ListLivres(m, m.listLivre);
 		
-		// FenÃªtre
+		// Fenêtre
 
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
@@ -47,12 +47,12 @@ public class Fen3_Gest_Liv extends JFrame {
 		JComboBox<String> c_filtre = new JComboBox<String>();
 		c_filtre.setFont(new Font("Tahoma", Font.PLAIN, 23));
         c_filtre.setModel(new DefaultComboBoxModel<String>(new String[] {
-        		"CatÃ©gorie", 
+        		"Catégorie", 
         		"Titre", 
         		"ID Livre", 
         		"Auteur", 
         		"Date de parution", 
-        		"Ã‰diteur"}));
+        		"Éditeur"}));
         c_filtre.setBounds(540, 100, 400, 48);
 		p.add(c_filtre);
 		
@@ -89,7 +89,7 @@ public class Fen3_Gest_Liv extends JFrame {
         scrollPane.setBounds(0, 0, 400, 440);
         panel1.add(scrollPane);
         
-        // Liste 2 (Informations du livre sÃ©lectionnÃ©)
+        // Liste 2 (Informations du livre sélectionné)
         
         JPanel panel2 = new JPanel();
 		panel2.setBounds(540, 175, 400, 345);
@@ -98,7 +98,7 @@ public class Fen3_Gest_Liv extends JFrame {
 		
 		DefaultListModel<String> model2 = new DefaultListModel<String>();
        
-		JLabel label = new JLabel("Veuillez sÃ©lectionner un livre pour afficher ses informations.");
+		JLabel label = new JLabel("Veuillez sélectionner un livre pour afficher ses informations.");
         label.setBounds(0,0,400,20);
         label.setHorizontalAlignment(SwingConstants.CENTER);
 		panel2.add(label);
@@ -168,10 +168,10 @@ public class Fen3_Gest_Liv extends JFrame {
 						titre.setText("Titre : ");
 						auteur.setText("Auteur : ");
 	                	identifiant.setText("Identifiant : ");
-	                	editeur.setText("Ã‰diteur : ");
+	                	editeur.setText("Éditeur : ");
 	                	dateParution.setText("Date de parution : ");
 	                	prix.setText("Prix : ");
-	                	categorie.setText("CatÃ©gorie : ");
+	                	categorie.setText("Catégorie : ");
 	                	stock.setText("Stock");
 	                	
 	                	r_titre.setText(liv.getTitre());

@@ -14,7 +14,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
     
 	public Fen5_Gest_StatLiv(Magasin m) {
 		
-		// FenÃªtre 
+		// Fenêtre 
 		
     	JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
@@ -32,7 +32,7 @@ public class Fen5_Gest_StatLiv extends JFrame {
 	    
 		// Tableau
 		
-    	String[] entetes1 = {"Titre", "Auteur", "Ã‰diteur", "CatÃ©gorie", "Date de parution", "Quantit\u00E9 initiale", "Nombre de ventes", "Quantit\u00E9 en Stock"};
+    	String[] entetes1 = {"Titre", "Auteur", "Éditeur", "Catégorie", "Date de parution", "Quantit\u00E9 initiale", "Nombre de ventes", "Quantit\u00E9 en Stock"};
 	    String[][] donnees = new String[m.listLivre.size()][8];
 	    for(int i = 0; i < m.listLivre.size(); i++) {
 	    	String[] temp = new String[8];

@@ -15,13 +15,13 @@ public class Fen5_Ach_Fact extends JFrame {
 	
 	public Fen5_Ach_Fact(Magasin m, Client c, Commande cm, DefaultListModel<String> mod) {
 		
-		// FenÃªtre
+		// Fenêtre
 		
 		JPanel p = new JPanel();
 		Toolkit tk = Toolkit.getDefaultToolkit();  
         Image img = tk.getImage("src/resources/logo.png");
 		setIconImage(img);
-		setTitle("RÃ©sumÃ© de l'achat");
+		setTitle("Résumé de l'achat");
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setBackground(SystemColor.inactiveCaption);
 		p.setLayout(null);
@@ -125,7 +125,7 @@ public class Fen5_Ach_Fact extends JFrame {
 				JFrame a = new JFrame();
 				dispose();
 				new Fen1(m);
-			    JOptionPane.showMessageDialog(a, "Achat enregistrÃ© !", "SuccÃ¨s", 1);
+			    JOptionPane.showMessageDialog(a, "Achat enregistré !", "Succès", 1);
 			}
 		});
 		p.add(b_enreg);
