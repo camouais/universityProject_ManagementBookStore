@@ -20,6 +20,6 @@ This software includes these features :
 
 PS : if you want to test the sowftware with an existing store, please use :
 
-Name : Gibert<br>
-Password : admin
+- Name : Gibert<br>
+- Password : admin
 </br>
