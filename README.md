@@ -1,7 +1,7 @@
 Project finished on 2022/05/17
 
 Contributors : 
-  @Spipo
+  @spipanor
   @CamilleBert
 
 Language : 
