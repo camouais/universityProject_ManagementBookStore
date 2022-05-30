@@ -9,7 +9,7 @@ Language :
 
 During our 2nd year of computer science degree, we made a java software allowing management of a bookstore.
 
-This software include these features :
+This software includes these features :
 
 - identify / create a store 
 - create / modify / delete customers, books, employees, expenses
