@@ -19,7 +19,7 @@ This software includes these features :
 
 
 PS : if you want to test the sowftware with an existing store, please use :
-<br>
-Name : Gibert</br><br>
+
+Name : Gibert<br>
 Password : admin
 </br>
