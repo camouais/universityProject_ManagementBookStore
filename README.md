@@ -19,7 +19,7 @@ This software includes these features :
 - estimate total revenue
 
 
-PS : if you want to test the sowftware with an existing store, please use :
+PS : if you want to test the software with an existing store, please use :
 
 - Name : Gibert<br>
 - Password : admin
